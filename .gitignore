@@ -1,0 +1,5 @@
+demo.png
+light/*.yaml
+light/.*.keyboard
+dark/*.yaml
+dark/.*.keyboard
