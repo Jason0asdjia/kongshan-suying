@@ -1,4 +1,5 @@
 demo.png
+config.yaml
 light/*.yaml
 light/.*.keyboard
 dark/*.yaml
