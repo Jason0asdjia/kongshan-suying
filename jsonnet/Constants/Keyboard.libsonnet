@@ -5,7 +5,7 @@ local fonts = import 'Fonts.libsonnet';
   local root = self,
 
   preedit: {
-    height: 25,
+    height: 21,
     insets: {
       top: 2,
       left: 4,
@@ -14,9 +14,9 @@ local fonts = import 'Fonts.libsonnet';
   },
 
   toolbar: {
-    height: 40,
+    height: 45,
     insets: {
-      top: 5,
+      top: 6,
     },
   },
 
@@ -89,7 +89,7 @@ local fonts = import 'Fonts.libsonnet';
 
   floatingKeyboard: {
     floatTargetScale: {
-      portrait: { x: 0.7, y: 0.55 },
+      portrait: { x: 0.8, y: 0.6 },
       landscape: { x: 0.45, y: 0.8 },
     },
     insets: {
@@ -97,6 +97,19 @@ local fonts = import 'Fonts.libsonnet';
       left: 12,
       bottom: 10,
       right: 12,
+    },
+
+    button: {
+      backgroundInsets: {
+        iPhone: {
+          portrait: { top: 6, left: 3, bottom: 6, right: 3 },
+          landscape: { top: 3, left: 3, bottom: 3, right: 3 },
+        },
+        ipad: {
+          portrait: { top: 3, left: 3, bottom: 3, right: 3 },
+          landscape: { top: 4, left: 6, bottom: 4, right: 6 },
+        },
+      },
     },
   },
 

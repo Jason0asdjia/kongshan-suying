@@ -122,7 +122,6 @@ local panelKeyboardLayout = {
 
 local newKeyLayout(isDark=false, isPortrait=false) =
   local floatTargetScale = if isPortrait then params.floatingKeyboard.floatTargetScale.portrait else params.floatingKeyboard.floatTargetScale.landscape;
-  local buttonSize = { size: {height: '1/4'}};
   {
     floatTargetScale: floatTargetScale,
     keyboardStyle: {
@@ -134,42 +133,42 @@ local newKeyLayout(isDark=false, isPortrait=false) =
   + basicStyle.newFloatingKeyboardButton(
     keyboard.hamster3Button.name,
     isDark,
-    buttonSize + keyboard.hamster3Button.params
+    keyboard.hamster3Button.params
   )
   + basicStyle.newFloatingKeyboardButton(
     keyboard.switcherButton.name,
     isDark,
-    buttonSize + keyboard.switcherButton.params
+    keyboard.switcherButton.params
   )
   + basicStyle.newFloatingKeyboardButton(
     keyboard.feedbackButton.name,
     isDark,
-    buttonSize + keyboard.feedbackButton.params
+    keyboard.feedbackButton.params
   )
   + basicStyle.newFloatingKeyboardButton(
     keyboard.finderButton.name,
     isDark,
-    buttonSize + keyboard.finderButton.params
+    keyboard.finderButton.params
   )
   + basicStyle.newFloatingKeyboardButton(
     keyboard.skinButton.name,
     isDark,
-    buttonSize + keyboard.skinButton.params
+    keyboard.skinButton.params
   )
   + basicStyle.newFloatingKeyboardButton(
     keyboard.uploadButton.name,
     isDark,
-    buttonSize + keyboard.uploadButton.params
+    keyboard.uploadButton.params
   )
   + basicStyle.newFloatingKeyboardButton(
     keyboard.deployButton.name,
     isDark,
-    buttonSize + keyboard.deployButton.params
+    keyboard.deployButton.params
   )
   + basicStyle.newFloatingKeyboardButton(
     keyboard.toggleEmbeddedButton.name,
     isDark,
-    buttonSize + keyboard.toggleEmbeddedButton.params
+    keyboard.toggleEmbeddedButton.params
   );
 
 {

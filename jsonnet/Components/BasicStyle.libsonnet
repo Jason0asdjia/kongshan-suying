@@ -36,8 +36,9 @@ local newKeyboardBackgroundStyle(isDark=false, params={}) = {
 local floatingKeyboardButtonBackgroundStyleName = 'floatingKeyboardButtonBackgroundStyle';
 local newFloatingKeyboardButtonBackgroundStyle(isDark=false, params={}) = {
   [floatingKeyboardButtonBackgroundStyleName]: utils.newGeometryStyle({
-    normalColor: colors.systemButtonBackgroundColor,
-    highlightColor: colors.systemButtonHighlightedBackgroundColor,
+    insets: keyboardParams.floatingKeyboard.button.backgroundInsets.iPhone.portrait,
+    normalColor: colors.standardButtonBackgroundColor,
+    highlightColor: colors.standardButtonHighlightedBackgroundColor,
     cornerRadius: buttonCornerRadius,
     normalLowerEdgeColor: colors.lowerEdgeOfButtonNormalColor,
     highlightLowerEdgeColor: colors.lowerEdgeOfButtonHighlightColor,
@@ -204,13 +205,13 @@ local newFloatingKeyboardButton(name, isDark=false, params={}) =
     [name + 'ForegroundStyleSystemImage']: utils.newSystemImageStyle({
       normalColor: colors.systemButtonForegroundColor,
       highlightColor: colors.systemButtonHighlightedForegroundColor,
-      fontSize: fonts.systemButtonImageFontSize,
+      fontSize: fonts.floatingKeyboardButtonImageFontSize,
       center: { y: 0.4 }
     } + params, isDark),
     [name + 'ForegroundStyleText']: utils.newTextStyle({
       normalColor: colors.systemButtonForegroundColor,
       highlightColor: colors.systemButtonHighlightedForegroundColor,
-      fontSize: fonts.systemButtonTextFontSize,
+      fontSize: fonts.floatingKeyboardButtonTextFontSize,
       center: { y: 0.7 }
     } + params, isDark),
   };

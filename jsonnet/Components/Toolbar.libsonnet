@@ -203,7 +203,7 @@ local toolbarKeyboard = {
     name: 'toolbarMenuButton',
     params: {
       action: { floatKeyboardType: 'panel', },
-      systemImageName: 'hexagon.righthalf.filled',
+      systemImageName: 'swirl.circle.righthalf.filled',
     },
   },
   toolbarDismissButton: {

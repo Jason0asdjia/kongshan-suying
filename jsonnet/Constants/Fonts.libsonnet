@@ -1,6 +1,9 @@
 {
   preeditFontSize: 17,
 
+  floatingKeyboardButtonTextFontSize: 14,
+  floatingKeyboardButtonImageFontSize: 16,
+
   toolbarButtonTextFontSize: 16,
   toolbarButtonImageFontSize: 20,
 
