@@ -9,7 +9,7 @@ local keyboard = {
   hamster3Button: {
     name: 'hamster3Button',
     params: {
-      action: { openURL: 'hamster3://com.ihsiao.apps.hamster3/' },
+      action: 'settings',
       systemImageName: 'keyboard',
       text: '元书',
     },

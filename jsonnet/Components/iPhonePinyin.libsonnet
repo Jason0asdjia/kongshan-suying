@@ -126,7 +126,13 @@ local alphabeticKeyboardLayout = {
             Cell: params.keyboard.numericButton.name,
           },
           {
+            Cell: params.keyboard.commaButton.name,
+          },
+          {
             Cell: params.keyboard.spaceButton.name,
+          },
+          {
+            Cell: params.keyboard.asciiModeButton.name,
           },
           {
             Cell: params.keyboard.enterButton.name,
@@ -317,10 +323,14 @@ local newKeyLayout(isDark=false, isPortrait=true) =
     isDark,
     {
       size:
-        { width: '280/1125' },
+        { width: '225/1125' },
     } + params.keyboard.numericButton.params
   )
-
+  + basicStyle.newAlphabeticButton(
+    params.keyboard.commaButton.name,
+    isDark,
+    portraitNormalButtonSize + params.keyboard.commaButton.params
+  )
   + basicStyle.newAlphabeticButton(
     params.keyboard.spaceButton.name,
     isDark,
@@ -328,10 +338,17 @@ local newKeyLayout(isDark=false, isPortrait=true) =
     needHint=false
   )
   + basicStyle.newSystemButton(
+    params.keyboard.asciiModeButton.name,
+    isDark,
+    portraitNormalButtonSize + {
+      foregroundStyle: basicStyle.asciiModeButtonForegroundStyle,
+    } + params.keyboard.asciiModeButton.params
+  )
+  + basicStyle.newSystemButton(
     params.keyboard.enterButton.name,
     isDark,
     {
-      size: { width: '280/1125' },
+      size: { width: '250/1125' },
       backgroundStyle: basicStyle.enterButtonBackgroundStyle,
       foregroundStyle: basicStyle.enterButtonForegroundStyle,
     } + params.keyboard.enterButton.params
@@ -356,9 +373,12 @@ local newKeyLayout(isDark=false, isPortrait=true) =
     + basicStyle.newBlueButtonForegroundStyle(isDark, params.keyboard.enterButton.params)
     + basicStyle.newAlphabeticHintBackgroundStyle(isDark, { cornerRadius: 10 })
     + newKeyLayout(isDark, isPortrait)
+    + basicStyle.newAsciiModeButtonForegroundStyle(isDark, params.keyboard.asciiModeButton.params)
+    + basicStyle.newAsciiModeButtonEnglishStateForegroundStyle(isDark, params.keyboard.asciiModeButton.params)
     + basicStyle.newEnterButtonForegroundStyle(isDark, params.keyboard.enterButton.params)
     + basicStyle.newCommitCandidateForegroundStyle(isDark, { text: '$rimeCandidate' })
     // Notifications
+    // + basicStyle.asciiModeChangedNotification // 这个通知要或不要，没有看出区别
     + basicStyle.returnKeyboardTypeChangedNotification
     + basicStyle.preeditChangedForEnterButtonNotification
     + basicStyle.preeditChangedForSpaceButtonNotification,

@@ -120,6 +120,39 @@ local newEnterButtonForegroundStyle(isDark=false, params={}) = {
   } + params, isDark) + getKeyboardActionText(params),
 };
 
+// 中英切换键按钮前景样式
+local asciiModeButtonForegroundStyleName = 'asciiModeButtonForegroundStyle';
+local newAsciiModeButtonForegroundStyle(isDark=false, params={}) = {
+  [asciiModeButtonForegroundStyleName]: utils.newAssetImageStyle({
+      assetImageName: 'chineseState2',
+      normalColor: colors.systemButtonForegroundColor,
+      highlightColor: colors.systemButtonHighlightedForegroundColor,
+      fontSize: fonts.systemButtonImageFontSize,
+    } + params, isDark) + getKeyboardActionText(params),
+};
+
+local asciiModeButtonEnglishStateForegroundStyleName = 'asciiModeButtonEnglishStateForegroundStyle';
+local newAsciiModeButtonEnglishStateForegroundStyle(isDark=false, params={}) = {
+  [asciiModeButtonEnglishStateForegroundStyleName]: utils.newAssetImageStyle({
+      assetImageName: 'englishState2',
+      normalColor: colors.systemButtonForegroundColor,
+      highlightColor: colors.systemButtonHighlightedForegroundColor,
+      fontSize: fonts.systemButtonImageFontSize,
+    } + params, isDark) + getKeyboardActionText(params),
+};
+
+local asciiModeButtonForegroundStyle = [
+  {
+    styleName: asciiModeButtonForegroundStyleName,
+    conditionKey: 'rime$ascii_mode',
+    conditionValue: false,
+  },
+  {
+    styleName: asciiModeButtonEnglishStateForegroundStyleName,
+    conditionKey: 'rime$ascii_mode',
+    conditionValue: true,
+  },
+];
 
 // 蓝色功能键按钮背景样式
 local blueButtonBackgroundStyleName = 'blueButtonBackgroundStyle';
@@ -352,6 +385,16 @@ local newSystemButton(name, isDark=false, params={}) =
   };
 
 
+local asciiModeChangedNotification = {
+  asciiModeChangedNotification: {
+    notificationType: 'rime',
+    rimeNotificationType: 'optionChanged',
+    rimeOptionName: 'ascii_mode',
+    rimeOptionValue: [true, false],
+    foregroundStyle: asciiModeButtonForegroundStyle,
+  },
+};
+
 local returnKeyboardTypeChangedNotification = {
   returnKeyTypeChangedNotification: {
     notificationType: 'returnKeyType',
@@ -425,12 +468,19 @@ local newCommitCandidateForegroundStyle(isDark=false, params={}) = {
 
   newSystemButton: newSystemButton,
 
+  asciiModeButtonForegroundStyleName: asciiModeButtonForegroundStyleName,
+  newAsciiModeButtonForegroundStyle: newAsciiModeButtonForegroundStyle,
+  asciiModeButtonEnglishStateForegroundStyleName: asciiModeButtonEnglishStateForegroundStyleName,
+  newAsciiModeButtonEnglishStateForegroundStyle: newAsciiModeButtonEnglishStateForegroundStyle,
+  asciiModeButtonForegroundStyle: asciiModeButtonForegroundStyle,
+
   enterButtonBackgroundStyle: enterButtonBackgroundStyle,
   enterButtonForegroundStyle: enterButtonForegroundStyle,
   newEnterButtonForegroundStyle: newEnterButtonForegroundStyle,
   newCommitCandidateForegroundStyle: newCommitCandidateForegroundStyle,
 
   // notification
+  asciiModeChangedNotification: asciiModeChangedNotification,
   returnKeyboardTypeChangedNotification: returnKeyboardTypeChangedNotification,
   preeditChangedForEnterButtonNotification: preeditChangedForEnterButtonNotification,
   preeditChangedForSpaceButtonNotification: preeditChangedForSpaceButtonNotification,

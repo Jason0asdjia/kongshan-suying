@@ -125,7 +125,7 @@ local fonts = import 'Fonts.libsonnet';
       },
     },
 
-    // 是否使用类似 PC 键盘的布局，如果是，则 ZXCVBNM 这一行会向左移半个键位宽度
+    // MARK: 是否使用类似 PC 键盘的布局，如果是，则 ZXCVBNM 这一行会向左移半个键位宽度
     usePCLayout: true,
 
     button: {
@@ -147,6 +147,7 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'q' },
         uppercasedStateAction: { character: 'Q' },
+        swipeUpAction: { character: '1' },
       },
     },
     wButton: {
@@ -154,6 +155,7 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'w' },
         uppercasedStateAction: { character: 'W' },
+        swipeUpAction: { character: '2' },
       },
     },
     eButton: {
@@ -161,7 +163,7 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'e' },
         uppercasedStateAction: { character: 'E' },
-        swipeUpAction: { keyboardType: 'emojis' },
+        swipeUpAction: { character: '3' },
       },
     },
     rButton: {
@@ -169,6 +171,7 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'r' },
         uppercasedStateAction: { character: 'R' },
+        swipeUpAction: { character: '4' },
       },
     },
     tButton: {
@@ -176,6 +179,7 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 't' },
         uppercasedStateAction: { character: 'T' },
+        swipeUpAction: { character: '5' },
       },
     },
     yButton: {
@@ -183,6 +187,7 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'y' },
         uppercasedStateAction: { character: 'Y' },
+        swipeUpAction: { character: '6' },
       },
     },
     uButton: {
@@ -190,6 +195,7 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'u' },
         uppercasedStateAction: { character: 'U' },
+        swipeUpAction: { character: '7' },
       },
     },
     iButton: {
@@ -197,6 +203,7 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'i' },
         uppercasedStateAction: { character: 'I' },
+        swipeUpAction: { character: '8' },
       },
     },
     oButton: {
@@ -204,7 +211,7 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'o' },
         uppercasedStateAction: { character: 'O' },
-        swipeUpAction: { openURL: '#pasteboardContent' },
+        swipeUpAction: { character: '9' },
       },
     },
     pButton: {
@@ -212,7 +219,7 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'p' },
         uppercasedStateAction: { character: 'P' },
-        swipeUpAction: { shortcut: '#showPasteboardView' },
+        swipeUpAction: { character: '0' },
       },
     },
 
@@ -222,8 +229,8 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'a' },
         uppercasedStateAction: { character: 'A' },
-        # swipeUpAction: { shortcut: '#selectText' },
-        swipeUpAction: { shortcut: '#中英切换' },
+        swipeUpAction: { character: '!' },
+        swipeDownAction: { shortcut: '#selectText' },
       },
     },
     sButton: {
@@ -231,7 +238,8 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 's' },
         uppercasedStateAction: { character: 'S' },
-        swipeUpAction: { shortcut: '#toggleScriptView' },
+        swipeUpAction: { character: '^' },
+        swipeDownAction: { character: '@' },
       },
     },
     dButton: {
@@ -239,7 +247,8 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'd' },
         uppercasedStateAction: { character: 'D' },
-        # swipeUpAction: { shortcut: '#deleteText' },
+        swipeUpAction: { character: '/' },
+        swipeDownAction: { character: '\\' },
       },
     },
     fButton: {
@@ -247,6 +256,8 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'f' },
         uppercasedStateAction: { character: 'F' },
+        swipeUpAction: { character: ';' },
+        swipeDownAction: { character: ':' },
       },
     },
     gButton: {
@@ -254,6 +265,8 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'g' },
         uppercasedStateAction: { character: 'G' },
+        swipeUpAction: { character: '(' },
+        swipeDownAction: { character: ')' },
       },
     },
     hButton: {
@@ -261,6 +274,8 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'h' },
         uppercasedStateAction: { character: 'H' },
+        swipeUpAction: { character: '-' },
+        swipeDownAction: { character: '_' },
       },
     },
     jButton: {
@@ -268,6 +283,8 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'j' },
         uppercasedStateAction: { character: 'J' },
+        swipeUpAction: { character: '#' },
+        swipeDownAction: { character: '+' },
       },
     },
     kButton: {
@@ -275,6 +292,8 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'k' },
         uppercasedStateAction: { character: 'K' },
+        swipeUpAction: { character: '{' },
+        swipeDownAction: { character: '}' },
       },
     },
     lButton: {
@@ -282,6 +301,8 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'l' },
         uppercasedStateAction: { character: 'L' },
+        swipeUpAction: { character: '"' },
+        swipeDownAction: { character: "'" },
       },
     },
 
@@ -291,8 +312,8 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'z' },
         uppercasedStateAction: { character: 'Z' },
-        // swipeUpAction: { shortcut: '#undo' },
-        // swipeDownAction: { shortcut: '#redo' },
+        swipeUpAction: { character: '`' },
+        swipeDownAction: { shortcut: '#undo' },
       },
     },
     xButton: {
@@ -300,7 +321,8 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'x' },
         uppercasedStateAction: { character: 'X' },
-        // swipeUpAction: { shortcut: '#cut' },
+        swipeUpAction: { character: '*' },
+        swipeDownAction: { shortcut: '#cut' },
       },
     },
     cButton: {
@@ -308,7 +330,8 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'c' },
         uppercasedStateAction: { character: 'C' },
-        // swipeUpAction: { shortcut: '#copy' },
+        swipeUpAction: { character: '%' },
+        swipeDownAction: { shortcut: '#copy' },
       },
     },
     vButton: {
@@ -316,7 +339,8 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'v' },
         uppercasedStateAction: { character: 'V' },
-        // swipeUpAction: { shortcut: '#paste' },
+        swipeUpAction: { character: '=' },
+        swipeDownAction: { shortcut: '#paste' },
       },
     },
     bButton: {
@@ -324,6 +348,8 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'b' },
         uppercasedStateAction: { character: 'B' },
+        swipeUpAction: { character: '[' },
+        swipeDownAction: { character: ']' },
       },
     },
     nButton: {
@@ -331,6 +357,8 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'n' },
         uppercasedStateAction: { character: 'N' },
+        swipeUpAction: { character: '&' },
+        swipeDownAction: { character: '~' },
       },
     },
     mButton: {
@@ -338,6 +366,8 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { character: 'm' },
         uppercasedStateAction: { character: 'M' },
+        swipeUpAction: { character: '?' },
+        swipeDownAction: { character: '$' },
       },
     },
 
@@ -461,7 +491,9 @@ local fonts = import 'Fonts.libsonnet';
       name: 'asciiModeButton',
       params: {
         action: { shortcut: '#中英切换' },
-        text: '中/英',
+        notification: [
+          'asciiModeChangedNotification',
+        ]
       },
     },
 
@@ -498,6 +530,7 @@ local fonts = import 'Fonts.libsonnet';
       params: {
         action: { keyboardType: 'numeric' },
         text: '123',
+        swipeUpAction: { keyboardType: 'emojis' },
       },
     },
 
@@ -641,13 +674,14 @@ local fonts = import 'Fonts.libsonnet';
       name: 'chineseCommaButton',
       params: {
         action: { symbol: '，' },
-        swipeUpAction: { symbol: '《' },
+        swipeUpAction: { symbol: '。' },
       },
     },
     commaButton: {
       name: 'commaButton',
       params: {
-        action: { symbol: ',' },
+        action: { character: ',' },
+        swipeUpAction: { character: '.' },
       },
     },
     chinesePeriodButton: {
@@ -660,7 +694,8 @@ local fonts = import 'Fonts.libsonnet';
     periodButton: {
       name: 'periodButton',
       params: {
-        action: { symbol: '.' },
+        action: { character: '.' },
+        swipeUpAction: { character: ',' },
       },
     },
     // 顿号(只在中文中使用)
