@@ -372,6 +372,7 @@ local newKeyLayout(isDark=false, isPortrait=true) =
     + basicStyle.newBlueButtonBackgroundStyle(isDark, extraParams)
     + basicStyle.newBlueButtonForegroundStyle(isDark, params.keyboard.enterButton.params)
     + basicStyle.newAlphabeticHintBackgroundStyle(isDark, { cornerRadius: 10 })
+    + basicStyle.newButtonAnimation()
     + newKeyLayout(isDark, isPortrait)
     + basicStyle.newAsciiModeButtonForegroundStyle(isDark, params.keyboard.asciiModeButton.params)
     + basicStyle.newAsciiModeButtonEnglishStateForegroundStyle(isDark, params.keyboard.asciiModeButton.params)

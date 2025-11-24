@@ -157,6 +157,8 @@ local newTextStyle(params={}, isDark=false) =
 local newBackgroundStyle(styleName='backgroundStyle', style) = { [styleName]: style };
 local newForegroundStyle(styleName='foregroundStyle', style) = { [styleName]: style };
 
+local newAnimation(animation) = { animation: animation };
+
 
 {
   extractProperty: extractProperty,
@@ -170,4 +172,5 @@ local newForegroundStyle(styleName='foregroundStyle', style) = { [styleName]: st
   newTextStyle: newTextStyle,
   newBackgroundStyle: newBackgroundStyle,
   newForegroundStyle: newForegroundStyle,
+  newAnimation: newAnimation
 }

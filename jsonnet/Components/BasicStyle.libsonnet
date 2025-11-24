@@ -45,6 +45,18 @@ local newFloatingKeyboardButtonBackgroundStyle(isDark=false, params={}) = {
   } + params, isDark),
 };
 
+// 字母键按键动画名称
+local buttonAnimationName = 'scaleAnimation';
+local newButtonAnimation() = {
+  [buttonAnimationName]: {
+    animationType: 'scale',
+    isAutoReverse: true,
+    scale: 0.95,
+    pressDuration: 0.85,
+    releaseDuration: 0.1,
+  },
+};
+
 // 字母键按钮背景样式
 local alphabeticButtonBackgroundStyleName = 'alphabeticButtonBackgroundStyle';
 local newAlphabeticButtonBackgroundStyle(isDark=false, params={}) = {
@@ -267,7 +279,7 @@ local newToolbarButton(name, isDark=false, params={}) =
       } + params, isDark),
   };
 
-local newAlphabeticButton(name, isDark=false, params={}, needHint=true) =
+local newAlphabeticButton(name, isDark=false, params={}, needHint=false) =
   {
     [name]: utils.newBackgroundStyle(style=alphabeticButtonBackgroundStyleName)
             + (
@@ -288,6 +300,7 @@ local newAlphabeticButton(name, isDark=false, params={}, needHint=true) =
 
               }
             )
+            + utils.newAnimation(animation=[buttonAnimationName])
             + utils.extractProperties(
               params,
               [
@@ -436,6 +449,9 @@ local newCommitCandidateForegroundStyle(isDark=false, params={}) = {
 
   floatingKeyboardButtonBackgroundStyleName: floatingKeyboardButtonBackgroundStyleName,
   newFloatingKeyboardButtonBackgroundStyle: newFloatingKeyboardButtonBackgroundStyle,
+
+  buttonAnimationName: buttonAnimationName,
+  newButtonAnimation: newButtonAnimation,
 
   alphabeticButtonBackgroundStyleName: alphabeticButtonBackgroundStyleName,
   newAlphabeticButtonBackgroundStyle: newAlphabeticButtonBackgroundStyle,
