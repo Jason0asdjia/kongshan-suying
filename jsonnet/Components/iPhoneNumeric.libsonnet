@@ -19,21 +19,37 @@ local chineseSymbolicOffset = {
   center: { x: 0.65 },
 };
 
-local getSymbols(arr, useRimeEngine=false) =
-  std.map(
-    function(label)
-      if useRimeEngine then
-        { label: label, action: { character: label } }
-      else
-        { label: label, action: { symbol: label } },
-    arr
+local getSymbol(symbol, useRimeEngine=false, alias='') =
+  local label = if std.length(alias) == 0 then symbol else alias;
+  (
+    if useRimeEngine then
+      { label: label, action: { character: symbol } }
+    else
+      { label: label, action: { symbol: symbol } }
   );
 
-local symbols = {
-  name: 'symbols',
-  values: {
-    symbols: getSymbols(['+', '-', '*', '/', '=', '(', ')', '%', '^', '&', '!', '>', '<', '{', '}', '[', ']', '~']),
-  },
+local symbolsName = 'symbols';
+local newSymbols(useRimeEngine=false) = {
+  [symbolsName]: [
+    getSymbol('+', useRimeEngine),
+    getSymbol('-', useRimeEngine),
+    getSymbol('*', useRimeEngine, '×'),
+    getSymbol('/', useRimeEngine),
+    getSymbol('=', useRimeEngine),
+    getSymbol('(', useRimeEngine),
+    getSymbol(')', useRimeEngine),
+    getSymbol('%', useRimeEngine),
+    getSymbol('^', useRimeEngine),
+    getSymbol('&', useRimeEngine),
+    getSymbol('!', useRimeEngine),
+    getSymbol('>', useRimeEngine),
+    getSymbol('<', useRimeEngine),
+    getSymbol('{', useRimeEngine),
+    getSymbol('}', useRimeEngine),
+    getSymbol('[', useRimeEngine),
+    getSymbol(']', useRimeEngine),
+    getSymbol('~', useRimeEngine),
+    ],
 };
 
 local collection = {
@@ -41,8 +57,8 @@ local collection = {
   params: {
     type: 'symbols',
     size: { height: '3/4' },
-    dataSource: symbols.name,
-    useRimeEngine: false,
+    dataSource: symbolsName,
+    useRimeEngine: false, // 是否使用 Rime 引擎处理符号
   }
 };
 
@@ -217,7 +233,7 @@ local newKeyLayout(isDark=false, isPortrait=false) =
     isDark,
     collection.params
   )
-  + symbols.values
+  + newSymbols(collection.params.useRimeEngine)
   + basicStyle.newSystemButton(
     params.keyboard.goBackButton.name,
     isDark,
