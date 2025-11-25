@@ -4,8 +4,9 @@ local preedit = import 'Preedit.libsonnet';
 local toolbar = import 'Toolbar.libsonnet';
 local utils = import 'Utils.libsonnet';
 
-local portraitNormalButtonSize = {
-  size: { width: '112.5/1125' },
+local backgroundInsets = {
+  portrait: { top: 3, left: 4, bottom: 3, right: 4 },
+  landscape: { top: 3, left: 3, bottom: 3, right: 3 },
 };
 
 local hintStyle = {
@@ -18,13 +19,20 @@ local chineseSymbolicOffset = {
   center: { x: 0.65 },
 };
 
+local getSymbols(arr, useRimeEngine=false) =
+  std.map(
+    function(label)
+      if useRimeEngine then
+        { label: label, action: { character: label } }
+      else
+        { label: label, action: { symbol: label } },
+    arr
+  );
+
 local symbols = {
   name: 'symbols',
   values: {
-    symbols: [
-      '+', '-', { label: '×', action: { character: "*" } }, '/', '=', '(', ')',
-      '%', '^', '&', '!', '>', '<', '{', '}', '[', ']', '~',
-    ],
+    symbols: getSymbols(['+', '-', '*', '/', '=', '(', ')', '%', '^', '&', '!', '>', '<', '{', '}', '[', ']', '~']),
   },
 };
 
@@ -43,10 +51,10 @@ local numericMiddleColumnStyleName = 'numericMiddleColumnStyle';
 
 local numericKeyboardLayout = {
   [numericSideColumnStyleName]: {
-    width: '29/183',
+    size: { width: '29/183' },
   },
   [numericMiddleColumnStyleName]: {
-    width: '125/549',
+    size: { width: '125/549' },
   },
   keyboardLayout: [
     {
@@ -155,52 +163,52 @@ local newKeyLayout(isDark=false, isPortrait=false) =
   + basicStyle.newAlphabeticButton(
     params.keyboard.oneButton.name,
     isDark,
-    portraitNormalButtonSize + params.keyboard.oneButton.params + hintStyle
+    params.keyboard.oneButton.params + hintStyle
   )
   + basicStyle.newAlphabeticButton(
     params.keyboard.twoButton.name,
     isDark,
-    portraitNormalButtonSize + params.keyboard.twoButton.params + hintStyle
+    params.keyboard.twoButton.params + hintStyle
   )
   + basicStyle.newAlphabeticButton(
     params.keyboard.threeButton.name,
     isDark,
-    portraitNormalButtonSize + params.keyboard.threeButton.params + hintStyle
+    params.keyboard.threeButton.params + hintStyle
   )
   + basicStyle.newAlphabeticButton(
     params.keyboard.fourButton.name,
     isDark,
-    portraitNormalButtonSize + params.keyboard.fourButton.params + hintStyle
+    params.keyboard.fourButton.params + hintStyle
   )
   + basicStyle.newAlphabeticButton(
     params.keyboard.fiveButton.name,
     isDark,
-    portraitNormalButtonSize + params.keyboard.fiveButton.params + hintStyle
+    params.keyboard.fiveButton.params + hintStyle
   )
   + basicStyle.newAlphabeticButton(
     params.keyboard.sixButton.name,
     isDark,
-    portraitNormalButtonSize + params.keyboard.sixButton.params + hintStyle
+    params.keyboard.sixButton.params + hintStyle
   )
   + basicStyle.newAlphabeticButton(
     params.keyboard.sevenButton.name,
     isDark,
-    portraitNormalButtonSize + params.keyboard.sevenButton.params + hintStyle
+    params.keyboard.sevenButton.params + hintStyle
   )
   + basicStyle.newAlphabeticButton(
     params.keyboard.eightButton.name,
     isDark,
-    portraitNormalButtonSize + params.keyboard.eightButton.params + hintStyle
+    params.keyboard.eightButton.params + hintStyle
   )
   + basicStyle.newAlphabeticButton(
     params.keyboard.nineButton.name,
     isDark,
-    portraitNormalButtonSize + params.keyboard.nineButton.params + hintStyle
+    params.keyboard.nineButton.params + hintStyle
   )
   + basicStyle.newAlphabeticButton(
     params.keyboard.zeroButton.name,
     isDark,
-    portraitNormalButtonSize + params.keyboard.zeroButton.params + hintStyle
+    params.keyboard.zeroButton.params + hintStyle
   )
 
   // First Column
@@ -251,13 +259,9 @@ local newKeyLayout(isDark=false, isPortrait=false) =
     params.keyboard.enterButton.params
   );
 
-local extraParams = {
-  insets: params.keyboard.button.backgroundInsets.iPhone.landscape,
-};
-
 {
   new(isDark, isPortrait):
-    local insets = if isPortrait then params.keyboard.button.backgroundInsets.iPhone.portrait else params.keyboard.button.backgroundInsets.iPhone.landscape;
+    local insets = if isPortrait then backgroundInsets.portrait else backgroundInsets.landscape;
 
     local extraParams = {
       insets: insets,
