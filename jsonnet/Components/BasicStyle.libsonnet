@@ -437,6 +437,16 @@ local newSystemButton(name, isDark=false, params={}) =
               else
                 utils.newForegroundStyle(style=name + 'ForegroundStyle')
             )
+            + (
+              if std.objectHas(params, 'swipeUp') then
+                { swipeUpAction: params.swipeUp.action }
+              else {}
+            )
+            + (
+              if std.objectHas(params, 'swipeDown') then
+                { swipeDownAction: params.swipeDown.action }
+              else {}
+            )
             + utils.extractProperties(
               params,
               [
@@ -446,8 +456,6 @@ local newSystemButton(name, isDark=false, params={}) =
                 'uppercasedStateAction',
                 'repeatAction',
                 'preeditStateAction',
-                'swipeUpAction',
-                'swipeDownAction',
                 'uppercasedStateForegroundStyle',
                 'capsLockedStateForegroundStyle',
                 'preeditStateForegroundStyle',
@@ -478,6 +486,16 @@ local newSpaceButton(name, isDark=false, params={}) =
                 utils.newForegroundStyle('uppercasedStateForegroundStyle', name + 'UppercaseForegroundStyle')
               else {}
             )
+            + (
+              if std.objectHas(params, 'swipeUp') then
+                { swipeUpAction: params.swipeUp.action }
+              else {}
+            )
+            + (
+              if std.objectHas(params, 'swipeDown') then
+                { swipeDownAction: params.swipeDown.action }
+              else {}
+            )
             + utils.newAnimation(animation=[buttonAnimationName])
             + utils.extractProperties(
               params,
@@ -488,8 +506,6 @@ local newSpaceButton(name, isDark=false, params={}) =
                 'uppercasedStateAction',
                 'repeatAction',
                 'preeditStateAction',
-                'swipeUpAction',
-                'swipeDownAction',
                 'capsLockedStateForegroundStyle',
                 'preeditStateForegroundStyle',
                 'notification',
