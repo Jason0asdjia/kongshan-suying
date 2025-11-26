@@ -129,7 +129,7 @@ local config = import 'Config.libsonnet';
     button: {
       backgroundInsets: {
         iPhone: {
-          portrait: { top: 6, left: 3, bottom: 6, right: 3 },
+          portrait: { top: 5, left: 3, bottom: 5, right: 3 },
           landscape: { top: 3, left: 3, bottom: 3, right: 3 },
         },
         ipad: {
