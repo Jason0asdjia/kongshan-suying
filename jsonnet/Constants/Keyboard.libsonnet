@@ -168,8 +168,16 @@ local settings = import '../Constants/Settings.libsonnet';
     toolbarRimeSwitcherButton: {
       name: 'toolbarRimeSwitcherButton',
       params: {
-        action: { shortcut: '#方案切换' },
+        action: { shortcut: '#RimeSwitcher' },
         systemImageName: 'switch.2',
+        text: 'RimeSwitcher',
+      },
+    },
+    toolbarSchemaSelectorButton: {
+      name: 'toolbarSchemaSelectorButton',
+      params: {
+        action: { shortcut: '#方案切换' },
+        systemImageName: 'list.bullet',
         text: '方案切换',
       },
     },
