@@ -7,7 +7,8 @@
   // true 显示方案名称，false 不显示
   spaceButtonShowSchema: true,
 
-  // 方案名称在空格键上的位置，有的方案名称较长，需要调整 x 值以免超出按键
+  // 方案名称在空格键上的位置，有的方案名称较长，
+  // 需要调整 x 值以免超出按键
   spaceButtonSchemaNameCenter: { x: 0.2, y: 0.2 },
 
   // 是否显示上下滑动提示
@@ -15,23 +16,16 @@
   showSwipeUpText: true,
   showSwipeDownText: false,
 
-  // toolbar 按钮列表，最多显示 5 个，其它滑动展示
-  // 注意键盘上第一个永远是菜单按钮，最后一个永远是收起按钮，不可配置
-  toolbarButtons: [
-    'PerformanceButton', // 查看性能
-    'RimeSwitcherButton', // 切换方案
-    'ScriptButton', // 脚本
-    'PhraseButton', // 常用语
-    'ClipboardButton', // 剪贴板
-    'CheckUpdateButton', // 应用商店中检查元书更新
-    'FeedbackButton', // 声音和震动
-    'FinderButton', // 打开元书文件管理器
-    'SkinButton', // 皮肤
-    'UploadButton', // WIFI 文件传输
-    'DeployButton', // Rime部署
-    'ToggleEmbeddedButton', // 内嵌开关
-    'LeftHandButton', // 左手模式
-    'RightHandButton', // 右手模式
-  ],
+  // toolbar 按钮最大数量（不包括菜单和收起按钮）
+  toolbarButtonsMaxCount: 5,
 
+  // toolbar 按钮列表
+  // 注意键盘上第一个永远是菜单按钮，最后一个永远是收起按钮，不可配置
+  // 按钮代号列表，填入到后面的数组即可
+  // 1-查看性能  2-切换方案  3-脚本
+  // 4-常用语    5-剪贴板    6-元书检查更新
+  // 7-声音和震动  8-打开元书文件管理器  9-皮肤
+  // 10-WIFI 文件传输  11-Rime部署  12-内嵌开关
+  // 13-左手模式  14-右手模式
+  toolbarButtons: [ 10, 9, 1, 3, 4, 14 ],
 }

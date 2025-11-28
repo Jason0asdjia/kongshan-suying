@@ -311,28 +311,32 @@ local newFloatingKeyboardButton(name, isDark=false, params={}) =
   };
 
 local toolbarSlideButtonsName = 'toolbarSlideButtons';
-local newToolbarSlideButtons(buttons, isDark=false) = {
-  [toolbarSlideButtonsName]: {
-    type: 'horizontalSymbols',
-    size: { width: '5/7' },
-    maxColumns: 5,
-    contentRightToLeft: false,
-    insets: { left: 3, right: 3 },
-    // backgroundStyle: 'toolbarcollectionCellBackgroundStyle',
-    dataSource: 'horizontalSymbolsToolbarButtonsDataSource',
-    // 用于定义符号列表中每个符号的样式(仅支持文本)
-    cellStyle: 'toolbarCollectionCellStyle',
-  },
-  horizontalSymbolsToolbarButtonsDataSource: [
-    {
-      label: button.name,
-      action: button.params.action,
-      styleName: button.name + 'Style',
-    } for button in buttons
-  ],
-  toolbarCollectionCellStyle: utils.newBackgroundStyle(style=keyboardBackgroundStyleName)
-    + utils.newForegroundStyle(style=keyboardBackgroundStyleName),
-} +
+local newToolbarSlideButtons(buttons, isDark=false) =
+  local rightToLeft = std.length(buttons) < settings.toolbarButtonsMaxCount;
+  {
+    [toolbarSlideButtonsName]: {
+      type: 'horizontalSymbols',
+      size: { width: '%d/%d' % [settings.toolbarButtonsMaxCount, settings.toolbarButtonsMaxCount + 2] },
+      maxColumns: settings.toolbarButtonsMaxCount,
+      contentRightToLeft: rightToLeft,
+      insets: { left: 3, right: 3 },
+      // backgroundStyle: 'toolbarcollectionCellBackgroundStyle',
+      dataSource: 'horizontalSymbolsToolbarButtonsDataSource',
+      // 用于定义符号列表中每个符号的样式(仅支持文本)
+      cellStyle: 'toolbarCollectionCellStyle',
+    },
+    horizontalSymbolsToolbarButtonsDataSource:
+      local adjustOrderButtons = if rightToLeft then std.reverse(buttons) else buttons;
+      [
+        {
+          label: button.name,
+          action: button.params.action,
+          styleName: button.name + 'Style',
+        } for button in adjustOrderButtons
+      ],
+    toolbarCollectionCellStyle: utils.newBackgroundStyle(style=keyboardBackgroundStyleName)
+      + utils.newForegroundStyle(style=keyboardBackgroundStyleName),
+  } +
   std.foldl(
     function(acc, button) acc + {
       [button.name + 'Style']: utils.newForegroundStyle(style=button.name + 'ForegroundStyle'),

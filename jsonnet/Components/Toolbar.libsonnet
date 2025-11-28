@@ -198,10 +198,27 @@ local newVerticalCandidateBackspaceButtonStyle(isDark) = {
     ),
 };
 
+// NOTE: 工具栏按钮列表，顺序与 settings.toolbarButtons 中的描述对应
+local toolbarButtonNames = [
+  keyboardParams.toolbarButton.toolbarPerformanceButton.name, // 查看性能
+  keyboardParams.toolbarButton.toolbarRimeSwitcherButton.name, // 切换方案
+  keyboardParams.toolbarButton.toolbarScriptButton.name, // 脚本
+  keyboardParams.toolbarButton.toolbarPhraseButton.name, // 常用语
+  keyboardParams.toolbarButton.toolbarClipboardButton.name, // 剪贴板
+  keyboardParams.toolbarButton.toolbarCheckUpdateButton.name, // 应用商店中检查元书更新
+  keyboardParams.toolbarButton.toolbarFeedbackButton.name, // 声音和震动
+  keyboardParams.toolbarButton.toolbarFinderButton.name, // 打开元书文件管理器
+  keyboardParams.toolbarButton.toolbarSkinButton.name, // 皮肤
+  keyboardParams.toolbarButton.toolbarUploadButton.name, // WIFI 文件传输
+  keyboardParams.toolbarButton.toolbarDeployButton.name, // Rime部署
+  keyboardParams.toolbarButton.toolbarToggleEmbeddedButton.name, // 内嵌开关
+  keyboardParams.toolbarButton.toolbarLeftHandButton.name, // 左手模式
+  keyboardParams.toolbarButton.toolbarRightHandButton.name, // 右手模式
+];
 
 local buttons = [
-  keyboardParams.toolbarButton['toolbar' + name]
-  for name in settings.toolbarButtons
+  keyboardParams.toolbarButton[toolbarButtonNames[buttonCode - 1]]
+  for buttonCode in settings.toolbarButtons
 ];
 
 
