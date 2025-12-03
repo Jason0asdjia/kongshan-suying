@@ -36,7 +36,7 @@ local newSymbols(useRimeEngine=false) = {
     getSymbol('-', useRimeEngine),
     getSymbol('*', useRimeEngine, '×'),
     getSymbol('/', useRimeEngine),
-    getSymbol('=', useRimeEngine),
+    getSymbol('|', useRimeEngine),
     getSymbol('(', useRimeEngine),
     getSymbol(')', useRimeEngine),
     getSymbol('%', useRimeEngine),
