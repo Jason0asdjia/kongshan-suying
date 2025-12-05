@@ -386,7 +386,7 @@ local newToolbarButton(name, isDark=false, params={}) =
       } + params, isDark),
   };
 
-local newAlphabeticButton(name, isDark=false, params={}, needHint=false) =
+local newAlphabeticButton(name, isDark=false, params={}, needHint=settings.needHint) =
   local swipeUpStyle = if std.objectHas(params, 'swipeUp') && settings.showSwipeUpText then [name + 'SwipeUpForegroundStyle'] else [];
   local swipeDownStyle = if std.objectHas(params, 'swipeDown') && settings.showSwipeDownText then [name + 'SwipeDownForegroundStyle'] else [];
   {

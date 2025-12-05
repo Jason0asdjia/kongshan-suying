@@ -10,12 +10,6 @@ local backgroundInsets = {
   landscape: { top: 3, left: 3, bottom: 3, right: 3 },
 };
 
-local hintStyle = {
-  hintStyle: {
-    size: { width: 50, height: 50 },
-  },
-};
-
 local chineseSymbolicOffset = {
   center: { x: 0.65 },
 };
@@ -146,9 +140,10 @@ local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
       basicStyle.newAlphabeticButton(
         button.name,
         isDark,
-        button.params + hintStyle + {
+        button.params + {
           fontSize: fonts.numericButtonTextFontSize,
-        }
+        },
+        needHint=false,
       ),
     params.keyboard.numericButtons,
     {})

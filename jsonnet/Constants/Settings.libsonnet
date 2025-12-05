@@ -38,4 +38,8 @@
   // 主题色
   // 0-无  1-红色  2-绿色  3-黄色  4-蓝色  5-紫色  6-青色
   accentColor: 1,
+
+  // 是否显示气泡
+  // true 显示，false 不显示
+  needHint: false,
 }
