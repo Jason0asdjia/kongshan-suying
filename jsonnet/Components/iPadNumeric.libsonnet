@@ -779,7 +779,6 @@ local newKeyLayout(isDark=false, isPortrait=false) =
     + basicStyle.newEnterButtonForegroundStyle(isDark, params.keyboard.enterButton.params)
     + basicStyle.newCommitCandidateForegroundStyle(isDark, { text: '选定' })
     // Notifications
-    + basicStyle.returnKeyboardTypeChangedNotification
     + basicStyle.preeditChangedForEnterButtonNotification
     + basicStyle.preeditChangedForSpaceButtonNotification,
 }

@@ -1,62 +1,5 @@
 local settings = import 'Settings.libsonnet';
 
-// 颜色对比度计算函数
-local removeAlpha(hex) =
-  if std.length(hex) == 9 then
-    '#' + std.substr(hex, 1, 6)
-  else
-    hex;
-
-// 将十六进制颜色转换为 RGB 值
-local hexToRgb(hex) =
-  local cleanHex = if std.startsWith(hex, '#') then std.substr(hex, 1, std.length(hex) - 1) else hex;
-  local r = std.parseHex(std.substr(cleanHex, 0, 2));
-  local g = std.parseHex(std.substr(cleanHex, 2, 2));
-  local b = std.parseHex(std.substr(cleanHex, 4, 2));
-  { r: r, g: g, b: b };
-
-// 计算相对亮度（Relative Luminance）
-local getRelativeLuminance(rgb) =
-  local normalize(channel) =
-    local c = channel / 255.0;
-    if c <= 0.03928 then
-      c / 12.92
-    else
-      std.pow((c + 0.055) / 1.055, 2.4);
-
-  local rLin = normalize(rgb.r);
-  local gLin = normalize(rgb.g);
-  local bLin = normalize(rgb.b);
-
-  0.2126 * rLin + 0.7152 * gLin + 0.0722 * bLin;
-
-// 计算两个颜色的对比度
-local getContrastRatio(lum1, lum2) =
-  local lighter = if lum1 > lum2 then lum1 else lum2;
-  local darker = if lum1 > lum2 then lum2 else lum1;
-  (lighter + 0.05) / (darker + 0.05);
-
-// 选择对比度更高的前景色
-// bgColor: 背景颜色（十六进制字符串）
-// fgColor1, fgColor2: 两个候选前景色（十六进制字符串）
-// 若浅色易辨认，则返回浅色，否则返回对比度更高的那个颜色
-local selectBetterForeground(bgColor, fgColor1, fgColor2) =
-  local lumbg = getRelativeLuminance(hexToRgb(bgColor));
-  local lum1 = getRelativeLuminance(hexToRgb(fgColor1));
-  local lum2 = getRelativeLuminance(hexToRgb(fgColor2));
-  local color1 = { lum: lum1, color: fgColor1 };
-  local color2 = { lum: lum2, color: fgColor2 };
-  local lighter = if lum1 > lum2 then color1 else color2;
-  local darker = if lum1 > lum2 then color2 else color1;
-  local contrast1 = getContrastRatio(lumbg, lighter.lum);
-  local easyToReadContrast = 4.5;
-  if contrast1 > easyToReadContrast then
-    lighter.color
-  else
-    local contrast2 = getContrastRatio(lumbg, darker.lum);
-    if contrast1 > contrast2 then lighter.color else darker.color;
-
-
 // 标签颜色常量定义
 local labelColor = {
   primary: {
@@ -64,16 +7,16 @@ local labelColor = {
     dark: '#FFFFFF',
   },
   secondary: {
-    light: '#3c3c4399',
+    light: '#8a8a8a',
     dark: '#b6b7b9',
   },
   tertiary: {
-    light: '#3c3c434d',
-    dark: '#ebebf54d',
+    light: '#c4c4c4',
+    dark: '#5d5d5d',
   },
   quaternary: {
-    light: '#3c3c432e',
-    dark: '#ebebf529',
+    light: '#dcdcdc',
+    dark: '#404040',
   },
 };
 
@@ -134,37 +77,41 @@ local systemButtonHighlightedForegroundColor = systemButtonForegroundColor;
 
 // MARK: 一定要与 Settings.libsonnet 中的 accentColor 编号对应
 local accentColors = [
+  // 在这里检查一下对比度 https://webaim.org/resources/contrastchecker/
+  // 确保前景色和背景色的对比度足够高（至少大于 3）以保证可读性
   { // red
-    light: '#da4357',
-    dark: '#d74255',
+    background: '#da4357',
+    foreground: '#ffffff',
   },
   { // green
-    light: '#86c77a',
-    dark: '#86c77a',
+    background: '#50A545',
+    foreground: '#ffffff',
   },
   { // orange
-    light: '#ea7c43',
-    dark: '#ea7c43',
+    background: '#E86E30',
+    foreground: '#ffffff',
   },
   { // blue
-    light: '#2e67f8',
-    dark: '#2e67f8',
+    background: '#2e67f8',
+    foreground: '#ffffff',
   },
 ];
 
 local colorButtonBackgroundColor = if settings.accentColor == 0 then systemButtonBackgroundColor else
-  accentColors[settings.accentColor - 1];
-local colorButtonForegroundColor = if settings.accentColor == 0 then systemButtonForegroundColor else
+  local color = accentColors[settings.accentColor - 1].background;
   {
-    light: selectBetterForeground(colorButtonBackgroundColor.light, labelColor.primary.light, labelColor.primary.dark),
-    dark: selectBetterForeground(colorButtonBackgroundColor.dark, labelColor.primary.light, labelColor.primary.dark),
+    light: color,
+    dark: color,
+  };
+local colorButtonForegroundColor = if settings.accentColor == 0 then systemButtonForegroundColor else
+  local color = accentColors[settings.accentColor - 1].foreground;
+  {
+    light: color,
+    dark: color,
   };
 
 local colorButtonHighlightedBackgroundColor = systemButtonHighlightedBackgroundColor;
-local colorButtonHighlightedForegroundColor = {
-  light: labelColor.primary.light,
-  dark: labelColor.primary.dark,
-};
+local colorButtonHighlightedForegroundColor = labelColor.primary;
 
 // 按键底部边缘颜色
 local lowerEdgeOfButtonNormalColor = {
@@ -219,7 +166,6 @@ local candidateSeparatorColor = separatorColor;
 
 
 {
-  removeAlpha: removeAlpha,
   labelColor: labelColor,
   separatorColor: separatorColor,
   keyboardBackgroundColor: keyboardBackgroundColor,

@@ -227,31 +227,8 @@ local newColorButtonForegroundStyle(isDark=false, params={}, namePrefix='') =
       } + params, isDark) + getKeyboardActionText(params),
     };
 
-local enterButtonBackgroundStyle = [
-  {
-    styleName: systemButtonBackgroundStyleName,
-    conditionKey: '$returnKeyType',
-    conditionValue: [0, 2, 3, 5, 6, 8, 11],
-  },
-  {
-    styleName: colorButtonBackgroundStyleName,
-    conditionKey: '$returnKeyType',
-    conditionValue: [1, 4, 7, 9, 10],
-  },
-];
-
-local enterButtonForegroundStyle = [
-  {
-    styleName: enterButtonForegroundStyleName,
-    conditionKey: '$returnKeyType',
-    conditionValue: [0, 2, 3, 5, 6, 8, 11],
-  },
-  {
-    styleName: colorButtonForegroundStyleName,
-    conditionKey: '$returnKeyType',
-    conditionValue: [1, 4, 7, 9, 10],
-  },
-];
+local enterButtonBackgroundStyle = colorButtonBackgroundStyleName;
+local enterButtonForegroundStyle = colorButtonForegroundStyleName;
 
 // 文本文字系统功能键按钮前景样式
 local newTextSystemButtonForegroundStyle(isDark=false, params={}) =
@@ -625,15 +602,6 @@ local asciiModeIsFalseChangedNotification = {
     rimeOptionValue: false,
     backgroundStyle: 'systemButtonBackgroundStyle',
     foregroundStyle: 'asciiModeIsFalseForegroundStyle',
-  },
-};
-
-local returnKeyboardTypeChangedNotification = {
-  returnKeyTypeChangedNotification: {
-    notificationType: 'returnKeyType',
-    returnKeyType: [1, 4, 7],
-    backgroundStyle: colorButtonBackgroundStyleName,
-    foregroundStyle: colorButtonForegroundStyleName,
   },
 };
 

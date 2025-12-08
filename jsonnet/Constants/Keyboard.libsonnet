@@ -718,7 +718,6 @@ local settings = import '../Constants/Settings.libsonnet';
         text: '$returnKeyType',
         center: {x: 0.5, y: 0.45 },
         notification: [
-          'returnKeyTypeChangedNotification',
           'preeditChangedForEnterButtonNotification',
         ],
       },
