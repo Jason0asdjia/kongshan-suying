@@ -694,9 +694,11 @@ local settings = import '../Constants/Settings.libsonnet';
       name: 'asciiModeButton',
       params: {
         action: { shortcut: '#中英切换' },
+        assetImageName: 'chineseState2',
         notification: [
-          'asciiModeChangedNotification',
-        ]
+          'asciiModeIsFalseChangedNotification',
+          'asciiModeIsTrueChangedNotification',
+        ],
       },
     },
 

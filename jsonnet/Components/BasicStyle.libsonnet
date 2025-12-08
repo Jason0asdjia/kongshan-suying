@@ -90,6 +90,12 @@ local newAlphabeticButtonForegroundStyle(isDark=false, params={}) =
       highlightColor: colors.standardButtonHighlightedForegroundColor,
       fontSize: fonts.standardButtonImageFontSize,
     } + params, isDark)
+  else if std.objectHas(params, 'assetImageName') then
+    utils.newAssetImageStyle({
+      normalColor: colors.standardButtonForegroundColor,
+      highlightColor: colors.standardButtonHighlightedForegroundColor,
+      fontSize: fonts.standardButtonImageFontSize,
+    } + params, isDark)
   else
     utils.newTextStyle({
       normalColor: colors.standardButtonForegroundColor,
@@ -160,40 +166,6 @@ local newEnterButtonForegroundStyle(isDark=false, params={}) = {
     fontSize: fonts.systemButtonTextFontSize,
   } + params, isDark) + getKeyboardActionText(params),
 };
-
-// 中英切换键按钮前景样式
-local asciiModeButtonForegroundStyleName = 'asciiModeButtonForegroundStyle';
-local newAsciiModeButtonForegroundStyle(isDark=false, params={}) = {
-  [asciiModeButtonForegroundStyleName]: utils.newAssetImageStyle({
-      assetImageName: 'chineseState2',
-      normalColor: colors.systemButtonForegroundColor,
-      highlightColor: colors.systemButtonHighlightedForegroundColor,
-      fontSize: fonts.systemButtonImageFontSize,
-    } + params, isDark) + getKeyboardActionText(params),
-};
-
-local asciiModeButtonEnglishStateForegroundStyleName = 'asciiModeButtonEnglishStateForegroundStyle';
-local newAsciiModeButtonEnglishStateForegroundStyle(isDark=false, params={}) = {
-  [asciiModeButtonEnglishStateForegroundStyleName]: utils.newAssetImageStyle({
-      assetImageName: 'englishState2',
-      normalColor: colors.systemButtonForegroundColor,
-      highlightColor: colors.systemButtonHighlightedForegroundColor,
-      fontSize: fonts.systemButtonImageFontSize,
-    } + params, isDark) + getKeyboardActionText(params),
-};
-
-local asciiModeButtonForegroundStyle = [
-  {
-    styleName: asciiModeButtonForegroundStyleName,
-    conditionKey: 'rime$ascii_mode',
-    conditionValue: false,
-  },
-  {
-    styleName: asciiModeButtonEnglishStateForegroundStyleName,
-    conditionKey: 'rime$ascii_mode',
-    conditionValue: true,
-  },
-];
 
 local spaceButtonForegroundStyleName = 'spaceButtonForegroundStyle';
 
@@ -296,6 +268,12 @@ local newImageSystemButtonForegroundStyle(isDark=false, params={}) =
     fontSize: fonts.systemButtonImageFontSize,
   } + params, isDark);
 
+local newAssetImageSystemButtonForegroundStyle(isDark=false, params={}) =
+  utils.newAssetImageStyle({
+    normalColor: colors.systemButtonForegroundColor,
+    highlightColor: colors.systemButtonHighlightedForegroundColor,
+    fontSize: fonts.systemButtonImageFontSize,
+  } + params, isDark);
 
 local newFloatingKeyboardButton(name, isDark=false, params={}) =
   {
@@ -525,6 +503,8 @@ local newSystemButton(name, isDark=false, params={}) =
     [name + 'ForegroundStyle']: (
       if std.objectHas(params, 'systemImageName') then
         newImageSystemButtonForegroundStyle(isDark, params)
+      else if std.objectHas(params, 'assetImageName') then
+        newAssetImageSystemButtonForegroundStyle(isDark, params)
       else
         newTextSystemButtonForegroundStyle(isDark, params) + getKeyboardActionText(params)
     ),
@@ -626,14 +606,25 @@ local rimeSchemaChangedNotification =
   else
   {};
 
-
-local asciiModeChangedNotification = {
-  asciiModeChangedNotification: {
+local asciiModeIsTrueChangedNotification = {
+  asciiModeIsTrueChangedNotification: {
     notificationType: 'rime',
     rimeNotificationType: 'optionChanged',
     rimeOptionName: 'ascii_mode',
-    rimeOptionValue: [true, false],
-    foregroundStyle: asciiModeButtonForegroundStyle,
+    rimeOptionValue: true,
+    backgroundStyle: 'systemButtonBackgroundStyle',
+    foregroundStyle: 'asciiModeIsTrueForegroundStyle',
+  },
+};
+
+local asciiModeIsFalseChangedNotification = {
+  asciiModeIsFalseChangedNotification: {
+    notificationType: 'rime',
+    rimeNotificationType: 'optionChanged',
+    rimeOptionName: 'ascii_mode',
+    rimeOptionValue: false,
+    backgroundStyle: 'systemButtonBackgroundStyle',
+    foregroundStyle: 'asciiModeIsFalseForegroundStyle',
   },
 };
 
@@ -722,12 +713,6 @@ local newCommitCandidateForegroundStyle(isDark=false, params={}) = {
   spaceButtonRimeSchemaForegroundStyleName: spaceButtonRimeSchemaForegroundStyleName,
   newSpaceButtonRimeSchemaForegroundStyle: newSpaceButtonRimeSchemaForegroundStyle,
 
-  asciiModeButtonForegroundStyleName: asciiModeButtonForegroundStyleName,
-  newAsciiModeButtonForegroundStyle: newAsciiModeButtonForegroundStyle,
-  asciiModeButtonEnglishStateForegroundStyleName: asciiModeButtonEnglishStateForegroundStyleName,
-  newAsciiModeButtonEnglishStateForegroundStyle: newAsciiModeButtonEnglishStateForegroundStyle,
-  asciiModeButtonForegroundStyle: asciiModeButtonForegroundStyle,
-
   enterButtonBackgroundStyle: enterButtonBackgroundStyle,
   enterButtonForegroundStyle: enterButtonForegroundStyle,
   newEnterButtonForegroundStyle: newEnterButtonForegroundStyle,
@@ -735,8 +720,8 @@ local newCommitCandidateForegroundStyle(isDark=false, params={}) = {
 
   // notification
   rimeSchemaChangedNotification: rimeSchemaChangedNotification,
-  asciiModeChangedNotification: asciiModeChangedNotification,
-  returnKeyboardTypeChangedNotification: returnKeyboardTypeChangedNotification,
+  asciiModeIsTrueChangedNotification: asciiModeIsTrueChangedNotification,
+  asciiModeIsFalseChangedNotification: asciiModeIsFalseChangedNotification,
   preeditChangedForEnterButtonNotification: preeditChangedForEnterButtonNotification,
   preeditChangedForSpaceButtonNotification: preeditChangedForSpaceButtonNotification,
 }

@@ -171,10 +171,11 @@ local newKeyLayout(isDark=false, isPortrait=true) =
   + basicStyle.newSystemButton(
     params.keyboard.asciiModeButton.name,
     isDark,
-    portraitNormalButtonSize + {
-      foregroundStyle: basicStyle.asciiModeButtonForegroundStyle,
-    } + params.keyboard.asciiModeButton.params
+    portraitNormalButtonSize
+    + params.keyboard.asciiModeButton.params
   )
+  + { asciiModeIsTrueForegroundStyle: basicStyle.newAlphabeticButtonForegroundStyle(isDark, { assetImageName: 'englishState2' }) }
+  + { asciiModeIsFalseForegroundStyle: basicStyle.newAlphabeticButtonForegroundStyle(isDark, { assetImageName: 'chineseState2' }) }
   + basicStyle.newSystemButton(
     params.keyboard.enterButton.name,
     isDark,
@@ -206,14 +207,13 @@ local newKeyLayout(isDark=false, isPortrait=true) =
     + basicStyle.newButtonAnimation()
     + newKeyLayout(isDark, isPortrait)
     + basicStyle.newSpaceButtonRimeSchemaForegroundStyle(isDark)
-    + basicStyle.newAsciiModeButtonForegroundStyle(isDark, params.keyboard.asciiModeButton.params)
-    + basicStyle.newAsciiModeButtonEnglishStateForegroundStyle(isDark, params.keyboard.asciiModeButton.params)
     + basicStyle.newEnterButtonForegroundStyle(isDark, params.keyboard.enterButton.params)
     + basicStyle.newCommitCandidateForegroundStyle(isDark, { text: settings.spaceButtonComposingText })
     // Notifications
     + basicStyle.rimeSchemaChangedNotification
-    // + basicStyle.asciiModeChangedNotification // 这个通知要或不要，没有看出区别
     + basicStyle.returnKeyboardTypeChangedNotification
     + basicStyle.preeditChangedForEnterButtonNotification
-    + basicStyle.preeditChangedForSpaceButtonNotification,
+    + basicStyle.preeditChangedForSpaceButtonNotification
+    + basicStyle.asciiModeIsFalseChangedNotification
+    + basicStyle.asciiModeIsTrueChangedNotification,
 }
