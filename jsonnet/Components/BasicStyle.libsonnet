@@ -158,13 +158,41 @@ local newSystemButtonBackgroundStyle(isDark=false, params={}) = {
   } + params, isDark),
 };
 
-local enterButtonForegroundStyleName = 'enterButtonForegroundStyle';
-local newEnterButtonForegroundStyle(isDark=false, params={}) = {
-  [enterButtonForegroundStyleName]: utils.newTextStyle({
+// 文本文字系统功能键按钮前景样式
+local newTextSystemButtonForegroundStyle(isDark=false, params={}) =
+  utils.newTextStyle({
     normalColor: colors.systemButtonForegroundColor,
     highlightColor: colors.systemButtonHighlightedForegroundColor,
     fontSize: fonts.systemButtonTextFontSize,
-  } + params, isDark) + getKeyboardActionText(params),
+  } + params, isDark) + getKeyboardActionText(params);
+
+local newImageSystemButtonForegroundStyle(isDark=false, params={}) =
+  utils.newSystemImageStyle({
+    normalColor: colors.systemButtonForegroundColor,
+    highlightColor: colors.systemButtonHighlightedForegroundColor,
+    fontSize: fonts.systemButtonImageFontSize,
+  } + params, isDark);
+
+local newAssetImageSystemButtonForegroundStyle(isDark=false, params={}) =
+  utils.newAssetImageStyle({
+    normalColor: colors.systemButtonForegroundColor,
+    highlightColor: colors.systemButtonHighlightedForegroundColor,
+    fontSize: fonts.systemButtonImageFontSize,
+  } + params, isDark);
+
+// 系统键按钮前景样式
+local newSystemButtonForegroundStyle(isDark=false, params={}) =
+  if std.objectHas(params, 'systemImageName') then
+    newImageSystemButtonForegroundStyle(isDark, params)
+  else if std.objectHas(params, 'assetImageName') then
+    newAssetImageSystemButtonForegroundStyle(isDark, params)
+  else
+    newTextSystemButtonForegroundStyle(isDark, params) + getKeyboardActionText(params);
+
+
+local enterButtonForegroundStyleName = 'enterButtonForegroundStyle';
+local newEnterButtonForegroundStyle(isDark=false, params={}) = {
+  [enterButtonForegroundStyleName]: newTextSystemButtonForegroundStyle(isDark, params),
 };
 
 local spaceButtonForegroundStyleName = 'spaceButtonForegroundStyle';
@@ -229,28 +257,6 @@ local newColorButtonForegroundStyle(isDark=false, params={}, namePrefix='') =
 
 local enterButtonBackgroundStyle = colorButtonBackgroundStyleName;
 local enterButtonForegroundStyle = colorButtonForegroundStyleName;
-
-// 文本文字系统功能键按钮前景样式
-local newTextSystemButtonForegroundStyle(isDark=false, params={}) =
-  utils.newTextStyle({
-    normalColor: colors.systemButtonForegroundColor,
-    highlightColor: colors.systemButtonHighlightedForegroundColor,
-    fontSize: fonts.systemButtonTextFontSize,
-  } + params, isDark);
-
-local newImageSystemButtonForegroundStyle(isDark=false, params={}) =
-  utils.newSystemImageStyle({
-    normalColor: colors.systemButtonForegroundColor,
-    highlightColor: colors.systemButtonHighlightedForegroundColor,
-    fontSize: fonts.systemButtonImageFontSize,
-  } + params, isDark);
-
-local newAssetImageSystemButtonForegroundStyle(isDark=false, params={}) =
-  utils.newAssetImageStyle({
-    normalColor: colors.systemButtonForegroundColor,
-    highlightColor: colors.systemButtonHighlightedForegroundColor,
-    fontSize: fonts.systemButtonImageFontSize,
-  } + params, isDark);
 
 local newFloatingKeyboardButton(name, isDark=false, params={}) =
   {
@@ -477,14 +483,7 @@ local newSystemButton(name, isDark=false, params={}) =
             ),
   }
   + {
-    [name + 'ForegroundStyle']: (
-      if std.objectHas(params, 'systemImageName') then
-        newImageSystemButtonForegroundStyle(isDark, params)
-      else if std.objectHas(params, 'assetImageName') then
-        newAssetImageSystemButtonForegroundStyle(isDark, params)
-      else
-        newTextSystemButtonForegroundStyle(isDark, params) + getKeyboardActionText(params)
-    ),
+    [name + 'ForegroundStyle']: newSystemButtonForegroundStyle(isDark, params),
   };
 
 local newSpaceButton(name, isDark=false, params={}) =
