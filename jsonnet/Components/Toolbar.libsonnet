@@ -252,7 +252,9 @@ local newButtons(isDark=false) =
   );
 
 
-local newToolbar(isDark=false, params={}) =
+local newToolbar(isDark=false, isPortrait=false, params={}) =
+  local slideButtonsMaxCount =
+    if isPortrait then settings.toolbarButtonsMaxCount.portrait else settings.toolbarButtonsMaxCount.landscape;
   {
     toolbarHeight: keyboardParams.toolbar.height,
     toolbarStyle: {
@@ -280,7 +282,7 @@ local newToolbar(isDark=false, params={}) =
     ],
   }
   + newButtons(isDark)
-  + basicStyle.newToolbarSlideButtons(slideButtons, isDark)
+  + basicStyle.newToolbarSlideButtons(slideButtons, slideButtonsMaxCount, isDark)
   + newHorizontalCandidatesCollectionView(isDark)
   + newExpandButton(isDark)
   + newVerticalCandidateCollectionStyle(isDark)

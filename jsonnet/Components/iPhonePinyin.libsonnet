@@ -300,7 +300,7 @@ local newKeyLayout(isDark=false, isPortrait=true) =
     };
 
     preedit.new(isDark)
-    + toolbar.new(isDark)
+    + toolbar.new(isDark, isPortrait)
     + basicStyle.newKeyboardBackgroundStyle(isDark)
     + basicStyle.newAlphabeticButtonBackgroundStyle(isDark, extraParams)
     + basicStyle.newAlphabeticButtonHintStyle(isDark)

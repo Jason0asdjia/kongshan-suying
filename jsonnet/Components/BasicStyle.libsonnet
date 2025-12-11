@@ -282,13 +282,13 @@ local newFloatingKeyboardButton(name, isDark=false, params={}) =
   };
 
 local toolbarSlideButtonsName = 'toolbarSlideButtons';
-local newToolbarSlideButtons(buttons, isDark=false) =
-  local rightToLeft = std.length(buttons) < settings.toolbarButtonsMaxCount;
+local newToolbarSlideButtons(buttons, slideButtonsMaxCount, isDark=false) =
+  local rightToLeft = std.length(buttons) < slideButtonsMaxCount;
   {
     [toolbarSlideButtonsName]: {
       type: 'horizontalSymbols',
-      size: { width: '%d/%d' % [settings.toolbarButtonsMaxCount, settings.toolbarButtonsMaxCount + 2] },
-      maxColumns: settings.toolbarButtonsMaxCount,
+      size: { width: '%d/%d' % [slideButtonsMaxCount, slideButtonsMaxCount + 2] },
+      maxColumns: slideButtonsMaxCount,
       contentRightToLeft: rightToLeft,
       insets: { left: 3, right: 3 },
       // backgroundStyle: 'toolbarcollectionCellBackgroundStyle',

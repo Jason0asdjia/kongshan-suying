@@ -159,7 +159,7 @@ local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
     };
 
     preedit.new(isDark)
-    + toolbar.new(isDark)
+    + toolbar.new(isDark, isPortrait)
     + narrowVStackStyle.style
     + wideVStackStyle.style
     + basicStyle.newKeyboardBackgroundStyle(isDark)

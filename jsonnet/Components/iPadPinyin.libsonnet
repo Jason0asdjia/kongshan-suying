@@ -830,7 +830,7 @@ local newKeyLayout(isDark=false, isPortrait=false) =
 {
   new(isDark, isPortrait):
     preedit.new(isDark, candidateInsets)
-    + toolbar.new(isDark, candidateInsets)
+    + toolbar.new(isDark, isPortrait, candidateInsets)
     + basicStyle.newKeyboardBackgroundStyle(isDark)
     + basicStyle.newAlphabeticButtonBackgroundStyle(isDark, extraParams(isPortrait))
     + basicStyle.newAlphabeticButtonHintStyle(isDark)

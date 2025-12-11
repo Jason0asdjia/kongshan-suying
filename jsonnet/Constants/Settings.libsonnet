@@ -22,7 +22,10 @@
   showSwipeDownText: false,
 
   // toolbar 按钮最大数量（不包括菜单和收起按钮）
-  toolbarButtonsMaxCount: 5,
+  toolbarButtonsMaxCount: {
+    portrait: 5,   // 竖屏
+    landscape: 8, // 横屏
+  },
 
   // toolbar 滑动按钮列表
   // 注意键盘上第一个永远是菜单按钮，最后一个永远是收起按钮，不可配置
