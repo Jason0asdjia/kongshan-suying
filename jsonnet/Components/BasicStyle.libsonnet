@@ -574,28 +574,6 @@ local rimeSchemaChangedNotification =
   else
   {};
 
-local asciiModeIsTrueChangedNotification = {
-  asciiModeIsTrueChangedNotification: {
-    notificationType: 'rime',
-    rimeNotificationType: 'optionChanged',
-    rimeOptionName: 'ascii_mode',
-    rimeOptionValue: true,
-    backgroundStyle: 'systemButtonBackgroundStyle',
-    foregroundStyle: 'asciiModeIsTrueForegroundStyle',
-  },
-};
-
-local asciiModeIsFalseChangedNotification = {
-  asciiModeIsFalseChangedNotification: {
-    notificationType: 'rime',
-    rimeNotificationType: 'optionChanged',
-    rimeOptionName: 'ascii_mode',
-    rimeOptionValue: false,
-    backgroundStyle: 'systemButtonBackgroundStyle',
-    foregroundStyle: 'asciiModeIsFalseForegroundStyle',
-  },
-};
-
 local preeditChangedForEnterButtonNotification = {
   preeditChangedForEnterButtonNotification: {
     notificationType: 'preeditChanged',
@@ -683,8 +661,6 @@ local newCommitCandidateForegroundStyle(isDark=false, params={}) = {
 
   // notification
   rimeSchemaChangedNotification: rimeSchemaChangedNotification,
-  asciiModeIsTrueChangedNotification: asciiModeIsTrueChangedNotification,
-  asciiModeIsFalseChangedNotification: asciiModeIsFalseChangedNotification,
   preeditChangedForEnterButtonNotification: preeditChangedForEnterButtonNotification,
   preeditChangedForSpaceButtonNotification: preeditChangedForSpaceButtonNotification,
 }

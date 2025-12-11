@@ -255,10 +255,31 @@ local newKeyLayout(isDark=false, isPortrait=true) =
     params.keyboard.asciiModeButton.name,
     isDark,
     portraitNormalButtonSize
-    + params.keyboard.asciiModeButton.params
+    + params.keyboard.asciiModeButton.params + {
+      foregroundStyle: [{
+        styleName: utils.asciiModeForegroundStyleName(params.keyboard.asciiModeButton.name, value),
+        conditionKey: 'rime$ascii_mode',
+        conditionValue: value,
+      } for value in [true, false]
+      ],
+      notification: [
+        utils.asciiModeChangedNotificationName(params.keyboard.asciiModeButton.name, true),
+        utils.asciiModeChangedNotificationName(params.keyboard.asciiModeButton.name, false),
+      ]
+    }
   )
-  + { asciiModeIsTrueForegroundStyle: basicStyle.newAssetImageSystemButtonForegroundStyle(isDark, { assetImageName: 'englishState2' }) }
-  + { asciiModeIsFalseForegroundStyle: basicStyle.newAssetImageSystemButtonForegroundStyle(isDark, { assetImageName: 'chineseState2' }) }
+  + utils.newAsciiModeChangedNotification(params.keyboard.asciiModeButton.name, true, {
+    backgroundStyleName: basicStyle.systemButtonBackgroundStyleName,
+    foregroundStyleName: utils.asciiModeForegroundStyleName(params.keyboard.asciiModeButton.name, true),
+  })
+  + utils.newAsciiModeChangedNotification(params.keyboard.asciiModeButton.name, false, {
+    backgroundStyleName: basicStyle.systemButtonBackgroundStyleName,
+    foregroundStyleName: utils.asciiModeForegroundStyleName(params.keyboard.asciiModeButton.name, false),
+  })
+  + utils.newAsciiModeForegroundStyle(params.keyboard.asciiModeButton.name,
+      basicStyle.newAssetImageSystemButtonForegroundStyle(isDark, { assetImageName: 'chineseState2' }),
+      basicStyle.newAssetImageSystemButtonForegroundStyle(isDark, { assetImageName: 'englishState2' })
+  )
   + basicStyle.newSystemButton(
     params.keyboard.enterButton.name,
     isDark,
@@ -295,7 +316,5 @@ local newKeyLayout(isDark=false, isPortrait=true) =
     // Notifications
     + basicStyle.rimeSchemaChangedNotification
     + basicStyle.preeditChangedForEnterButtonNotification
-    + basicStyle.preeditChangedForSpaceButtonNotification
-    + basicStyle.asciiModeIsFalseChangedNotification
-    + basicStyle.asciiModeIsTrueChangedNotification,
+    + basicStyle.preeditChangedForSpaceButtonNotification,
 }
