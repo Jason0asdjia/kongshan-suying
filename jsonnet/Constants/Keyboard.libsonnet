@@ -712,7 +712,6 @@ local settings = import 'Settings.libsonnet';
         action: 'enter',
         swipeDown: { action: { shortcut: '#换行' } },
         text: '$returnKeyType',
-        center: {x: 0.5, y: 0.45 },
         notification: [
           'preeditChangedForEnterButtonNotification',
         ],
@@ -907,8 +906,7 @@ local settings = import 'Settings.libsonnet';
       name: 'commaButton',
       params: {
         action: { character: ',' },
-        swipeUp: { action: { character: '.' }, text: '' },
-        center: {x: 0.5, y: 0.5},
+        swipeUp: { action: { character: '.' } },
       },
     },
     chinesePeriodButton: {
