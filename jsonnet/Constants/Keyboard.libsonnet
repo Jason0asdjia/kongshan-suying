@@ -238,6 +238,14 @@ local settings = import '../Settings.libsonnet';
         text: 'Rime部署',
       },
     },
+    toolbarRimeSyncButton: {
+      name: 'toolbarRimeSyncButton',
+      params: {
+        action: { openURL: 'hamster3://com.ihsiao.apps.hamster3/rime?action=sync' },
+        systemImageName: 'arrow.triangle.2.circlepath.icloud',
+        text: 'Rime同步',
+      },
+    },
     toolbarToggleEmbeddedButton: {
       name: 'toolbarToggleEmbeddedButton',
       params: {

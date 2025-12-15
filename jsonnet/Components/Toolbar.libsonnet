@@ -219,6 +219,7 @@ local toolbarButtonNames = [
   keyboardParams.toolbarButton.toolbarKeyboardNumericButton.name, // 数字键盘
   keyboardParams.toolbarButton.toolbarKeyboardSymbolicButton.name, // 符号键盘
   keyboardParams.toolbarButton.toolbarKeyboardEmojiButton.name, // 表情键盘
+  keyboardParams.toolbarButton.toolbarRimeSyncButton.name, // Rime同步
 ];
 
 local slideButtons = [
