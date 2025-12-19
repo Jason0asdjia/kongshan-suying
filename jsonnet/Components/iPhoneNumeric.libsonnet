@@ -221,7 +221,6 @@ local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
     + basicStyle.newColorButtonForegroundStyle(isDark, params=params.keyboard.gotoPrimaryKeyboardButton.params, namePrefix=params.keyboard.gotoPrimaryKeyboardButton.name)
     + basicStyle.newAlphabeticHintBackgroundStyle(isDark, { cornerRadius: 10 })
     + newKeyLayout(isDark, isPortrait, extraParams)
-    + basicStyle.newEnterButtonForegroundStyle(isDark, params.keyboard.enterButton.params)
     + basicStyle.newCommitCandidateForegroundStyle(isDark, { text: '选定' })
     // Notifications
     + basicStyle.preeditChangedForEnterButtonNotification

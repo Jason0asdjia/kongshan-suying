@@ -187,12 +187,6 @@ local newSystemButtonForegroundStyle(isDark=false, params={}) =
   else
     newTextSystemButtonForegroundStyle(isDark, params) + getKeyboardActionText(params);
 
-
-local enterButtonForegroundStyleName = 'enterButtonForegroundStyle';
-local newEnterButtonForegroundStyle(isDark=false, params={}) = {
-  [enterButtonForegroundStyleName]: newTextSystemButtonForegroundStyle(isDark, params),
-};
-
 local spaceButtonForegroundStyleName = 'spaceButtonForegroundStyle';
 
 local spaceButtonRimeSchemaForegroundStyleName = 'spaceButtonRimeSchemaForegroundStyle';
@@ -252,9 +246,6 @@ local newColorButtonForegroundStyle(isDark=false, params={}, namePrefix='') =
         fontSize: fonts.systemButtonTextFontSize,
       } + params, isDark) + getKeyboardActionText(params),
     };
-
-local enterButtonBackgroundStyle = colorButtonBackgroundStyleName;
-local enterButtonForegroundStyle = colorButtonForegroundStyleName;
 
 local newFloatingKeyboardButton(name, isDark=false, params={}) =
   {
@@ -581,8 +572,8 @@ local rimeSchemaChangedNotification =
 local preeditChangedForEnterButtonNotification = {
   preeditChangedForEnterButtonNotification: {
     notificationType: 'preeditChanged',
-    backgroundStyle: enterButtonBackgroundStyle,
-    foregroundStyle: enterButtonForegroundStyle,
+    backgroundStyle: colorButtonBackgroundStyleName,
+    foregroundStyle: colorButtonForegroundStyleName,
   },
 };
 
@@ -660,9 +651,6 @@ local newCommitCandidateForegroundStyle(isDark=false, params={}) = {
   spaceButtonRimeSchemaForegroundStyleName: spaceButtonRimeSchemaForegroundStyleName,
   newSpaceButtonRimeSchemaForegroundStyle: newSpaceButtonRimeSchemaForegroundStyle,
 
-  enterButtonBackgroundStyle: enterButtonBackgroundStyle,
-  enterButtonForegroundStyle: enterButtonForegroundStyle,
-  newEnterButtonForegroundStyle: newEnterButtonForegroundStyle,
   newCommitCandidateForegroundStyle: newCommitCandidateForegroundStyle,
 
   // notification

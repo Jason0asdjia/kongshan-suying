@@ -283,8 +283,8 @@ local newKeyLayout(isDark=false, isPortrait=true) =
     isDark,
     {
       size: { width: '250/1125' },
-      backgroundStyle: basicStyle.enterButtonBackgroundStyle,
-      foregroundStyle: basicStyle.enterButtonForegroundStyle,
+      backgroundStyle: basicStyle.colorButtonBackgroundStyleName,
+      foregroundStyle: basicStyle.colorButtonForegroundStyleName,
     } + params.keyboard.enterButton.params
   )
 ;
@@ -309,7 +309,6 @@ local newKeyLayout(isDark=false, isPortrait=true) =
     + basicStyle.newButtonAnimation()
     + newKeyLayout(isDark, isPortrait)
     + basicStyle.newSpaceButtonRimeSchemaForegroundStyle(isDark)
-    + basicStyle.newEnterButtonForegroundStyle(isDark, params.keyboard.enterButton.params)
     + basicStyle.newCommitCandidateForegroundStyle(isDark, { text: settings.spaceButtonComposingText })
     // Notifications
     + basicStyle.rimeSchemaChangedNotification

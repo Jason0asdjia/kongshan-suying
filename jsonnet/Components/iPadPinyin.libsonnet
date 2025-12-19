@@ -646,8 +646,8 @@ local newKeyLayout(isDark=false, isPortrait=false) =
     isDark,
     {
       size: { width: '3.9/32' },
-      backgroundStyle: basicStyle.enterButtonBackgroundStyle,
-      foregroundStyle: basicStyle.enterButtonForegroundStyle,
+      backgroundStyle: basicStyle.colorButtonBackgroundStyleName,
+      foregroundStyle: basicStyle.colorButtonForegroundStyleName,
     } + params.keyboard.enterButton.params
   )
 
@@ -839,7 +839,6 @@ local newKeyLayout(isDark=false, isPortrait=false) =
     + basicStyle.newColorButtonForegroundStyle(isDark, params.keyboard.enterButton.params)
     + basicStyle.newAlphabeticHintBackgroundStyle(isDark, { cornerRadius: 10 })
     + newKeyLayout(isDark, isPortrait)
-    + basicStyle.newEnterButtonForegroundStyle(isDark, params.keyboard.enterButton.params)
     + basicStyle.newCommitCandidateForegroundStyle(isDark, { text: '选定' })
     // Notifications
     + basicStyle.preeditChangedForEnterButtonNotification
