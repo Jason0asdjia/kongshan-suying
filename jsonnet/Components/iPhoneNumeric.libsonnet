@@ -187,13 +187,11 @@ local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
       params.keyboard.numericColonButton,
       params.keyboard.enterButton,
     ],
-    basicStyle.newSystemButton(
+    basicStyle.newColorButton(
         params.keyboard.gotoPrimaryKeyboardButton.name,
         isDark,
         params.keyboard.gotoPrimaryKeyboardButton.params + {
           size: { height: '1/4' },
-          backgroundStyle: basicStyle.colorButtonBackgroundStyleName,
-          foregroundStyle: params.keyboard.gotoPrimaryKeyboardButton.name + basicStyle.colorButtonForegroundStyleName,
         }
       ));
 
@@ -214,11 +212,8 @@ local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
     + wideVStackStyle.style
     + basicStyle.newKeyboardBackgroundStyle(isDark)
     + basicStyle.newAlphabeticButtonBackgroundStyle(isDark, extraParams)
-    + basicStyle.newAlphabeticButtonHintStyle(isDark)
     + basicStyle.newSystemButtonBackgroundStyle(isDark, extraParams)
     + basicStyle.newColorButtonBackgroundStyle(isDark, extraParams)
-    + basicStyle.newColorButtonForegroundStyle(isDark, params=params.keyboard.enterButton.params)
-    + basicStyle.newColorButtonForegroundStyle(isDark, params=params.keyboard.gotoPrimaryKeyboardButton.params, namePrefix=params.keyboard.gotoPrimaryKeyboardButton.name)
     + basicStyle.newAlphabeticHintBackgroundStyle(isDark, { cornerRadius: 10 })
     + newKeyLayout(isDark, isPortrait, extraParams)
     + basicStyle.newCommitCandidateForegroundStyle(isDark, { text: '选定' })

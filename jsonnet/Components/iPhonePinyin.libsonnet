@@ -104,12 +104,9 @@ local newKeyLayout(isDark=false, isPortrait=true) =
         button.name,
         isDark,
         getAlphabeticButtonSize(button.name) + button.params + hintStyle + alphabeticTextCenterWhenShowSwipeText +
-        (
-          if settings.uppercaseForChinese then {
-            asciiModeOn: {},
-            asciiModeOff: basicStyle.getKeyboardActionText(button.params, 'uppercasedStateAction'),
-          } else {}
-        ),
+        {
+          [if settings.uppercaseForChinese then 'whenAsciiModeOff']: basicStyle.newAlphabeticButtonUppercaseForegroundStyle(isDark, button.params) + basicStyle.getKeyboardActionText(button.params.uppercased),
+        },
         swipeTextFollowSetting=true),
       params.keyboard.letterButtons,
       {})
@@ -128,19 +125,7 @@ local newKeyLayout(isDark=false, isPortrait=true) =
       }
     )
     + params.keyboard.shiftButton.params
-    + {
-      uppercasedStateForegroundStyle: params.keyboard.shiftButton.name + 'UppercasedForegroundStyle',
-    }
-    + {
-      capsLockedStateForegroundStyle: params.keyboard.shiftButton.name + 'CapsLockedForegroundStyle',
-    }
   )
-  + {
-    [params.keyboard.shiftButton.name + 'UppercasedForegroundStyle']:
-      basicStyle.newImageSystemButtonForegroundStyle(isDark, params.keyboard.shiftButton.uppercasedParams),
-    [params.keyboard.shiftButton.name + 'CapsLockedForegroundStyle']:
-      basicStyle.newImageSystemButtonForegroundStyle(isDark, params.keyboard.shiftButton.capsLockedParams),
-  }
 
   + basicStyle.newSystemButton(
     params.keyboard.backspaceButton.name,
@@ -190,13 +175,11 @@ local newKeyLayout(isDark=false, isPortrait=true) =
     portraitNormalButtonSize
     + params.keyboard.asciiModeButton.params
   )
-  + basicStyle.newSystemButton(
+  + basicStyle.newColorButton(
     params.keyboard.enterButton.name,
     isDark,
     {
       size: { width: '250/1125' },
-      backgroundStyle: basicStyle.colorButtonBackgroundStyleName,
-      foregroundStyle: basicStyle.colorButtonForegroundStyleName,
     } + params.keyboard.enterButton.params
   )
 ;
@@ -215,7 +198,6 @@ local newKeyLayout(isDark=false, isPortrait=true) =
     + basicStyle.newAlphabeticButtonBackgroundStyle(isDark, extraParams)
     + basicStyle.newSystemButtonBackgroundStyle(isDark, extraParams)
     + basicStyle.newColorButtonBackgroundStyle(isDark, extraParams)
-    + basicStyle.newColorButtonForegroundStyle(isDark, params=params.keyboard.enterButton.params)
     + basicStyle.newAlphabeticHintBackgroundStyle(isDark, { cornerRadius: 10 })
     + basicStyle.newButtonAnimation()
     + newKeyLayout(isDark, isPortrait)

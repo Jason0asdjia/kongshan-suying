@@ -587,13 +587,11 @@ local newKeyLayout(isDark=false, isPortrait=false) =
       },
     }
   )
-  + basicStyle.newSystemButton(
+  + basicStyle.newColorButton(
     params.keyboard.enterButton.name,
     isDark,
     {
       size: { width: '3.9/32' },
-      backgroundStyle: basicStyle.colorButtonBackgroundStyleName,
-      foregroundStyle: basicStyle.colorButtonForegroundStyleName,
     } + params.keyboard.enterButton.params
   )
 
@@ -605,19 +603,7 @@ local newKeyLayout(isDark=false, isPortrait=false) =
       size: { width: '2.5/16' },
     }
     + params.keyboard.shiftButton.params
-    + {
-      uppercasedStateForegroundStyle: params.keyboard.shiftButton.name + 'UppercasedForegroundStyle',
-    }
-    + {
-      capsLockedStateForegroundStyle: params.keyboard.shiftButton.name + 'CapsLockedForegroundStyle',
-    }
   )
-  + {
-    [params.keyboard.shiftButton.name + 'UppercasedForegroundStyle']:
-      basicStyle.newImageSystemButtonForegroundStyle(isDark, params.keyboard.shiftButton.uppercasedParams),
-    [params.keyboard.shiftButton.name + 'CapsLockedForegroundStyle']:
-      basicStyle.newImageSystemButtonForegroundStyle(isDark, params.keyboard.shiftButton.capsLockedParams),
-  }
 
   + basicStyle.newAlphabeticButton(
     params.keyboard.ellipsisButton.name,
@@ -709,20 +695,7 @@ local newKeyLayout(isDark=false, isPortrait=false) =
       size: { width: '2.5/16' },
     }
     + params.keyboard.shiftButton.params
-    + {
-      uppercasedStateForegroundStyle: params.keyboard.shiftButton.name + 'UppercasedForegroundStyle',
-    }
-    + {
-      capsLockedStateForegroundStyle: params.keyboard.shiftButton.name + 'CapsLockedForegroundStyle',
-    }
   )
-  + {
-    [params.keyboard.shiftButton.name + 'UppercasedForegroundStyle']:
-      basicStyle.newImageSystemButtonForegroundStyle(isDark, params.keyboard.shiftButton.uppercasedParams),
-    [params.keyboard.shiftButton.name + 'CapsLockedForegroundStyle']:
-      basicStyle.newImageSystemButtonForegroundStyle(isDark, params.keyboard.shiftButton.capsLockedParams),
-  }
-
 
   // five Row
   + basicStyle.newSystemButton(
@@ -770,10 +743,8 @@ local newKeyLayout(isDark=false, isPortrait=false) =
     + toolbar.new(isDark, isPortrait, candidateInsets)
     + basicStyle.newKeyboardBackgroundStyle(isDark)
     + basicStyle.newAlphabeticButtonBackgroundStyle(isDark, extraParams(isPortrait))
-    + basicStyle.newAlphabeticButtonHintStyle(isDark)
     + basicStyle.newSystemButtonBackgroundStyle(isDark, extraParams(isPortrait))
     + basicStyle.newColorButtonBackgroundStyle(isDark)
-    + basicStyle.newColorButtonForegroundStyle(isDark, params.keyboard.enterButton.params)
     + basicStyle.newAlphabeticHintBackgroundStyle(isDark, { cornerRadius: 10 })
     + newKeyLayout(isDark, isPortrait)
     + basicStyle.newCommitCandidateForegroundStyle(isDark, { text: '选定' })

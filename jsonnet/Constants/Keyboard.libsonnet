@@ -342,7 +342,7 @@ local settings = import '../Settings.libsonnet';
       name: 'qButton',
       params: {
         action: { character: 'q' },
-        uppercasedStateAction: { character: 'Q' },
+        uppercased: { action: { character: 'Q' } },
         swipeUp: { action: { character: '1' } },
       },
     },
@@ -350,7 +350,7 @@ local settings = import '../Settings.libsonnet';
       name: 'wButton',
       params: {
         action: { character: 'w' },
-        uppercasedStateAction: { character: 'W' },
+        uppercased: { action: { character: 'W' } },
         swipeUp: { action: { character: '2' } },
       },
     },
@@ -358,7 +358,7 @@ local settings = import '../Settings.libsonnet';
       name: 'eButton',
       params: {
         action: { character: 'e' },
-        uppercasedStateAction: { character: 'E' },
+        uppercased: { action: { character: 'E' } },
         swipeUp: { action: { character: '3' } },
       },
     },
@@ -366,7 +366,7 @@ local settings = import '../Settings.libsonnet';
       name: 'rButton',
       params: {
         action: { character: 'r' },
-        uppercasedStateAction: { character: 'R' },
+        uppercased: { action: { character: 'R' } },
         swipeUp: { action: { character: '4' } },
       },
     },
@@ -374,7 +374,7 @@ local settings = import '../Settings.libsonnet';
       name: 'tButton',
       params: {
         action: { character: 't' },
-        uppercasedStateAction: { character: 'T' },
+        uppercased: { action: { character: 'T' } },
         swipeUp: { action: { character: '5' } },
       },
     },
@@ -382,7 +382,7 @@ local settings = import '../Settings.libsonnet';
       name: 'yButton',
       params: {
         action: { character: 'y' },
-        uppercasedStateAction: { character: 'Y' },
+        uppercased: { action: { character: 'Y' } },
         swipeUp: { action: { character: '6' } },
       },
     },
@@ -390,7 +390,7 @@ local settings = import '../Settings.libsonnet';
       name: 'uButton',
       params: {
         action: { character: 'u' },
-        uppercasedStateAction: { character: 'U' },
+        uppercased: { action: { character: 'U' } },
         swipeUp: { action: { character: '7' } },
       },
     },
@@ -398,7 +398,7 @@ local settings = import '../Settings.libsonnet';
       name: 'iButton',
       params: {
         action: { character: 'i' },
-        uppercasedStateAction: { character: 'I' },
+        uppercased: { action: { character: 'I' } },
         swipeUp: { action: { character: '8' } },
       },
     },
@@ -406,7 +406,7 @@ local settings = import '../Settings.libsonnet';
       name: 'oButton',
       params: {
         action: { character: 'o' },
-        uppercasedStateAction: { character: 'O' },
+        uppercased: { action: { character: 'O' } },
         swipeUp: { action: { character: '9' } },
       },
     },
@@ -414,7 +414,7 @@ local settings = import '../Settings.libsonnet';
       name: 'pButton',
       params: {
         action: { character: 'p' },
-        uppercasedStateAction: { character: 'P' },
+        uppercased: { action: { character: 'P' } },
         swipeUp: { action: { character: '0' } },
       },
     },
@@ -424,7 +424,7 @@ local settings = import '../Settings.libsonnet';
       name: 'aButton',
       params: {
         action: { character: 'a' },
-        uppercasedStateAction: { character: 'A' },
+        uppercased: { action: { character: 'A' } },
         swipeUp: { action: { character: '!' } },
         swipeDown: { action: { shortcut: '#selectText' }, text: '全' },
       },
@@ -433,7 +433,7 @@ local settings = import '../Settings.libsonnet';
       name: 'sButton',
       params: {
         action: { character: 's' },
-        uppercasedStateAction: { character: 'S' },
+        uppercased: { action: { character: 'S' } },
         swipeUp: { action: { character: '^' } },
         swipeDown: { action: { character: '@' } },
       },
@@ -442,7 +442,7 @@ local settings = import '../Settings.libsonnet';
       name: 'dButton',
       params: {
         action: { character: 'd' },
-        uppercasedStateAction: { character: 'D' },
+        uppercased: { action: { character: 'D' } },
         swipeUp: { action: { character: '/' } },
         swipeDown: { action: { character: '\\' } },
       },
@@ -451,7 +451,7 @@ local settings = import '../Settings.libsonnet';
       name: 'fButton',
       params: {
         action: { character: 'f' },
-        uppercasedStateAction: { character: 'F' },
+        uppercased: { action: { character: 'F' } },
         swipeUp: { action: { character: ';' } },
         swipeDown: { action: { character: ':' } },
       },
@@ -460,7 +460,7 @@ local settings = import '../Settings.libsonnet';
       name: 'gButton',
       params: {
         action: { character: 'g' },
-        uppercasedStateAction: { character: 'G' },
+        uppercased: { action: { character: 'G' } },
         swipeUp: { action: { character: '(' } },
         swipeDown: { action: { character: ')' } },
       },
@@ -469,7 +469,7 @@ local settings = import '../Settings.libsonnet';
       name: 'hButton',
       params: {
         action: { character: 'h' },
-        uppercasedStateAction: { character: 'H' },
+        uppercased: { action: { character: 'H' } },
         swipeUp: { action: { character: '-' } },
         swipeDown: { action: { character: '_' } },
       },
@@ -478,7 +478,7 @@ local settings = import '../Settings.libsonnet';
       name: 'jButton',
       params: {
         action: { character: 'j' },
-        uppercasedStateAction: { character: 'J' },
+        uppercased: { action: { character: 'J' } },
         swipeUp: { action: { character: '#' } },
         swipeDown: { action: { character: '+' } },
       },
@@ -487,7 +487,7 @@ local settings = import '../Settings.libsonnet';
       name: 'kButton',
       params: {
         action: { character: 'k' },
-        uppercasedStateAction: { character: 'K' },
+        uppercased: { action: { character: 'K' } },
         swipeUp: { action: { character: '{' } },
         swipeDown: { action: { character: '}' } },
       },
@@ -496,7 +496,7 @@ local settings = import '../Settings.libsonnet';
       name: 'lButton',
       params: {
         action: { character: 'l' },
-        uppercasedStateAction: { character: 'L' },
+        uppercased: { action: { character: 'L' } },
         swipeUp: { action: { character: '"' } },
         swipeDown: { action: { character: "'" } },
       },
@@ -507,7 +507,7 @@ local settings = import '../Settings.libsonnet';
       name: 'zButton',
       params: {
         action: { character: 'z' },
-        uppercasedStateAction: { character: 'Z' },
+        uppercased: { action: { character: 'Z' } },
         swipeUp: { action: { character: '`' } },
         swipeDown: { action: { shortcut: '#undo' }, text: '撤' },
       },
@@ -516,7 +516,7 @@ local settings = import '../Settings.libsonnet';
       name: 'xButton',
       params: {
         action: { character: 'x' },
-        uppercasedStateAction: { character: 'X' },
+        uppercased: { action: { character: 'X' } },
         swipeUp: { action: { character: '*' } },
         swipeDown: { action: { shortcut: '#cut' }, text: '剪' },
       },
@@ -525,7 +525,7 @@ local settings = import '../Settings.libsonnet';
       name: 'cButton',
       params: {
         action: { character: 'c' },
-        uppercasedStateAction: { character: 'C' },
+        uppercased: { action: { character: 'C' } },
         swipeUp: { action: { character: '%' } },
         swipeDown: { action: { shortcut: '#copy' }, text: '复' },
       },
@@ -534,7 +534,7 @@ local settings = import '../Settings.libsonnet';
       name: 'vButton',
       params: {
         action: { character: 'v' },
-        uppercasedStateAction: { character: 'V' },
+        uppercased: { action: { character: 'V' } },
         swipeUp: { action: { character: '=' } },
         swipeDown: { action: { shortcut: '#paste' }, text: '贴' },
       },
@@ -543,7 +543,7 @@ local settings = import '../Settings.libsonnet';
       name: 'bButton',
       params: {
         action: { character: 'b' },
-        uppercasedStateAction: { character: 'B' },
+        uppercased: { action: { character: 'B' } },
         swipeUp: { action: { character: '[' } },
         swipeDown: { action: { character: ']' } },
       },
@@ -552,7 +552,7 @@ local settings = import '../Settings.libsonnet';
       name: 'nButton',
       params: {
         action: { character: 'n' },
-        uppercasedStateAction: { character: 'N' },
+        uppercased: { action: { character: 'N' } },
         swipeUp: { action: { character: '&' } },
         swipeDown: { action: { character: '~' } },
       },
@@ -561,7 +561,7 @@ local settings = import '../Settings.libsonnet';
       name: 'mButton',
       params: {
         action: { character: 'm' },
-        uppercasedStateAction: { character: 'M' },
+        uppercased: { action: { character: 'M' } },
         swipeUp: { action: { character: '?' } },
         swipeDown: { action: { character: '$' } },
       },
@@ -696,12 +696,13 @@ local settings = import '../Settings.libsonnet';
       params: {
         systemImageName: 'shift',
         action: 'shift',
-      },
-      uppercasedParams: {
-        systemImageName: 'shift.fill',
-      },
-      capsLockedParams: {
-        systemImageName: 'capslock.fill',
+
+        uppercased: {
+          systemImageName: 'shift.fill',
+        },
+        capsLocked: {
+          systemImageName: 'capslock.fill',
+        },
       },
     },
 
@@ -712,10 +713,8 @@ local settings = import '../Settings.libsonnet';
         assetImageName: 'chineseState2',
         swipeUp: { action: { shortcut: '#方案切换' } },
 
-        asciiModeOn: {
+        whenAsciiModeOn: {
           assetImageName: 'englishState2'
-        },
-        asciiModeOff: {
         },
       },
     },
@@ -930,9 +929,7 @@ local settings = import '../Settings.libsonnet';
         action: { character: ',' }, center: { y: 0.48 },
         swipeUp: { action: { character: '.' }, center: { y: 0.28 } },
 
-        asciiModeOn: {
-        },
-        asciiModeOff: {
+        whenAsciiModeOff: {
           text: '，', center: { y: 0.52 },
           swipeUp: { text: '。', center: { y: 0.3 } },
         },
