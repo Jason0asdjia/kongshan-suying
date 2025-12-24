@@ -170,7 +170,7 @@ local settings = import '../Settings.libsonnet';
       params: {
         action: { shortcut: '#RimeSwitcher' },
         systemImageName: 'switch.2',
-        text: 'RimeSwitcher',
+        text: '开关',
       },
     },
     toolbarSchemaSelectorButton: {
@@ -178,7 +178,7 @@ local settings = import '../Settings.libsonnet';
       params: {
         action: { shortcut: '#方案切换' },
         systemImageName: 'list.bullet.rectangle',
-        text: '方案切换',
+        text: '方案',
       },
     },
 
@@ -195,7 +195,7 @@ local settings = import '../Settings.libsonnet';
       params: {
         action: { openURL: 'https://apps.apple.com/cn/app/%E5%85%83%E4%B9%A6%E8%BE%93%E5%85%A5%E6%B3%95/id6744464701' },
         systemImageName: 'arrow.down.circle',
-        text: '检查更新',
+        text: '更新',
       },
     },
     toolbarFeedbackButton: {
@@ -203,7 +203,7 @@ local settings = import '../Settings.libsonnet';
       params: {
         action: { openURL: 'hamster3://com.ihsiao.apps.hamster3/feedback' },
         systemImageName: 'iphone.radiowaves.left.and.right',
-        text: '按键震动',
+        text: '震动',
       },
     },
     toolbarFinderButton: {
@@ -211,7 +211,7 @@ local settings = import '../Settings.libsonnet';
       params: {
         action: { openURL: 'hamster3://com.ihsiao.apps.hamster3/finder' },
         systemImageName: 'folder',
-        text: '文件管理',
+        text: '文件',
       },
     },
     toolbarSkinButton: {
@@ -219,7 +219,7 @@ local settings = import '../Settings.libsonnet';
       params: {
         action: { openURL: 'hamster3://com.ihsiao.apps.hamster3/keyboardSkins' },
         systemImageName: 'tshirt',
-        text: '键盘皮肤',
+        text: '皮肤',
       },
     },
     toolbarUploadButton: {
@@ -227,7 +227,7 @@ local settings = import '../Settings.libsonnet';
       params: {
         action: { openURL: 'hamster3://com.ihsiao.apps.hamster3/wifi' },
         systemImageName: 'wifi',
-        text: '无线传输',
+        text: '传输',
       },
     },
     toolbarRimeDeployButton: {
@@ -235,7 +235,7 @@ local settings = import '../Settings.libsonnet';
       params: {
         action: { openURL: 'hamster3://com.ihsiao.apps.hamster3/rime?action=deploy' },
         systemImageName: 'slider.horizontal.2.arrow.trianglehead.counterclockwise',
-        text: 'Rime部署',
+        text: '部署',
       },
     },
     toolbarRimeSyncButton: {
@@ -243,7 +243,7 @@ local settings = import '../Settings.libsonnet';
       params: {
         action: { openURL: 'hamster3://com.ihsiao.apps.hamster3/rime?action=sync' },
         systemImageName: 'checkmark.icloud',
-        text: 'Rime同步',
+        text: '同步',
       },
     },
     toolbarToggleEmbeddedButton: {
@@ -251,7 +251,7 @@ local settings = import '../Settings.libsonnet';
       params: {
         action: { shortcut: '#toggleEmbeddedInputMode' },
         systemImageName: 'square.and.pencil',
-        text: '内嵌开关',
+        text: '内嵌',
       },
     },
     toolbarLeftHandButton: {
@@ -259,7 +259,7 @@ local settings = import '../Settings.libsonnet';
       params: {
         action: { shortcut: '#左手模式' },
         systemImageName: 'keyboard.onehanded.left',
-        text: '左手模式',
+        text: '左手',
       },
     },
     toolbarRightHandButton: {
@@ -267,7 +267,7 @@ local settings = import '../Settings.libsonnet';
       params: {
         action: { shortcut: '#右手模式' },
         systemImageName: 'keyboard.onehanded.right',
-        text: '右手模式',
+        text: '右手',
       },
     },
     toolbarKeyboardNumericButton: {
@@ -275,7 +275,7 @@ local settings = import '../Settings.libsonnet';
       params: {
         action: { keyboardType: 'numeric', },
         systemImageName: 'circle.grid.3x3',
-        text: '数字键盘',
+        text: '数字',
       },
     },
     toolbarKeyboardSymbolicButton: {
@@ -283,7 +283,7 @@ local settings = import '../Settings.libsonnet';
       params: {
         action: { keyboardType: 'symbolic', },
         systemImageName: 'number',
-        text: '符号键盘',
+        text: '符号',
       },
     },
     toolbarKeyboardEmojiButton: {
@@ -291,7 +291,7 @@ local settings = import '../Settings.libsonnet';
       params: {
         action: { keyboardType: 'emojis', },
         systemImageName: 'face.smiling.inverse',
-        text: '表情键盘',
+        text: '表情',
       },
     },
   },
