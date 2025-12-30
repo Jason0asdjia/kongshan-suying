@@ -1,3 +1,10 @@
+# =====================================
+# 此文件用于自定义键盘按键功能。
+# 可根据需要修改下方内容，调整各类按键的行为
+# 修改完成后，保存本文件，然后回到皮肤界面，
+# 长按皮肤，选择「运行 main.jsonnet」生效。
+# =====================================
+
 local colors = import 'Colors.libsonnet';
 local fonts = import 'Fonts.libsonnet';
 local settings = import '../Settings.libsonnet';
@@ -20,73 +27,6 @@ local settings = import '../Settings.libsonnet';
       top: 6,
     },
   },
-
-  candidateStyle: {
-    highlightBackgroundColor: colors.candidateHighlightColor,
-    preferredBackgroundColor: colors.candidateHighlightColor,
-    preferredIndexColor: colors.candidateForegroundColor,
-    preferredTextColor: colors.candidateForegroundColor,
-    preferredCommentColor: colors.candidateForegroundColor,
-    indexColor: colors.candidateForegroundColor,
-    textColor: colors.candidateForegroundColor,
-    commentColor: colors.candidateForegroundColor,
-    indexFontSize: fonts.candidateIndexFontSize,
-    #indexFontWeight: 'ultraLight',
-    textFontSize: fonts.candidateTextFontSize,
-    #textFontWeight: 'regular',
-    commentFontSize: fonts.candidateCommentFontSize,
-    #commentFontWeight: 'black',
-  },
-
-  horizontalCandidateStyle:
-    {
-      insets: {
-        top: 8,
-        left: 3,
-        bottom: 1,
-      },
-      expandButton: {
-        systemImageName: 'chevron.forward',
-        normalColor: colors.toolbarButtonForegroundColor,
-        highlightColor: colors.toolbarButtonHighlightedForegroundColor,
-        fontSize: fonts.candidateStateButtonFontSize,
-      },
-    },
-
-  verticalCandidateStyle:
-    {
-      // insets 用于展开候选字后的区域内边距
-      // insets: { top: 3, bottom: 3, left: 4, right: 4 },
-      bottomRowHeight: 45,
-      candidateCollectionStyle: {
-        insets: { top: 8, bottom: 8, left: 8, right: 8 },
-        backgroundColor: colors.keyboardBackgroundColor,
-        maxRows: 5,
-        maxColumns: 6,
-        separatorColor: colors.candidateSeparatorColor,
-      },
-      pageUpButton: {
-        action: { shortcut: '#verticalCandidatesPageUp' },
-        systemImageName: 'chevron.up',
-        normalColor: colors.toolbarButtonForegroundColor,
-        highlightColor: colors.toolbarButtonHighlightedForegroundColor,
-        fontSize: fonts.candidateStateButtonFontSize,
-      },
-      pageDownButton: {
-        action: { shortcut: '#verticalCandidatesPageDown' },
-        systemImageName: 'chevron.down',
-        normalColor: colors.toolbarButtonForegroundColor,
-        highlightColor: colors.toolbarButtonHighlightedForegroundColor,
-        fontSize: fonts.candidateStateButtonFontSize,
-      },
-      returnButton: {
-        action: { shortcut: '#candidatesBarStateToggle' },
-        systemImageName: 'return',
-        normalColor: colors.toolbarButtonForegroundColor,
-        highlightColor: colors.toolbarButtonHighlightedForegroundColor,
-        fontSize: fonts.candidateStateButtonFontSize,
-      },
-    },
 
   floatingKeyboard: {
     floatTargetScale: {
@@ -1313,4 +1253,71 @@ local settings = import '../Settings.libsonnet';
       },
     },
   },
+
+  candidateStyle: {
+    highlightBackgroundColor: colors.candidateHighlightColor,
+    preferredBackgroundColor: colors.candidateHighlightColor,
+    preferredIndexColor: colors.candidateForegroundColor,
+    preferredTextColor: colors.candidateForegroundColor,
+    preferredCommentColor: colors.candidateForegroundColor,
+    indexColor: colors.candidateForegroundColor,
+    textColor: colors.candidateForegroundColor,
+    commentColor: colors.candidateForegroundColor,
+    indexFontSize: fonts.candidateIndexFontSize,
+    #indexFontWeight: 'ultraLight',
+    textFontSize: fonts.candidateTextFontSize,
+    #textFontWeight: 'regular',
+    commentFontSize: fonts.candidateCommentFontSize,
+    #commentFontWeight: 'black',
+  },
+
+  horizontalCandidateStyle:
+    {
+      insets: {
+        top: 8,
+        left: 3,
+        bottom: 1,
+      },
+      expandButton: {
+        systemImageName: 'chevron.forward',
+        normalColor: colors.toolbarButtonForegroundColor,
+        highlightColor: colors.toolbarButtonHighlightedForegroundColor,
+        fontSize: fonts.candidateStateButtonFontSize,
+      },
+    },
+
+  verticalCandidateStyle:
+    {
+      // insets 用于展开候选字后的区域内边距
+      // insets: { top: 3, bottom: 3, left: 4, right: 4 },
+      bottomRowHeight: 45,
+      candidateCollectionStyle: {
+        insets: { top: 8, bottom: 8, left: 8, right: 8 },
+        backgroundColor: colors.keyboardBackgroundColor,
+        maxRows: 5,
+        maxColumns: 6,
+        separatorColor: colors.candidateSeparatorColor,
+      },
+      pageUpButton: {
+        action: { shortcut: '#verticalCandidatesPageUp' },
+        systemImageName: 'chevron.up',
+        normalColor: colors.toolbarButtonForegroundColor,
+        highlightColor: colors.toolbarButtonHighlightedForegroundColor,
+        fontSize: fonts.candidateStateButtonFontSize,
+      },
+      pageDownButton: {
+        action: { shortcut: '#verticalCandidatesPageDown' },
+        systemImageName: 'chevron.down',
+        normalColor: colors.toolbarButtonForegroundColor,
+        highlightColor: colors.toolbarButtonHighlightedForegroundColor,
+        fontSize: fonts.candidateStateButtonFontSize,
+      },
+      returnButton: {
+        action: { shortcut: '#candidatesBarStateToggle' },
+        systemImageName: 'return',
+        normalColor: colors.toolbarButtonForegroundColor,
+        highlightColor: colors.toolbarButtonHighlightedForegroundColor,
+        fontSize: fonts.candidateStateButtonFontSize,
+      },
+    },
 }
