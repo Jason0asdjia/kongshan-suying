@@ -232,12 +232,12 @@ local newKeyLayout(isDark=false, isPortrait=true) =
   })
   + utils.newAsciiModeForegroundStyle(params.keyboard.commaButton.name,
       basicStyle.newAlphabeticButtonForegroundStyle(isDark, params.keyboard.commaButton.params)
-        + { text: '，', center: { x: 0.48, y: 0.5 } },
+        + { text: '，', center: { y: 0.5 } },
       basicStyle.newAlphabeticButtonForegroundStyle(isDark, params.keyboard.commaButton.params)
         + { center: { y: 0.48 }})
   + utils.newAsciiModeForegroundStyle(params.keyboard.commaButton.name + 'SwipeUp',
       basicStyle.newAlphabeticButtonAlternativeForegroundStyle(isDark, params.keyboard.commaButton.params.swipeUp)
-        + { text: '。', center: { x: 0.5, y: 0.28 } },
+        + { text: '。', center: { y: 0.28 } },
       basicStyle.newAlphabeticButtonAlternativeForegroundStyle(isDark, params.keyboard.commaButton.params.swipeUp)
         + { center: { y: 0.28 }})
 
