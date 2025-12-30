@@ -186,8 +186,8 @@ local settings = import '../Settings.libsonnet';
       name: 'toolbarHamster3Button',
       params: {
         action: 'settings',
-        systemImageName: 'keyboard',
-        text: '元书',
+        systemImageName: 'gearshape',
+        text: '设置',
       },
     },
     toolbarCheckUpdateButton: {
@@ -218,8 +218,8 @@ local settings = import '../Settings.libsonnet';
       name: 'toolbarSkinPreference',
       params: {
         action: { openURL: 'hamster3://com.ihsiao.apps.hamster3/finder?action=openAppFile&fileURL=Skins/空山素影/jsonnet/Settings.libsonnet' },
-        systemImageName: 'theatermask.and.paintbrush',
-        text: '偏好',
+        systemImageName: 'wrench.and.screwdriver',
+        text: '微调',
       },
     },
     toolbarKeyboardDefinition: {
