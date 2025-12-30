@@ -377,7 +377,10 @@ local newToolbarSlideButtons(buttons, slideButtonsMaxCount, isDark=false) =
 
 // 例如：replaceGivenPairs(['a', 'b', 'c'], {'a': 'x', 'b':'y'}) 返回 ['x', 'y', 'c']
 local replaceGivenPairs(arr, oldToNewPairs) =
-  [(if std.objectHas(oldToNewPairs, item) then oldToNewPairs[item] else item) for item in arr];
+  if std.length(std.objectFields(oldToNewPairs)) == 0 then
+    arr
+  else
+    [std.get(oldToNewPairs, item, item) for item in arr];
 
 local newButton(name, type='alphabetic', isDark=false, params={}) =
 {
