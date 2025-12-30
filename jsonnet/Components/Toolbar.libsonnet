@@ -198,33 +198,35 @@ local newVerticalCandidateBackspaceButtonStyle(isDark) = {
     ),
 };
 
-// NOTE: 工具栏按钮列表，顺序与 settings.toolbarButtons 中的描述对应
-local toolbarButtonNames = [
-  keyboardParams.toolbarButton.toolbarPerformanceButton.name, // 查看性能
-  keyboardParams.toolbarButton.toolbarRimeSwitcherButton.name, // RimeSwitcher
-  keyboardParams.toolbarButton.toolbarScriptButton.name, // 脚本
-  keyboardParams.toolbarButton.toolbarPhraseButton.name, // 常用语
-  keyboardParams.toolbarButton.toolbarClipboardButton.name, // 剪贴板
-  keyboardParams.toolbarButton.toolbarCheckUpdateButton.name, // 应用商店中检查元书更新
-  keyboardParams.toolbarButton.toolbarFeedbackButton.name, // 声音和震动
-  keyboardParams.toolbarButton.toolbarFinderButton.name, // 打开元书文件管理器
-  keyboardParams.toolbarButton.toolbarSkinButton.name, // 皮肤
-  keyboardParams.toolbarButton.toolbarUploadButton.name, // WIFI 文件传输
-  keyboardParams.toolbarButton.toolbarRimeDeployButton.name, // Rime部署
-  keyboardParams.toolbarButton.toolbarToggleEmbeddedButton.name, // 内嵌开关
-  keyboardParams.toolbarButton.toolbarLeftHandButton.name, // 左手模式
-  keyboardParams.toolbarButton.toolbarRightHandButton.name, // 右手模式
-  keyboardParams.toolbarButton.toolbarSchemaSelectorButton.name, // 方案切换
-  keyboardParams.toolbarButton.toolbarKeyboardNumericButton.name, // 数字键盘
-  keyboardParams.toolbarButton.toolbarKeyboardSymbolicButton.name, // 符号键盘
-  keyboardParams.toolbarButton.toolbarKeyboardEmojiButton.name, // 表情键盘
-  keyboardParams.toolbarButton.toolbarRimeSyncButton.name, // Rime同步
-  keyboardParams.toolbarButton.toolbarSkinPreference.name, // 皮肤微调
-  keyboardParams.toolbarButton.toolbarKeyboardDefinition.name, // 键盘按键定义
-];
-
-local slideButtons = [
-  keyboardParams.toolbarButton[toolbarButtonNames[buttonCode - 1]]
+local slideButtons =
+  local buttons = keyboardParams.toolbarButton;
+  local names=
+  [
+    // NOTE: 工具栏按钮列表，顺序与 settings.toolbarButtons 中的描述对应
+    buttons.toolbarPerformanceButton.name, // 查看性能
+    buttons.toolbarRimeSwitcherButton.name, // RimeSwitcher
+    buttons.toolbarScriptButton.name, // 脚本
+    buttons.toolbarPhraseButton.name, // 常用语
+    buttons.toolbarClipboardButton.name, // 剪贴板
+    buttons.toolbarCheckUpdateButton.name, // 应用商店中检查元书更新
+    buttons.toolbarFeedbackButton.name, // 声音和震动
+    buttons.toolbarFinderButton.name, // 打开元书文件管理器
+    buttons.toolbarSkinButton.name, // 皮肤
+    buttons.toolbarUploadButton.name, // WIFI 文件传输
+    buttons.toolbarRimeDeployButton.name, // Rime部署
+    buttons.toolbarToggleEmbeddedButton.name, // 内嵌开关
+    buttons.toolbarLeftHandButton.name, // 左手模式
+    buttons.toolbarRightHandButton.name, // 右手模式
+    buttons.toolbarSchemaSelectorButton.name, // 方案切换
+    buttons.toolbarKeyboardNumericButton.name, // 数字键盘
+    buttons.toolbarKeyboardSymbolicButton.name, // 符号键盘
+    buttons.toolbarKeyboardEmojiButton.name, // 表情键盘
+    buttons.toolbarRimeSyncButton.name, // Rime同步
+    buttons.toolbarSkinPreference.name, // 皮肤微调
+    buttons.toolbarKeyboardDefinition.name, // 键盘按键定义
+  ];
+[
+  buttons[names[buttonCode - 1]]
   for buttonCode in settings.toolbarButtons
 ];
 
