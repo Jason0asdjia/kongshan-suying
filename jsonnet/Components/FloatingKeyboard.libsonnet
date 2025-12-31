@@ -17,13 +17,13 @@ local floatingKeyboardButtonsDefine = {
   panel: [
     [
       params.toolbarButton.toolbarHamster3Button,
-      params.toolbarButton.toolbarSkinPreference,
+      params.toolbarButton.toolbarKeyboardDefinition,
       params.toolbarButton.toolbarFeedbackButton,
       params.toolbarButton.toolbarCheckUpdateButton,
     ],
     [
       params.toolbarButton.toolbarSkinButton,
-      params.toolbarButton.toolbarKeyboardDefinition,
+      params.toolbarButton.toolbarSkinPreference,
       params.toolbarButton.toolbarRimeSyncButton,
       params.toolbarButton.toolbarToggleEmbeddedButton,
     ],
