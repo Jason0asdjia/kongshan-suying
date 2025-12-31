@@ -625,13 +625,17 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
             utils.newAsciiModeChangedNotification(root.name, true, {
               backgroundStyleName: root[root.name].backgroundStyle,
               foregroundStyleName: asciiModeOnForeground,
-            } + utils.extractProperties(root.params, ['bounds'])
-              + utils.extractProperties(asciiModeOnParams, ['action', 'swipeUpAction', 'swipeDownAction']))
+              [if std.objectHas(asciiModeOnParams, 'action') then 'action']: asciiModeOnParams.action,
+              [if std.objectHas(asciiModeOnParams, 'swipeUp') && std.objectHas(asciiModeOnParams.swipeUp, 'action') then 'swipeUpAction']: asciiModeOnParams.swipeUp.action,
+              [if std.objectHas(asciiModeOnParams, 'swipeDown') && std.objectHas(asciiModeOnParams.swipeDown, 'action') then 'swipeDownAction']: asciiModeOnParams.swipeDown.action,
+            } + utils.extractProperties(root.params, ['bounds']))
             + utils.newAsciiModeChangedNotification(root.name, false, {
               backgroundStyleName: root[root.name].backgroundStyle,
               foregroundStyleName: asciiModeOffForeground,
-            } + utils.extractProperties(root.params, ['bounds'])
-              + utils.extractProperties(asciiModeOffParams, ['action', 'swipeUpAction', 'swipeDownAction']))
+              [if std.objectHas(asciiModeOffParams, 'action') then 'action']: asciiModeOffParams.action,
+              [if std.objectHas(asciiModeOffParams, 'swipeUp') && std.objectHas(asciiModeOffParams.swipeUp, 'action') then 'swipeUpAction']: asciiModeOffParams.swipeUp.action,
+              [if std.objectHas(asciiModeOffParams, 'swipeDown') && std.objectHas(asciiModeOffParams.swipeDown, 'action') then 'swipeDownAction']: asciiModeOffParams.swipeDown.action,
+            } + utils.extractProperties(root.params, ['bounds']))
           else {}
         ) +
           {
