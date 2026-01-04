@@ -99,4 +99,8 @@
   },
 
 
+  # 数字键盘的符号是否经过 rime 处理
+  # true 经过 rime 处理，false 直接输入符号
+  numericSymbolsUseRime: false,
+
 }

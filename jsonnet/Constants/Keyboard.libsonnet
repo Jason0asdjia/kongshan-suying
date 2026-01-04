@@ -739,6 +739,37 @@ local settings = import '../Settings.libsonnet';
       },
     },
 
+    local numericSymbolAction(char) =
+      if settings.numericSymbolsUseRime then
+        {
+          action: { character: char },
+          swipeUp: { action: { symbol: char } }
+        }
+      else
+        {
+          action: { symbol: char },
+          swipeUp: { action: { character: char } }
+        },
+
+    // 数字键盘等号
+    numericEqualButton: {
+      name: 'numericEqualButton',
+      params: numericSymbolAction('='),
+    },
+
+    // 数字键盘冒号
+    numericColonButton: {
+      name: 'numericColonButton',
+      params: numericSymbolAction(':'),
+    },
+
+    // 数字键小数点符号
+    dotButton: {
+      name: 'dotButton',
+      params: numericSymbolAction('.'),
+    },
+
+
     // 标点符号键
 
     // 连接号(减号)
@@ -762,13 +793,6 @@ local settings = import '../Settings.libsonnet';
       name: 'colonButton',
       params: {
         action: { character: ':' },
-      },
-    },
-    // 数字键盘冒号
-    numericColonButton: {
-      name: 'numericColonButton',
-      params: {
-        action: { symbol: ':' },
       },
     },
 
@@ -964,12 +988,6 @@ local settings = import '../Settings.libsonnet';
       params: {
         action: { character: '=' },
         swipeUp: { action: { character: '+' } },
-      },
-    },
-    numericEqualButton: {
-      name: 'numericEqualButton',
-      params: {
-        action: { symbol: '=' },
       },
     },
     leftBracketButton: {
@@ -1177,14 +1195,6 @@ local settings = import '../Settings.libsonnet';
       name: 'ampersandButton',
       params: {
         action: { symbol: '&' },
-      },
-    },
-
-    // . 小数点符号
-    dotButton: {
-      name: 'dotButton',
-      params: {
-        action: { symbol: '.' },
       },
     },
 
