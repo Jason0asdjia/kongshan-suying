@@ -137,6 +137,9 @@ local newAlphabeticHintBackgroundStyle(isDark=false, params={}) = {
     normalColor: colors.standardCalloutBackgroundColor,
     borderColor: colors.standardCalloutBorderColor,
     borderSize: 0.5,
+    shadowRadius: 3,
+    normalShadowColor: colors.standardButtonShadowColor,
+    highlightShadowColor: colors.standardButtonShadowColor,
   } + params, isDark),
 };
 
@@ -156,10 +159,9 @@ local newLongPressSymbolsBackgroundStyle(isDark=false, params={}) = {
     cornerRadius: 10,
     borderColor: colors.standardCalloutBorderColor,
     borderSize: 0.5,
-    shadowRadius: 24,
-    shadowOffset: { x: 0, y: 0 },
-    normalShadowColor: '#000000',
-    highlightShadowColor: '#000000',
+    shadowRadius: 3,
+    normalShadowColor: colors.standardButtonShadowColor,
+    highlightShadowColor: colors.standardButtonShadowColor,
   } + params, isDark),
 };
 
