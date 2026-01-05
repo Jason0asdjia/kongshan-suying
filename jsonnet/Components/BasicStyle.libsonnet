@@ -94,7 +94,9 @@ local newAlphabeticButtonForegroundStyle(isDark=false, params={}) =
     utils.newTextStyle({
       normalColor: colors.standardButtonForegroundColor,
       highlightColor: colors.standardButtonHighlightedForegroundColor,
-      fontSize: fonts.standardButtonTextFontSize,
+      fontSize: utils.calcDiffFontSizeForNonAsciiText({
+        fontSize: fonts.standardButtonTextFontSize,
+      } + getKeyboardActionText(params)),
     } + params + getKeyboardActionText(params), isDark);
 
 // 字母键按钮上下划提示前景样式
