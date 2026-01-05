@@ -407,14 +407,25 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
     [root.name]+: { backgroundStyle: type + 'ButtonBackgroundStyle' },
   },
 
-  AddForegroundStyle(newButtonForegroundStyle): root {
-    [root.name]+: {
-      foregroundStyle: [root.name + 'ForegroundStyle'],
+  AddForegroundStyle(newButtonForegroundStyle):
+    local hasForegroundName = std.objectHas(root.params, 'foregroundStyleName');
+    local hasForegroundStyle = std.objectHas(root.params, 'foregroundStyle');
+    assert hasForegroundName == hasForegroundStyle : 'foregroundStyleName 和 foregroundStyle 必须同时存在或同时不存在';
+    local foregroundName = if hasForegroundName then root.params.foregroundStyleName else [];
+    local foregroundStyle = if hasForegroundStyle then root.params.foregroundStyle else {};
+  root {
+    [root.name]+:
+      if hasForegroundName then
+        { foregroundStyle: foregroundName }
+      else
+        { foregroundStyle: [root.name + 'ForegroundStyle'], },
+    reference+:
+      (if !hasForegroundName || std.member(foregroundName, root.name + 'ForegroundStyle') then
+      {
+        [root.name + 'ForegroundStyle']: newButtonForegroundStyle(root.isDark, root.params),
+      }
+      else {}) + foregroundStyle,
     },
-    reference+: {
-      [root.name + 'ForegroundStyle']: newButtonForegroundStyle(root.isDark, root.params),
-    },
-  },
 
   AddHintStyle(needHint):
     assert type == 'alphabetic' : '只有字母键才支持提示样式';
