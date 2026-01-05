@@ -692,7 +692,7 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
           foregroundStyle: root.name + 'PreeditChangedForegroundStyle',
         }
         + utils.extractProperties(preeditChangedParams, ['action']),
-        [root.name + 'PreeditChangedForegroundStyle']: newForegroundStyle(root.isDark, root.params + preeditChangedParams),
+        [root.name + 'PreeditChangedForegroundStyle']: newForegroundStyle(root.isDark, preeditChangedParams),
       },
     },
 
