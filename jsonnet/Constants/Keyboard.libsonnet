@@ -675,8 +675,13 @@ local settings = import '../Settings.libsonnet';
       name: 'enterButton',
       params: {
         action: 'enter',
-        swipeDown: { action: { shortcut: '#换行' } },
         text: '$returnKeyType',
+        swipeUp: { action: { shortcut: '#行首' } },
+        swipeDown: { action: { shortcut: '#行尾' } },
+
+        longPress: [
+          { action: { shortcut: '#换行' }, text: '换行' },
+        ]
       },
     },
 
