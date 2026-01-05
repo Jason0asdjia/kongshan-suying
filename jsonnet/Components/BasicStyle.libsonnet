@@ -855,14 +855,6 @@ local rimeSchemaChangedNotification =
   else
   {};
 
-local preeditChangedForEnterButtonNotification = {
-  preeditChangedForEnterButtonNotification: {
-    notificationType: 'preeditChanged',
-    backgroundStyle: colorButtonBackgroundStyleName,
-    foregroundStyle: colorButtonForegroundStyleName,
-  },
-};
-
 local commitCandidateForegroundStyleName = 'commitCandidateForegroundStyle';
 local preeditChangedForSpaceButtonNotification = {
   preeditChangedForSpaceButtonNotification: {
@@ -943,6 +935,5 @@ local newCommitCandidateForegroundStyle(isDark=false, params={}) = {
 
   // notification
   rimeSchemaChangedNotification: rimeSchemaChangedNotification,
-  preeditChangedForEnterButtonNotification: preeditChangedForEnterButtonNotification,
   preeditChangedForSpaceButtonNotification: preeditChangedForSpaceButtonNotification,
 }

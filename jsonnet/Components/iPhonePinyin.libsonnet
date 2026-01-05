@@ -229,6 +229,5 @@ local newKeyLayout(isDark=false, isPortrait=true) =
     + basicStyle.newCommitCandidateForegroundStyle(isDark, { text: settings.spaceButtonComposingText })
     // Notifications
     + basicStyle.rimeSchemaChangedNotification
-    + basicStyle.preeditChangedForEnterButtonNotification
     + basicStyle.preeditChangedForSpaceButtonNotification,
 }

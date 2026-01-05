@@ -674,9 +674,6 @@ local settings = import '../Settings.libsonnet';
         action: 'enter',
         swipeDown: { action: { shortcut: '#换行' } },
         text: '$returnKeyType',
-        notification: [
-          'preeditChangedForEnterButtonNotification',
-        ],
       },
     },
 
