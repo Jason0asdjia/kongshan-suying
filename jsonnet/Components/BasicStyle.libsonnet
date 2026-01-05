@@ -457,6 +457,7 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
         'bounds',
         'action',
         'repeatAction',
+        'notification',
       ]
     ),
   },
