@@ -809,17 +809,14 @@ local newSymbolicCollection(name, isDark=false, params={}) =
 
 
 local rimeSchemaChangedNotification =
-  if settings.spaceButtonShowSchema then
   {
-    rimeSchemaChangedNotification: {
+    [if settings.spaceButtonShowSchema then 'rimeSchemaChangedNotification']: {
       notificationType: 'rime',
       rimeNotificationType: 'schemaChanged',
       backgroundStyle: alphabeticButtonBackgroundStyleName,
       foregroundStyle: spaceButtonForegroundStyle,
     },
-  }
-  else
-  {};
+  };
 
 
 {
