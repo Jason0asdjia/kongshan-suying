@@ -94,9 +94,7 @@ local newAlphabeticButtonForegroundStyle(isDark=false, params={}) =
     utils.newTextStyle({
       normalColor: colors.standardButtonForegroundColor,
       highlightColor: colors.standardButtonHighlightedForegroundColor,
-      fontSize: utils.calcDiffFontSizeForNonAsciiText({
-        fontSize: fonts.standardButtonTextFontSize,
-      } + getKeyboardActionText(params)),
+      fontSize: fonts.standardButtonTextFontSize,
     } + params + getKeyboardActionText(params), isDark);
 
 // 字母键按钮上下划提示前景样式
@@ -147,12 +145,18 @@ local newAlphabeticHintBackgroundStyle(isDark=false, params={}) = {
 
 // 字母提示前景样式
 local newAlphabeticButtonHintStyle(isDark=false, params={}) =
-  utils.newTextStyle({
-    normalColor: colors.standardCalloutForegroundColor,
-    fontSize: utils.calcDiffFontSizeForNonAsciiText({
+  if std.objectHas(params, 'systemImageName') then
+    utils.newSystemImageStyle({
+      normalColor: colors.standardCalloutForegroundColor,
+      highlightColor: colors.standardCalloutHighlightedForegroundColor,
+      fontSize: fonts.hintImageFontSize,
+    } + params, isDark)
+  else
+    utils.newTextStyle({
+      normalColor: colors.standardCalloutForegroundColor,
+      highlightColor: colors.standardCalloutHighlightedForegroundColor,
       fontSize: fonts.hintTextFontSize,
-    } + getKeyboardActionText(params)),
-  } + params + getKeyboardActionText(params), isDark);
+    } + params + getKeyboardActionText(params), isDark);
 
 // 长按背景样式
 local longPressSymbolsBackgroundStyleName = 'longPressSymbolsBackgroundStyle';
@@ -181,9 +185,7 @@ local newLongPressSymbolsForegroundStyle(isDark=false, params={}) =
     utils.newTextStyle({
       normalColor: colors.standardCalloutForegroundColor,
       highlightColor: colors.standardCalloutHighlightedForegroundColor,
-      fontSize: utils.calcDiffFontSizeForNonAsciiText({
-        fontSize: fonts.hintTextFontSize,
-      } + getKeyboardActionText(params)),
+      fontSize: fonts.hintTextFontSize,
     } + params + getKeyboardActionText(params), isDark);
 
 // 长按高亮背景样式

@@ -43,12 +43,12 @@ local isPrintableAsciiString(s) =
   std.all(std.map(isPrintableAsciiChar, std.stringChars(s)));
 
 
-local calcDiffFontSizeForNonAsciiText(params={}) =
-  assert std.objectHas(params, 'fontSize') && std.objectHas(params, 'text') && std.type(params.text) == 'string' : 'calcDiffFontSizeForNonAsciiText requires params with fontSize and text, params is ' + std.toString(params);
-  if isPrintableAsciiString(params.text) then
-    params.fontSize
+local calcDiffFontSizeForNonAsciiText(text, fontSize) =
+  assert std.type(text) == 'string' : 'text parameter must be a string, input is ' + std.toString(text);
+  if isPrintableAsciiString(text) && !std.startsWith(text, '$') then // 以 $ 开头的字符串通常是变量，极可能有中文，要调整大小
+    fontSize
   else
-    std.round(params.fontSize * 0.7);  // 非 ASCII 字符缩小显示
+    std.round(fontSize * 0.9);  // 非 ASCII 字符缩小显示
 
 
 local setColor(name='', color, isDark=false) =
@@ -193,6 +193,12 @@ local newTextStyle(params={}, isDark=false) =
       'fontSize',
       'fontWeight',
     ]
+  ) + (
+    if std.objectHas(params, 'text') && std.objectHas(params, 'fontSize') then
+    {
+      fontSize: calcDiffFontSizeForNonAsciiText(params.text, params.fontSize),
+    }
+    else {}
   );
 
 local newBackgroundStyle(styleName='backgroundStyle', style) = { [styleName]: style };
@@ -253,7 +259,6 @@ local newAsciiModeChangedNotification(name, value, params={}) = {  // value is t
   extractProperties: extractProperties,
   excludeProperties: excludeProperties,
   deepMerge: deepMerge,
-  calcDiffFontSizeForNonAsciiText: calcDiffFontSizeForNonAsciiText,
   setColor: setColor,
   extractColors: extractColors,
   newGeometryStyle: newGeometryStyle,

@@ -16,15 +16,15 @@
   numericButtonTextFontSize: 22.5,
   numericCollectionTextFontSize: 20,
 
-  systemButtonTextFontSize: 16,
+  systemButtonTextFontSize: 18,
   systemButtonImageFontSize: 20,
 
   // 键盘上的辅助文字，例如上划和下划提示
   alternativeTextFontSize: 10,
   alternativeImageFontSize: 9,
 
-  hintTextFontSize: 26,
-  hintImageFontSize: 24,
+  hintTextFontSize: 22.5,
+  hintImageFontSize: 20,
 
   candidateIndexFontSize: 12,
   candidateTextFontSize: 16,
