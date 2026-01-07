@@ -852,16 +852,7 @@ local rimeSchemaChangedNotification =
   systemButtonBackgroundStyleName: systemButtonBackgroundStyleName,
   newSystemButtonBackgroundStyle: newSystemButtonBackgroundStyle,
 
-  colorButtonBackgroundStyleName: colorButtonBackgroundStyleName,
   newColorButtonBackgroundStyle: newColorButtonBackgroundStyle,
-
-  colorButtonForegroundStyleName: colorButtonForegroundStyleName,
-  newColorButtonForegroundStyle: newColorButtonForegroundStyle,
-
-  newTextSystemButtonForegroundStyle: newTextSystemButtonForegroundStyle,
-  newImageSystemButtonForegroundStyle: newImageSystemButtonForegroundStyle,
-  newAssetImageSystemButtonForegroundStyle: newAssetImageSystemButtonForegroundStyle,
-  newSystemButtonForegroundStyle: newSystemButtonForegroundStyle,
 
   newFloatingKeyboardButton: newFloatingKeyboardButton,
   toolbarSlideButtonsName: toolbarSlideButtonsName,
