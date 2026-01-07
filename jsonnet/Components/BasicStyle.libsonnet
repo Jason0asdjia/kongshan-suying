@@ -681,7 +681,9 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
     local preeditChangedParams = if isPreeditModeAware then root.params.whenPreeditChanged else {};
     if !isPreeditModeAware then
       root
-    else root {
+    else
+      local needUpdateHintStyle = std.objectHas(root[root.name], 'hintStyle');
+      root {
       [root.name]+: {
         notification+: [
           root.name + 'PreeditChangedNotification',
@@ -692,10 +694,24 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
           notificationType: 'preeditChanged',
           backgroundStyle: root[root.name].backgroundStyle,
           foregroundStyle: root.name + 'PreeditChangedForegroundStyle',
+          [if needUpdateHintStyle then 'hintStyle']: root.name + 'PreeditChangedHintStyle',
         }
         + utils.extractProperties(preeditChangedParams, ['action']),
         [root.name + 'PreeditChangedForegroundStyle']: newForegroundStyle(root.isDark, preeditChangedParams),
-      },
+      } + (
+        if needUpdateHintStyle then
+          {
+            [root.name + 'PreeditChangedHintStyle']: (
+              if std.objectHas(root.params, 'hintStyle') then
+                root.params.hintStyle
+              else
+                {}
+            ) + utils.newBackgroundStyle(style=alphabeticHintBackgroundStyleName)
+              + utils.newForegroundStyle(style=root.name + 'PreeditChangedHintForegroundStyle'),
+            [root.name + 'PreeditChangedHintForegroundStyle']: newAlphabeticButtonHintStyle(root.isDark, preeditChangedParams),
+          }
+        else {}
+      ),
     },
 
   AddKeyboardActionEvent(newForegroundStyle):
