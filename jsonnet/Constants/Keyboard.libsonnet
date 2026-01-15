@@ -195,6 +195,22 @@ local settings = import '../Settings.libsonnet';
         text: '部署',
       },
     },
+    toolbarRimeSegmentButton: {
+      name: 'toolbarRimeSegmentButton',
+      params: {
+        action: settings.segmentAction,
+        systemImageName: 'square.and.line.vertical.and.square',
+        text: '分词',
+      },
+    },
+    toolbarRimeQuickButton: {
+      name: 'toolbarRimeQuickButton',
+      params: {
+        action: settings.quickAction,
+        systemImageName: 'figure.roll.runningpace',
+        text: '快符',
+      },
+    },
     toolbarRimeSyncButton: {
       name: 'toolbarRimeSyncButton',
       params: {
@@ -249,6 +265,70 @@ local settings = import '../Settings.libsonnet';
         action: { keyboardType: 'emojis', },
         systemImageName: 'face.smiling.inverse',
         text: '表情',
+      },
+    },
+    toolbarSelectAllTextButton: {
+      name: 'toolbarSelectAllTextButton',
+      params: {
+        action: { shortcut: '#selectText' },
+        systemImageName: 'selection.pin.in.out',
+        text: '全选',
+      },
+    },
+    toolbarCopyTextButton: {
+      name: 'toolbarCopyTextButton',
+      params: {
+        action: { shortcut: '#copy' },
+        systemImageName: 'doc.on.doc',
+        text: '复制',
+      },
+    },
+    toolbarCutTextButton: {
+      name: 'toolbarCutTextButton',
+      params: {
+        action: { shortcut: '#cut' },
+        systemImageName: 'scissors',
+        text: '剪切',
+      },
+    },
+    toolbarPasteTextButton: {
+      name: 'toolbarPasteTextButton',
+      params: {
+        action: { shortcut: '#paste' },
+        systemImageName: 'doc.on.clipboard',
+        text: '粘贴',
+      },
+    },
+    toolbarUndoButton: {
+      name: 'toolbarUndoButton',
+      params: {
+        action: { shortcut: '#undo' },
+        systemImageName: 'arrow.uturn.left',
+        text: '撤销',
+      },
+    },
+    toolbarRedoButton: {
+      name: 'toolbarRedoButton',
+      params: {
+        action: { shortcut: '#redo' },
+        systemImageName: 'arrow.uturn.right',
+        text: '重做',
+      },
+    },
+    toolbarMoveCursorLeftButton: {
+      name: 'toolbarMoveCursorLeftButton',
+      params: {
+        action: 'moveCursorBackward',
+        systemImageName: 'arrowshape.left',
+        text: '左移',
+      },
+    },
+    toolbarMoveCursorRightButton: {
+      name: 'toolbarMoveCursorRightButton',
+      params: {
+        action: 'moveCursorForward',
+        systemImageName: 'arrowshape.right',
+        text: '右移',
       },
     },
   },

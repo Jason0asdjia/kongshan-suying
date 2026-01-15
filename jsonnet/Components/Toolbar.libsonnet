@@ -40,7 +40,6 @@ local horizontalCandidateBackgroundStyleName = basicStyle.keyboardBackgroundStyl
 local verticalCandidateBackgroundStyleName = basicStyle.keyboardBackgroundStyleName;
 
 // MARK: - 横排候选字
-
 local horizontalCandidatesCollectionViewName = 'horizontalCandidates';
 local expandButtonName = 'expandButton';
 local horizontalCandidatesLayout = [
@@ -79,7 +78,6 @@ local newExpandButton(isDark) = {
 
 
 // MARK: - 纵排候选字
-
 local verticalCandidateCollectionViewName = 'verticalCandidates';
 local verticalLastRowStyleName = 'verticalLastRowStyle';
 local verticalCandidatePageUpButtonStyleName = 'verticalPageUpButtonStyle';
@@ -117,7 +115,6 @@ local verticalCandidatesLayout = [
     },
   },
 ];
-
 
 local newVerticalCandidateCollectionStyle(isDark) = {
   [verticalCandidateCollectionViewName]:
@@ -198,38 +195,43 @@ local newVerticalCandidateBackspaceButtonStyle(isDark) = {
     ),
 };
 
-local slideButtons =
-  local buttons = keyboardParams.toolbarButton;
-  local names=
-  [
-    // NOTE: 工具栏按钮列表，顺序与 settings.toolbarButtons 中的描述对应
-    buttons.toolbarPerformanceButton.name, // 查看性能
-    buttons.toolbarRimeSwitcherButton.name, // RimeSwitcher
-    buttons.toolbarScriptButton.name, // 脚本
-    buttons.toolbarPhraseButton.name, // 常用语
-    buttons.toolbarClipboardButton.name, // 剪贴板
-    buttons.toolbarCheckUpdateButton.name, // 应用商店中检查元书更新
-    buttons.toolbarFeedbackButton.name, // 声音和震动
-    buttons.toolbarFinderButton.name, // 打开元书文件管理器
-    buttons.toolbarSkinButton.name, // 皮肤
-    buttons.toolbarUploadButton.name, // WIFI 文件传输
-    buttons.toolbarRimeDeployButton.name, // Rime部署
-    buttons.toolbarToggleEmbeddedButton.name, // 内嵌开关
-    buttons.toolbarLeftHandButton.name, // 左手模式
-    buttons.toolbarRightHandButton.name, // 右手模式
-    buttons.toolbarSchemaSelectorButton.name, // 方案切换
-    buttons.toolbarKeyboardNumericButton.name, // 数字键盘
-    buttons.toolbarKeyboardSymbolicButton.name, // 符号键盘
-    buttons.toolbarKeyboardEmojiButton.name, // 表情键盘
-    buttons.toolbarRimeSyncButton.name, // Rime同步
-    buttons.toolbarSkinPreference.name, // 皮肤微调
-    buttons.toolbarKeyboardDefinition.name, // 键盘按键定义
-  ];
+// NOTE: 工具栏按钮列表，顺序与 settings.toolbarButtons 中的描述对应
+local toolbarButtonNames = local buttons = keyboardParams.toolbarButton;
 [
-  buttons[names[buttonCode - 1]]
-  for buttonCode in settings.toolbarButtons
+  buttons.toolbarScriptButton.name, // 脚本
+  buttons.toolbarPhraseButton.name, // 常用语
+  buttons.toolbarClipboardButton.name, // 剪贴板
+  buttons.toolbarSkinButton.name, // 皮肤
+  buttons.toolbarFinderButton.name, // 打开元书文件管理器
+  buttons.toolbarSchemaSelectorButton.name, // 方案切换
+  buttons.toolbarKeyboardNumericButton.name, // 数字键盘
+  buttons.toolbarKeyboardSymbolicButton.name, // 符号键盘
+  buttons.toolbarKeyboardEmojiButton.name, // 表情键盘
+  buttons.toolbarPerformanceButton.name, // 查看性能
+  buttons.toolbarLeftHandButton.name, // 左手模式
+  buttons.toolbarRightHandButton.name, // 右手模式
+  buttons.toolbarRimeSyncButton.name, // Rime同步
+  buttons.toolbarRimeDeployButton.name, // Rime部署
+  buttons.toolbarRimeSegmentButton.name, // 分词
+  buttons.toolbarRimeQuickButton.name, // 快符
+  buttons.toolbarRimeSwitcherButton.name, // RimeSwitcher
+  buttons.toolbarSkinPreference.name, // 皮肤微调
+  buttons.toolbarKeyboardDefinition.name, // 键盘按键定义
+  buttons.toolbarSelectAllTextButton.name, // 全选文本
+  buttons.toolbarCopyTextButton.name, // 复制文本
+  buttons.toolbarCutTextButton.name, // 剪切文本
+  buttons.toolbarPasteTextButton.name, // 粘贴文本
+  buttons.toolbarUndoButton.name, // 撤销
+  buttons.toolbarRedoButton.name, // 重做
+  buttons.toolbarMoveCursorLeftButton.name, // 光标左移
+  buttons.toolbarMoveCursorRightButton.name, // 光标右移
 ];
 
+local slideButtons =
+[
+  keyboardParams.toolbarButton[toolbarButtonNames[buttonCode - 1]]
+  for buttonCode in settings.toolbarSlideButtons
+];
 
 local toolbarKeyboardLayout = [
   {
@@ -255,10 +257,9 @@ local newButtons(isDark=false) =
     keyboardParams.toolbarButton.toolbarDismissButton.params,
   );
 
-
 local newToolbar(isDark=false, isPortrait=false, params={}) =
   local slideButtonsMaxCount =
-    if isPortrait then settings.toolbarButtonsMaxCount.portrait else settings.toolbarButtonsMaxCount.landscape;
+    if isPortrait then settings.toolbarSlideButtonsMaxCount.portrait else settings.toolbarSlideButtonsMaxCount.landscape;
   {
     toolbarHeight: keyboardParams.toolbar.height,
     toolbarStyle: {
