@@ -682,7 +682,10 @@ local settings = import '../Settings.libsonnet';
         swipeDown: { action: { shortcut: '#行尾' } },
 
         longPress: [
-          { action: { shortcut: '#换行' }, text: '换行' },
+          {
+            action: { shortcut: '#换行' },
+            systemImageName: 'paragraphsign',
+          },
         ],
 
         whenPreeditChanged: {
