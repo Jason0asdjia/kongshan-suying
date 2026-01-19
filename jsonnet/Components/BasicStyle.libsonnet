@@ -642,14 +642,14 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
         [root.name]+: {
           foregroundStyle: [
             {
-              styleName: asciiModeOnForeground,
-              conditionKey: 'rime$ascii_mode',
-              conditionValue: true,
-            },
-            {
               styleName: asciiModeOffForeground,
               conditionKey: 'rime$ascii_mode',
               conditionValue: false,
+            },
+            {
+              styleName: asciiModeOnForeground,
+              conditionKey: 'rime$ascii_mode',
+              conditionValue: true,
             },
           ],
 
