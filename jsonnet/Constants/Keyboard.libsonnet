@@ -774,6 +774,8 @@ local settings = import '../Settings.libsonnet';
 
         whenPreeditChanged: {
           text: '确认',
+          backgroundStyle: 'systemButtonBackgroundStyle',
+          normalColor: colors.systemButtonForegroundColor,
         },
       },
     },
