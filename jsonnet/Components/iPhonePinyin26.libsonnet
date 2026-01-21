@@ -63,7 +63,7 @@ local rows = [
     commonButtons.numericButton,
     commonButtons.commaButton,
     commonButtons.spaceButton,
-    commonButtons.pinyinButton,
+    commonButtons.alphabeticButton,
     commonButtons.enterButton,
   ],
 ];
@@ -91,35 +91,6 @@ local getAlphabeticButtonSize(name) =
   );
 
 
-// 递归地将所有键名 character 替换为 symbol
-local repalceCharacterToSymbolRecursive(params) =
-  if std.isObject(params) then
-    std.foldl(
-      function(acc, key)
-        acc + (
-            if key == 'character' then
-              { symbol: params[key] }
-            else
-              { [key]: repalceCharacterToSymbolRecursive(params[key]), }
-       ),
-      std.objectFields(params),
-      {},
-    )
-  else if std.isArray(params) then
-    std.map(repalceCharacterToSymbolRecursive, params)
-  else
-    params;
-
-// 英文键盘下，对按键的 params 进行处理
-// 1. 将 character 替换为 symbol
-//    处理方式为 params = repalceCharacterToSymbolRecursive(params)
-// 2. 将 params 中的 whenAlphabetic 合并到 params
-//    处理方式为 params = std.objectRemoveKey(params + std.get(params, 'whenAlphabetic', default={}), 'whenAlphabetic') 的内容
-local processAlphabeticButtonParams(params) =
-  local paramsWithSymbol = repalceCharacterToSymbolRecursive(params);
-  utils.deepMerge(paramsWithSymbol, std.get(paramsWithSymbol, 'whenAlphabetic', default={}));
-
-
 local newKeyLayout(isDark=false, isPortrait=true) =
   local keyboardHeight = if isPortrait then buttons.height.iPhone.portrait else buttons.height.iPhone.landscape;
   {
@@ -134,7 +105,16 @@ local newKeyLayout(isDark=false, isPortrait=true) =
       basicStyle.newAlphabeticButton(
         button.name,
         isDark,
-        getAlphabeticButtonSize(button.name) + processAlphabeticButtonParams(button.params) + hintStyle + alphabeticTextCenterWhenShowSwipeText,
+        getAlphabeticButtonSize(button.name) + button.params + hintStyle + alphabeticTextCenterWhenShowSwipeText +
+        (
+          if settings.uppercaseForChinese then
+            basicStyle.newAlphabeticButtonUppercaseForegroundStyle(isDark, button.params) + basicStyle.getKeyboardActionText(button.params.uppercased)
+            + {
+              [if settings.uppercaseForChinese then 'whenAsciiModeOn']: basicStyle.newAlphabeticButtonForegroundStyle(isDark, button.params) + basicStyle.getKeyboardActionText(button.params),
+            }
+          else {}
+        )
+        ,
         swipeTextFollowSetting=true),
       buttons.letterButtons,
       {})
@@ -152,7 +132,7 @@ local newKeyLayout(isDark=false, isPortrait=true) =
           { width: '151/168.75', alignment: 'left' },
       }
     )
-    + processAlphabeticButtonParams(commonButtons.shiftButton.params)
+    + commonButtons.shiftButton.params
   )
 
   + basicStyle.newSystemButton(
@@ -171,7 +151,7 @@ local newKeyLayout(isDark=false, isPortrait=true) =
           { width: '151/168.75', alignment: 'right' },
       }
     )
-    + processAlphabeticButtonParams(commonButtons.backspaceButton.params),
+    + commonButtons.backspaceButton.params,
   )
 
   // Fourth Row
@@ -179,35 +159,36 @@ local newKeyLayout(isDark=false, isPortrait=true) =
     commonButtons.numericButton.name,
     isDark,
     { size: { width: '225/1125' } }
-    + processAlphabeticButtonParams(commonButtons.numericButton.params)
+    + commonButtons.numericButton.params
   )
+
   + basicStyle.newAlphabeticButton(
     commonButtons.commaButton.name,
     isDark,
-    portraitNormalButtonSize + processAlphabeticButtonParams(commonButtons.commaButton.params) + hintStyle
+    portraitNormalButtonSize + commonButtons.commaButton.params + hintStyle
   )
   + basicStyle.newAlphabeticButton(
     commonButtons.spaceButton.name,
     isDark,
     {
       foregroundStyleName: basicStyle.spaceButtonForegroundStyle,
-      foregroundStyle: basicStyle.newSpaceButtonRimeSchemaForegroundStyle('English', isDark),
+      foregroundStyle: basicStyle.newSpaceButtonRimeSchemaForegroundStyle('$rimeSchemaName', isDark),
     }
-    + processAlphabeticButtonParams(commonButtons.spaceButton.params),
+    + commonButtons.spaceButton.params,
     needHint=false,
   )
   + basicStyle.newSystemButton(
-    commonButtons.pinyinButton.name,
+    commonButtons.alphabeticButton.name,
     isDark,
     portraitNormalButtonSize
-    + processAlphabeticButtonParams(commonButtons.pinyinButton.params)
+    + commonButtons.alphabeticButton.params
   )
   + basicStyle.newColorButton(
     commonButtons.enterButton.name,
     isDark,
     {
       size: { width: '250/1125' },
-    } + processAlphabeticButtonParams(commonButtons.enterButton.params)
+    } + commonButtons.enterButton.params
   )
 ;
 
