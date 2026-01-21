@@ -1,7 +1,5 @@
 local iPhoneNumeric = import 'Components/iPhoneNumeric.libsonnet';
 local iPhonePinyin = import 'Components/iPhonePinyin.libsonnet';
-local iPadPinyin = import 'Components/iPadPinyin.libsonnet';
-local iPadNumeric = import 'Components/iPadNumeric.libsonnet';
 local floatingKeyboard = import 'Components/FloatingKeyboard.libsonnet';
 
 local pinyinPortraitFileName = 'pinyinPortrait';
@@ -16,25 +14,9 @@ local numericPortraitFileName = 'numericPortrait';
 local lightNumericPortraitFileContent = iPhoneNumeric.new(isDark=false, isPortrait=true);
 local darkNumericPortraitFileContent = iPhoneNumeric.new(isDark=true, isPortrait=true);
 
-local numericLandscapeName = 'numericLandscape';
+local numericLandscapeFileName = 'numericLandscape';
 local lightNumericLandscapeFileContent = iPhoneNumeric.new(isDark=false, isPortrait=false);
 local darkNumericLandscapeFileContent = iPhoneNumeric.new(isDark=true, isPortrait=false);
-
-local iPadPinyinPortraitName = 'iPadPinyinPortrait';
-local lightIpadPinyinPortraitContent = iPadPinyin.new(isDark=false, isPortrait=true);
-local darkIpadPinyinPortraitContent = iPadPinyin.new(isDark=true, isPortrait=true);
-
-local iPadPinyinLandscapeName = 'iPadPinyinLandscape';
-local lightIpadPinyinLandscapeContent = iPadPinyin.new(isDark=false, isPortrait=false);
-local darkIpadPinyinLandscapeContent = iPadPinyin.new(isDark=true, isPortrait=false);
-
-local iPadNumericPortraitName = 'iPadNumericPortrait';
-local lightIpadNumericPortraitContent = iPadNumeric.new(isDark=false, isPortrait=true);
-local darkIpadNumericPortraitContent = iPadNumeric.new(isDark=true, isPortrait=true);
-
-local iPadNumericLandscapeName = 'iPadNumericLandscape';
-local lightIpadNumericLandscapeContent = iPadNumeric.new(isDark=false, isPortrait=false);
-local darkIpadNumericLandscapeContent = iPadNumeric.new(isDark=true, isPortrait=false);
 
 local FloatingKeyboardPortraitName(name) = name + 'Portrait';
 local lightFloatingKeyboardPortraitContent = floatingKeyboard.new(isDark=false, isPortrait=true);
@@ -51,19 +33,19 @@ local config = {
       landscape: pinyinLandscapeFileName,
     },
     iPad: {
-      portrait: iPadPinyinPortraitName,
-      landscape: iPadPinyinLandscapeName,
+      portrait: pinyinPortraitFileName,
+      landscape: pinyinLandscapeFileName,
       floating: pinyinPortraitFileName,
     },
   },
   numeric: {
     iPhone: {
       portrait: numericPortraitFileName,
-      landscape: numericLandscapeName,
+      landscape: numericLandscapeFileName,
     },
     iPad: {
-      portrait: iPadNumericPortraitName,
-      landscape: iPadNumericLandscapeName,
+      portrait: numericPortraitFileName,
+      landscape: numericLandscapeFileName,
       floating: numericPortraitFileName,
     },
   },
@@ -105,31 +87,11 @@ function(debug=false)
   ['dark/' + pinyinLandscapeFileName + '.yaml']: toString(darkPinyinLandscapeFileContent),
 
   // 数字键盘
-  // ['light/' + numericPortraitFileName + '.yaml']: std.manifestYamlDoc(lightNumericPortraitFileContent, indent_array_in_object=false, quote_keys=false),
   ['light/' + numericPortraitFileName + '.yaml']: toString(lightNumericPortraitFileContent),
   ['dark/' + numericPortraitFileName + '.yaml']: toString(darkNumericPortraitFileContent),
-  ['light/' + numericLandscapeName + '.yaml']: toString(lightNumericLandscapeFileContent),
-  ['dark/' + numericLandscapeName + '.yaml']: toString(darkNumericLandscapeFileContent),
-
-  // iPad 拼音键盘
-  ['light/' + iPadPinyinPortraitName + '.yaml']: toString(lightIpadPinyinPortraitContent),
-  ['dark/' + iPadPinyinPortraitName + '.yaml']: toString(darkIpadPinyinPortraitContent),
-  ['light/' + iPadPinyinLandscapeName + '.yaml']: toString(lightIpadPinyinLandscapeContent),
-  ['dark/' + iPadPinyinLandscapeName + '.yaml']: toString(darkIpadPinyinLandscapeContent),
-
-  // iPad 数字键盘
-  ['light/' + iPadNumericPortraitName + '.yaml']: toString(lightIpadNumericPortraitContent),
-  ['dark/' + iPadNumericPortraitName + '.yaml']: toString(darkIpadNumericPortraitContent),
-  ['light/' + iPadNumericLandscapeName + '.yaml']: toString(lightIpadNumericLandscapeContent),
-  ['dark/' + iPadNumericLandscapeName + '.yaml']: toString(darkIpadNumericLandscapeContent),
-
-  // 浮动键盘
-  // ['light/' + panelPortraitName + '.yaml']: toString(lightPanelPortraitContent),
-  // ['dark/' + panelPortraitName + '.yaml']: toString(darkPanelPortraitContent),
-  // ['light/' + panelLandscapeName + '.yaml']: toString(lightPanelLandscapeContent),
-  // ['dark/' + panelLandscapeName + '.yaml']: toString(darkPanelLandscapeContent),
-}
-+ {
+  ['light/' + numericLandscapeFileName + '.yaml']: toString(lightNumericLandscapeFileContent),
+  ['dark/' + numericLandscapeFileName + '.yaml']: toString(darkNumericLandscapeFileContent),
+} + {
   // 浮动键盘 light Portrait
   ['light/' + name + 'Portrait.yaml']: toString(lightFloatingKeyboardPortraitContent[name])
   for name in std.objectFields(lightFloatingKeyboardPortraitContent)
