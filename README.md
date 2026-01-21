@@ -40,10 +40,6 @@ enter 上划行首，下划行尾，长按换行
 
 - 键盘按键功能设置`jsonnet/Buttons/`
   + 浮动键盘中的“按键”可以直接打开该文件夹，方便选择文件。
-  + `Layout26.libsonnet`：定义了 26 键中文和英文键盘的各按键功能。
-  + `LayoutNumeric9.libsonnet`：定义了9键形式数字键盘的各按键功能。
-  + `Toolbar.libsonnet`：定义了工具栏和浮动面板中各按键功能。
-  + `Common.libsonnet`：定义了一些通用按键功能。
   + 按键的具体配置语法可以参考 `doc/按键语法说明.md`。
   + 修改后保存，重新编译皮肤即可生效。
 
