@@ -248,11 +248,11 @@ local newSystemButtonForegroundStyle(isDark=false, params={}) =
 
 
 local spaceButtonRimeSchemaForegroundStyleName = 'spaceButtonRimeSchemaForegroundStyle';
-local newSpaceButtonRimeSchemaForegroundStyle(isDark=false) =
+local newSpaceButtonRimeSchemaForegroundStyle(schemaNameText, isDark=false) =
   if settings.spaceButtonShowSchema then
   {
     [spaceButtonRimeSchemaForegroundStyleName]: utils.newTextStyle({
-      text: '$rimeSchemaName',
+      text: schemaNameText,
       fontSize: fonts.alternativeTextFontSize,
       center: settings.spaceButtonSchemaNameCenter,
       normalColor: colors.alternativeForegroundColor,

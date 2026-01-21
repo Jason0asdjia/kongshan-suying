@@ -172,7 +172,7 @@ local newKeyLayout(isDark=false, isPortrait=true) =
     isDark,
     {
       foregroundStyleName: basicStyle.spaceButtonForegroundStyle,
-      foregroundStyle: basicStyle.newSpaceButtonRimeSchemaForegroundStyle(isDark),
+      foregroundStyle: basicStyle.newSpaceButtonRimeSchemaForegroundStyle('$rimeSchemaName', isDark),
     }
     + commonButtons.spaceButton.params,
     needHint=false,
