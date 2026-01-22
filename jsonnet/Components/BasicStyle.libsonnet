@@ -711,7 +711,7 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
           foregroundStyle: root.name + 'PreeditChangedForegroundStyle',
         }
         + utils.extractProperties(preeditChangedParams, ['action']),
-        [root.name + 'PreeditChangedForegroundStyle']: newForegroundStyle(root.isDark, preeditChangedParams),
+        [root.name + 'PreeditChangedForegroundStyle']: newForegroundStyle(root.isDark, utils.extractProperty(root.params, 'fontSize') + preeditChangedParams),
       } + (
         if needUpdateHintStyle then
           {
