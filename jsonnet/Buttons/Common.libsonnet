@@ -130,10 +130,10 @@ local settings = import '../Settings.libsonnet';
       swipeUp: { action: { keyboardType: 'symbolic' } },
       swipeDown: { action: { keyboardType: 'emojis' } },
 
-      whenPreeditChanged: {
-        action: settings.segmentAction,
-        text: '分词',
-      },
+      // whenPreeditChanged: {
+      //   action: settings.segmentAction,
+      //   text: '分词',
+      // },
     },
   },
 
