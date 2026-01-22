@@ -612,85 +612,6 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
     globalNames+: [buttonAnimationName],
   },
 
-  AddAsciiModeChangeEvent():
-    local hasAsciiModeOnParams = std.objectHas(root.params, 'whenAsciiModeOn');
-    local hasAsciiModeOffParams = std.objectHas(root.params, 'whenAsciiModeOff');
-    local isAsciiModeAware = hasAsciiModeOnParams || hasAsciiModeOffParams;
-    if !isAsciiModeAware then
-      root
-    else
-      assert hasAsciiModeOffParams == !hasAsciiModeOnParams : 'whenAsciiModeOn 和 whenAsciiModeOff 只能设置其一' + root.params;
-      local asciiModeOnParams = if hasAsciiModeOnParams then root.params.whenAsciiModeOn else {};
-      local asciiModeOffParams = if hasAsciiModeOffParams then root.params.whenAsciiModeOff else {};
-      assert !std.objectHas(asciiModeOffParams, 'action') : 'whenAsciiModeOff 不支持设置 action 属性，请将 action 设置在按钮的原始 action 上，然后实现 whenAsciiModeOn';
-      local oldForegroundStyle = root[root.name].foregroundStyle;
-      local asciiModeOnForeground = replaceGivenPairs(
-        oldForegroundStyle,
-        {
-          [if asciiModeOnParams != {} then root.name + 'ForegroundStyle']: utils.asciiModeForegroundStyleName(root.name, true),
-          [if std.objectHas(asciiModeOnParams, 'swipeUp') then generateSwipeForegroundStyleName(root.name, 'Up')]: generateSwipeForegroundStyleName(root.name, 'Up', 'AsciiModeOn'),
-          [if std.objectHas(asciiModeOnParams, 'swipeDown') then generateSwipeForegroundStyleName(root.name, 'Down')]: generateSwipeForegroundStyleName(root.name, 'Down', 'AsciiModeOn'),
-        }
-      );
-      local asciiModeOffForeground = replaceGivenPairs(
-        oldForegroundStyle,
-        {
-          [if asciiModeOffParams != {} then root.name + 'ForegroundStyle']: utils.asciiModeForegroundStyleName(root.name, false),
-          [if std.objectHas(asciiModeOffParams, 'swipeUp') then generateSwipeForegroundStyleName(root.name, 'Up')]: generateSwipeForegroundStyleName(root.name, 'Up', 'AsciiModeOff'),
-          [if std.objectHas(asciiModeOffParams, 'swipeDown') then generateSwipeForegroundStyleName(root.name, 'Down')]: generateSwipeForegroundStyleName(root.name, 'Down', 'AsciiModeOff'),
-        }
-      );
-      local needUpdateHintStyle = std.objectHas(root[root.name], 'hintStyle');
-      root {
-        [root.name]+: {
-          foregroundStyle: [
-            {
-              styleName: asciiModeOffForeground,
-              conditionKey: 'rime$ascii_mode',
-              conditionValue: false,
-            },
-            {
-              styleName: asciiModeOnForeground,
-              conditionKey: 'rime$ascii_mode',
-              conditionValue: true,
-            },
-          ],
-
-          notification: [
-            utils.asciiModeChangedNotificationName(root.name, hasAsciiModeOnParams)
-          ],
-        },
-        reference+:
-          local generateNotification(asciiModeParams, valueIsOn) =
-            local asciiModeValue = if valueIsOn then 'On' else 'Off';
-            utils.newAsciiModeChangedNotification(root.name, valueIsOn, {
-              backgroundStyleName: root[root.name].backgroundStyle,
-              foregroundStyleName: if valueIsOn then asciiModeOnForeground else asciiModeOffForeground,
-              [if std.objectHas(asciiModeParams, 'action') then 'action']: asciiModeParams.action,
-              [if std.objectHas(asciiModeParams, 'swipeUp') && std.objectHas(asciiModeParams.swipeUp, 'action') then 'swipeUpAction']: asciiModeParams.swipeUp.action,
-              [if std.objectHas(asciiModeParams, 'swipeDown') && std.objectHas(asciiModeParams.swipeDown, 'action') then 'swipeDownAction']: asciiModeParams.swipeDown.action,
-              [if needUpdateHintStyle then 'hintStyle']: root.name + 'AsciiMode' + asciiModeValue + 'HintStyle',
-            } + utils.extractProperties(root.params, ['bounds'])
-            + utils.extractProperties(root[root.name], ['capsLockedStateForegroundStyle', 'uppercasedStateForegroundStyle']))
-            + {
-              [utils.asciiModeForegroundStyleName(root.name, valueIsOn)]: newAlphabeticButtonForegroundStyle(root.isDark, root.params + asciiModeParams),
-            }
-            + {
-              [if std.objectHas(asciiModeParams, 'swipeUp') then generateSwipeForegroundStyleName(root.name, 'Up', 'AsciiMode' + asciiModeValue)]: newAlphabeticButtonAlternativeForegroundStyle(root.isDark, { center: swipeTextCenter.up } + asciiModeParams.swipeUp),
-              [if std.objectHas(asciiModeParams, 'swipeDown') then generateSwipeForegroundStyleName(root.name, 'Down', 'AsciiMode' + asciiModeValue)]: newAlphabeticButtonAlternativeForegroundStyle(root.isDark, { center: swipeTextCenter.down } + asciiModeParams.swipeDown),
-            } + (
-              if needUpdateHintStyle then
-                root.CreateHintStyleReference(root.name + 'AsciiMode' + asciiModeValue + 'HintStyle', root.params + asciiModeParams)
-              else {}
-            );
-          (
-            if hasAsciiModeOffParams then
-              generateNotification(asciiModeOffParams, false)
-            else
-              generateNotification(asciiModeOnParams, true)
-          )
-      },
-
   AddPreeditChangeEvent(newForegroundStyle):
     local isPreeditModeAware = std.objectHas(root.params, 'whenPreeditChanged');
     if !isPreeditModeAware then
@@ -786,7 +707,68 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
       },
     },
 
-  AddRimeOptionChangeEvent(): root {},
+  AddRimeOptionChangeEvent():
+    local hasRimeOptionParams = std.objectHas(root.params, 'whenRimeOptionChanged');
+    if !hasRimeOptionParams then
+      root
+    else
+      local rimeOptionParams = root.params.whenRimeOptionChanged;
+      assert std.objectHas(rimeOptionParams, 'optionName') : '必须提供 optionName 参数';
+      assert std.objectHas(rimeOptionParams, 'optionValue') : '必须提供 optionValue 参数';
+      local rimeOptionName = rimeOptionParams.optionName;
+      local rimeOptionValue = rimeOptionParams.optionValue;
+      local rimeOptionStr = rimeOptionName + (if rimeOptionValue then 'On' else 'Off');
+      assert std.type(rimeOptionValue) == 'boolean' : 'optionValue 参数必须是布尔值，当前类型为 ' + std.type(rimeOptionValue);
+      local oldForegroundStyle = root[root.name].foregroundStyle;
+      local rimeOptionChangedForeground = replaceGivenPairs(
+        oldForegroundStyle,
+        {
+          [root.name + 'ForegroundStyle']: utils.rimeOptionChangedForegroundStyleName(root.name, rimeOptionName, rimeOptionValue),
+          [if std.objectHas(rimeOptionParams, 'swipeUp') then generateSwipeForegroundStyleName(root.name, 'Up')]: generateSwipeForegroundStyleName(root.name, 'Up', rimeOptionStr),
+          [if std.objectHas(rimeOptionParams, 'swipeDown') then generateSwipeForegroundStyleName(root.name, 'Down')]: generateSwipeForegroundStyleName(root.name, 'Down', rimeOptionStr),
+        }
+      );
+      local needUpdateHintStyle = std.objectHas(root[root.name], 'hintStyle');
+      root {
+        [root.name]+: {
+          foregroundStyle: [
+            {
+              styleName: oldForegroundStyle,
+              conditionKey: 'rime$' + rimeOptionName,
+              conditionValue: !rimeOptionValue,
+            },
+            {
+              styleName: rimeOptionChangedForeground,
+              conditionKey: 'rime$' + rimeOptionName,
+              conditionValue: rimeOptionValue,
+            },
+          ],
+
+          notification: [
+            utils.rimeOptionChangedNotificationName(root.name, rimeOptionName, rimeOptionValue),
+          ],
+        },
+        reference+: utils.newRimeOptionChangedNotification(root.name, rimeOptionName, rimeOptionValue, {
+          backgroundStyleName: root[root.name].backgroundStyle,
+          foregroundStyleName: rimeOptionChangedForeground,
+          [if std.objectHas(rimeOptionParams, 'action') then 'action']: rimeOptionParams.action,
+          [if std.objectHas(rimeOptionParams, 'swipeUp') && std.objectHas(rimeOptionParams.swipeUp, 'action') then 'swipeUpAction']: rimeOptionParams.swipeUp.action,
+          [if std.objectHas(rimeOptionParams, 'swipeDown') && std.objectHas(rimeOptionParams.swipeDown, 'action') then 'swipeDownAction']: rimeOptionParams.swipeDown.action,
+          [if needUpdateHintStyle then 'hintStyle']: root.name + rimeOptionStr + 'HintStyle',
+        } + utils.extractProperties(root.params, ['bounds'])
+        + utils.extractProperties(root[root.name], ['capsLockedStateForegroundStyle', 'uppercasedStateForegroundStyle']))
+        + {
+          [utils.rimeOptionChangedForegroundStyleName(root.name, rimeOptionName, rimeOptionValue)]: newAlphabeticButtonForegroundStyle(root.isDark, root.params + rimeOptionParams),
+        }
+        + {
+          [if std.objectHas(rimeOptionParams, 'swipeUp') then generateSwipeForegroundStyleName(root.name, 'Up', rimeOptionStr)]: newAlphabeticButtonAlternativeForegroundStyle(root.isDark, { center: swipeTextCenter.up } + rimeOptionParams.swipeUp),
+          [if std.objectHas(rimeOptionParams, 'swipeDown') then generateSwipeForegroundStyleName(root.name, 'Down', rimeOptionStr)]: newAlphabeticButtonAlternativeForegroundStyle(root.isDark, { center: swipeTextCenter.down } + rimeOptionParams.swipeDown),
+        } + (
+          if needUpdateHintStyle then
+            root.CreateHintStyleReference(root.name + rimeOptionStr + 'HintStyle', root.params + rimeOptionParams)
+          else {}
+        ),
+      },
 
   GetButton(): {
     [root.name]: root[root.name],
@@ -797,7 +779,7 @@ local newToolbarButton(name, isDark=false, params={}) =
   local button = newButton(name, 'system', isDark, params)
     .AddForegroundStyle(newToolbarButtonForegroundStyle)
     .AddPropertiesInParams()
-    .AddAsciiModeChangeEvent();
+    .AddRimeOptionChangeEvent();
   button.GetButton() + button.reference;
 
 local newAlphabeticButton(name, isDark=false, params={}, needHint=true, swipeTextFollowSetting=false) =
@@ -812,9 +794,9 @@ local newAlphabeticButton(name, isDark=false, params={}, needHint=true, swipeTex
     .AddCapsLockedState(newAlphabeticButtonForegroundStyle)
     .AddAnimation()
     .AddLongPress()
-    .AddAsciiModeChangeEvent()
     .AddPreeditChangeEvent(newAlphabeticButtonForegroundStyle)
-    .AddKeyboardActionEvent(newAlphabeticButtonForegroundStyle);
+    .AddKeyboardActionEvent(newAlphabeticButtonForegroundStyle)
+    .AddRimeOptionChangeEvent();
   button.GetButton() + button.reference;
 
 local newSystemButton(name, isDark=false, params={}) =
@@ -827,9 +809,9 @@ local newSystemButton(name, isDark=false, params={}) =
     .AddUppercasedState(newSystemButtonForegroundStyle)
     .AddCapsLockedState(newSystemButtonForegroundStyle)
     .AddLongPress()
-    .AddAsciiModeChangeEvent()
     .AddPreeditChangeEvent(newSystemButtonForegroundStyle)
-    .AddKeyboardActionEvent(newSystemButtonForegroundStyle);
+    .AddKeyboardActionEvent(newSystemButtonForegroundStyle)
+    .AddRimeOptionChangeEvent();
   button.GetButton() + button.reference;
 
 local newColorButton(name, isDark=false, params={}) =
@@ -842,9 +824,9 @@ local newColorButton(name, isDark=false, params={}) =
     .AddUppercasedState(newColorButtonForegroundStyle)
     .AddCapsLockedState(newColorButtonForegroundStyle)
     .AddLongPress()
-    .AddAsciiModeChangeEvent()
     .AddPreeditChangeEvent(newColorButtonForegroundStyle)
-    .AddKeyboardActionEvent(newColorButtonForegroundStyle);
+    .AddKeyboardActionEvent(newColorButtonForegroundStyle)
+    .AddRimeOptionChangeEvent();
   button.GetButton() + button.reference;
 
 local newSymbolicCollection(name, isDark=false, params={}) =

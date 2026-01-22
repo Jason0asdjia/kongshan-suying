@@ -169,7 +169,11 @@ local settings = import '../Settings.libsonnet';
       assetImageName: 'chineseState2',
       swipeUp: { action: { shortcut: '#方案切换' } },
 
-      whenAsciiModeOn: { assetImageName: 'englishState2' },
+      whenRimeOptionChanged: {
+        optionName: 'ascii_mode',
+        optionValue: true,
+        assetImageName: 'englishState2'
+      },
     },
   },
 

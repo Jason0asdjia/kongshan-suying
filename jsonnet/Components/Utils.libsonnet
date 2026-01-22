@@ -222,22 +222,18 @@ local newRowKeyboardLayout(rows) = {
   ],
 };
 
-// ascii mode 变化时生成 notification 及 foreground style
-local asciiModeForegroundStyleName(name, value) =
-  name + 'AsciiMode' + (if value then 'On' else 'Off') + 'ForegroundStyle';
-local newAsciiModeForegroundStyle(name, foregroundOff, foregroundOn) = {
-  [asciiModeForegroundStyleName(name, true)]: foregroundOn,
-  [asciiModeForegroundStyleName(name, false)]: foregroundOff,
-};
+// rime option 变化时生成 notification 及 foreground style
+local rimeOptionChangedForegroundStyleName(name, rimeOptionName, value) =
+  name + rimeOptionName + (if value then 'On' else 'Off') + 'ForegroundStyle';
 
-local asciiModeChangedNotificationName(name, value) =
-  name + 'AsciiMode' + (if value then 'On' else 'Off') + 'Notification';
+local rimeOptionChangedNotificationName(name, rimeOptionName, value) =
+  name + rimeOptionName + (if value then 'On' else 'Off') + 'Notification';
 
-local newAsciiModeChangedNotification(name, value, params={}) = {  // value is true or false
-  [asciiModeChangedNotificationName(name, value)]: {
+local newRimeOptionChangedNotification(name, rimeOptionName, value, params={}) = {  // value is true or false
+  [rimeOptionChangedNotificationName(name, rimeOptionName, value)]: {
     notificationType: 'rime',
     rimeNotificationType: 'optionChanged',
-    rimeOptionName: 'ascii_mode',
+    rimeOptionName: rimeOptionName,
     rimeOptionValue: value,
     backgroundStyle: params.backgroundStyleName,
     foregroundStyle: params.foregroundStyleName,
@@ -291,9 +287,8 @@ local repalceCharacterToSymbolRecursive(params) =
   newForegroundStyle: newForegroundStyle,
   newAnimation: newAnimation,
   newRowKeyboardLayout: newRowKeyboardLayout,
-  asciiModeForegroundStyleName: asciiModeForegroundStyleName,
-  newAsciiModeForegroundStyle: newAsciiModeForegroundStyle,
-  asciiModeChangedNotificationName: asciiModeChangedNotificationName,
-  newAsciiModeChangedNotification: newAsciiModeChangedNotification,
+  rimeOptionChangedForegroundStyleName: rimeOptionChangedForegroundStyleName,
+  rimeOptionChangedNotificationName: rimeOptionChangedNotificationName,
+  newRimeOptionChangedNotification: newRimeOptionChangedNotification,
   repalceCharacterToSymbolRecursive: repalceCharacterToSymbolRecursive,
 }
