@@ -45,8 +45,21 @@ local wideVStackStyle = {
   },
 };
 
+// 半宽 VStack 宽度样式，横屏时一半显示拼音输入，一半显示候选字
+local halfVStackStyle = {
+  local this = self,
+  name: 'halfVStackStyle',
+  style: {
+    [this.name]: {
+      size: {
+        width: { percentage: 0.48 },
+      },
+    },
+  },
+};
+
 // 9 键布局
-local alphabeticKeyboardLayout = {
+local t9KeyboardLayout = {
   keyboardLayout: [
     {
       VStack: {
@@ -90,7 +103,8 @@ local alphabeticKeyboardLayout = {
           {
             HStack: {
               subviews: [
-                { Cell: commonButtons.spaceButton.name, },
+                { Cell: pinyin9Buttons.cursorRightButton.name, },
+                { Cell: pinyin9Buttons.spaceButton.name, },
                 { Cell: commonButtons.alphabeticButton.name, },
               ],
             },
@@ -103,13 +117,60 @@ local alphabeticKeyboardLayout = {
         style: narrowVStackStyle.name,
         subviews: [
           { Cell: commonButtons.backspaceButton.name, },
-          { Cell: pinyin9Buttons.t9ZeroButton.name, },
+          { Cell: commonButtons.clearPreeditButton.name, },
           { Cell: commonButtons.enterButton.name, },
         ],
       },
     },
   ],
 };
+
+local totalKeyboardLayout(isPortrait=false) =
+  if isPortrait then
+    t9KeyboardLayout
+  else {
+    keyboardLayout: [
+      // 候选字区
+      {
+        VStack: {
+          style: halfVStackStyle.name,
+          subviews: [
+            {
+              VStack: {
+                style: narrowVStackStyle.name,
+                subviews: [
+                  {
+                    Cell: pinyin9Buttons.t9SymbolsCollection.name,
+                  },
+                ],
+              },
+            },
+            {
+              VStack: {
+                subviews: [
+                  {
+                    Cell: pinyin9Buttons.t9CandidatesCollection.name,
+                  },
+                ],
+              },
+            },
+          ],
+        }
+      },
+
+      // 中间留白
+      {
+        VStack: {},
+      },
+
+      {
+        VStack: {
+          style: halfVStackStyle.name,
+          subviews: t9KeyboardLayout.keyboardLayout,
+        }
+      },
+    ]
+  };
 
 
 local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
@@ -121,7 +182,7 @@ local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
     keyboardStyle: utils.newBackgroundStyle(style=basicStyle.keyboardBackgroundStyleName),
   }
 
-  + alphabeticKeyboardLayout
+  + totalKeyboardLayout(isPortrait)
 
   + basicStyle.newSymbolicCollection(
     pinyin9Buttons.t9SymbolsCollection.name,
@@ -129,16 +190,28 @@ local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
     pinyin9Buttons.t9SymbolsCollection.params + extraParams
   )
 
+  + {
+    [pinyin9Buttons.t9CandidatesCollection.name]:
+      utils.newBackgroundStyle(style=basicStyle.systemButtonBackgroundStyleName)
+      + pinyin9Buttons.t9CandidatesCollection.params
+      + extraParams,
+  }
+
   // t9 Buttons
   + std.foldl(
     function(acc, button) acc +
       basicStyle.newAlphabeticButton(
         button.name,
         isDark,
-        alphabeticTextCenterWhenShowSwipeText + button.params + {
+        alphabeticTextCenterWhenShowSwipeText + {
           fontSize: fonts.t9ButtonTextFontSize,
-        },
+        } + button.params + (
+          if settings.uppercaseForChinese then
+            { text: std.asciiUpper(button.params.text) }
+          else {}
+        ),
         needHint=false,
+        swipeTextFollowSetting=true,
       ),
     pinyin9Buttons.t9Buttons,
     {})
@@ -151,22 +224,32 @@ local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
     } + commonButtons.numericButton.params
   )
 
+  + basicStyle.newSystemButton(
+    pinyin9Buttons.cursorRightButton.name,
+    isDark,
+    pinyin9Buttons.cursorRightButton.params +
+    {
+      size: { width: { percentage: 0.2 } },
+    },
+  )
+
   + basicStyle.newAlphabeticButton(
-    commonButtons.spaceButton.name,
+    pinyin9Buttons.spaceButton.name,
     isDark,
     {
       foregroundStyleName: basicStyle.spaceButtonForegroundStyle,
       foregroundStyle: basicStyle.newSpaceButtonRimeSchemaForegroundStyle('$rimeSchemaName', isDark),
     }
-    + commonButtons.spaceButton.params,
-    needHint=false
+    + pinyin9Buttons.spaceButton.params,
+    needHint=false,
+    swipeTextFollowSetting=true,
   )
 
   + basicStyle.newSystemButton(
     commonButtons.alphabeticButton.name,
     isDark, commonButtons.alphabeticButton.params +
     {
-      size: { width: '1/3' },
+      size: { width: { percentage: 0.2 } },
     }
   )
 
@@ -174,6 +257,12 @@ local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
     commonButtons.backspaceButton.name,
     isDark,
     commonButtons.backspaceButton.params,
+  )
+
+  + basicStyle.newSystemButton(
+    commonButtons.clearPreeditButton.name,
+    isDark,
+    commonButtons.clearPreeditButton.params,
   )
 
   + basicStyle.newColorButton(
@@ -194,6 +283,9 @@ local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
 
     preedit.new(isDark)
     + toolbar.new(isDark, isPortrait)
+    + (
+      if !isPortrait then halfVStackStyle.style else {}
+    )
     + narrowVStackStyle.style
     + wideVStackStyle.style
     + basicStyle.newKeyboardBackgroundStyle(isDark)

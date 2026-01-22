@@ -40,7 +40,7 @@ local halfVStackStyle = {
   style: {
     [this.name]: {
       size: {
-        width: { percentage: 0.45 },
+        width: { percentage: 0.48 },
       },
     },
   },
@@ -109,21 +109,13 @@ local totalKeyboardLayout(isPortrait=false) =
   if isPortrait then
     numericKeyboardLayout
   else {
-    keyboardLayout: [
-      {
+    local numberPart = {
         VStack: {
           style: halfVStackStyle.name,
           subviews: numericKeyboardLayout.keyboardLayout,
         }
       },
-
-      // 中间留白
-      {
-        VStack: {},
-      },
-
-      // 符号区
-      {
+    local symbolPart = {
         VStack: {
           style: halfVStackStyle.name,
           subviews: [
@@ -131,7 +123,18 @@ local totalKeyboardLayout(isPortrait=false) =
           ],
         }
       },
-    ]
+    keyboardLayout: if settings.keyboardLayout=='9' then
+      [
+        symbolPart,
+        { VStack: {} }, // 中间留白
+        numberPart,
+      ]
+    else
+      [
+        numberPart,
+        { VStack: {} }, // 中间留白
+        symbolPart,
+      ],
   };
 
 

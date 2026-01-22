@@ -185,6 +185,14 @@ local settings = import '../Settings.libsonnet';
     },
   },
 
+  clearPreeditButton: {
+    name: 'clearPreeditButton',
+    params: {
+      action: { shortcut: '#重输' },
+      text: '重输',
+    },
+  },
+
   // 以下符号是为符号键盘准备的，暂时没有用到
   dismissButton: {
     name: 'dismissButton',
