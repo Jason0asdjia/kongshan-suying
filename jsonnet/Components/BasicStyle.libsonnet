@@ -629,18 +629,37 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
         [root.name + 'PreeditChangedNotification']: {
           notificationType: 'preeditChanged',
           backgroundStyle: if std.objectHas(preeditChangedParams, 'backgroundStyle') then preeditChangedParams.backgroundStyle else root[root.name].backgroundStyle,
-          foregroundStyle: root.name + 'PreeditChangedForegroundStyle',
+          foregroundStyle: [
+            root.name + 'PreeditChangedForegroundStyle',
+          ] + (
+            if std.objectHas(preeditChangedParams, 'swipeUp') then
+              [generateSwipeForegroundStyleName(root.name, 'Up')]
+            else []
+          ) + (
+            if std.objectHas(preeditChangedParams, 'swipeDown') then
+              [generateSwipeForegroundStyleName(root.name, 'Down')]
+            else []
+          ),
+          [if std.objectHas(preeditChangedParams, 'swipeUp') && std.objectHas(preeditChangedParams.swipeUp, 'action') then 'swipeUpAction']: preeditChangedParams.swipeUp.action,
+          [if std.objectHas(preeditChangedParams, 'swipeDown') && std.objectHas(preeditChangedParams.swipeDown, 'action') then 'swipeDownAction']: preeditChangedParams.swipeDown.action,
         }
-        + utils.extractProperties(preeditChangedParams, ['action']),
+        + utils.extractProperties(preeditChangedParams, ['action'])
+        + utils.extractProperties(root.params, ['bounds']) + (
+          if needUpdateHintStyle then
+            {
+              hintStyle: root.name + 'PreeditChangedHintStyle',
+            }
+          else {}
+        ),
         [root.name + 'PreeditChangedForegroundStyle']: newForegroundStyle(root.isDark, utils.extractProperty(root.params, 'fontSize') + preeditChangedParams),
       } + (
         if needUpdateHintStyle then
-          {
-            hintStyle: root.name + 'PreeditChangedHintStyle',
-          } +
           root.CreateHintStyleReference(root.name + 'PreeditChangedHintStyle', preeditChangedParams)
         else {}
-      ),
+      ) + {
+        [if std.objectHas(preeditChangedParams, 'swipeUp') then generateSwipeForegroundStyleName(root.name, 'Up', 'PreeditChanged')]: newAlphabeticButtonAlternativeForegroundStyle(root.isDark, { center: swipeTextCenter.up } + preeditChangedParams.swipeUp),
+        [if std.objectHas(preeditChangedParams, 'swipeDown') then generateSwipeForegroundStyleName(root.name, 'Down', 'PreeditChanged')]: newAlphabeticButtonAlternativeForegroundStyle(root.isDark, { center: swipeTextCenter.down } + preeditChangedParams.swipeDown),
+      },
     },
 
   AddKeyboardActionEvent(newForegroundStyle):
