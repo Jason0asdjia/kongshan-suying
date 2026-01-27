@@ -22,6 +22,8 @@ local settings = import '../Settings.libsonnet';
       action: 'space',
       systemImageName: 'space',
       center: {x: 0.5, y: 0.5},
+      swipeUp: { action: { shortcut: '#次选上屏' } },
+      swipeDown: { action: { shortcut: '#三选上屏' } },
       notification:
         (if settings.spaceButtonShowSchema then
           ['rimeSchemaChangedNotification']
@@ -130,10 +132,10 @@ local settings = import '../Settings.libsonnet';
       swipeUp: { action: { keyboardType: 'symbolic' } },
       swipeDown: { action: { keyboardType: 'emojis' } },
 
-      // whenPreeditChanged: {
-      //   action: settings.segmentAction,
-      //   text: '分词',
-      // },
+      whenPreeditChanged: {
+        action: settings.segmentAction,
+        text: '分词',
+      },
     },
   },
 

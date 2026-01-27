@@ -44,11 +44,8 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'q' },
       uppercased: { action: { character: 'Q' } },
-      swipeUp: { action: { character: '1' } },
-      swipeDown: {
-        action: 'tab',
-        systemImageName: 'arrow.right.to.line'
-      },
+      swipeUp: { action: { character: '!' } },
+      swipeDown: { action: { character: '1' } },
     },
   },
   wButton: {
@@ -56,7 +53,8 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'w' },
       uppercased: { action: { character: 'W' } },
-      swipeUp: { action: { character: '2' } },
+      swipeUp: { action: { character: '@' } },
+      swipeDown: { action: { character: '2' } },
     },
   },
   eButton: {
@@ -64,7 +62,8 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'e' },
       uppercased: { action: { character: 'E' } },
-      swipeUp: { action: { character: '3' } },
+      swipeUp: { action: { character: '#' } },
+      swipeDown: { action: { character: '3' } },
     },
   },
   rButton: {
@@ -72,7 +71,8 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'r' },
       uppercased: { action: { character: 'R' } },
-      swipeUp: { action: { character: '4' } },
+      swipeUp: { action: { character: '$' } },
+      swipeDown: { action: { character: '4' } },
     },
   },
   tButton: {
@@ -80,7 +80,11 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 't' },
       uppercased: { action: { character: 'T' } },
-      swipeUp: { action: { character: '5' } },
+      swipeUp: { action: { character: '%' } },
+      swipeDown: { action: { character: '5' } },
+      longPress: [
+        { action: 'tab', systemImageName: 'arrow.right.to.line' },
+      ],
     },
   },
   yButton: {
@@ -88,7 +92,8 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'y' },
       uppercased: { action: { character: 'Y' } },
-      swipeUp: { action: { character: '6' } },
+      swipeUp: { action: { character: '^' } },
+      swipeDown: { action: { character: '6' } },
     },
   },
   uButton: {
@@ -96,7 +101,8 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'u' },
       uppercased: { action: { character: 'U' } },
-      swipeUp: { action: { character: '7' } },
+      swipeUp: { action: { character: '&' } },
+      swipeDown: { action: { character: '7' } },
     },
   },
   iButton: {
@@ -104,8 +110,8 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'i' },
       uppercased: { action: { character: 'I' } },
-      swipeUp: { action: { character: '8' } },
-      swipeDown: { action: { character: '|' } },
+      swipeUp: { action: { character: '*' } },
+      swipeDown: { action: { character: '8' } },
     },
   },
   oButton: {
@@ -113,8 +119,8 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'o' },
       uppercased: { action: { character: 'O' } },
-      swipeUp: { action: { character: '9' } },
-      swipeDown: { action: { character: '<' } },
+      swipeUp: { action: { character: '|' } },
+      swipeDown: { action: { character: '9' } },
     },
   },
   pButton: {
@@ -122,8 +128,8 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'p' },
       uppercased: { action: { character: 'P' } },
-      swipeUp: { action: { character: '0' } },
-      swipeDown: { action: { character: '>' } },
+      swipeUp: { action: { character: '?' } },
+      swipeDown: { action: { character: '0' } },
     },
   },
 
@@ -133,7 +139,7 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'a' },
       uppercased: { action: { character: 'A' } },
-      swipeUp: { action: { character: '!' } },
+      swipeUp: { action: { character: '~' } },
       swipeDown: { action: { shortcut: '#selectText' }, text: '全' },
       longPress: [
         { action: { shortcut: '#左手模式' }, systemImageName: 'keyboard.onehanded.left' },
@@ -145,8 +151,8 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 's' },
       uppercased: { action: { character: 'S' } },
-      swipeUp: { action: { character: '^' } },
-      swipeDown: { action: { character: '`' } },
+      swipeUp: { action: { character: '-' } },
+      swipeDown: { action: { character: '_' } },
     },
   },
   dButton: {
@@ -154,8 +160,8 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'd' },
       uppercased: { action: { character: 'D' } },
-      swipeUp: { action: { character: '/' } },
-      swipeDown: { action: { character: '\\' } },
+      swipeUp: { action: { character: '=' } },
+      swipeDown: { action: { character: '+' } },
     },
   },
   fButton: {
@@ -163,8 +169,8 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'f' },
       uppercased: { action: { character: 'F' } },
-      swipeUp: { action: { character: ';' } },
-      swipeDown: { action: { character: ':' } },
+      swipeUp: { action: { character: '[]' } },
+      swipeDown: { action: { character: '{}' } },
     },
   },
   gButton: {
@@ -172,8 +178,8 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'g' },
       uppercased: { action: { character: 'G' } },
-      swipeUp: { action: { character: '(' } },
-      swipeDown: { action: { character: ')' } },
+      swipeUp: { action: { openURL: 'chatgpt://' }, systemImageName: 'magnifyingglass.circle' },
+      swipeDown: { action: { openURL: 'googlegemini://' }, systemImageName: 'sparkle.magnifyingglass' },
     },
   },
   hButton: {
@@ -181,8 +187,8 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'h' },
       uppercased: { action: { character: 'H' } },
-      swipeUp: { action: { character: '-' } },
-      swipeDown: { action: { character: '_' } },
+      swipeUp: { action: { character: '()' } },
+      swipeDown: { action: { character: '「」' } },
     },
   },
   jButton: {
@@ -190,8 +196,8 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'j' },
       uppercased: { action: { character: 'J' } },
-      swipeUp: { action: { character: '#' } },
-      swipeDown: { action: { character: '+' } },
+      swipeUp: { action: { character: '/' } },
+      swipeDown: { action: { symbol: '\\' } },
     },
   },
   kButton: {
@@ -199,8 +205,8 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'k' },
       uppercased: { action: { character: 'K' } },
-      swipeUp: { action: { character: '{' } },
-      swipeDown: { action: { character: '}' } },
+      swipeUp: { action: { character: ';' } },
+      swipeDown: { action: { character: ':' } },
     },
   },
   lButton: {
@@ -208,8 +214,8 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'l' },
       uppercased: { action: { character: 'L' } },
-      swipeUp: { action: { character: '"' } },
-      swipeDown: { action: { character: "'" } },
+      swipeUp: { action: { symbol: "'" } },
+      swipeDown: { action: { symbol: '"' } },
       longPress: [
         { action: { shortcut: '#右手模式' }, systemImageName: 'keyboard.onehanded.right' }
       ],
@@ -222,7 +228,7 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'z' },
       uppercased: { action: { character: 'Z' } },
-      swipeUp: { action: { character: '@' } },
+      swipeUp: { action: { character: '`' } },
       swipeDown: { action: { shortcut: '#undo' }, text: '撤' },
     },
   },
@@ -231,7 +237,7 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'x' },
       uppercased: { action: { character: 'X' } },
-      swipeUp: { action: { character: '*' } },
+      swipeUp: { action: { symbol: ',' } },
       swipeDown: { action: { shortcut: '#cut' }, text: '剪' },
     },
   },
@@ -240,7 +246,7 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'c' },
       uppercased: { action: { character: 'C' } },
-      swipeUp: { action: { character: '%' } },
+      swipeUp: { action: { symbol: '.' } },
       swipeDown: { action: { shortcut: '#copy' }, text: '复' },
     },
   },
@@ -249,7 +255,7 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'v' },
       uppercased: { action: { character: 'V' } },
-      swipeUp: { action: { character: '=' } },
+      swipeUp: { action: { openURL: 'clipjar://' }, systemImageName: 'paperclip.circle' },
       swipeDown: { action: { shortcut: '#paste' }, text: '贴' },
     },
   },
@@ -258,8 +264,8 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'b' },
       uppercased: { action: { character: 'B' } },
-      swipeUp: { action: { character: '[' } },
-      swipeDown: { action: { character: ']' } },
+      swipeUp: { action: { symbol: '‘’' } },
+      swipeDown: { action: { symbol: '“”' } },
     },
   },
   nButton: {
@@ -267,8 +273,8 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'n' },
       uppercased: { action: { character: 'N' } },
-      swipeUp: { action: { character: '&' } },
-      swipeDown: { action: { character: '~' } },
+      swipeUp: { action: { character: '、' } },
+      swipeDown: { action: { character: '…' } },
     },
   },
   mButton: {
@@ -276,8 +282,8 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { character: 'm' },
       uppercased: { action: { character: 'M' } },
-      swipeUp: { action: { character: '?' } },
-      swipeDown: { action: { character: '$' } },
+      swipeUp: { action: { openURL: 'eudic://dict/#pasteboardContent' }, text: 'ɑː' },
+      swipeDown: { action: { openURL: 'mojisho://?search=#pasteboardContent' }, text: 'あ' },
     },
   },
 

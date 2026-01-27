@@ -253,8 +253,11 @@ local newSpaceButtonRimeSchemaForegroundStyle(schemaNameText, isDark=false) =
   {
     [spaceButtonRimeSchemaForegroundStyleName]: utils.newTextStyle({
       text: schemaNameText,
-      fontSize: fonts.alternativeTextFontSize,
+      // NOTE: $rimeSchemaName is runtime text and can be long (e.g. "Easy English Nano").
+      // Jsonnet is compiled ahead-of-time so we can't measure width dynamically; use a smaller font.
+      fontSize: std.max(8, fonts.alternativeTextFontSize - 1),
       center: settings.spaceButtonSchemaNameCenter,
+      insets: settings.spaceButtonSchemaNameInsets,
       normalColor: colors.alternativeForegroundColor,
       highlightColor: colors.alternativeHighlightedForegroundColor,
     }, isDark),

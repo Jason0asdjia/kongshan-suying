@@ -16,7 +16,7 @@ local skinConfig = import '../SkinConfig.libsonnet';
   local root = self,
 
   preedit: {
-    height: 21,
+    height: 15,
     insets: {
       top: 2,
       left: 4,
@@ -25,7 +25,7 @@ local skinConfig = import '../SkinConfig.libsonnet';
   },
 
   toolbar: {
-    height: 45,
+    height: 40,
     insets: {
       top: 6,
     },
@@ -37,10 +37,10 @@ local skinConfig = import '../SkinConfig.libsonnet';
       landscape: { x: 0.45, y: 0.8 },
     },
     insets: {
-      top: 10,
-      left: 12,
-      bottom: 10,
-      right: 12,
+      top: 5,
+      left: 8,
+      bottom: 5,
+      right: 8,
     },
 
     button: {
@@ -63,8 +63,7 @@ local skinConfig = import '../SkinConfig.libsonnet';
       name: 'toolbarMenuButton',
       params: {
         action: { floatKeyboardType: 'panel', },
-        systemImageName: 'hexagon.righthalf.filled',
-        // systemImageName: 'swirl.circle.righthalf.filled', // 需要 iOS 17+
+        systemImageName: 'swirl.circle.righthalf.filled',
         text: '面板',
       },
     },
@@ -72,7 +71,7 @@ local skinConfig = import '../SkinConfig.libsonnet';
       name: 'toolbarDismissButton',
       params: {
         action: 'dismissKeyboard',
-        systemImageName: 'chevron.down',
+        systemImageName: 'power',
         text: '关闭',
       },
     },
@@ -340,7 +339,7 @@ local skinConfig = import '../SkinConfig.libsonnet';
     highlightBackgroundColor: colors.candidateHighlightColor,
     preferredBackgroundColor: colors.candidateHighlightColor,
     preferredIndexColor: colors.candidateForegroundColor,
-    preferredTextColor: colors.candidateForegroundColor,
+    preferredTextColor: colors.colorButtonBackgroundColor,
     preferredCommentColor: colors.candidateForegroundColor,
     indexColor: colors.candidateForegroundColor,
     textColor: colors.candidateForegroundColor,

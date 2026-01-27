@@ -20,7 +20,7 @@
   # $rimePreedit：Rime 预编辑文本
   # $rimeCandidate：Rime 首个候选字
   # $rimeCandidateComment: Rime 首个候选字的 comment 信息
-  spaceButtonComposingText: '选定',
+  spaceButtonComposingText: '$rimeCandidate',
 
 
   # 是否在空格键上显示方案名称
@@ -31,15 +31,24 @@
   # 方案名称在空格键上的位置，有的方案名称
   # 较长，需要调整 x 值以免超出按键
   spaceButtonSchemaNameCenter: {
-    x: 0.2,
+    x: 0.22,
     y: 0.7
+  },
+
+
+  # 方案名称文本的额外内边距（用于给长方案名留出左侧安全区）
+  spaceButtonSchemaNameInsets: {
+    top: 0,
+    left: 10,
+    bottom: 0,
+    right: 0,
   },
 
 
   # 是否显示上下滑动提示
   # true 显示，false 不显示
   showSwipeUpText: true,
-  showSwipeDownText: false,
+  showSwipeDownText: true,
 
 
   # toolbar 按钮配置
@@ -61,7 +70,7 @@
   # 26-左移  27-右移
   #
   # 将上述代号填入下面的数组即可
-  toolbarSlideButtons: [ 8, 17, 1, 2, 3, 10, 12 ],
+  toolbarSlideButtons: [ 8, 1, 2, 3, 9 ],
 
   # 滑动按钮区域占几个按键宽度
   toolbarSlideButtonsMaxCount: {
@@ -77,13 +86,13 @@
 
   # 主题色
   # 0-无  1-红色  2-绿色  3-橙色  4-蓝色
-  accentColor: 4,
+  accentColor: 2,
 
 
   # 中文模式下，字母键是否大写显示
   # 17键布局下此设置无效，因为它是大小写混合显示的
   # true 大写，false 小写
-  uppercaseForChinese: true,
+  uppercaseForChinese: false,
 
 
   # 分词键，用于输入方案中分词使用

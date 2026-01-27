@@ -6,3 +6,13 @@ dark/*.yaml
 dark/.*.keyboard
 空山素影/
 *.cskin
+
+# local tooling
+.backup/
+.generated/
+.tmp/
+.upstream/
+
+# macOS artifacts
+__MACOSX/
+._*
