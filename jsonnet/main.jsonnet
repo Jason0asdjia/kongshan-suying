@@ -1,91 +1,39 @@
 local iPhonePinyin = import 'Components/iPhonePinyin.libsonnet';
+local temp26KeyLayout = import 'Components/Temp26KeyLayout.libsonnet';
 local iPhoneAlphabetic = import 'Components/iPhoneAlphabetic.libsonnet';
 local iPhoneNumeric = import 'Components/iPhoneNumeric.libsonnet';
 local floatingKeyboard = import 'Components/FloatingKeyboard.libsonnet';
+local settings = import 'Settings.libsonnet';
 
-local pinyinPortraitFileName = 'pinyinPortrait';
-local lightPinyinPortraitFileContent = iPhonePinyin.new(isDark=false, isPortrait=true);
-local darkPinyinPortraitFileContent = iPhonePinyin.new(isDark=true, isPortrait=true);
-
-local pinyinLandscapeFileName = 'pinyinLandscape';
-local lightPinyinLandscapeFileContent = iPhonePinyin.new(isDark=false, isPortrait=false);
-local darkPinyinLandscapeFileContent = iPhonePinyin.new(isDark=true, isPortrait=false);
-
-local alphabeticPortraitFileName = 'alphabeticPortrait';
-local lightAlphabeticPortraitFileContent = iPhoneAlphabetic.new(isDark=false, isPortrait=true);
-local darkAlphabeticPortraitFileContent = iPhoneAlphabetic.new(isDark=true, isPortrait=true);
-
-local alphabeticLandscapeFileName = 'alphabeticLandscape';
-local lightAlphabeticLandscapeFileContent = iPhoneAlphabetic.new(isDark=false, isPortrait=false);
-local darkAlphabeticLandscapeFileContent = iPhoneAlphabetic.new(isDark=true, isPortrait=false);
-
-local numericPortraitFileName = 'numericPortrait';
-local lightNumericPortraitFileContent = iPhoneNumeric.new(isDark=false, isPortrait=true);
-local darkNumericPortraitFileContent = iPhoneNumeric.new(isDark=true, isPortrait=true);
-
-local numericLandscapeFileName = 'numericLandscape';
-local lightNumericLandscapeFileContent = iPhoneNumeric.new(isDark=false, isPortrait=false);
-local darkNumericLandscapeFileContent = iPhoneNumeric.new(isDark=true, isPortrait=false);
-
-local FloatingKeyboardPortraitName(name) = name + 'Portrait';
 local lightFloatingKeyboardPortraitContent = floatingKeyboard.new(isDark=false, isPortrait=true);
 local darkFloatingKeyboardPortraitContent = floatingKeyboard.new(isDark=true, isPortrait=true);
-
-local FloatingKeyboardLandscapeName(name) = name + 'Landscape';
 local lightFloatingKeyboardLandscapeContent = floatingKeyboard.new(isDark=false, isPortrait=false);
 local darkFloatingKeyboardLandscapeContent = floatingKeyboard.new(isDark=true, isPortrait=false);
 
+
+local nameToComponent = {
+  pinyin: iPhonePinyin,
+  alphabetic: iPhoneAlphabetic,
+  numeric: iPhoneNumeric,
+  [if !std.startsWith(settings.keyboardLayout, '26') then 'temp26Key']: temp26KeyLayout,
+};
+
+local getFileName(componentName, isPortrait) = componentName + (if isPortrait then 'Portrait' else 'Landscape');
+local getFileContent(component, isDark, isPortrait) = component.new(isDark, isPortrait);
+
+
 local config = {
-  pinyin: {
+  [name]: {
     iPhone: {
-      portrait: pinyinPortraitFileName,
-      landscape: pinyinLandscapeFileName,
+      portrait: getFileName(name, isPortrait=true),
+      landscape: getFileName(name, isPortrait=false),
     },
     iPad: {
-      portrait: pinyinPortraitFileName,
-      landscape: pinyinLandscapeFileName,
-      floating: pinyinPortraitFileName,
+      portrait: getFileName(name, isPortrait=true),
+      landscape: getFileName(name, isPortrait=false),
+      floating: getFileName(name, isPortrait=true),
     },
-  },
-  alphabetic: {
-    iPhone: {
-      portrait: alphabeticPortraitFileName,
-      landscape: alphabeticLandscapeFileName,
-    },
-    iPad: {
-      portrait: alphabeticPortraitFileName,
-      landscape: alphabeticLandscapeFileName,
-      floating: alphabeticPortraitFileName,
-    },
-  },
-  numeric: {
-    iPhone: {
-      portrait: numericPortraitFileName,
-      landscape: numericLandscapeFileName,
-    },
-    iPad: {
-      portrait: numericPortraitFileName,
-      landscape: numericLandscapeFileName,
-      floating: numericPortraitFileName,
-    },
-  },
-} + {
-  // 浮动键盘面板
-  [name]:
-    local portraitName = FloatingKeyboardPortraitName(name);
-    local landscapeName = FloatingKeyboardLandscapeName(name);
-    {
-      iPhone: {
-        portrait: portraitName,
-        landscape: landscapeName,
-      },
-      iPad: {
-        portrait: portraitName,
-        landscape: landscapeName,
-        floating: portraitName,
-      },
-    }
-  for name in std.objectFields(lightFloatingKeyboardPortraitContent)
+  } for name in std.objectFields(nameToComponent) + std.objectFields(lightFloatingKeyboardPortraitContent)
 };
 
 // std.toString 生成的内容紧凑，生成速度快，但不易阅读，适合发布时使用
@@ -99,24 +47,18 @@ function(debug=false)
       function(x) std.toString(x);
 {
   'config.yaml': std.manifestYamlDoc(config, indent_array_in_object=true, quote_keys=false),
-
-  // 拼音键盘
-  ['light/' + pinyinPortraitFileName + '.yaml']: toString(lightPinyinPortraitFileContent),
-  ['dark/' + pinyinPortraitFileName + '.yaml']: toString(darkPinyinPortraitFileContent),
-  ['light/' + pinyinLandscapeFileName + '.yaml']: toString(lightPinyinLandscapeFileContent),
-  ['dark/' + pinyinLandscapeFileName + '.yaml']: toString(darkPinyinLandscapeFileContent),
-
-  // 英文键盘
-  ['light/' + alphabeticPortraitFileName + '.yaml']: toString(lightAlphabeticPortraitFileContent),
-  ['dark/' + alphabeticPortraitFileName + '.yaml']: toString(darkAlphabeticPortraitFileContent),
-  ['light/' + alphabeticLandscapeFileName + '.yaml']: toString(lightAlphabeticLandscapeFileContent),
-  ['dark/' + alphabeticLandscapeFileName + '.yaml']: toString(darkAlphabeticLandscapeFileContent),
-
-  // 数字键盘
-  ['light/' + numericPortraitFileName + '.yaml']: toString(lightNumericPortraitFileContent),
-  ['dark/' + numericPortraitFileName + '.yaml']: toString(darkNumericPortraitFileContent),
-  ['light/' + numericLandscapeFileName + '.yaml']: toString(lightNumericLandscapeFileContent),
-  ['dark/' + numericLandscapeFileName + '.yaml']: toString(darkNumericLandscapeFileContent),
+} + {
+  ['light/' + getFileName(name, isPortrait=true) + '.yaml']: toString(getFileContent(nameToComponent[name], isDark=false, isPortrait=true))
+  for name in std.objectFields(nameToComponent)
+} + {
+  ['dark/' + getFileName(name, isPortrait=true) + '.yaml']: toString(getFileContent(nameToComponent[name], isDark=true, isPortrait=true))
+  for name in std.objectFields(nameToComponent)
+} + {
+  ['light/' + getFileName(name, isPortrait=false) + '.yaml']: toString(getFileContent(nameToComponent[name], isDark=false, isPortrait=false))
+  for name in std.objectFields(nameToComponent)
+} + {
+  ['dark/' + getFileName(name, isPortrait=false) + '.yaml']: toString(getFileContent(nameToComponent[name], isDark=true, isPortrait=false))
+  for name in std.objectFields(nameToComponent)
 } + {
   // 浮动键盘 light Portrait
   ['light/' + name + 'Portrait.yaml']: toString(lightFloatingKeyboardPortraitContent[name])

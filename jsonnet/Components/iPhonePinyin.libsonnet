@@ -16,5 +16,5 @@ local layout26 = import 'iPhonePinyin26.libsonnet';
     else if settings.keyboardLayout == '18' then
       layout18.new(isDark, isPortrait)
     else
-      layout26.new(isDark, isPortrait),
+      layout26.new(isDark, isPortrait, isForTempUse=false),
 }
