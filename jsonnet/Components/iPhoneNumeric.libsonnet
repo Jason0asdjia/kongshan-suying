@@ -139,11 +139,9 @@ local totalKeyboardLayout(isPortrait=false) =
 
 
 local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
-
-  local keyboardHeight = if isPortrait then numeric9Buttons.height.iPhone.portrait else numeric9Buttons.height.iPhone.landscape;
-
+  local rowHeight = if isPortrait then commonButtons.rowHeight.portrait else commonButtons.rowHeight.landscape;
   {
-    keyboardHeight: keyboardHeight,
+    keyboardHeight: rowHeight * 4,
     keyboardStyle: utils.newBackgroundStyle(style=basicStyle.keyboardBackgroundStyleName),
   }
   + totalKeyboardLayout(isPortrait)
@@ -203,7 +201,7 @@ local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
 
 {
   new(isDark, isPortrait):
-    local insets = if isPortrait then numeric9Buttons.button.backgroundInsets.iPhone.portrait else numeric9Buttons.button.backgroundInsets.iPhone.landscape;
+    local insets = if isPortrait then numeric9Buttons.button.backgroundInsets.portrait else numeric9Buttons.button.backgroundInsets.landscape;
 
     local extraParams = {
       insets: insets,

@@ -14,28 +14,17 @@ local settings = import '../Settings.libsonnet';
 {
   local root = self,
 
-  height: {
-    iPhone: {
-      portrait: 216,  // 54 * 4
-      landscape: 160,  // 40 * 4
-    },
-    iPad: {
-      portrait: 311,  // 64 * 4 + 55
-      landscape: 414,  // 86 * 4 + 70
-    },
-  },
-
   button: {
-    backgroundInsets: {
-      iPhone: {
+    backgroundInsets: if !settings.iPad then
+      {
         portrait: { top: 5, left: 3, bottom: 5, right: 3 },
         landscape: { top: 3, left: 3, bottom: 3, right: 3 },
-      },
-      ipad: {
+      }
+      else
+      {
         portrait: { top: 3, left: 3, bottom: 3, right: 3 },
         landscape: { top: 4, left: 6, bottom: 4, right: 6 },
       },
-    },
   },
 
   // 按键定义

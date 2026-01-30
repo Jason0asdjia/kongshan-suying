@@ -42,7 +42,7 @@ local newKeyboardBackgroundStyle(isDark=false, params={}) = {
 local floatingKeyboardButtonBackgroundStyleName = 'floatingKeyboardButtonBackgroundStyle';
 local newFloatingKeyboardButtonBackgroundStyle(isDark=false, params={}) = {
   [floatingKeyboardButtonBackgroundStyleName]: utils.newGeometryStyle({
-    insets: toolbarParams.floatingKeyboard.button.backgroundInsets.iPhone.portrait,
+    insets: toolbarParams.floatingKeyboard.button.backgroundInsets.portrait,
     normalColor: colors.standardButtonBackgroundColor,
     highlightColor: colors.standardButtonHighlightedBackgroundColor,
     cornerRadius: buttonCornerRadius,

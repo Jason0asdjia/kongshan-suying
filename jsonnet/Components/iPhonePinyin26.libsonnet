@@ -91,10 +91,11 @@ local getAlphabeticButtonSize(name) =
   );
 
 
-local newKeyLayout(isDark=false, isPortrait=true) =
-  local keyboardHeight = if isPortrait then buttons.height.iPhone.portrait else buttons.height.iPhone.landscape;
+local newKeyLayout(isDark=false, isPortrait=true, isForTempUse=false) =
+  local rowHeight = if isPortrait then commonButtons.rowHeight.portrait else commonButtons.rowHeight.landscape;
+  local rows = getRows(isForTempUse);
   {
-    keyboardHeight: keyboardHeight,
+    keyboardHeight: rowHeight * std.length(rows),
     keyboardStyle: utils.newBackgroundStyle(style=basicStyle.keyboardBackgroundStyleName),
   }
   + utils.newRowKeyboardLayout(rows)
@@ -191,7 +192,7 @@ local newKeyLayout(isDark=false, isPortrait=true) =
 
 {
   new(isDark, isPortrait):
-    local insets = if isPortrait then buttons.button.backgroundInsets.iPhone.portrait else buttons.button.backgroundInsets.iPhone.landscape;
+    local insets = if isPortrait then buttons.button.backgroundInsets.portrait else buttons.button.backgroundInsets.landscape;
 
     local extraParams = {
       insets: insets,

@@ -23,6 +23,10 @@
   spaceButtonComposingText: '选定',
 
 
+  # 是否为 iPad 设备，目前仅用于调整高度
+  # true 是 iPad，false 是 iPhone
+  iPad: false,
+
   # 是否在空格键上显示方案名称
   # true 显示方案名称，false 不显示
   spaceButtonShowSchema: true,

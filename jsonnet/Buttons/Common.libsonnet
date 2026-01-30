@@ -15,6 +15,18 @@ local settings = import '../Settings.libsonnet';
 {
   local root = self,
 
+  // 每行高度
+  rowHeight: if !settings.iPad then
+    {
+      portrait: 54,
+      landscape: 40,
+    }
+    else
+    {
+      portrait: 64,
+      landscape: 86,
+    },
+
   // 特殊功能键
   spaceButton: {
     name: 'spaceButton',

@@ -44,16 +44,16 @@ local skinConfig = import '../SkinConfig.libsonnet';
     },
 
     button: {
-      backgroundInsets: {
-        iPhone: {
+      backgroundInsets: if !settings.iPad then
+        {
           portrait: { top: 6, left: 3, bottom: 6, right: 3 },
           landscape: { top: 3, left: 3, bottom: 3, right: 3 },
-        },
-        ipad: {
+        }
+        else
+        {
           portrait: { top: 3, left: 3, bottom: 3, right: 3 },
           landscape: { top: 4, left: 6, bottom: 4, right: 6 },
         },
-      },
     },
   },
 
