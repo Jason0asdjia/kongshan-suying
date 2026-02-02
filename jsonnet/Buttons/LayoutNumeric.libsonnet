@@ -188,7 +188,7 @@ local settings = import '../Settings.libsonnet';
   leftParenthesisButton: {
     name: 'leftParenthesisButton',
     params: {
-      action: { symbol: '(' },
+      action: { character: '(' },
     },
   },
 
@@ -196,7 +196,7 @@ local settings = import '../Settings.libsonnet';
   rightParenthesisButton: {
     name: 'rightParenthesisButton',
     params: {
-      action: { symbol: ')' },
+      action: { character: ')' },
     },
   },
 
