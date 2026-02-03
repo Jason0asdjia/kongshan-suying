@@ -15,6 +15,12 @@
   keyboardLayout: '26',
 
 
+  # 数字键盘布局选择，可选值如下：
+  # 9 : 九宫格布局
+  # row : 数字显示在一行
+  numericLayout: '9',
+
+
   # 输入时空格键上的内容，支持固定内容和变量
   # 变量可选如下：
   # $rimePreedit：Rime 预编辑文本
@@ -22,6 +28,10 @@
   # $rimeCandidateComment: Rime 首个候选字的 comment 信息
   spaceButtonComposingText: '$rimeCandidate',
 
+
+  # 是否为 iPad 设备，目前仅用于调整高度
+  # true 是 iPad，false 是 iPhone
+  iPad: false,
 
   # 是否在空格键上显示方案名称
   # true 显示方案名称，false 不显示
@@ -106,10 +116,5 @@
   quickAction:
     { character: ';' },
     # { character: '/' },
-
-
-  # 数字键盘的符号是否经过 rime 处理
-  # true 经过 rime 处理，false 直接输入符号
-  numericSymbolsUseRime: false,
 
 }

@@ -173,11 +173,9 @@ local totalKeyboardLayout(isPortrait=false) =
 
 
 local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
-
-  local keyboardHeight = if isPortrait then pinyin9Buttons.height.iPhone.portrait else pinyin9Buttons.height.iPhone.landscape;
-
+  local rowHeight = if isPortrait then commonButtons.rowHeight.portrait else commonButtons.rowHeight.landscape;
   {
-    keyboardHeight: keyboardHeight,
+    keyboardHeight: rowHeight * 4,
     keyboardStyle: utils.newBackgroundStyle(style=basicStyle.keyboardBackgroundStyleName),
   }
 
@@ -272,9 +270,20 @@ local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
     } + commonButtons.enterButton.params
   );
 
+local backgroundInsets = if !settings.iPad then
+{
+  portrait: { top: 3, left: 4, bottom: 3, right: 4 },
+  landscape: { top: 3, left: 3, bottom: 3, right: 3 },
+}
+else
+{
+  portrait: { top: 3, left: 3, bottom: 3, right: 3 },
+  landscape: { top: 4, left: 6, bottom: 4, right: 6 },
+};
+
 {
   new(isDark, isPortrait):
-    local insets = if isPortrait then pinyin9Buttons.button.backgroundInsets.iPhone.portrait else pinyin9Buttons.button.backgroundInsets.iPhone.landscape;
+    local insets = if isPortrait then backgroundInsets.portrait else backgroundInsets.landscape;
 
     local extraParams = {
       insets: insets,
