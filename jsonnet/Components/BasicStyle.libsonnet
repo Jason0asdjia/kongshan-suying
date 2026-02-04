@@ -34,19 +34,18 @@ local getKeyboardActionText(params={}, key='action', isUppercase=false) =
 local newStyleByPriority(isDark=false, params={}, highPriorityParams={}, systemImageParams={}, assetImageParams={}, textParams={}) =
   local tryAddTextInHighPriorityParams = getKeyboardActionText(highPriorityParams);
   if std.objectHas(highPriorityParams, 'systemImageName') then
-    utils.newSystemImageStyle(params + systemImageParams + highPriorityParams, isDark)
+    utils.newSystemImageStyle(systemImageParams + highPriorityParams + params, isDark)
   else if std.objectHas(highPriorityParams, 'assetImageName') then
-    utils.newAssetImageStyle(params + assetImageParams + highPriorityParams, isDark)
+    utils.newAssetImageStyle(assetImageParams + highPriorityParams + params, isDark)
   else if std.objectHas(tryAddTextInHighPriorityParams, 'text') then
-    utils.newTextStyle(params + textParams + highPriorityParams + tryAddTextInHighPriorityParams, isDark)
+    utils.newTextStyle(textParams + highPriorityParams + params + tryAddTextInHighPriorityParams, isDark)
 
   else if std.objectHas(params, 'systemImageName') then
-    utils.newSystemImageStyle(params + systemImageParams, isDark)
+    utils.newSystemImageStyle(systemImageParams + params, isDark)
   else if std.objectHas(params, 'assetImageName') then
-    utils.newAssetImageStyle(params + assetImageParams, isDark)
+    utils.newAssetImageStyle(assetImageParams + params, isDark)
   else
-    utils.newTextStyle(params + textParams + getKeyboardActionText(params), isDark);
-
+    utils.newTextStyle(textParams + params + getKeyboardActionText(params), isDark);
 // 通用键盘背景样式
 local keyboardBackgroundStyleName = 'keyboardBackgroundStyle';
 local newKeyboardBackgroundStyle(isDark=false, params={}) = {
