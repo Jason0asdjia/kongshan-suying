@@ -1,11 +1,5 @@
-demo.png
-config.yaml
-light/*.yaml
-light/.*.keyboard
-dark/*.yaml
-dark/.*.keyboard
+
 空山素影/
-*.cskin
 
 # local tooling
 .backup/
