@@ -1,0 +1,2894 @@
+"aButton":
+  "action":
+    "symbol": "a"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "bounds":
+    "alignment": "right"
+    "width": "111/168.75"
+  "foregroundStyle":
+  - "aButtonForegroundStyle"
+  - "aButtonSwipeUpForegroundStyle"
+  - "aButtonSwipeDownForegroundStyle"
+  "hintStyle": "aButtonHintStyle"
+  "hintSymbolsStyle": "aButtonLongPressSymbolsStyle"
+  "size":
+    "width": "168.75/1125"
+  "swipeDownAction":
+    "shortcut": "#selectText"
+  "swipeUpAction":
+    "symbol": "~"
+  "uppercasedStateAction":
+    "symbol": "A"
+  "uppercasedStateForegroundStyle":
+  - "aButtonUppercasedForegroundStyle"
+  - "aButtonSwipeUpForegroundStyle"
+  - "aButtonSwipeDownForegroundStyle"
+"aButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "a"
+"aButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "a"
+"aButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "aButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "aButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "aButtonHintSwipeUpForegroundStyle"
+"aButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 20
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "全"
+"aButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "~"
+"aButtonLongPressSymbol0ForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 20
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "systemImageName": "keyboard.onehanded.left"
+"aButtonLongPressSymbol0Style":
+  "action":
+    "shortcut": "#左手模式"
+  "foregroundStyle": "aButtonLongPressSymbol0ForegroundStyle"
+"aButtonLongPressSymbolsStyle":
+  "backgroundStyle": "longPressSymbolsBackgroundStyle"
+  "insets":
+    "bottom": 3
+    "left": 3
+    "right": 3
+    "top": 3
+  "selectedBackgroundStyle": "longPressSymbolsSelectedBackgroundStyle"
+  "selectedIndex": 0
+  "size":
+    "height": 40
+    "width": 40
+  "symbolStyles":
+  - "aButtonLongPressSymbol0Style"
+"aButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 9
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "全"
+"aButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "~"
+"aButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "A"
+"alphabeticButtonBackgroundStyle":
+  "buttonStyleType": "geometry"
+  "cornerRadius": 8.5
+  "highlightColor": "#E6E6E6"
+  "highlightLowerEdgeColor": "#898A8D"
+  "insets":
+    "bottom": 5
+    "left": 3
+    "right": 3
+    "top": 5
+  "normalColor": "#FFFFFF"
+  "normalLowerEdgeColor": "#898A8D"
+"alphabeticHintBackgroundStyle":
+  "borderColor": "#C6C6C8"
+  "borderSize": 0.5
+  "buttonStyleType": "geometry"
+  "cornerRadius": 10
+  "highlightShadowColor": "#898A8D"
+  "normalColor": "#ECECEC"
+  "normalShadowColor": "#898A8D"
+  "shadowRadius": 3
+"bButton":
+  "action":
+    "symbol": "b"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "bButtonForegroundStyle"
+  - "bButtonSwipeUpForegroundStyle"
+  - "bButtonSwipeDownForegroundStyle"
+  "hintStyle": "bButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "symbol": "“”"
+  "swipeUpAction":
+    "symbol": "‘’"
+  "uppercasedStateAction":
+    "symbol": "B"
+  "uppercasedStateForegroundStyle":
+  - "bButtonUppercasedForegroundStyle"
+  - "bButtonSwipeUpForegroundStyle"
+  - "bButtonSwipeDownForegroundStyle"
+"bButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "b"
+"bButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "b"
+"bButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "bButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "bButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "bButtonHintSwipeUpForegroundStyle"
+"bButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 20
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "“”"
+"bButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 20
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "‘’"
+"bButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 9
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "“”"
+"bButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 9
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "‘’"
+"bButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "B"
+"backspaceButton":
+  "action": "backspace"
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "bounds":
+    "alignment": "right"
+    "width": "151/168.75"
+  "foregroundStyle":
+  - "backspaceButtonForegroundStyle"
+  "repeatAction": "backspace"
+  "size":
+    "width": "168.75/1125"
+  "swipeDownAction":
+    "shortcut": "#undo"
+  "swipeUpAction":
+    "shortcut": "#deleteText"
+"backspaceButtonForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "highlightSystemImageName": "delete.left.fill"
+  "normalColor": "#000000"
+  "systemImageName": "delete.left"
+"cButton":
+  "action":
+    "symbol": "c"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "cButtonForegroundStyle"
+  - "cButtonSwipeUpForegroundStyle"
+  - "cButtonSwipeDownForegroundStyle"
+  "hintStyle": "cButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "shortcut": "#copy"
+  "swipeUpAction":
+    "symbol": "."
+  "uppercasedStateAction":
+    "symbol": "C"
+  "uppercasedStateForegroundStyle":
+  - "cButtonUppercasedForegroundStyle"
+  - "cButtonSwipeUpForegroundStyle"
+  - "cButtonSwipeDownForegroundStyle"
+"cButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "c"
+"cButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "c"
+"cButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "cButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "cButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "cButtonHintSwipeUpForegroundStyle"
+"cButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 20
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "复"
+"cButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "."
+"cButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 9
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "复"
+"cButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "."
+"cButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "C"
+"candidateContextMenu": []
+"colorButtonBackgroundStyle":
+  "buttonStyleType": "geometry"
+  "cornerRadius": 8.5
+  "highlightColor": "#FFFFFF"
+  "highlightLowerEdgeColor": "#898A8D"
+  "insets":
+    "bottom": 5
+    "left": 3
+    "right": 3
+    "top": 5
+  "normalColor": "#1FAD34"
+  "normalLowerEdgeColor": "#898A8D"
+"commaButton":
+  "action":
+    "symbol": ","
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "commaButtonForegroundStyle"
+  - "commaButtonSwipeUpForegroundStyle"
+  "hintStyle": "commaButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeUpAction":
+    "symbol": "."
+"commaButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.47999999999999998
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": ","
+"commaButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": ","
+"commaButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "commaButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeUpForegroundStyle": "commaButtonHintSwipeUpForegroundStyle"
+"commaButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "."
+"commaButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "."
+"dButton":
+  "action":
+    "symbol": "d"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "dButtonForegroundStyle"
+  - "dButtonSwipeUpForegroundStyle"
+  - "dButtonSwipeDownForegroundStyle"
+  "hintStyle": "dButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "symbol": "+"
+  "swipeUpAction":
+    "symbol": "="
+  "uppercasedStateAction":
+    "symbol": "D"
+  "uppercasedStateForegroundStyle":
+  - "dButtonUppercasedForegroundStyle"
+  - "dButtonSwipeUpForegroundStyle"
+  - "dButtonSwipeDownForegroundStyle"
+"dButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "d"
+"dButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "d"
+"dButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "dButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "dButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "dButtonHintSwipeUpForegroundStyle"
+"dButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "+"
+"dButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "="
+"dButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "+"
+"dButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "="
+"dButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "D"
+"eButton":
+  "action":
+    "symbol": "e"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "eButtonForegroundStyle"
+  - "eButtonSwipeUpForegroundStyle"
+  - "eButtonSwipeDownForegroundStyle"
+  "hintStyle": "eButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "symbol": "3"
+  "swipeUpAction":
+    "symbol": "#"
+  "uppercasedStateAction":
+    "symbol": "E"
+  "uppercasedStateForegroundStyle":
+  - "eButtonUppercasedForegroundStyle"
+  - "eButtonSwipeUpForegroundStyle"
+  - "eButtonSwipeDownForegroundStyle"
+"eButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "e"
+"eButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "e"
+"eButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "eButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "eButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "eButtonHintSwipeUpForegroundStyle"
+"eButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "3"
+"eButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "#"
+"eButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "3"
+"eButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "#"
+"eButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "E"
+"enterButton":
+  "action": "enter"
+  "backgroundStyle": "colorButtonBackgroundStyle"
+  "foregroundStyle":
+  - "enterButtonForegroundStyle"
+  "hintSymbolsStyle": "enterButtonLongPressSymbolsStyle"
+  "notification":
+  - "enterButtonPreeditChangedNotification"
+  "size":
+    "width": "250/1125"
+  "swipeDownAction":
+    "shortcut": "#行尾"
+  "swipeUpAction":
+    "shortcut": "#行首"
+"enterButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 16
+  "highlightColor": "#000000"
+  "normalColor": "#ffffff"
+  "text": "$returnKeyType"
+"enterButtonLongPressSymbol0ForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "systemImageName": "paragraphsign"
+"enterButtonLongPressSymbol0Style":
+  "action":
+    "shortcut": "#换行"
+  "foregroundStyle": "enterButtonLongPressSymbol0ForegroundStyle"
+"enterButtonLongPressSymbolsStyle":
+  "backgroundStyle": "longPressSymbolsBackgroundStyle"
+  "insets":
+    "bottom": 3
+    "left": 3
+    "right": 3
+    "top": 3
+  "selectedBackgroundStyle": "longPressSymbolsSelectedBackgroundStyle"
+  "selectedIndex": 0
+  "size":
+    "height": 40
+    "width": 40
+  "symbolStyles":
+  - "enterButtonLongPressSymbol0Style"
+"enterButtonPreeditChangedForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 16
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "确认"
+"enterButtonPreeditChangedNotification":
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "foregroundStyle":
+  - "enterButtonPreeditChangedForegroundStyle"
+  "notificationType": "preeditChanged"
+"expandButton":
+  "action":
+    "shortcut": "#candidatesBarStateToggle"
+  "foregroundStyle": "expandButtonForegroundStyle"
+  "size":
+    "width": 44
+"expandButtonForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "chevron.forward"
+"fButton":
+  "action":
+    "symbol": "f"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "fButtonForegroundStyle"
+  - "fButtonSwipeUpForegroundStyle"
+  - "fButtonSwipeDownForegroundStyle"
+  "hintStyle": "fButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "symbol": "{}"
+  "swipeUpAction":
+    "symbol": "[]"
+  "uppercasedStateAction":
+    "symbol": "F"
+  "uppercasedStateForegroundStyle":
+  - "fButtonUppercasedForegroundStyle"
+  - "fButtonSwipeUpForegroundStyle"
+  - "fButtonSwipeDownForegroundStyle"
+"fButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "f"
+"fButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "f"
+"fButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "fButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "fButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "fButtonHintSwipeUpForegroundStyle"
+"fButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "{}"
+"fButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "[]"
+"fButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "{}"
+"fButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "[]"
+"fButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "F"
+"gButton":
+  "action":
+    "symbol": "g"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "gButtonForegroundStyle"
+  - "gButtonSwipeUpForegroundStyle"
+  - "gButtonSwipeDownForegroundStyle"
+  "hintStyle": "gButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "openURL": "googlegemini://"
+  "swipeUpAction":
+    "openURL": "chatgpt://"
+  "uppercasedStateAction":
+    "symbol": "G"
+  "uppercasedStateForegroundStyle":
+  - "gButtonUppercasedForegroundStyle"
+  - "gButtonSwipeUpForegroundStyle"
+  - "gButtonSwipeDownForegroundStyle"
+"gButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "g"
+"gButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "g"
+"gButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "gButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "gButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "gButtonHintSwipeUpForegroundStyle"
+"gButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "systemImageName": "sparkle.magnifyingglass"
+"gButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "systemImageName": "magnifyingglass.circle"
+"gButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 9
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "systemImageName": "sparkle.magnifyingglass"
+"gButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 9
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "systemImageName": "magnifyingglass.circle"
+"gButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "G"
+"hButton":
+  "action":
+    "symbol": "h"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "hButtonForegroundStyle"
+  - "hButtonSwipeUpForegroundStyle"
+  - "hButtonSwipeDownForegroundStyle"
+  "hintStyle": "hButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "symbol": "「」"
+  "swipeUpAction":
+    "symbol": "()"
+  "uppercasedStateAction":
+    "symbol": "H"
+  "uppercasedStateForegroundStyle":
+  - "hButtonUppercasedForegroundStyle"
+  - "hButtonSwipeUpForegroundStyle"
+  - "hButtonSwipeDownForegroundStyle"
+"hButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "h"
+"hButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "h"
+"hButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "hButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "hButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "hButtonHintSwipeUpForegroundStyle"
+"hButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 20
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "「」"
+"hButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "()"
+"hButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 9
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "「」"
+"hButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "()"
+"hButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "H"
+"horizontalCandidateStyle":
+  "commentColor": "#000000"
+  "commentFontSize": 14
+  "highlightBackgroundColor": "#FFFFFF"
+  "indexColor": "#000000"
+  "indexFontSize": 12
+  "preferredBackgroundColor": "#FFFFFF"
+  "preferredCommentColor": "#000000"
+  "preferredIndexColor": "#000000"
+  "preferredTextColor": "#1FAD34"
+  "textColor": "#000000"
+  "textFontSize": 16
+"horizontalCandidates":
+  "candidateStyle": "horizontalCandidateStyle"
+  "type": "horizontalCandidates"
+"horizontalCandidatesLayout":
+- "HStack":
+    "subviews":
+    - "Cell": "horizontalCandidates"
+    - "Cell": "expandButton"
+"horizontalCandidatesStyle":
+  "backgroundStyle": "keyboardBackgroundStyle"
+  "insets":
+    "bottom": 1
+    "left": 3
+    "top": 8
+"horizontalSymbolsToolbarButtonsDataSource":
+- "action":
+    "keyboardType": "symbolic"
+  "label": "toolbarKeyboardSymbolicButton"
+  "styleName": "toolbarKeyboardSymbolicButtonStyle"
+- "action":
+    "shortcut": "#toggleScriptView"
+  "label": "toolbarScriptButton"
+  "styleName": "toolbarScriptButtonStyle"
+- "action":
+    "shortcut": "#showPhraseView"
+  "label": "toolbarPhraseButton"
+  "styleName": "toolbarPhraseButtonStyle"
+- "action":
+    "shortcut": "#showPasteboardView"
+  "label": "toolbarClipboardButton"
+  "styleName": "toolbarClipboardButtonStyle"
+- "action":
+    "keyboardType": "emojis"
+  "label": "toolbarKeyboardEmojiButton"
+  "styleName": "toolbarKeyboardEmojiButtonStyle"
+"iButton":
+  "action":
+    "symbol": "i"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "iButtonForegroundStyle"
+  - "iButtonSwipeUpForegroundStyle"
+  - "iButtonSwipeDownForegroundStyle"
+  "hintStyle": "iButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "symbol": "8"
+  "swipeUpAction":
+    "symbol": "*"
+  "uppercasedStateAction":
+    "symbol": "I"
+  "uppercasedStateForegroundStyle":
+  - "iButtonUppercasedForegroundStyle"
+  - "iButtonSwipeUpForegroundStyle"
+  - "iButtonSwipeDownForegroundStyle"
+"iButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "i"
+"iButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "i"
+"iButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "iButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "iButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "iButtonHintSwipeUpForegroundStyle"
+"iButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "8"
+"iButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "*"
+"iButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "8"
+"iButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "*"
+"iButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "I"
+"jButton":
+  "action":
+    "symbol": "j"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "jButtonForegroundStyle"
+  - "jButtonSwipeUpForegroundStyle"
+  - "jButtonSwipeDownForegroundStyle"
+  "hintStyle": "jButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "symbol": "\\"
+  "swipeUpAction":
+    "symbol": "/"
+  "uppercasedStateAction":
+    "symbol": "J"
+  "uppercasedStateForegroundStyle":
+  - "jButtonUppercasedForegroundStyle"
+  - "jButtonSwipeUpForegroundStyle"
+  - "jButtonSwipeDownForegroundStyle"
+"jButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "j"
+"jButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "j"
+"jButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "jButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "jButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "jButtonHintSwipeUpForegroundStyle"
+"jButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "\\"
+"jButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "/"
+"jButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "\\"
+"jButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "/"
+"jButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "J"
+"kButton":
+  "action":
+    "symbol": "k"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "kButtonForegroundStyle"
+  - "kButtonSwipeUpForegroundStyle"
+  - "kButtonSwipeDownForegroundStyle"
+  "hintStyle": "kButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "symbol": ":"
+  "swipeUpAction":
+    "symbol": ";"
+  "uppercasedStateAction":
+    "symbol": "K"
+  "uppercasedStateForegroundStyle":
+  - "kButtonUppercasedForegroundStyle"
+  - "kButtonSwipeUpForegroundStyle"
+  - "kButtonSwipeDownForegroundStyle"
+"kButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "k"
+"kButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "k"
+"kButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "kButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "kButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "kButtonHintSwipeUpForegroundStyle"
+"kButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": ":"
+"kButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": ";"
+"kButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": ":"
+"kButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": ";"
+"kButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "K"
+"keyboardBackgroundStyle":
+  "buttonStyleType": "geometry"
+  "normalColor": "#ffffff03"
+"keyboardHeight": 216
+"keyboardLayout":
+- "HStack":
+    "subviews":
+    - "Cell": "qButton"
+    - "Cell": "wButton"
+    - "Cell": "eButton"
+    - "Cell": "rButton"
+    - "Cell": "tButton"
+    - "Cell": "yButton"
+    - "Cell": "uButton"
+    - "Cell": "iButton"
+    - "Cell": "oButton"
+    - "Cell": "pButton"
+- "HStack":
+    "subviews":
+    - "Cell": "aButton"
+    - "Cell": "sButton"
+    - "Cell": "dButton"
+    - "Cell": "fButton"
+    - "Cell": "gButton"
+    - "Cell": "hButton"
+    - "Cell": "jButton"
+    - "Cell": "kButton"
+    - "Cell": "lButton"
+- "HStack":
+    "subviews":
+    - "Cell": "shiftButton"
+    - "Cell": "zButton"
+    - "Cell": "xButton"
+    - "Cell": "cButton"
+    - "Cell": "vButton"
+    - "Cell": "bButton"
+    - "Cell": "nButton"
+    - "Cell": "mButton"
+    - "Cell": "backspaceButton"
+- "HStack":
+    "subviews":
+    - "Cell": "numericButton"
+    - "Cell": "commaButton"
+    - "Cell": "spaceButton"
+    - "Cell": "pinyinButton"
+    - "Cell": "enterButton"
+"keyboardStyle":
+  "backgroundStyle": "keyboardBackgroundStyle"
+"lButton":
+  "action":
+    "symbol": "l"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "bounds":
+    "alignment": "left"
+    "width": "111/168.75"
+  "foregroundStyle":
+  - "lButtonForegroundStyle"
+  - "lButtonSwipeUpForegroundStyle"
+  - "lButtonSwipeDownForegroundStyle"
+  "hintStyle": "lButtonHintStyle"
+  "hintSymbolsStyle": "lButtonLongPressSymbolsStyle"
+  "size":
+    "width": "168.75/1125"
+  "swipeDownAction":
+    "symbol": "\""
+  "swipeUpAction":
+    "symbol": "'"
+  "uppercasedStateAction":
+    "symbol": "L"
+  "uppercasedStateForegroundStyle":
+  - "lButtonUppercasedForegroundStyle"
+  - "lButtonSwipeUpForegroundStyle"
+  - "lButtonSwipeDownForegroundStyle"
+"lButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "l"
+"lButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "l"
+"lButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "lButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "lButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "lButtonHintSwipeUpForegroundStyle"
+"lButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "\""
+"lButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "'"
+"lButtonLongPressSymbol0ForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 20
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "systemImageName": "keyboard.onehanded.right"
+"lButtonLongPressSymbol0Style":
+  "action":
+    "shortcut": "#右手模式"
+  "foregroundStyle": "lButtonLongPressSymbol0ForegroundStyle"
+"lButtonLongPressSymbolsStyle":
+  "backgroundStyle": "longPressSymbolsBackgroundStyle"
+  "insets":
+    "bottom": 3
+    "left": 3
+    "right": 3
+    "top": 3
+  "selectedBackgroundStyle": "longPressSymbolsSelectedBackgroundStyle"
+  "selectedIndex": 0
+  "size":
+    "height": 40
+    "width": 40
+  "symbolStyles":
+  - "lButtonLongPressSymbol0Style"
+"lButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "\""
+"lButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "'"
+"lButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "L"
+"longPressSymbolsBackgroundStyle":
+  "borderColor": "#C6C6C8"
+  "borderSize": 0.5
+  "buttonStyleType": "geometry"
+  "cornerRadius": 10
+  "highlightColor": "#1FAD34"
+  "highlightShadowColor": "#898A8D"
+  "insets":
+    "bottom": 5
+    "left": 3
+    "right": 3
+    "top": 5
+  "normalColor": "#ECECEC"
+  "normalShadowColor": "#898A8D"
+  "shadowRadius": 3
+"longPressSymbolsSelectedBackgroundStyle":
+  "buttonStyleType": "geometry"
+  "cornerRadius": 8.5
+  "highlightColor": "#1FAD34"
+  "highlightLowerEdgeColor": "#898A8D"
+  "insets":
+    "bottom": 5
+    "left": 3
+    "right": 3
+    "top": 5
+  "normalColor": "#1FAD34"
+  "normalLowerEdgeColor": "#898A8D"
+"mButton":
+  "action":
+    "symbol": "m"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "mButtonForegroundStyle"
+  - "mButtonSwipeUpForegroundStyle"
+  - "mButtonSwipeDownForegroundStyle"
+  "hintStyle": "mButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "openURL": "mojisho://?search=#pasteboardContent"
+  "swipeUpAction":
+    "openURL": "eudic://dict/#pasteboardContent"
+  "uppercasedStateAction":
+    "symbol": "M"
+  "uppercasedStateForegroundStyle":
+  - "mButtonUppercasedForegroundStyle"
+  - "mButtonSwipeUpForegroundStyle"
+  - "mButtonSwipeDownForegroundStyle"
+"mButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "m"
+"mButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "m"
+"mButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "mButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "mButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "mButtonHintSwipeUpForegroundStyle"
+"mButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 20
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "あ"
+"mButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 20
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "ɑː"
+"mButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 9
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "あ"
+"mButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 9
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "ɑː"
+"mButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "M"
+"nButton":
+  "action":
+    "symbol": "n"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "nButtonForegroundStyle"
+  - "nButtonSwipeUpForegroundStyle"
+  - "nButtonSwipeDownForegroundStyle"
+  "hintStyle": "nButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "symbol": "…"
+  "swipeUpAction":
+    "symbol": "、"
+  "uppercasedStateAction":
+    "symbol": "N"
+  "uppercasedStateForegroundStyle":
+  - "nButtonUppercasedForegroundStyle"
+  - "nButtonSwipeUpForegroundStyle"
+  - "nButtonSwipeDownForegroundStyle"
+"nButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "n"
+"nButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "n"
+"nButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "nButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "nButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "nButtonHintSwipeUpForegroundStyle"
+"nButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 20
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "…"
+"nButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 20
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "、"
+"nButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 9
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "…"
+"nButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 9
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "、"
+"nButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "N"
+"numericButton":
+  "action":
+    "keyboardType": "numeric"
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "foregroundStyle":
+  - "numericButtonForegroundStyle"
+  "notification":
+  - "numericButtonPreeditChangedNotification"
+  "size":
+    "width": "225/1125"
+  "swipeDownAction":
+    "keyboardType": "emojis"
+  "swipeUpAction":
+    "keyboardType": "symbolic"
+"numericButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 18
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "123"
+"numericButtonPreeditChangedForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 16
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "分词"
+"numericButtonPreeditChangedNotification":
+  "action":
+    "symbol": "`"
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "foregroundStyle":
+  - "numericButtonPreeditChangedForegroundStyle"
+  "notificationType": "preeditChanged"
+"oButton":
+  "action":
+    "symbol": "o"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "oButtonForegroundStyle"
+  - "oButtonSwipeUpForegroundStyle"
+  - "oButtonSwipeDownForegroundStyle"
+  "hintStyle": "oButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "symbol": "9"
+  "swipeUpAction":
+    "symbol": "|"
+  "uppercasedStateAction":
+    "symbol": "O"
+  "uppercasedStateForegroundStyle":
+  - "oButtonUppercasedForegroundStyle"
+  - "oButtonSwipeUpForegroundStyle"
+  - "oButtonSwipeDownForegroundStyle"
+"oButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "o"
+"oButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "o"
+"oButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "oButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "oButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "oButtonHintSwipeUpForegroundStyle"
+"oButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "9"
+"oButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "|"
+"oButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "9"
+"oButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "|"
+"oButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "O"
+"pButton":
+  "action":
+    "symbol": "p"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "pButtonForegroundStyle"
+  - "pButtonSwipeUpForegroundStyle"
+  - "pButtonSwipeDownForegroundStyle"
+  "hintStyle": "pButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "symbol": "0"
+  "swipeUpAction":
+    "symbol": "?"
+  "uppercasedStateAction":
+    "symbol": "P"
+  "uppercasedStateForegroundStyle":
+  - "pButtonUppercasedForegroundStyle"
+  - "pButtonSwipeUpForegroundStyle"
+  - "pButtonSwipeDownForegroundStyle"
+"pButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "p"
+"pButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "p"
+"pButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "pButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "pButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "pButtonHintSwipeUpForegroundStyle"
+"pButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "0"
+"pButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "?"
+"pButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "0"
+"pButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "?"
+"pButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "P"
+"pinyinButton":
+  "action":
+    "keyboardType": "pinyin"
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "foregroundStyle":
+  - "pinyinButtonForegroundStyle"
+  "size":
+    "width": "112.5/1125"
+"pinyinButtonForegroundStyle":
+  "assetImageName": "englishState2"
+  "buttonStyleType": "assetImage"
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+"preeditForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 17
+  "normalColor": "#000000"
+"preeditHeight": 15
+"preeditStyle":
+  "backgroundStyle": "keyboardBackgroundStyle"
+  "foregroundStyle": "preeditForegroundStyle"
+  "insets":
+    "left": 4
+    "top": 2
+"qButton":
+  "action":
+    "symbol": "q"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "qButtonForegroundStyle"
+  - "qButtonSwipeUpForegroundStyle"
+  - "qButtonSwipeDownForegroundStyle"
+  "hintStyle": "qButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "symbol": "1"
+  "swipeUpAction":
+    "symbol": "!"
+  "uppercasedStateAction":
+    "symbol": "Q"
+  "uppercasedStateForegroundStyle":
+  - "qButtonUppercasedForegroundStyle"
+  - "qButtonSwipeUpForegroundStyle"
+  - "qButtonSwipeDownForegroundStyle"
+"qButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "q"
+"qButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "q"
+"qButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "qButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "qButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "qButtonHintSwipeUpForegroundStyle"
+"qButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "1"
+"qButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "!"
+"qButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "1"
+"qButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "!"
+"qButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "Q"
+"rButton":
+  "action":
+    "symbol": "r"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "rButtonForegroundStyle"
+  - "rButtonSwipeUpForegroundStyle"
+  - "rButtonSwipeDownForegroundStyle"
+  "hintStyle": "rButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "symbol": "4"
+  "swipeUpAction":
+    "symbol": "$"
+  "uppercasedStateAction":
+    "symbol": "R"
+  "uppercasedStateForegroundStyle":
+  - "rButtonUppercasedForegroundStyle"
+  - "rButtonSwipeUpForegroundStyle"
+  - "rButtonSwipeDownForegroundStyle"
+"rButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "r"
+"rButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "r"
+"rButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "rButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "rButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "rButtonHintSwipeUpForegroundStyle"
+"rButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "4"
+"rButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 20
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "$"
+"rButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "4"
+"rButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 9
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "$"
+"rButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "R"
+"rimeSchemaChangedNotification":
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "spaceButtonForegroundStyle"
+  - "spaceButtonRimeSchemaForegroundStyle"
+  "notificationType": "rime"
+  "rimeNotificationType": "schemaChanged"
+"sButton":
+  "action":
+    "symbol": "s"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "sButtonForegroundStyle"
+  - "sButtonSwipeUpForegroundStyle"
+  - "sButtonSwipeDownForegroundStyle"
+  "hintStyle": "sButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "symbol": "_"
+  "swipeUpAction":
+    "symbol": "-"
+  "uppercasedStateAction":
+    "symbol": "S"
+  "uppercasedStateForegroundStyle":
+  - "sButtonUppercasedForegroundStyle"
+  - "sButtonSwipeUpForegroundStyle"
+  - "sButtonSwipeDownForegroundStyle"
+"sButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "s"
+"sButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "s"
+"sButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "sButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "sButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "sButtonHintSwipeUpForegroundStyle"
+"sButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "_"
+"sButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "-"
+"sButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "_"
+"sButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "-"
+"sButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "S"
+"scaleAnimation":
+  "animationType": "scale"
+  "isAutoReverse": true
+  "pressDuration": 60
+  "releaseDuration": 80
+  "scale": 0.87
+"shiftButton":
+  "action": "shift"
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "bounds":
+    "alignment": "left"
+    "width": "151/168.75"
+  "capsLockedStateForegroundStyle": "shiftButtonCapsLockedForegroundStyle"
+  "foregroundStyle":
+  - "shiftButtonForegroundStyle"
+  "size":
+    "width": "168.75/1125"
+  "uppercasedStateForegroundStyle":
+  - "shiftButtonUppercasedForegroundStyle"
+"shiftButtonCapsLockedForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "capslock.fill"
+"shiftButtonForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "shift"
+"shiftButtonUppercasedForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "shift.fill"
+"spaceButton":
+  "action": "space"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "spaceButtonForegroundStyle"
+  - "spaceButtonRimeSchemaForegroundStyle"
+  - "spaceButtonSwipeUpForegroundStyle"
+  - "spaceButtonSwipeDownForegroundStyle"
+  "notification":
+  - "rimeSchemaChangedNotification"
+  - "spaceButtonPreeditChangedNotification"
+  "swipeDownAction":
+    "shortcut": "#三选上屏"
+  "swipeUpAction":
+    "shortcut": "#次选上屏"
+"spaceButtonForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "center":
+    "x": 0.5
+    "y": 0.5
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "space"
+"spaceButtonPreeditChangedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.5
+    "y": 0.5
+  "fontSize": 16
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "$rimeCandidate"
+"spaceButtonPreeditChangedNotification":
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "spaceButtonPreeditChangedForegroundStyle"
+  "notificationType": "preeditChanged"
+"spaceButtonRimeSchemaForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.22
+    "y": 0.69999999999999996
+  "fontSize": 9
+  "highlightColor": "#8a8a8a"
+  "insets":
+    "bottom": 0
+    "left": 10
+    "right": 0
+    "top": 0
+  "normalColor": "#8a8a8a"
+  "text": "English"
+"spaceButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+"spaceButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+"systemButtonBackgroundStyle":
+  "buttonStyleType": "geometry"
+  "cornerRadius": 8.5
+  "highlightColor": "#FFFFFF"
+  "highlightLowerEdgeColor": "#898A8D"
+  "insets":
+    "bottom": 5
+    "left": 3
+    "right": 3
+    "top": 5
+  "normalColor": "#DEDEDE"
+  "normalLowerEdgeColor": "#898A8D"
+"tButton":
+  "action":
+    "symbol": "t"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "tButtonForegroundStyle"
+  - "tButtonSwipeUpForegroundStyle"
+  - "tButtonSwipeDownForegroundStyle"
+  "hintStyle": "tButtonHintStyle"
+  "hintSymbolsStyle": "tButtonLongPressSymbolsStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "symbol": "5"
+  "swipeUpAction":
+    "symbol": "%"
+  "uppercasedStateAction":
+    "symbol": "T"
+  "uppercasedStateForegroundStyle":
+  - "tButtonUppercasedForegroundStyle"
+  - "tButtonSwipeUpForegroundStyle"
+  - "tButtonSwipeDownForegroundStyle"
+"tButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "t"
+"tButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "t"
+"tButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "tButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "tButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "tButtonHintSwipeUpForegroundStyle"
+"tButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "5"
+"tButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "%"
+"tButtonLongPressSymbol0ForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 20
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "systemImageName": "arrow.right.to.line"
+"tButtonLongPressSymbol0Style":
+  "action": "tab"
+  "foregroundStyle": "tButtonLongPressSymbol0ForegroundStyle"
+"tButtonLongPressSymbolsStyle":
+  "backgroundStyle": "longPressSymbolsBackgroundStyle"
+  "insets":
+    "bottom": 3
+    "left": 3
+    "right": 3
+    "top": 3
+  "selectedBackgroundStyle": "longPressSymbolsSelectedBackgroundStyle"
+  "selectedIndex": 0
+  "size":
+    "height": 40
+    "width": 40
+  "symbolStyles":
+  - "tButtonLongPressSymbol0Style"
+"tButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "5"
+"tButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "%"
+"tButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "T"
+"toolbarClipboardButtonForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "clipboard"
+"toolbarClipboardButtonStyle":
+  "foregroundStyle": "toolbarClipboardButtonForegroundStyle"
+"toolbarCollectionCellStyle":
+  "backgroundStyle": "keyboardBackgroundStyle"
+  "foregroundStyle": "keyboardBackgroundStyle"
+"toolbarDismissButton":
+  "action": "dismissKeyboard"
+  "foregroundStyle":
+  - "toolbarDismissButtonForegroundStyle"
+"toolbarDismissButtonForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "power"
+"toolbarHeight": 40
+"toolbarKeyboardEmojiButtonForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "face.smiling.inverse"
+"toolbarKeyboardEmojiButtonStyle":
+  "foregroundStyle": "toolbarKeyboardEmojiButtonForegroundStyle"
+"toolbarKeyboardSymbolicButtonForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "number"
+"toolbarKeyboardSymbolicButtonStyle":
+  "foregroundStyle": "toolbarKeyboardSymbolicButtonForegroundStyle"
+"toolbarLayout":
+- "HStack":
+    "subviews":
+    - "Cell": "toolbarMenuButton"
+    - "Cell": "toolbarSlideButtons"
+    - "Cell": "toolbarDismissButton"
+"toolbarMenuButton":
+  "action":
+    "floatKeyboardType": "panel"
+  "foregroundStyle":
+  - "toolbarMenuButtonForegroundStyle"
+"toolbarMenuButtonForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "swirl.circle.righthalf.filled"
+"toolbarPhraseButtonForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "heart"
+"toolbarPhraseButtonStyle":
+  "foregroundStyle": "toolbarPhraseButtonForegroundStyle"
+"toolbarScriptButtonForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "terminal"
+"toolbarScriptButtonStyle":
+  "foregroundStyle": "toolbarScriptButtonForegroundStyle"
+"toolbarSlideButtons":
+  "cellStyle": "toolbarCollectionCellStyle"
+  "contentRightToLeft": false
+  "dataSource": "horizontalSymbolsToolbarButtonsDataSource"
+  "insets":
+    "left": 3
+    "right": 3
+  "maxColumns": 5
+  "size":
+    "width": "5/7"
+  "type": "horizontalSymbols"
+"toolbarStyle":
+  "backgroundStyle": "keyboardBackgroundStyle"
+  "insets":
+    "top": 6
+"uButton":
+  "action":
+    "symbol": "u"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "uButtonForegroundStyle"
+  - "uButtonSwipeUpForegroundStyle"
+  - "uButtonSwipeDownForegroundStyle"
+  "hintStyle": "uButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "symbol": "7"
+  "swipeUpAction":
+    "symbol": "&"
+  "uppercasedStateAction":
+    "symbol": "U"
+  "uppercasedStateForegroundStyle":
+  - "uButtonUppercasedForegroundStyle"
+  - "uButtonSwipeUpForegroundStyle"
+  - "uButtonSwipeDownForegroundStyle"
+"uButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "u"
+"uButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "u"
+"uButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "uButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "uButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "uButtonHintSwipeUpForegroundStyle"
+"uButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "7"
+"uButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "&"
+"uButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "7"
+"uButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "&"
+"uButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "U"
+"vButton":
+  "action":
+    "symbol": "v"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "vButtonForegroundStyle"
+  - "vButtonSwipeUpForegroundStyle"
+  - "vButtonSwipeDownForegroundStyle"
+  "hintStyle": "vButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "shortcut": "#paste"
+  "swipeUpAction":
+    "openURL": "clipjar://"
+  "uppercasedStateAction":
+    "symbol": "V"
+  "uppercasedStateForegroundStyle":
+  - "vButtonUppercasedForegroundStyle"
+  - "vButtonSwipeUpForegroundStyle"
+  - "vButtonSwipeDownForegroundStyle"
+"vButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "v"
+"vButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "v"
+"vButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "vButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "vButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "vButtonHintSwipeUpForegroundStyle"
+"vButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 20
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "贴"
+"vButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "systemImageName": "paperclip.circle"
+"vButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 9
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "贴"
+"vButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 9
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "systemImageName": "paperclip.circle"
+"vButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "V"
+"verticalBackspaceButtonStyle":
+  "action": "backspace"
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "foregroundStyle": "verticalBackspaceButtonStyleForegroundStyle"
+"verticalBackspaceButtonStyleForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "delete.left"
+"verticalCandidateStyle":
+  "commentColor": "#000000"
+  "commentFontSize": 14
+  "highlightBackgroundColor": "#FFFFFF"
+  "indexColor": "#000000"
+  "indexFontSize": 12
+  "insets":
+    "bottom": 4
+    "left": 6
+    "right": 6
+    "top": 4
+  "preferredBackgroundColor": "#FFFFFF"
+  "preferredCommentColor": "#000000"
+  "preferredIndexColor": "#000000"
+  "preferredTextColor": "#1FAD34"
+  "textColor": "#000000"
+  "textFontSize": 16
+"verticalCandidates":
+  "candidateStyle": "verticalCandidateStyle"
+  "insets":
+    "bottom": 8
+    "left": 8
+    "right": 8
+    "top": 8
+  "maxColumns": 6
+  "maxRows": 5
+  "separatorColor": "#C6C6C8"
+  "type": "verticalCandidates"
+"verticalCandidatesLayout":
+- "HStack":
+    "subviews":
+    - "Cell": "verticalCandidates"
+- "HStack":
+    "style": "verticalLastRowStyle"
+    "subviews":
+    - "Cell": "verticalPageUpButtonStyle"
+    - "Cell": "verticalPageDownButtonStyle"
+    - "Cell": "verticalReturnButtonStyle"
+    - "Cell": "verticalBackspaceButtonStyle"
+"verticalCandidatesStyle":
+  "backgroundStyle": "keyboardBackgroundStyle"
+"verticalLastRowStyle":
+  "size":
+    "height": 45
+"verticalPageDownButtonStyle":
+  "action":
+    "shortcut": "#verticalCandidatesPageDown"
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "foregroundStyle": "verticalPageDownButtonStyleForegroundStyle"
+"verticalPageDownButtonStyleForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "chevron.down"
+"verticalPageUpButtonStyle":
+  "action":
+    "shortcut": "#verticalCandidatesPageUp"
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "foregroundStyle": "verticalPageUpButtonStyleForegroundStyle"
+"verticalPageUpButtonStyleForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "chevron.up"
+"verticalReturnButtonStyle":
+  "action":
+    "shortcut": "#candidatesBarStateToggle"
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "foregroundStyle": "verticalReturnButtonStyleForegroundStyle"
+"verticalReturnButtonStyleForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "arrow.backward"
+"wButton":
+  "action":
+    "symbol": "w"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "wButtonForegroundStyle"
+  - "wButtonSwipeUpForegroundStyle"
+  - "wButtonSwipeDownForegroundStyle"
+  "hintStyle": "wButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "symbol": "2"
+  "swipeUpAction":
+    "symbol": "@"
+  "uppercasedStateAction":
+    "symbol": "W"
+  "uppercasedStateForegroundStyle":
+  - "wButtonUppercasedForegroundStyle"
+  - "wButtonSwipeUpForegroundStyle"
+  - "wButtonSwipeDownForegroundStyle"
+"wButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "w"
+"wButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "w"
+"wButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "wButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "wButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "wButtonHintSwipeUpForegroundStyle"
+"wButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "2"
+"wButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "@"
+"wButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "2"
+"wButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "@"
+"wButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "W"
+"xButton":
+  "action":
+    "symbol": "x"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "xButtonForegroundStyle"
+  - "xButtonSwipeUpForegroundStyle"
+  - "xButtonSwipeDownForegroundStyle"
+  "hintStyle": "xButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "shortcut": "#cut"
+  "swipeUpAction":
+    "symbol": ","
+  "uppercasedStateAction":
+    "symbol": "X"
+  "uppercasedStateForegroundStyle":
+  - "xButtonUppercasedForegroundStyle"
+  - "xButtonSwipeUpForegroundStyle"
+  - "xButtonSwipeDownForegroundStyle"
+"xButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "x"
+"xButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "x"
+"xButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "xButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "xButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "xButtonHintSwipeUpForegroundStyle"
+"xButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 20
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "剪"
+"xButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": ","
+"xButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 9
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "剪"
+"xButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": ","
+"xButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "X"
+"yButton":
+  "action":
+    "symbol": "y"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "yButtonForegroundStyle"
+  - "yButtonSwipeUpForegroundStyle"
+  - "yButtonSwipeDownForegroundStyle"
+  "hintStyle": "yButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "symbol": "6"
+  "swipeUpAction":
+    "symbol": "^"
+  "uppercasedStateAction":
+    "symbol": "Y"
+  "uppercasedStateForegroundStyle":
+  - "yButtonUppercasedForegroundStyle"
+  - "yButtonSwipeUpForegroundStyle"
+  - "yButtonSwipeDownForegroundStyle"
+"yButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "y"
+"yButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "y"
+"yButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "yButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "yButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "yButtonHintSwipeUpForegroundStyle"
+"yButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "6"
+"yButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "^"
+"yButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "6"
+"yButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "^"
+"yButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "Y"
+"zButton":
+  "action":
+    "symbol": "z"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "zButtonForegroundStyle"
+  - "zButtonSwipeUpForegroundStyle"
+  - "zButtonSwipeDownForegroundStyle"
+  "hintStyle": "zButtonHintStyle"
+  "size":
+    "width": "112.5/1125"
+  "swipeDownAction":
+    "shortcut": "#undo"
+  "swipeUpAction":
+    "symbol": "`"
+  "uppercasedStateAction":
+    "symbol": "Z"
+  "uppercasedStateForegroundStyle":
+  - "zButtonUppercasedForegroundStyle"
+  - "zButtonSwipeUpForegroundStyle"
+  - "zButtonSwipeDownForegroundStyle"
+"zButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "z"
+"zButtonHintForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "z"
+"zButtonHintStyle":
+  "backgroundStyle": "alphabeticHintBackgroundStyle"
+  "foregroundStyle": "zButtonHintForegroundStyle"
+  "size":
+    "height": 40
+    "width": 40
+  "swipeDownForegroundStyle": "zButtonHintSwipeDownForegroundStyle"
+  "swipeUpForegroundStyle": "zButtonHintSwipeUpForegroundStyle"
+"zButtonHintSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 20
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "撤"
+"zButtonHintSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "text": "`"
+"zButtonSwipeDownForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.71999999999999997
+    "y": 0.28000000000000003
+  "fontSize": 9
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "撤"
+"zButtonSwipeUpForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "x": 0.28000000000000003
+    "y": 0.28000000000000003
+  "fontSize": 10
+  "highlightColor": "#8a8a8a"
+  "normalColor": "#8a8a8a"
+  "text": "`"
+"zButtonUppercasedForegroundStyle":
+  "buttonStyleType": "text"
+  "center":
+    "y": 0.55000000000000004
+  "fontSize": 21.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "Z"

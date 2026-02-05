@@ -1,0 +1,1107 @@
+alphabeticButtonBackgroundStyle:
+  buttonStyleType: "geometry"
+  cornerRadius: 8.5
+  highlightColor: "#E6E6E6"
+  highlightLowerEdgeColor: "#898A8D"
+  insets:
+    bottom: 3
+    left: 3
+    right: 3
+    top: 3
+  normalColor: "#FFFFFF"
+  normalLowerEdgeColor: "#898A8D"
+alphabeticHintBackgroundStyle:
+  borderColor: "#C6C6C8"
+  borderSize: 0.5
+  buttonStyleType: "geometry"
+  cornerRadius: 10
+  normalColor: "#FFFFFF"
+ampersandButton:
+  action:
+    symbol: "&"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "ampersandButtonForegroundStyle"
+  size:
+    width: "112.5/1125"
+ampersandButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    "y": 0.55
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "&"
+asteriskButton:
+  action:
+    character: "*"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "asteriskButtonForegroundStyle"
+  size:
+    width: "112.5/1125"
+asteriskButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    "y": 0.55
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "*"
+backslashButton:
+  action:
+    symbol: "\\"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "backslashButtonForegroundStyle"
+  size:
+    width: "112.5/1125"
+backslashButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    "y": 0.55
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "\\"
+backspaceButton:
+  action: "backspace"
+  backgroundStyle: "systemButtonBackgroundStyle"
+  bounds:
+    alignment: "right"
+    width: "151/168.75"
+  foregroundStyle: "backspaceButtonForegroundStyle"
+  repeatAction: "backspace"
+  size:
+    width: "168.75/1125"
+  swipeDownAction:
+    shortcut: "#undo"
+  swipeUpAction:
+    shortcut: "#deleteText"
+backspaceButtonForegroundStyle:
+  buttonStyleType: "systemImage"
+  fontSize: 20
+  highlightColor: "#000000"
+  highlightSystemImageName: "delete.left.fill"
+  normalColor: "#000000"
+  systemImageName: "delete.left"
+blueButtonBackgroundStyle:
+  buttonStyleType: "geometry"
+  cornerRadius: 8.5
+  highlightColor: "#FFFFFF"
+  highlightLowerEdgeColor: "#898A8D"
+  insets:
+    bottom: 3
+    left: 3
+    right: 3
+    top: 3
+  normalColor: "#007AFF"
+  normalLowerEdgeColor: "#898A8D"
+blueButtonForegroundStyle:
+  buttonStyleType: "text"
+  fontSize: 16
+  highlightColor: "#000000"
+  normalColor: "#FFFFFF"
+  text: "$returnKeyType"
+buttonStyleType: "text"
+candidateContextMenu:
+- action: "#copy"
+  name: "复制"
+caretButton:
+  action:
+    symbol: "^"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "caretButtonForegroundStyle"
+  size:
+    width: "112.5/1125"
+caretButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    "y": 0.55
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "^"
+commaButton:
+  action:
+    character: ","
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "commaButtonForegroundStyle"
+  - "commaButtonSwipeUpForegroundStyle"
+  size:
+    width: "112.5/1125"
+  swipeUpAction:
+    character: "."
+commaButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    x: 0.5
+    "y": 0.5
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: ","
+commaButtonSwipeUpForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    x: 0.28
+    "y": 0.28
+  fontSize: 10
+  highlightColor: "#3c3c4399"
+  normalColor: "#3c3c4399"
+  text: ""
+commitCandidateForegroundStyle:
+  buttonStyleType: "text"
+  fontSize: 16
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "选定"
+ellipsisButton:
+  action:
+    symbol: "…"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "ellipsisButtonForegroundStyle"
+  size:
+    width: "112.5/1125"
+ellipsisButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    "y": 0.55
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "…"
+emDashButton:
+  action:
+    character: "—"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "emDashButtonForegroundStyle"
+  size:
+    width: "112.5/1125"
+emDashButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    "y": 0.55
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "—"
+enterButton:
+  action: "enter"
+  backgroundStyle:
+  - conditionKey: "$returnKeyType"
+    conditionValue:
+    - 0
+    - 2
+    - 3
+    - 5
+    - 6
+    - 8
+    - 11
+    styleName: "systemButtonBackgroundStyle"
+  - conditionKey: "$returnKeyType"
+    conditionValue:
+    - 1
+    - 4
+    - 7
+    - 9
+    - 10
+    styleName: "blueButtonBackgroundStyle"
+  foregroundStyle:
+  - conditionKey: "$returnKeyType"
+    conditionValue:
+    - 0
+    - 2
+    - 3
+    - 5
+    - 6
+    - 8
+    - 11
+    styleName: "enterButtonForegroundStyle"
+  - conditionKey: "$returnKeyType"
+    conditionValue:
+    - 1
+    - 4
+    - 7
+    - 9
+    - 10
+    styleName: "blueButtonForegroundStyle"
+  notification:
+  - "returnKeyTypeChangedNotification"
+  - "preeditChangedForEnterButtonNotification"
+  size:
+    width: "280/1125"
+  swipeDownAction:
+    shortcut: "#换行"
+enterButtonForegroundStyle:
+  buttonStyleType: "text"
+  fontSize: 16
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "$returnKeyType"
+exclamationMarkButton:
+  action:
+    symbol: "!"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "exclamationMarkButtonForegroundStyle"
+  size:
+    width: "112.5/1125"
+exclamationMarkButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    "y": 0.55
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "!"
+expandButton:
+  action:
+    shortcut: "#candidatesBarStateToggle"
+  foregroundStyle: "expandButtonForegroundStyle"
+  size:
+    width: 44
+expandButtonForegroundStyle:
+  buttonStyleType: "systemImage"
+  fontSize: 20
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  systemImageName: "chevron.forward"
+fontSize: 26
+graveButton:
+  action:
+    character: "`"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "graveButtonForegroundStyle"
+  - "graveButtonSwipeUpForegroundStyle"
+  size:
+    width: "112.5/1125"
+  swipeUpAction:
+    character: "~"
+graveButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    "y": 0.55
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "`"
+graveButtonSwipeUpForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    x: 0.28
+    "y": 0.28
+  fontSize: 10
+  highlightColor: "#3c3c4399"
+  normalColor: "#3c3c4399"
+  text: "~"
+hashButton:
+  action:
+    symbol: "#"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "hashButtonForegroundStyle"
+  size:
+    width: "112.5/1125"
+hashButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    "y": 0.55
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "#"
+horizontalCandidateStyle:
+  commentColor: "#000000"
+  commentFontSize: 14
+  highlightBackgroundColor: "#FFFFFF"
+  indexColor: "#000000"
+  indexFontSize: 12
+  preferredBackgroundColor: "#FFFFFF"
+  preferredCommentColor: "#000000"
+  preferredIndexColor: "#000000"
+  preferredTextColor: "#000000"
+  textColor: "#000000"
+  textFontSize: 16
+horizontalCandidates:
+  candidateStyle: "horizontalCandidateStyle"
+  type: "horizontalCandidates"
+horizontalCandidatesLayout:
+- HStack:
+    subviews:
+    - Cell: "horizontalCandidates"
+    - Cell: "expandButton"
+horizontalCandidatesStyle:
+  backgroundStyle: "keyboardBackgroundStyle"
+  insets:
+    bottom: 1
+    left: 3
+    top: 8
+horizontalSymbolsToolbarButtonsDataSource:
+- action:
+    openURL: "scripting://run/%E7%9A%AE%E8%82%A4ws%E5%90%8C%E6%AD%A5"
+  label: "toolbarScriptingSyncButton"
+  styleName: "toolbarScriptingSyncButtonStyle"
+- action:
+    shortcut: "#RimeSwitcher"
+  label: "toolbarRimeSwitcherButton"
+  styleName: "toolbarRimeSwitcherButtonStyle"
+- action:
+    shortcut: "#toggleScriptView"
+  label: "toolbarScriptButton"
+  styleName: "toolbarScriptButtonStyle"
+- action:
+    shortcut: "#showPhraseView"
+  label: "toolbarPhraseButton"
+  styleName: "toolbarPhraseButtonStyle"
+- action:
+    shortcut: "#showPasteboardView"
+  label: "toolbarClipboardButton"
+  styleName: "toolbarClipboardButtonStyle"
+- action:
+    shortcut: "#右手模式"
+  label: "toolbarRightHandButton"
+  styleName: "toolbarRightHandButtonStyle"
+hyphenButton:
+  action:
+    character: "-"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "hyphenButtonForegroundStyle"
+  - "hyphenButtonSwipeUpForegroundStyle"
+  size:
+    width: "112.5/1125"
+  swipeUpAction:
+    character: "——"
+hyphenButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    "y": 0.55
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "-"
+hyphenButtonSwipeUpForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    x: 0.28
+    "y": 0.28
+  fontSize: 10
+  highlightColor: "#3c3c4399"
+  normalColor: "#3c3c4399"
+  text: "——"
+keyboardBackgroundStyle:
+  buttonStyleType: "geometry"
+  normalColor: "#ffffff03"
+keyboardHeight: 160
+keyboardLayout:
+- HStack:
+    subviews:
+    - Cell: "leftChineseBracketButton"
+    - Cell: "rightChineseBracketButton"
+    - Cell: "leftChineseBraceButton"
+    - Cell: "rightChineseBraceButton"
+    - Cell: "hashButton"
+    - Cell: "percentButton"
+    - Cell: "caretButton"
+    - Cell: "asteriskButton"
+    - Cell: "plusButton"
+    - Cell: "hyphenButton"
+- HStack:
+    subviews:
+    - Cell: "underscoreButton"
+    - Cell: "emDashButton"
+    - Cell: "backslashButton"
+    - Cell: "verticalBarButton"
+    - Cell: "tildeButton"
+    - Cell: "leftBookTitleMarkButton"
+    - Cell: "rightBookTitleMarkButton"
+    - Cell: "graveButton"
+    - Cell: "ampersandButton"
+    - Cell: "middleDotButton"
+- HStack:
+    subviews:
+    - Cell: "numericButton"
+    - Cell: "ellipsisButton"
+    - Cell: "commaButton"
+    - Cell: "periodButton"
+    - Cell: "questionMarkEnButton"
+    - Cell: "exclamationMarkButton"
+    - Cell: "leftSingleQuoteButton"
+    - Cell: "rightSingleQuoteButton"
+    - Cell: "backspaceButton"
+- HStack:
+    subviews:
+    - Cell: "pinyinButton"
+    - Cell: "spaceButton"
+    - Cell: "enterButton"
+keyboardStyle:
+  backgroundStyle: "keyboardBackgroundStyle"
+leftBookTitleMarkButton:
+  action:
+    symbol: "《"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "leftBookTitleMarkButtonForegroundStyle"
+  size:
+    width: "112.5/1125"
+leftBookTitleMarkButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    x: 0.35
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "《"
+leftChineseBraceButton:
+  action:
+    symbol: "｛"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "leftChineseBraceButtonForegroundStyle"
+  size:
+    width: "112.5/1125"
+leftChineseBraceButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    x: 0.35
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "｛"
+leftChineseBracketButton:
+  action:
+    symbol: "【"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "leftChineseBracketButtonForegroundStyle"
+  - "leftChineseBracketButtonSwipeUpForegroundStyle"
+  size:
+    width: "112.5/1125"
+  swipeUpAction:
+    symbol: "「"
+leftChineseBracketButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    x: 0.35
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "【"
+leftChineseBracketButtonSwipeUpForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    x: 0.28
+    "y": 0.28
+  fontSize: 10
+  highlightColor: "#3c3c4399"
+  normalColor: "#3c3c4399"
+  text: "「"
+leftSingleQuoteButton:
+  action:
+    symbol: "‘"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "leftSingleQuoteButtonForegroundStyle"
+  - "leftSingleQuoteButtonSwipeUpForegroundStyle"
+  size:
+    width: "112.5/1125"
+  swipeUpAction:
+    symbol: "“"
+leftSingleQuoteButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    "y": 0.55
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "‘"
+leftSingleQuoteButtonSwipeUpForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    x: 0.28
+    "y": 0.28
+  fontSize: 10
+  highlightColor: "#3c3c4399"
+  normalColor: "#3c3c4399"
+  text: "“"
+middleDotButton:
+  action:
+    symbol: "·"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "middleDotButtonForegroundStyle"
+  size:
+    width: "112.5/1125"
+middleDotButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    "y": 0.55
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "·"
+normalColor: "#000000"
+numericButton:
+  action:
+    keyboardType: "numeric"
+  backgroundStyle: "systemButtonBackgroundStyle"
+  bounds:
+    alignment: "left"
+    width: "151/168.75"
+  foregroundStyle: "numericButtonForegroundStyle"
+  size:
+    width: "168.75/1125"
+  swipeUpAction:
+    keyboardType: "emojis"
+numericButtonForegroundStyle:
+  buttonStyleType: "text"
+  fontSize: 16
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "123"
+percentButton:
+  action:
+    symbol: "%"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "percentButtonForegroundStyle"
+  size:
+    width: "112.5/1125"
+percentButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    "y": 0.55
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "%"
+periodButton:
+  action:
+    character: "."
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "periodButtonForegroundStyle"
+  - "periodButtonSwipeUpForegroundStyle"
+  size:
+    width: "112.5/1125"
+  swipeUpAction:
+    character: ","
+periodButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    "y": 0.55
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "."
+periodButtonSwipeUpForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    x: 0.28
+    "y": 0.28
+  fontSize: 10
+  highlightColor: "#3c3c4399"
+  normalColor: "#3c3c4399"
+  text: ","
+pinyinButton:
+  action:
+    keyboardType: "pinyin"
+  backgroundStyle: "systemButtonBackgroundStyle"
+  foregroundStyle: "pinyinButtonForegroundStyle"
+  size:
+    width: "280/1125"
+pinyinButtonForegroundStyle:
+  buttonStyleType: "text"
+  fontSize: 16
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "拼音"
+plusButton:
+  action:
+    character: "+"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "plusButtonForegroundStyle"
+  size:
+    width: "112.5/1125"
+plusButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    "y": 0.55
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "+"
+preeditChangedForEnterButtonNotification:
+  backgroundStyle:
+  - conditionKey: "$returnKeyType"
+    conditionValue:
+    - 0
+    - 2
+    - 3
+    - 5
+    - 6
+    - 8
+    - 11
+    styleName: "systemButtonBackgroundStyle"
+  - conditionKey: "$returnKeyType"
+    conditionValue:
+    - 1
+    - 4
+    - 7
+    - 9
+    - 10
+    styleName: "blueButtonBackgroundStyle"
+  foregroundStyle:
+  - conditionKey: "$returnKeyType"
+    conditionValue:
+    - 0
+    - 2
+    - 3
+    - 5
+    - 6
+    - 8
+    - 11
+    styleName: "enterButtonForegroundStyle"
+  - conditionKey: "$returnKeyType"
+    conditionValue:
+    - 1
+    - 4
+    - 7
+    - 9
+    - 10
+    styleName: "blueButtonForegroundStyle"
+  notificationType: "preeditChanged"
+preeditChangedForSpaceButtonNotification:
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle: "commitCandidateForegroundStyle"
+  notificationType: "preeditChanged"
+preeditForegroundStyle:
+  buttonStyleType: "text"
+  fontSize: 17
+  normalColor: "#000000"
+preeditHeight: 21
+preeditStyle:
+  backgroundStyle: "keyboardBackgroundStyle"
+  foregroundStyle: "preeditForegroundStyle"
+  insets:
+    left: 4
+    top: 2
+questionMarkEnButton:
+  action:
+    symbol: "?"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "questionMarkEnButtonForegroundStyle"
+  size:
+    width: "112.5/1125"
+questionMarkEnButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    "y": 0.55
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "?"
+returnKeyTypeChangedNotification:
+  backgroundStyle: "blueButtonBackgroundStyle"
+  foregroundStyle: "blueButtonForegroundStyle"
+  notificationType: "returnKeyType"
+  returnKeyType:
+  - 1
+  - 4
+  - 7
+rightBookTitleMarkButton:
+  action:
+    symbol: "》"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "rightBookTitleMarkButtonForegroundStyle"
+  size:
+    width: "112.5/1125"
+rightBookTitleMarkButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    x: 0.65
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "》"
+rightChineseBraceButton:
+  action:
+    symbol: "｝"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "rightChineseBraceButtonForegroundStyle"
+  size:
+    width: "112.5/1125"
+rightChineseBraceButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    x: 0.65
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "｝"
+rightChineseBracketButton:
+  action:
+    symbol: "】"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "rightChineseBracketButtonForegroundStyle"
+  - "rightChineseBracketButtonSwipeUpForegroundStyle"
+  size:
+    width: "112.5/1125"
+  swipeUpAction:
+    symbol: "」"
+rightChineseBracketButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    x: 0.65
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "】"
+rightChineseBracketButtonSwipeUpForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    x: 0.28
+    "y": 0.28
+  fontSize: 10
+  highlightColor: "#3c3c4399"
+  normalColor: "#3c3c4399"
+  text: "」"
+rightSingleQuoteButton:
+  action:
+    symbol: "’"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "rightSingleQuoteButtonForegroundStyle"
+  size:
+    width: "112.5/1125"
+rightSingleQuoteButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    "y": 0.55
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "’"
+spaceButton:
+  action: "space"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "spaceButtonForegroundStyle"
+  notification:
+  - "preeditChangedForSpaceButtonNotification"
+  - "rimeSchemaChangedNotification"
+spaceButtonForegroundStyle:
+  buttonStyleType: "systemImage"
+  center:
+    x: 0.5
+    "y": 0.5
+  fontSize: 20
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  systemImageName: "space"
+systemButtonBackgroundStyle:
+  buttonStyleType: "geometry"
+  cornerRadius: 8.5
+  highlightColor: "#FFFFFF"
+  highlightLowerEdgeColor: "#898A8D"
+  insets:
+    bottom: 3
+    left: 3
+    right: 3
+    top: 3
+  normalColor: "#E6E6E6"
+  normalLowerEdgeColor: "#898A8D"
+tildeButton:
+  action:
+    symbol: "~"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "tildeButtonForegroundStyle"
+  size:
+    width: "112.5/1125"
+tildeButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    "y": 0.55
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "~"
+toolbarClipboardButtonForegroundStyle:
+  buttonStyleType: "systemImage"
+  fontSize: 20
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  systemImageName: "clipboard"
+toolbarClipboardButtonStyle:
+  foregroundStyle: "toolbarClipboardButtonForegroundStyle"
+toolbarCollectionCellStyle:
+  backgroundStyle: "keyboardBackgroundStyle"
+  foregroundStyle: "keyboardBackgroundStyle"
+toolbarDismissButton:
+  action: "dismissKeyboard"
+  foregroundStyle: "toolbarDismissButtonForegroundStyle"
+toolbarDismissButtonForegroundStyle:
+  buttonStyleType: "systemImage"
+  fontSize: 20
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  systemImageName: "chevron.down"
+toolbarHeight: 45
+toolbarLayout:
+- HStack:
+    subviews:
+    - Cell: "toolbarMenuButton"
+    - Cell: "toolbarSlideButtons"
+    - Cell: "toolbarDismissButton"
+toolbarMenuButton:
+  action:
+    floatKeyboardType: "panel"
+  foregroundStyle: "toolbarMenuButtonForegroundStyle"
+toolbarMenuButtonForegroundStyle:
+  buttonStyleType: "systemImage"
+  fontSize: 20
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  systemImageName: "swirl.circle.righthalf.filled"
+toolbarPhraseButtonForegroundStyle:
+  buttonStyleType: "systemImage"
+  fontSize: 20
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  systemImageName: "heart"
+toolbarPhraseButtonStyle:
+  foregroundStyle: "toolbarPhraseButtonForegroundStyle"
+toolbarRightHandButtonForegroundStyle:
+  buttonStyleType: "systemImage"
+  fontSize: 20
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  systemImageName: "keyboard.onehanded.right"
+toolbarRightHandButtonStyle:
+  foregroundStyle: "toolbarRightHandButtonForegroundStyle"
+toolbarRimeSwitcherButtonForegroundStyle:
+  buttonStyleType: "systemImage"
+  fontSize: 20
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  systemImageName: "switch.2"
+toolbarRimeSwitcherButtonStyle:
+  foregroundStyle: "toolbarRimeSwitcherButtonForegroundStyle"
+toolbarScriptButtonForegroundStyle:
+  buttonStyleType: "systemImage"
+  fontSize: 20
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  systemImageName: "apple.terminal"
+toolbarScriptButtonStyle:
+  foregroundStyle: "toolbarScriptButtonForegroundStyle"
+toolbarScriptingSyncButtonForegroundStyle:
+  buttonStyleType: "systemImage"
+  fontSize: 20
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  systemImageName: "macbook.and.iphone"
+toolbarScriptingSyncButtonStyle:
+  foregroundStyle: "toolbarScriptingSyncButtonForegroundStyle"
+toolbarSlideButtons:
+  cellStyle: "toolbarCollectionCellStyle"
+  contentRightToLeft: false
+  dataSource: "horizontalSymbolsToolbarButtonsDataSource"
+  insets:
+    left: 3
+    right: 3
+  maxColumns: 5
+  size:
+    width: "5/7"
+  type: "horizontalSymbols"
+toolbarStyle:
+  backgroundStyle: "keyboardBackgroundStyle"
+  insets:
+    top: 6
+underscoreButton:
+  action:
+    symbol: "_"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "underscoreButtonForegroundStyle"
+  size:
+    width: "112.5/1125"
+underscoreButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    "y": 0.55
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "_"
+verticalBackspaceButtonStyle:
+  action: "backspace"
+  backgroundStyle: "systemButtonBackgroundStyle"
+  foregroundStyle: "verticalBackspaceButtonStyleForegroundStyle"
+verticalBackspaceButtonStyleForegroundStyle:
+  buttonStyleType: "systemImage"
+  fontSize: 20
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  systemImageName: "delete.left"
+verticalBarButton:
+  action:
+    symbol: "|"
+  animation:
+  - "scaleAnimation"
+  backgroundStyle: "alphabeticButtonBackgroundStyle"
+  foregroundStyle:
+  - "verticalBarButtonForegroundStyle"
+  size:
+    width: "112.5/1125"
+verticalBarButtonForegroundStyle:
+  buttonStyleType: "text"
+  center:
+    "y": 0.55
+  fontSize: 22.5
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  text: "|"
+verticalCandidateStyle:
+  commentColor: "#000000"
+  commentFontSize: 14
+  highlightBackgroundColor: "#FFFFFF"
+  indexColor: "#000000"
+  indexFontSize: 12
+  insets:
+    bottom: 4
+    left: 6
+    right: 6
+    top: 4
+  preferredBackgroundColor: "#FFFFFF"
+  preferredCommentColor: "#000000"
+  preferredIndexColor: "#000000"
+  preferredTextColor: "#000000"
+  textColor: "#000000"
+  textFontSize: 16
+verticalCandidates:
+  candidateStyle: "verticalCandidateStyle"
+  insets:
+    bottom: 8
+    left: 8
+    right: 8
+    top: 8
+  maxColumns: 6
+  maxRows: 5
+  separatorColor: "#C6C6C8"
+  type: "verticalCandidates"
+verticalCandidatesLayout:
+- HStack:
+    subviews:
+    - Cell: "verticalCandidates"
+- HStack:
+    style: "verticalLastRowStyle"
+    subviews:
+    - Cell: "verticalPageUpButtonStyle"
+    - Cell: "verticalPageDownButtonStyle"
+    - Cell: "verticalReturnButtonStyle"
+    - Cell: "verticalBackspaceButtonStyle"
+verticalCandidatesStyle:
+  backgroundStyle: "keyboardBackgroundStyle"
+verticalLastRowStyle:
+  size:
+    height: 45
+verticalPageDownButtonStyle:
+  action:
+    shortcut: "#verticalCandidatesPageDown"
+  backgroundStyle: "systemButtonBackgroundStyle"
+  foregroundStyle: "verticalPageDownButtonStyleForegroundStyle"
+verticalPageDownButtonStyleForegroundStyle:
+  buttonStyleType: "systemImage"
+  fontSize: 20
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  systemImageName: "chevron.down"
+verticalPageUpButtonStyle:
+  action:
+    shortcut: "#verticalCandidatesPageUp"
+  backgroundStyle: "systemButtonBackgroundStyle"
+  foregroundStyle: "verticalPageUpButtonStyleForegroundStyle"
+verticalPageUpButtonStyleForegroundStyle:
+  buttonStyleType: "systemImage"
+  fontSize: 20
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  systemImageName: "chevron.up"
+verticalReturnButtonStyle:
+  action:
+    shortcut: "#candidatesBarStateToggle"
+  backgroundStyle: "systemButtonBackgroundStyle"
+  foregroundStyle: "verticalReturnButtonStyleForegroundStyle"
+verticalReturnButtonStyleForegroundStyle:
+  buttonStyleType: "systemImage"
+  fontSize: 20
+  highlightColor: "#000000"
+  normalColor: "#000000"
+  systemImageName: "return"

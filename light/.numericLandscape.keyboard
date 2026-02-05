@@ -1,0 +1,696 @@
+"alphabeticButtonBackgroundStyle":
+  "buttonStyleType": "geometry"
+  "cornerRadius": 8.5
+  "highlightColor": "#E6E6E6"
+  "highlightLowerEdgeColor": "#898A8D"
+  "insets":
+    "bottom": 3
+    "left": 3
+    "right": 3
+    "top": 3
+  "normalColor": "#FFFFFF"
+  "normalLowerEdgeColor": "#898A8D"
+"alphabeticHintBackgroundStyle":
+  "borderColor": "#C6C6C8"
+  "borderSize": 0.5
+  "buttonStyleType": "geometry"
+  "cornerRadius": 10
+  "highlightShadowColor": "#898A8D"
+  "normalColor": "#ECECEC"
+  "normalShadowColor": "#898A8D"
+  "shadowRadius": 3
+"backspaceButton":
+  "action": "backspace"
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "foregroundStyle":
+  - "backspaceButtonForegroundStyle"
+  "repeatAction": "backspace"
+  "swipeDownAction":
+    "shortcut": "#undo"
+  "swipeUpAction":
+    "shortcut": "#deleteText"
+"backspaceButtonForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "highlightSystemImageName": "delete.left.fill"
+  "normalColor": "#000000"
+  "systemImageName": "delete.left"
+"candidateContextMenu": []
+"colorButtonBackgroundStyle":
+  "buttonStyleType": "geometry"
+  "cornerRadius": 8.5
+  "highlightColor": "#FFFFFF"
+  "highlightLowerEdgeColor": "#898A8D"
+  "insets":
+    "bottom": 3
+    "left": 3
+    "right": 3
+    "top": 3
+  "normalColor": "#1FAD34"
+  "normalLowerEdgeColor": "#898A8D"
+"dotButton":
+  "action":
+    "symbol": "."
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "foregroundStyle":
+  - "dotButtonForegroundStyle"
+  "notification":
+  - "dotButtonPreeditChangedNotification"
+"dotButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 18
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "."
+"dotButtonPreeditChangedForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 18
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "."
+"dotButtonPreeditChangedNotification":
+  "action":
+    "character": "."
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "foregroundStyle":
+  - "dotButtonPreeditChangedForegroundStyle"
+  "notificationType": "preeditChanged"
+"eightButton":
+  "action":
+    "character": "8"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "eightButtonForegroundStyle"
+"eightButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "8"
+"enterButton":
+  "action": "enter"
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "foregroundStyle":
+  - "enterButtonForegroundStyle"
+  "hintSymbolsStyle": "enterButtonLongPressSymbolsStyle"
+  "notification":
+  - "enterButtonPreeditChangedNotification"
+  "swipeDownAction":
+    "shortcut": "#行尾"
+  "swipeUpAction":
+    "shortcut": "#行首"
+"enterButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 16
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "$returnKeyType"
+"enterButtonLongPressSymbol0ForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#ffffff"
+  "normalColor": "#000000"
+  "systemImageName": "paragraphsign"
+"enterButtonLongPressSymbol0Style":
+  "action":
+    "shortcut": "#换行"
+  "foregroundStyle": "enterButtonLongPressSymbol0ForegroundStyle"
+"enterButtonLongPressSymbolsStyle":
+  "backgroundStyle": "longPressSymbolsBackgroundStyle"
+  "insets":
+    "bottom": 3
+    "left": 3
+    "right": 3
+    "top": 3
+  "selectedBackgroundStyle": "longPressSymbolsSelectedBackgroundStyle"
+  "selectedIndex": 0
+  "size":
+    "height": 40
+    "width": 40
+  "symbolStyles":
+  - "enterButtonLongPressSymbol0Style"
+"enterButtonPreeditChangedForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 16
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "确认"
+"enterButtonPreeditChangedNotification":
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "foregroundStyle":
+  - "enterButtonPreeditChangedForegroundStyle"
+  "notificationType": "preeditChanged"
+"expandButton":
+  "action":
+    "shortcut": "#candidatesBarStateToggle"
+  "foregroundStyle": "expandButtonForegroundStyle"
+  "size":
+    "width": 44
+"expandButtonForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "chevron.forward"
+"fiveButton":
+  "action":
+    "character": "5"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "fiveButtonForegroundStyle"
+"fiveButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "5"
+"fourButton":
+  "action":
+    "character": "4"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "fourButtonForegroundStyle"
+"fourButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "4"
+"gotoPrimaryKeyboardButton":
+  "action": "returnPrimaryKeyboard"
+  "backgroundStyle": "colorButtonBackgroundStyle"
+  "foregroundStyle":
+  - "gotoPrimaryKeyboardButtonForegroundStyle"
+  "size":
+    "height": "1/4"
+"gotoPrimaryKeyboardButtonForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#ffffff"
+  "systemImageName": "arrow.backward"
+"halfVStackStyle":
+  "size":
+    "width":
+      "percentage": 0.47999999999999998
+"horizontalCandidateStyle":
+  "commentColor": "#000000"
+  "commentFontSize": 14
+  "highlightBackgroundColor": "#FFFFFF"
+  "indexColor": "#000000"
+  "indexFontSize": 12
+  "preferredBackgroundColor": "#FFFFFF"
+  "preferredCommentColor": "#000000"
+  "preferredIndexColor": "#000000"
+  "preferredTextColor": "#1FAD34"
+  "textColor": "#000000"
+  "textFontSize": 16
+"horizontalCandidates":
+  "candidateStyle": "horizontalCandidateStyle"
+  "type": "horizontalCandidates"
+"horizontalCandidatesLayout":
+- "HStack":
+    "subviews":
+    - "Cell": "horizontalCandidates"
+    - "Cell": "expandButton"
+"horizontalCandidatesStyle":
+  "backgroundStyle": "keyboardBackgroundStyle"
+  "insets":
+    "bottom": 1
+    "left": 3
+    "top": 8
+"horizontalSymbolsToolbarButtonsDataSource":
+- "action":
+    "keyboardType": "emojis"
+  "label": "toolbarKeyboardEmojiButton"
+  "styleName": "toolbarKeyboardEmojiButtonStyle"
+- "action":
+    "shortcut": "#showPasteboardView"
+  "label": "toolbarClipboardButton"
+  "styleName": "toolbarClipboardButtonStyle"
+- "action":
+    "shortcut": "#showPhraseView"
+  "label": "toolbarPhraseButton"
+  "styleName": "toolbarPhraseButtonStyle"
+- "action":
+    "shortcut": "#toggleScriptView"
+  "label": "toolbarScriptButton"
+  "styleName": "toolbarScriptButtonStyle"
+- "action":
+    "keyboardType": "symbolic"
+  "label": "toolbarKeyboardSymbolicButton"
+  "styleName": "toolbarKeyboardSymbolicButtonStyle"
+"keyboardBackgroundStyle":
+  "buttonStyleType": "geometry"
+  "normalColor": "#ffffff03"
+"keyboardHeight": 160
+"keyboardLayout":
+- "VStack":
+    "style": "halfVStackStyle"
+    "subviews":
+    - "VStack":
+        "style": "narrowVStackStyle"
+        "subviews":
+        - "Cell": "numericSymbolsCollection"
+        - "Cell": "gotoPrimaryKeyboardButton"
+    - "VStack":
+        "style": "wideVStackStyle"
+        "subviews":
+        - "Cell": "oneButton"
+        - "Cell": "fourButton"
+        - "Cell": "sevenButton"
+        - "Cell": "numericSpaceButton"
+    - "VStack":
+        "style": "wideVStackStyle"
+        "subviews":
+        - "Cell": "twoButton"
+        - "Cell": "fiveButton"
+        - "Cell": "eightButton"
+        - "Cell": "zeroButton"
+    - "VStack":
+        "style": "wideVStackStyle"
+        "subviews":
+        - "Cell": "threeButton"
+        - "Cell": "sixButton"
+        - "Cell": "nineButton"
+        - "Cell": "dotButton"
+    - "VStack":
+        "style": "narrowVStackStyle"
+        "subviews":
+        - "Cell": "backspaceButton"
+        - "Cell": "numericEqualButton"
+        - "Cell": "numericColonButton"
+        - "Cell": "enterButton"
+- "VStack": {}
+- "VStack":
+    "style": "halfVStackStyle"
+    "subviews":
+    - "Cell": "numericCategorySymbolCollection"
+"keyboardStyle":
+  "backgroundStyle": "keyboardBackgroundStyle"
+"longPressSymbolsBackgroundStyle":
+  "borderColor": "#C6C6C8"
+  "borderSize": 0.5
+  "buttonStyleType": "geometry"
+  "cornerRadius": 10
+  "highlightColor": "#1FAD34"
+  "highlightShadowColor": "#898A8D"
+  "insets":
+    "bottom": 3
+    "left": 3
+    "right": 3
+    "top": 3
+  "normalColor": "#ECECEC"
+  "normalShadowColor": "#898A8D"
+  "shadowRadius": 3
+"longPressSymbolsSelectedBackgroundStyle":
+  "buttonStyleType": "geometry"
+  "cornerRadius": 8.5
+  "highlightColor": "#1FAD34"
+  "highlightLowerEdgeColor": "#898A8D"
+  "insets":
+    "bottom": 3
+    "left": 3
+    "right": 3
+    "top": 3
+  "normalColor": "#1FAD34"
+  "normalLowerEdgeColor": "#898A8D"
+"narrowVStackStyle":
+  "size":
+    "width":
+      "percentage": 0.17000000000000001
+"nineButton":
+  "action":
+    "character": "9"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "nineButtonForegroundStyle"
+"nineButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "9"
+"numericCategorySymbolCollection":
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "insets":
+    "bottom": 3
+    "left": 3
+    "right": 3
+    "top": 3
+  "type": "categorySymbols"
+"numericColonButton":
+  "action":
+    "symbol": ":"
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "foregroundStyle":
+  - "numericColonButtonForegroundStyle"
+"numericColonButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 18
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": ":"
+"numericEqualButton":
+  "action":
+    "character": "="
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "foregroundStyle":
+  - "numericEqualButtonForegroundStyle"
+"numericEqualButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 18
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "="
+"numericSpaceButton":
+  "action": "space"
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "foregroundStyle":
+  - "numericSpaceButtonForegroundStyle"
+"numericSpaceButtonForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "space"
+"numericSymbolsCollection":
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "cellStyle": "numericSymbolsCollectionCellStyle"
+  "insets":
+    "bottom": 3
+    "left": 3
+    "right": 3
+    "top": 3
+  "type": "numericSymbols"
+"numericSymbolsCollectionCellForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "insets":
+    "bottom": 3
+    "left": 3
+    "right": 3
+    "top": 3
+  "normalColor": "#000000"
+"numericSymbolsCollectionCellStyle":
+  "foregroundStyle": "numericSymbolsCollectionCellForegroundStyle"
+"oneButton":
+  "action":
+    "character": "1"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "oneButtonForegroundStyle"
+"oneButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "1"
+"preeditForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 17
+  "normalColor": "#000000"
+"preeditHeight": 15
+"preeditStyle":
+  "backgroundStyle": "keyboardBackgroundStyle"
+  "foregroundStyle": "preeditForegroundStyle"
+  "insets":
+    "left": 4
+    "top": 2
+"scaleAnimation":
+  "animationType": "scale"
+  "isAutoReverse": true
+  "pressDuration": 60
+  "releaseDuration": 80
+  "scale": 0.87
+"sevenButton":
+  "action":
+    "character": "7"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "sevenButtonForegroundStyle"
+"sevenButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "7"
+"sixButton":
+  "action":
+    "character": "6"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "sixButtonForegroundStyle"
+"sixButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "6"
+"systemButtonBackgroundStyle":
+  "buttonStyleType": "geometry"
+  "cornerRadius": 8.5
+  "highlightColor": "#FFFFFF"
+  "highlightLowerEdgeColor": "#898A8D"
+  "insets":
+    "bottom": 3
+    "left": 3
+    "right": 3
+    "top": 3
+  "normalColor": "#DEDEDE"
+  "normalLowerEdgeColor": "#898A8D"
+"threeButton":
+  "action":
+    "character": "3"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "threeButtonForegroundStyle"
+"threeButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "3"
+"toolbarClipboardButtonForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "clipboard"
+"toolbarClipboardButtonStyle":
+  "foregroundStyle": "toolbarClipboardButtonForegroundStyle"
+"toolbarCollectionCellStyle":
+  "backgroundStyle": "keyboardBackgroundStyle"
+  "foregroundStyle": "keyboardBackgroundStyle"
+"toolbarDismissButton":
+  "action": "dismissKeyboard"
+  "foregroundStyle":
+  - "toolbarDismissButtonForegroundStyle"
+"toolbarDismissButtonForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "power"
+"toolbarHeight": 40
+"toolbarKeyboardEmojiButtonForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "face.smiling.inverse"
+"toolbarKeyboardEmojiButtonStyle":
+  "foregroundStyle": "toolbarKeyboardEmojiButtonForegroundStyle"
+"toolbarKeyboardSymbolicButtonForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "number"
+"toolbarKeyboardSymbolicButtonStyle":
+  "foregroundStyle": "toolbarKeyboardSymbolicButtonForegroundStyle"
+"toolbarLayout":
+- "HStack":
+    "subviews":
+    - "Cell": "toolbarMenuButton"
+    - "Cell": "toolbarSlideButtons"
+    - "Cell": "toolbarDismissButton"
+"toolbarMenuButton":
+  "action":
+    "floatKeyboardType": "panel"
+  "foregroundStyle":
+  - "toolbarMenuButtonForegroundStyle"
+"toolbarMenuButtonForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "swirl.circle.righthalf.filled"
+"toolbarPhraseButtonForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "heart"
+"toolbarPhraseButtonStyle":
+  "foregroundStyle": "toolbarPhraseButtonForegroundStyle"
+"toolbarScriptButtonForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "terminal"
+"toolbarScriptButtonStyle":
+  "foregroundStyle": "toolbarScriptButtonForegroundStyle"
+"toolbarSlideButtons":
+  "cellStyle": "toolbarCollectionCellStyle"
+  "contentRightToLeft": true
+  "dataSource": "horizontalSymbolsToolbarButtonsDataSource"
+  "insets":
+    "left": 3
+    "right": 3
+  "maxColumns": 8
+  "size":
+    "width": "8/10"
+  "type": "horizontalSymbols"
+"toolbarStyle":
+  "backgroundStyle": "keyboardBackgroundStyle"
+  "insets":
+    "top": 6
+"twoButton":
+  "action":
+    "character": "2"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "twoButtonForegroundStyle"
+"twoButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "2"
+"verticalBackspaceButtonStyle":
+  "action": "backspace"
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "foregroundStyle": "verticalBackspaceButtonStyleForegroundStyle"
+"verticalBackspaceButtonStyleForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "delete.left"
+"verticalCandidateStyle":
+  "commentColor": "#000000"
+  "commentFontSize": 14
+  "highlightBackgroundColor": "#FFFFFF"
+  "indexColor": "#000000"
+  "indexFontSize": 12
+  "insets":
+    "bottom": 4
+    "left": 6
+    "right": 6
+    "top": 4
+  "preferredBackgroundColor": "#FFFFFF"
+  "preferredCommentColor": "#000000"
+  "preferredIndexColor": "#000000"
+  "preferredTextColor": "#1FAD34"
+  "textColor": "#000000"
+  "textFontSize": 16
+"verticalCandidates":
+  "candidateStyle": "verticalCandidateStyle"
+  "insets":
+    "bottom": 8
+    "left": 8
+    "right": 8
+    "top": 8
+  "maxColumns": 6
+  "maxRows": 5
+  "separatorColor": "#C6C6C8"
+  "type": "verticalCandidates"
+"verticalCandidatesLayout":
+- "HStack":
+    "subviews":
+    - "Cell": "verticalCandidates"
+- "HStack":
+    "style": "verticalLastRowStyle"
+    "subviews":
+    - "Cell": "verticalPageUpButtonStyle"
+    - "Cell": "verticalPageDownButtonStyle"
+    - "Cell": "verticalReturnButtonStyle"
+    - "Cell": "verticalBackspaceButtonStyle"
+"verticalCandidatesStyle":
+  "backgroundStyle": "keyboardBackgroundStyle"
+"verticalLastRowStyle":
+  "size":
+    "height": 45
+"verticalPageDownButtonStyle":
+  "action":
+    "shortcut": "#verticalCandidatesPageDown"
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "foregroundStyle": "verticalPageDownButtonStyleForegroundStyle"
+"verticalPageDownButtonStyleForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "chevron.down"
+"verticalPageUpButtonStyle":
+  "action":
+    "shortcut": "#verticalCandidatesPageUp"
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "foregroundStyle": "verticalPageUpButtonStyleForegroundStyle"
+"verticalPageUpButtonStyleForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "chevron.up"
+"verticalReturnButtonStyle":
+  "action":
+    "shortcut": "#candidatesBarStateToggle"
+  "backgroundStyle": "systemButtonBackgroundStyle"
+  "foregroundStyle": "verticalReturnButtonStyleForegroundStyle"
+"verticalReturnButtonStyleForegroundStyle":
+  "buttonStyleType": "systemImage"
+  "fontSize": 20
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "systemImageName": "arrow.backward"
+"wideVStackStyle":
+  "size":
+    "width":
+      "percentage": 0.22
+"zeroButton":
+  "action":
+    "character": "0"
+  "animation":
+  - "scaleAnimation"
+  "backgroundStyle": "alphabeticButtonBackgroundStyle"
+  "foregroundStyle":
+  - "zeroButtonForegroundStyle"
+"zeroButtonForegroundStyle":
+  "buttonStyleType": "text"
+  "fontSize": 22.5
+  "highlightColor": "#000000"
+  "normalColor": "#000000"
+  "text": "0"
