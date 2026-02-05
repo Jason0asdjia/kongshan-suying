@@ -200,7 +200,7 @@ local newLongPressSymbolsBackgroundStyle(isDark=false, params={}) = {
 
 // 长按前景样式
 local newLongPressSymbolsForegroundStyle(isDark=false, params={}, highPriorityParams={}) =
-  newStyleByPriority(isDark, params, highPriorityParams,
+  newStyleByPriority(isDark, utils.excludeProperties(params, ['center', 'normalColor', 'highlightColor', 'fontSize']), highPriorityParams,
     systemImageParams={
       normalColor: colors.standardCalloutForegroundColor,
       highlightColor: colors.standardCalloutHighlightedForegroundColor,
