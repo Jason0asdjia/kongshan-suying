@@ -235,5 +235,6 @@ else
     + basicStyle.newButtonAnimation()
     + newKeyLayout(isDark, isPortrait, isForTempUse)
     // Notifications
-    + basicStyle.rimeSchemaChangedNotification,
+    + basicStyle.rimeSchemaChangedNotification
+    + basicStyle.returnKeyTypeChangedNotification,
 }

@@ -34,19 +34,18 @@ local getKeyboardActionText(params={}, key='action', isUppercase=false) =
 local newStyleByPriority(isDark=false, params={}, highPriorityParams={}, systemImageParams={}, assetImageParams={}, textParams={}) =
   local tryAddTextInHighPriorityParams = getKeyboardActionText(highPriorityParams);
   if std.objectHas(highPriorityParams, 'systemImageName') then
-    utils.newSystemImageStyle(params + systemImageParams + highPriorityParams, isDark)
+    utils.newSystemImageStyle(systemImageParams + params + highPriorityParams, isDark)
   else if std.objectHas(highPriorityParams, 'assetImageName') then
-    utils.newAssetImageStyle(params + assetImageParams + highPriorityParams, isDark)
+    utils.newAssetImageStyle(assetImageParams + params + highPriorityParams, isDark)
   else if std.objectHas(tryAddTextInHighPriorityParams, 'text') then
-    utils.newTextStyle(params + textParams + highPriorityParams + tryAddTextInHighPriorityParams, isDark)
+    utils.newTextStyle(textParams + params + highPriorityParams + tryAddTextInHighPriorityParams, isDark)
 
   else if std.objectHas(params, 'systemImageName') then
-    utils.newSystemImageStyle(params + systemImageParams, isDark)
+    utils.newSystemImageStyle(systemImageParams + params, isDark)
   else if std.objectHas(params, 'assetImageName') then
-    utils.newAssetImageStyle(params + assetImageParams, isDark)
+    utils.newAssetImageStyle(assetImageParams + params, isDark)
   else
-    utils.newTextStyle(params + textParams + getKeyboardActionText(params), isDark);
-
+    utils.newTextStyle(textParams + params + getKeyboardActionText(params), isDark);
 // 通用键盘背景样式
 local keyboardBackgroundStyleName = 'keyboardBackgroundStyle';
 local newKeyboardBackgroundStyle(isDark=false, params={}) = {
@@ -201,7 +200,7 @@ local newLongPressSymbolsBackgroundStyle(isDark=false, params={}) = {
 
 // 长按前景样式
 local newLongPressSymbolsForegroundStyle(isDark=false, params={}, highPriorityParams={}) =
-  newStyleByPriority(isDark, params, highPriorityParams,
+  newStyleByPriority(isDark, utils.excludeProperties(params, ['center', 'normalColor', 'highlightColor', 'fontSize']), highPriorityParams,
     systemImageParams={
       normalColor: colors.standardCalloutForegroundColor,
       highlightColor: colors.standardCalloutHighlightedForegroundColor,
@@ -900,6 +899,16 @@ local rimeSchemaChangedNotification =
     },
   };
 
+local returnKeyTypeChangedNotification =
+  {
+    returnKeyTypeChangedNotification:{
+      notificationType: 'returnKeyType',
+      returnKeyType: [],
+      backgroundStyle: colorButtonBackgroundStyleName,
+      foregroundStyle: colorButtonForegroundStyleName,
+    },
+  };
+
 
 {
   getKeyboardActionText: getKeyboardActionText,
@@ -950,4 +959,5 @@ local rimeSchemaChangedNotification =
 
   // notification
   rimeSchemaChangedNotification: rimeSchemaChangedNotification,
+  returnKeyTypeChangedNotification: returnKeyTypeChangedNotification,
 }

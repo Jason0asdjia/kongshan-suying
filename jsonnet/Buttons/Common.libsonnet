@@ -84,6 +84,10 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: 'enter',
       text: '$returnKeyType',
+      notification: [
+        'returnKeyTypeChangedNotification',
+      ],
+
       swipeUp: { action: { shortcut: '#行首' } },
       swipeDown: { action: { shortcut: '#行尾' } },
 

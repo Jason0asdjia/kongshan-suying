@@ -212,7 +212,7 @@ local toolbarButtonNames = local buttons = keyboardParams.toolbarButton;
   buttons.toolbarRightHandButton.name, // 右手模式
   buttons.toolbarRimeSyncButton.name, // Rime同步
   buttons.toolbarRimeDeployButton.name, // Rime部署
-  buttons.toolbarRimeSegmentButton.name, // 分词
+  buttons.toolbarRimeInputSchemaButton.name, // Rime方案管理
   buttons.toolbarRimeQuickButton.name, // 快符
   buttons.toolbarRimeSwitcherButton.name, // RimeSwitcher
   buttons.toolbarSkinPreference.name, // 皮肤微调

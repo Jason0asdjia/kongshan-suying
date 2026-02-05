@@ -121,7 +121,7 @@ local skinConfig = import '../SkinConfig.libsonnet';
       params: {
         action: { shortcut: '#方案切换' },
         systemImageName: 'list.bullet.rectangle',
-        text: '方案',
+        text: '切换',
       },
     },
 
@@ -197,12 +197,12 @@ local skinConfig = import '../SkinConfig.libsonnet';
         text: '部署',
       },
     },
-    toolbarRimeSegmentButton: {
-      name: 'toolbarRimeSegmentButton',
+    toolbarRimeInputSchemaButton: {
+      name: 'toolbarRimeInputSchemaButton',
       params: {
-        action: settings.segmentAction,
-        systemImageName: 'square.and.line.vertical.and.square',
-        text: '分词',
+        action: { openURL: 'hamster3://com.ihsiao.apps.hamster3/inputSchema' },
+        systemImageName: 'list.bullet.rectangle.portrait',
+        text: '方案',
       },
     },
     toolbarRimeQuickButton: {
