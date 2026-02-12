@@ -13,18 +13,6 @@ local portraitNormalButtonSize = {
   size: { width: '112.5/1125' },
 };
 
-local hintStyle = {
-  hintStyle: {
-    size: { width: self.height, height: toolbarParams.toolbar.height },
-  },
-};
-
-local alphabeticTextCenterWhenShowSwipeText =
-  local showSwipeText = settings.showSwipeUpText || settings.showSwipeDownText;
-  {
-    [if showSwipeText then 'center']: { y: 0.55 }
-  };
-
 // 布局
 local numericRows = [
   [
@@ -113,7 +101,7 @@ local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
         {
           fontSize: fonts.numericButtonTextFontSize,
         }
-        + button.params + hintStyle
+        + button.params + basicStyle.hintStyleSize
         + (
           if settings.keyboardLayout=='9' then
           {
@@ -124,7 +112,6 @@ local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
           }
           else {}
         ),
-        needHint=false,
       ),
     numericButtons.numericButtons,
     {})
@@ -133,7 +120,7 @@ local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
       basicStyle.newAlphabeticButton(
         button.name,
         isDark,
-        getButtonSize(button.name) + button.params + hintStyle
+        getButtonSize(button.name) + button.params + basicStyle.hintStyleSize
       ),
     [
       numericButtons.hyphenButton,

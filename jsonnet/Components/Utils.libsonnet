@@ -271,6 +271,35 @@ local repalceCharacterToSymbolRecursive(params) =
   else
     params;
 
+// 根据上滑和下滑提示文字位置计算按钮上文字的位置
+local centerDelta(center) =
+  local newCenter = if center == null then {} else center;
+  {
+    x: std.get(newCenter, 'x', 0.5) - 0.5,
+    y: std.get(newCenter, 'y', 0.5) - 0.5,
+  };
+
+local addTwoPoint(a, b) = {
+  x: a.x + b.x,
+  y: a.y + b.y,
+};
+
+local sign(x) =
+  if x > 0 then 1
+  else if x < 0 then -1
+  else 0;
+
+local calcMainTextCenter(swipeUpTextCenter, swipeDownTextCenter) =
+  local swipeUpCenterDelta = centerDelta(swipeUpTextCenter);
+  local swipeDownCenterDelta = centerDelta(swipeDownTextCenter);
+  {
+    local delta = addTwoPoint(swipeUpCenterDelta, swipeDownCenterDelta),
+    center: {
+      x: 0.5 -0.05 * sign(delta.x),
+      y: 0.5 -0.05 * sign(delta.y),
+    }
+  };
+
 {
   extractProperty: extractProperty,
   extractProperties: extractProperties,
@@ -291,4 +320,5 @@ local repalceCharacterToSymbolRecursive(params) =
   rimeOptionChangedNotificationName: rimeOptionChangedNotificationName,
   newRimeOptionChangedNotification: newRimeOptionChangedNotification,
   repalceCharacterToSymbolRecursive: repalceCharacterToSymbolRecursive,
+  calcMainTextCenter: calcMainTextCenter,
 }

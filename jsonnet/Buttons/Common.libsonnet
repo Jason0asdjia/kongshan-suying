@@ -44,6 +44,8 @@ local settings = import '../Settings.libsonnet';
       whenPreeditChanged: {
         text: settings.spaceButtonComposingText,
         fontSize: fonts.systemButtonTextFontSize,
+
+        swipeUp: { action: { shortcut: '#次选上屏' } },
       },
     },
   },
@@ -177,6 +179,10 @@ local settings = import '../Settings.libsonnet';
       action: { keyboardType: 'alphabetic' },
       assetImageName: 'chineseState2',
       swipeUp: { action: { shortcut: '#方案切换' } },
+
+      [if !std.startsWith(settings.keyboardLayout, '26') then 'swipeDown']: {
+        action: { keyboardType: 'temp26Key' },
+      }
     },
   },
 

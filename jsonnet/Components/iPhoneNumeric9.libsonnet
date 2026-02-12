@@ -170,16 +170,14 @@ local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
     numeric9Buttons.numericButtons,
     {})
 
-  + basicStyle.newSymbolicCollection(
-    numeric9Buttons.numericSymbolsCollection.name,
-    isDark,
-    numeric9Buttons.numericSymbolsCollection.params + extraParams
-  )
   + {
-    [numeric9Buttons.numericCategorySymbolCollection.name]:
+    [numeric9Buttons.numericSymbolsCollection.name]:
       utils.newBackgroundStyle(style=basicStyle.systemButtonBackgroundStyleName)
-      + numeric9Buttons.numericCategorySymbolCollection.params
-      + extraParams,
+      + numeric9Buttons.numericSymbolsCollection.params + extraParams,
+
+    [if !isPortrait then numeric9Buttons.numericCategorySymbolCollection.name]:
+      utils.newBackgroundStyle(style=basicStyle.systemButtonBackgroundStyleName)
+      + numeric9Buttons.numericCategorySymbolCollection.params + extraParams,
   }
   + std.foldl(
     function(acc, button) acc +

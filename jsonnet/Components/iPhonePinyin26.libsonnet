@@ -11,18 +11,6 @@ local portraitNormalButtonSize = {
   size: { width: '112.5/1125' },
 };
 
-local hintStyle = {
-  hintStyle: {
-    size: { width: self.height, height: toolbarParams.toolbar.height },
-  },
-};
-
-local alphabeticTextCenterWhenShowSwipeText =
-  local showSwipeText = settings.showSwipeUpText || settings.showSwipeDownText;
-  {
-    [if showSwipeText then 'center']: { y: 0.55 }
-  };
-
 // 标准26键布局
 local getRows(isForTempUse) = [
   [
@@ -106,7 +94,7 @@ local newKeyLayout(isDark=false, isPortrait=true, isForTempUse=false) =
       basicStyle.newAlphabeticButton(
         button.name,
         isDark,
-        getAlphabeticButtonSize(button.name) + button.params + hintStyle + alphabeticTextCenterWhenShowSwipeText +
+        getAlphabeticButtonSize(button.name) + button.params + basicStyle.hintStyleSize + basicStyle.textCenterWhenShowSwipeText +
         (
           if settings.uppercaseForChinese then
             basicStyle.newAlphabeticButtonUppercaseForegroundStyle(isDark, button.params) + basicStyle.getKeyboardActionText(button.params.uppercased)
@@ -163,7 +151,7 @@ local newKeyLayout(isDark=false, isPortrait=true, isForTempUse=false) =
   + basicStyle.newAlphabeticButton(
     commonButtons.commaButton.name,
     isDark,
-    portraitNormalButtonSize + commonButtons.commaButton.params + hintStyle
+    portraitNormalButtonSize + commonButtons.commaButton.params + basicStyle.hintStyleSize
   )
   + basicStyle.newAlphabeticButton(
     commonButtons.spaceButton.name,

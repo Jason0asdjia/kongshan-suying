@@ -100,13 +100,13 @@ local verticalCandidatesLayout = [
       style: verticalLastRowStyleName,
       subviews: [
         {
+          Cell: verticalCandidateReturnButtonStyleName,
+        },
+        {
           Cell: verticalCandidatePageUpButtonStyleName,
         },
         {
           Cell: verticalCandidatePageDownButtonStyleName,
-        },
-        {
-          Cell: verticalCandidateReturnButtonStyleName,
         },
         {
           Cell: verticalCandidateBackspaceButtonStyleName,
