@@ -62,6 +62,20 @@
   showSwipeDownText: true,
 
 
+  # 上下滑动提示文字显示位置
+  # hide 不显示
+  # topLeft 左上角
+  # top 正上方
+  # topRight 右上角
+  # bottomLeft 左下角
+  # bottom 正下方
+  # bottomRight 右下角
+  # 为了保持旧版本（v8.3 之前）的显示效果：
+  # 上划提示在左上角，下划提示在右上角（都在按键上方区域）。
+  swipeUpTextCenter: 'topLeft',
+  swipeDownTextCenter: 'topRight',
+
+
   # toolbar 按钮配置
   # 注意第一个和最后一个按键是固定的，不可配置
   # 按钮代号列表如下：
