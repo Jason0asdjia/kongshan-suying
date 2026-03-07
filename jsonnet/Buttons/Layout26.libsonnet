@@ -22,6 +22,9 @@ local settings = import '../Settings.libsonnet';
       uppercased: { action: { character: 'Q' } },
       swipeUp: { action: { character: '!' } },
       swipeDown: { action: { character: '1' } },
+      longPress: [
+        { action: { character: 'Q' } },
+      ],
     },
   },
   wButton: {
@@ -31,6 +34,9 @@ local settings = import '../Settings.libsonnet';
       uppercased: { action: { character: 'W' } },
       swipeUp: { action: { character: '@' } },
       swipeDown: { action: { character: '2' } },
+      longPress: [
+        { action: { character: 'W' } },
+      ],
     },
   },
   eButton: {
@@ -40,6 +46,9 @@ local settings = import '../Settings.libsonnet';
       uppercased: { action: { character: 'E' } },
       swipeUp: { action: { character: '#' } },
       swipeDown: { action: { character: '3' } },
+      longPress: [
+        { action: { character: 'E' } },
+      ],
     },
   },
   rButton: {
@@ -49,6 +58,9 @@ local settings = import '../Settings.libsonnet';
       uppercased: { action: { character: 'R' } },
       swipeUp: { action: { character: '$' } },
       swipeDown: { action: { character: '4' } },
+      longPress: [
+        { action: { character: 'R' } },
+      ],
     },
   },
   tButton: {
@@ -60,6 +72,7 @@ local settings = import '../Settings.libsonnet';
       swipeDown: { action: { character: '5' } },
       longPress: [
         { action: 'tab', systemImageName: 'arrow.right.to.line' },
+        { action: { character: 'T' }, selected: true },
       ],
     },
   },
@@ -70,6 +83,9 @@ local settings = import '../Settings.libsonnet';
       uppercased: { action: { character: 'Y' } },
       swipeUp: { action: { character: '^' } },
       swipeDown: { action: { character: '6' } },
+      longPress: [
+        { action: { character: 'Y' } },
+      ],
     },
   },
   uButton: {
@@ -79,6 +95,9 @@ local settings = import '../Settings.libsonnet';
       uppercased: { action: { character: 'U' } },
       swipeUp: { action: { character: '&' } },
       swipeDown: { action: { character: '7' } },
+      longPress: [
+        { action: { character: 'U' } },
+      ],
     },
   },
   iButton: {
@@ -88,6 +107,9 @@ local settings = import '../Settings.libsonnet';
       uppercased: { action: { character: 'I' } },
       swipeUp: { action: { character: '*' } },
       swipeDown: { action: { character: '8' } },
+      longPress: [
+        { action: { character: 'I' } },
+      ],
     },
   },
   oButton: {
@@ -97,6 +119,9 @@ local settings = import '../Settings.libsonnet';
       uppercased: { action: { character: 'O' } },
       swipeUp: { action: { character: '|' } },
       swipeDown: { action: { character: '9' } },
+      longPress: [
+        { action: { character: 'O' } },
+      ],
     },
   },
   pButton: {
@@ -106,6 +131,9 @@ local settings = import '../Settings.libsonnet';
       uppercased: { action: { character: 'P' } },
       swipeUp: { action: { character: '?' } },
       swipeDown: { action: { character: '0' } },
+      longPress: [
+        { action: { character: 'P' } },
+      ],
     },
   },
 
@@ -130,6 +158,9 @@ local settings = import '../Settings.libsonnet';
       uppercased: { action: { character: 'S' } },
       swipeUp: { action: { character: '-' } },
       swipeDown: { action: { symbol: '_' } },
+      longPress: [
+        { action: { character: 'S' } },
+      ],
     },
   },
   dButton: {
@@ -139,6 +170,9 @@ local settings = import '../Settings.libsonnet';
       uppercased: { action: { character: 'D' } },
       swipeUp: { action: { character: '=' } },
       swipeDown: { action: { character: '+' } },
+      longPress: [
+        { action: { character: 'D' } },
+      ],
     },
   },
   fButton: {
@@ -148,6 +182,9 @@ local settings = import '../Settings.libsonnet';
       uppercased: { action: { character: 'F' } },
       swipeUp: { action: { character: '[]' } },
       swipeDown: { action: { character: '{}' } },
+      longPress: [
+        { action: { character: 'F' } },
+      ],
     },
   },
   gButton: {
@@ -157,6 +194,9 @@ local settings = import '../Settings.libsonnet';
       uppercased: { action: { character: 'G' } },
       swipeUp: { action: { openURL: 'chatgpt://' }, systemImageName: 'magnifyingglass.circle' },
       swipeDown: { action: { openURL: 'googlegemini://' }, systemImageName: 'sparkle.magnifyingglass' },
+      longPress: [
+        { action: { character: 'G' } },
+      ],
     },
   },
   hButton: {
@@ -166,6 +206,9 @@ local settings = import '../Settings.libsonnet';
       uppercased: { action: { character: 'H' } },
       swipeUp: { action: { character: '()' } },
       swipeDown: { action: { character: '「」' } },
+      longPress: [
+        { action: { character: 'H' } },
+      ],
     },
   },
   jButton: {
@@ -175,6 +218,9 @@ local settings = import '../Settings.libsonnet';
       uppercased: { action: { character: 'J' } },
       swipeUp: { action: { character: '/' } },
       swipeDown: { action: { symbol: '\\' } },
+      longPress: [
+        { action: { character: 'J' } },
+      ],
     },
   },
   kButton: {
@@ -184,6 +230,9 @@ local settings = import '../Settings.libsonnet';
       uppercased: { action: { character: 'K' } },
       swipeUp: { action: { character: ';' } },
       swipeDown: { action: { character: ':' } },
+      longPress: [
+        { action: { character: 'K' } },
+      ],
     },
   },
   lButton: {
@@ -208,6 +257,9 @@ local settings = import '../Settings.libsonnet';
       uppercased: { action: { character: 'Z' } },
       swipeUp: { action: { character: '`' } },
       swipeDown: { action: { shortcut: '#undo' }, text: '撤' },
+      longPress: [
+        { action: { character: 'Z' } },
+      ],
     },
   },
   xButton: {
@@ -217,6 +269,9 @@ local settings = import '../Settings.libsonnet';
       uppercased: { action: { character: 'X' } },
       swipeUp: { action: { symbol: ',' } },
       swipeDown: { action: { shortcut: '#cut' }, text: '剪' },
+      longPress: [
+        { action: { character: 'X' } },
+      ],
     },
   },
   cButton: {
@@ -226,6 +281,9 @@ local settings = import '../Settings.libsonnet';
       uppercased: { action: { character: 'C' } },
       swipeUp: { action: { symbol: '.' } },
       swipeDown: { action: { shortcut: '#copy' }, text: '复' },
+      longPress: [
+        { action: { character: 'C' } },
+      ],
     },
   },
   vButton: {
@@ -235,6 +293,9 @@ local settings = import '../Settings.libsonnet';
       uppercased: { action: { character: 'V' } },
       swipeUp: { action: { openURL: 'clipjar://' }, systemImageName: 'paperclip.circle' },
       swipeDown: { action: { shortcut: '#paste' }, text: '贴' },
+      longPress: [
+        { action: { character: 'V' } },
+      ],
     },
   },
   bButton: {
@@ -244,6 +305,9 @@ local settings = import '../Settings.libsonnet';
       uppercased: { action: { character: 'B' } },
       swipeUp: { action: { symbol: '‘’' } },
       swipeDown: { action: { symbol: '“”' } },
+      longPress: [
+        { action: { character: 'B' } },
+      ],
     },
   },
   nButton: {
@@ -253,6 +317,9 @@ local settings = import '../Settings.libsonnet';
       uppercased: { action: { character: 'N' } },
       swipeUp: { action: { character: '、' } },
       swipeDown: { action: { character: '…' } },
+      longPress: [
+        { action: { character: 'N' } },
+      ],
     },
   },
   mButton: {
@@ -262,6 +329,9 @@ local settings = import '../Settings.libsonnet';
       uppercased: { action: { character: 'M' } },
       swipeUp: { action: { openURL: 'eudic://dict/#pasteboardContent' }, text: 'ɑː' },
       swipeDown: { action: { openURL: 'mojisho://?search=#pasteboardContent' }, text: 'あ' },
+      longPress: [
+        { action: { character: 'M' } },
+      ],
     },
   },
 
