@@ -12,6 +12,7 @@
   # 14 : 14键布局（双键布局）
   # 17 : 17键布局
   # 18 : 18键布局
+  # bopomofo : 注音佈局
   keyboardLayout: '26',
 
 
@@ -22,6 +23,7 @@
 
 
   # 输入时空格键上的内容，支持固定内容和变量
+  # 注意：bopomofo 佈局下此項不生效，因為空格鍵打字中用於選聲調（一聲）
   # 变量可选如下：
   # $rimePreedit：Rime 预编辑文本
   # $rimeCandidate：Rime 首个候选字
@@ -104,9 +106,9 @@
   },
 
 
-  # toolbar 按钮以图标显示
+  # 同时配了图标和文字的，优先显示图标还是文字
   # true 显示图标，false 显示文字
-  toolbarPreferIcon: true,
+  preferIcon: true,
 
 
   # 主题色
@@ -115,16 +117,17 @@
 
 
   # 中文模式下，字母键是否大写显示
-  # 17键布局下此设置无效，因为它是大小写混合显示的
+  # 注意：17键布局下此设置无效，因为它是大小写混合显示的
+  #      注音佈局下此設置無效，因爲它顯示的是注音符號而非字母
   # true 大写，false 小写
   uppercaseForChinese: false,
 
 
   # 分词键，用于输入方案中分词使用
   segmentAction:
-    { character: '`'},
+    # { character: '`'},
     # 'tab',
-    # { character: "'"},
+    { character: "'"},
 
 
   # Rime 方案中的快符

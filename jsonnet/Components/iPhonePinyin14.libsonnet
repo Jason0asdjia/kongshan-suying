@@ -7,10 +7,6 @@ local preedit = import 'Preedit.libsonnet';
 local toolbar = import 'Toolbar.libsonnet';
 local utils = import 'Utils.libsonnet';
 
-local portraitNormalButtonSize = {
-  size: { width: '112.5/1125' },
-};
-
 // 标准26键布局
 local rows = [
   [
@@ -46,9 +42,8 @@ local rows = [
 
 
 local newKeyLayout(isDark=false, isPortrait=true) =
-  local rowHeight = if isPortrait then commonButtons.rowHeight.portrait else commonButtons.rowHeight.landscape;
   {
-    keyboardHeight: rowHeight * std.length(rows),
+    keyboardHeight: if isPortrait then commonButtons.keyboardHeight.portrait else commonButtons.keyboardHeight.landscape,
     keyboardStyle: utils.newBackgroundStyle(style=basicStyle.keyboardBackgroundStyleName),
   }
   + utils.newRowKeyboardLayout(rows)
@@ -62,9 +57,7 @@ local newKeyLayout(isDark=false, isPortrait=true) =
         basicStyle.hintStyleSize + basicStyle.textCenterWhenShowSwipeText + button.params +
         {
           [if settings.uppercaseForChinese then 'text']: std.asciiUpper(button.params.text)
-        }
-        ,
-        swipeTextFollowSetting=true),
+        }),
       buttons.letterButtons,
       {})
 
@@ -91,14 +84,16 @@ local newKeyLayout(isDark=false, isPortrait=true) =
   + basicStyle.newSystemButton(
     commonButtons.numericButton.name,
     isDark,
-    { size: { width: '225/1125' } }
+    { size: { width: { percentage: 0.2 } } }
     + commonButtons.numericButton.params
   )
 
   + basicStyle.newAlphabeticButton(
     commonButtons.commaButton.name,
     isDark,
-    portraitNormalButtonSize + commonButtons.commaButton.params + basicStyle.hintStyleSize
+    { size: { width: { percentage: 0.12 } } }
+    + commonButtons.commaButton.params + basicStyle.hintStyleSize,
+    swipeTextFollowSetting=false,
   )
   + basicStyle.newAlphabeticButton(
     commonButtons.spaceButton.name,
@@ -113,32 +108,20 @@ local newKeyLayout(isDark=false, isPortrait=true) =
   + basicStyle.newSystemButton(
     commonButtons.alphabeticButton.name,
     isDark,
-    portraitNormalButtonSize
+    { size: { width: { percentage: 0.12 } } }
     + commonButtons.alphabeticButton.params
   )
   + basicStyle.newColorButton(
     commonButtons.enterButton.name,
     isDark,
-    {
-      size: { width: '250/1125' },
-    } + commonButtons.enterButton.params
+    { size: { width: { percentage: 0.22 } } }
+    + commonButtons.enterButton.params
   )
 ;
 
-local backgroundInsets = if !settings.iPad then
-{
-  portrait: { top: 5, left: 3, bottom: 5, right: 3 },
-  landscape: { top: 3, left: 3, bottom: 3, right: 3 },
-}
-else
-{
-  portrait: { top: 3, left: 3, bottom: 3, right: 3 },
-  landscape: { top: 4, left: 6, bottom: 4, right: 6 },
-};
-
 {
   new(isDark, isPortrait):
-    local insets = if isPortrait then backgroundInsets.portrait else backgroundInsets.landscape;
+    local insets = if isPortrait then commonButtons.backgroundInsets.portrait else commonButtons.backgroundInsets.landscape;
 
     local extraParams = {
       insets: insets,

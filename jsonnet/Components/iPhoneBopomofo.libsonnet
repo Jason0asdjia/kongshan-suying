@@ -1,4 +1,4 @@
-local buttons = import '../Buttons/Layout18.libsonnet';
+local buttons = import '../Buttons/LayoutBopomofo.libsonnet';
 local commonButtons = import '../Buttons/Common.libsonnet';
 local toolbarParams = import '../Buttons/Toolbar.libsonnet';
 local settings = import '../Settings.libsonnet';
@@ -7,67 +7,108 @@ local preedit = import 'Preedit.libsonnet';
 local toolbar = import 'Toolbar.libsonnet';
 local utils = import 'Utils.libsonnet';
 
-// 18键布局
-local rows = [
+local portraitNormalButtonSize = {
+  size: { width: '3/33' },
+};
+
+// 注音佈局
+local getRows = [
+  [
+    buttons.bpmfOneButton,
+    buttons.bpmfTwoButton,
+    buttons.bpmfThreeButton,
+    buttons.bpmfFourButton,
+    buttons.bpmfFiveButton,
+    buttons.bpmfSixButton,
+    buttons.bpmfSevenButton,
+    buttons.bpmfEightButton,
+    buttons.bpmfNineButton,
+    buttons.bpmfZeroButton,
+    buttons.bpmfDashButton,
+  ],
   [
     buttons.qButton,
     buttons.wButton,
+    buttons.eButton,
     buttons.rButton,
+    buttons.tButton,
     buttons.yButton,
     buttons.uButton,
     buttons.iButton,
+    buttons.oButton,
     buttons.pButton,
   ],
   [
     buttons.aButton,
     buttons.sButton,
+    buttons.dButton,
     buttons.fButton,
+    buttons.gButton,
     buttons.hButton,
     buttons.jButton,
+    buttons.kButton,
     buttons.lButton,
+    buttons.bpmfSemicolonButton,
   ],
   [
-    commonButtons.segmentButton,
     buttons.zButton,
     buttons.xButton,
+    buttons.cButton,
     buttons.vButton,
     buttons.bButton,
+    buttons.nButton,
     buttons.mButton,
+    buttons.bpmfCommaButton,
+    buttons.bpmfPeriodButton,
+    buttons.bpmfSlashButton,
     commonButtons.backspaceButton,
   ],
   [
     commonButtons.numericButton,
-    commonButtons.commaButton,
-    commonButtons.spaceButton,
+    buttons.commaButton,
+    buttons.spaceButton,
     commonButtons.alphabeticButton,
-    commonButtons.enterButton,
+    buttons.enterButton,
   ],
 ];
 
 local getAlphabeticButtonSize(name) =
   local extra = {
+    [buttons.qButton.name]: {
+      size:
+        { width: '4/33' },
+      bounds:
+        { width: '3/4', alignment: 'right' },
+    },
+    [buttons.pButton.name]: {
+      size:
+        { width: '5/33' },
+      bounds:
+        { width: '3/5', alignment: 'left' },
+    },
     [buttons.aButton.name]: {
       size:
-        { width: '1.5/7' },
+        { width: '5/33' },
       bounds:
-        { width: '1/1.5', alignment: 'right' },
+        { width: '3/5', alignment: 'right' },
     },
-    [buttons.lButton.name]: {
+    [buttons.bpmfSemicolonButton.name]: {
       size:
-        { width: '1.5/7' },
+        { width: '4/33' },
       bounds:
-        { width: '1/1.5', alignment: 'left' },
+        { width: '4/5', alignment: 'left' },
     },
   };
   (
   if std.objectHas(extra, name) then
     extra[name]
   else
-    {}
+    portraitNormalButtonSize
   );
 
 
 local newKeyLayout(isDark=false, isPortrait=true) =
+  local rows = getRows;
   {
     keyboardHeight: if isPortrait then commonButtons.keyboardHeight.portrait else commonButtons.keyboardHeight.landscape,
     keyboardStyle: utils.newBackgroundStyle(style=basicStyle.keyboardBackgroundStyleName),
@@ -80,27 +121,18 @@ local newKeyLayout(isDark=false, isPortrait=true) =
       basicStyle.newAlphabeticButton(
         button.name,
         isDark,
-        getAlphabeticButtonSize(button.name) + button.params + basicStyle.hintStyleSize + basicStyle.textCenterWhenShowSwipeText +
-        {
-          [if settings.uppercaseForChinese then 'text']: std.asciiUpper(button.params.text)
-        }),
+        getAlphabeticButtonSize(button.name) + button.params + basicStyle.hintStyleSize + basicStyle.textCenterWhenShowSwipeText),
       buttons.letterButtons,
       {})
-
-  // Third Row
-  + basicStyle.newSystemButton(
-    commonButtons.segmentButton.name,
-    isDark,
-    commonButtons.segmentButton.params
-  )
 
   + basicStyle.newSystemButton(
     commonButtons.backspaceButton.name,
     isDark,
-    commonButtons.backspaceButton.params,
+    portraitNormalButtonSize
+    + commonButtons.backspaceButton.params,
   )
 
-  // Fourth Row
+  // Last Row
   + basicStyle.newSystemButton(
     commonButtons.numericButton.name,
     isDark,
@@ -109,39 +141,51 @@ local newKeyLayout(isDark=false, isPortrait=true) =
   )
 
   + basicStyle.newAlphabeticButton(
-    commonButtons.commaButton.name,
+    buttons.commaButton.name,
     isDark,
-    { size: { width: { percentage: 0.12 } } }
-    + commonButtons.commaButton.params + basicStyle.hintStyleSize,
+    { size: { width: { percentage: 0.1 } } }
+    + buttons.commaButton.params + basicStyle.hintStyleSize,
     swipeTextFollowSetting=false,
   )
   + basicStyle.newAlphabeticButton(
-    commonButtons.spaceButton.name,
+    buttons.spaceButton.name,
     isDark,
     {
       foregroundStyleName: basicStyle.spaceButtonForegroundStyle,
       foregroundStyle: basicStyle.newSpaceButtonRimeSchemaForegroundStyle('$rimeSchemaName', isDark),
     }
-    + commonButtons.spaceButton.params,
+    + buttons.spaceButton.params,
     needHint=false,
   )
-  + basicStyle.newSystemButton(
+  +
+  basicStyle.newSystemButton(
     commonButtons.alphabeticButton.name,
     isDark,
-    { size: { width: { percentage: 0.12 } } }
+    { size: { width: { percentage: 0.1 } } }
     + commonButtons.alphabeticButton.params
   )
   + basicStyle.newColorButton(
-    commonButtons.enterButton.name,
+    buttons.enterButton.name,
     isDark,
     { size: { width: { percentage: 0.22 } } }
-    + commonButtons.enterButton.params
+    + buttons.enterButton.params
   )
 ;
 
+local backgroundInsets = if !settings.iPad then
+{
+  portrait: { top: 3, left: 2, bottom: 3, right: 2 },
+  landscape: { top: 2, left: 2, bottom: 2, right: 2 },
+}
+else
+{
+  portrait: { top: 3, left: 3, bottom: 3, right: 3 },
+  landscape: { top: 4, left: 6, bottom: 4, right: 6 },
+};
+
 {
   new(isDark, isPortrait):
-    local insets = if isPortrait then commonButtons.backgroundInsets.portrait else commonButtons.backgroundInsets.landscape;
+    local insets = if isPortrait then backgroundInsets.portrait else backgroundInsets.landscape;
 
     local extraParams = {
       insets: insets,

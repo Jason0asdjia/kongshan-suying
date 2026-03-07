@@ -15,16 +15,28 @@ local settings = import '../Settings.libsonnet';
 {
   local root = self,
 
-  // 每行高度
-  rowHeight: if !settings.iPad then
+  // 键盘高度（不含工具栏）
+  keyboardHeight: if !settings.iPad then
     {
-      portrait: 54,
-      landscape: 40,
+      portrait: 216,  // 54 * 4
+      landscape: 160,  // 40 * 4
     }
     else
     {
-      portrait: 64,
-      landscape: 86,
+      portrait: 256,  // 64 * 4
+      landscape: 344,  // 86 * 4
+    },
+
+  // 按键背景内边距
+  backgroundInsets: if !settings.iPad then
+    {
+      portrait: { top: 5, left: 3, bottom: 5, right: 3 },
+      landscape: { top: 3, left: 3, bottom: 3, right: 3 },
+    }
+    else
+    {
+      portrait: { top: 3, left: 3, bottom: 3, right: 3 },
+      landscape: { top: 4, left: 6, bottom: 4, right: 6 },
     },
 
   // 特殊功能键
@@ -37,7 +49,7 @@ local settings = import '../Settings.libsonnet';
       swipeUp: { action: { shortcut: '#次选上屏' } },
       swipeDown: { action: { shortcut: '#三选上屏' } },
       notification:
-        (if settings.spaceButtonShowSchema then
+        (if settings.spaceButtonSchemaNameCenter != null then
           ['rimeSchemaChangedNotification']
         else []),
 
@@ -45,7 +57,10 @@ local settings = import '../Settings.libsonnet';
         text: settings.spaceButtonComposingText,
         fontSize: fonts.systemButtonTextFontSize,
 
-        swipeUp: { action: { shortcut: '#次选上屏' } },
+        swipeUp: {
+          action: { shortcut: '#次选上屏' },
+          text: '次选',
+        },
       },
     },
   },
@@ -78,6 +93,12 @@ local settings = import '../Settings.libsonnet';
 
       uppercased: { systemImageName: 'shift.fill', },
       capsLocked: { systemImageName: 'capslock.fill', },
+
+      whenPreeditChanged: {
+        action: settings.segmentAction,
+        systemImageName: 'square.and.line.vertical.and.square',
+        text: '分词',
+      },
     },
   },
 
@@ -96,7 +117,8 @@ local settings = import '../Settings.libsonnet';
       longPress: [
         {
           action: { shortcut: '#换行' },
-          systemImageName: 'paragraphsign',
+          systemImageName: 'return',
+          text: '换行',
         },
       ],
 
@@ -139,6 +161,15 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: 'returnPrimaryKeyboard',
       systemImageName: 'arrow.backward',
+      text: '返回',
+    },
+  },
+
+  iOSNextKeyboardButton: {
+    name: 'iOSNextKeyboardButton',
+    params: {
+      action: 'nextKeyboard',
+      systemImageName: 'globe',
     },
   },
 
@@ -146,7 +177,7 @@ local settings = import '../Settings.libsonnet';
     name: 'numericButton',
     params: {
       action: { keyboardType: 'numeric' },
-      text: '123',
+      text: if settings.preferIcon then '123' else '数字',
       swipeUp: { action: { keyboardType: 'symbolic' } },
       swipeDown: { action: { keyboardType: 'emojis' } },
 
@@ -161,7 +192,7 @@ local settings = import '../Settings.libsonnet';
     name: 'symbolicButton',
     params: {
       action: { keyboardType: 'symbolic' },
-      text: '#+=',
+      text: if settings.preferIcon then '#+=' else '符号',
     },
   },
 
@@ -232,8 +263,13 @@ local settings = import '../Settings.libsonnet';
   clearPreeditButton: {
     name: 'clearPreeditButton',
     params: {
-      action: { shortcut: '#重输' },
-      text: '重输',
+      action: { shortcut: '#换行' },
+      text: '换行',
+
+      whenPreeditChanged: {
+        action: { shortcut: '#重输' },
+        text: '重输',
+      },
     },
   },
 

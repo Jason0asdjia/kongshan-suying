@@ -26,7 +26,7 @@ local settings = import '../Settings.libsonnet';
   wButton: {
     name: 'wButton',
     params: {
-      text: 'we',
+      text: 'w e',
       action: { character: 'w' },
       swipeUp: { action: { character: '1' } },
     },
@@ -34,7 +34,7 @@ local settings = import '../Settings.libsonnet';
   rButton: {
     name: 'rButton',
     params: {
-      text: 'rt',
+      text: 'r t',
       action: { character: 'r' },
       swipeUp: { action: { character: '2' } },
     },
@@ -58,7 +58,7 @@ local settings = import '../Settings.libsonnet';
   iButton: {
     name: 'iButton',
     params: {
-      text: 'io',
+      text: 'i o',
       action: { character: 'i' },
       swipeUp: { action: { character: ':' } },
     },
@@ -90,7 +90,7 @@ local settings = import '../Settings.libsonnet';
   sButton: {
     name: 'sButton',
     params: {
-      text: 'sd',
+      text: 's d',
       action: { character: 's' },
       swipeUp: { action: { character: '4' } },
     },
@@ -98,7 +98,7 @@ local settings = import '../Settings.libsonnet';
   fButton: {
     name: 'fButton',
     params: {
-      text: 'fg',
+      text: 'f g',
       action: { character: 'f' },
       swipeUp: { action: { character: '5' } },
     },
@@ -114,7 +114,7 @@ local settings = import '../Settings.libsonnet';
   jButton: {
     name: 'jButton',
     params: {
-      text: 'jk',
+      text: 'j k',
       action: { character: 'j' },
       swipeUp: { action: { character: '^' } },
     },
@@ -146,7 +146,7 @@ local settings = import '../Settings.libsonnet';
   xButton: {
     name: 'xButton',
     params: {
-      text: 'xc',
+      text: 'x c',
       action: { character: 'x' },
       swipeUp: { action: { character: '7' } },
     },
@@ -162,7 +162,7 @@ local settings = import '../Settings.libsonnet';
   bButton: {
     name: 'bButton',
     params: {
-      text: 'bn',
+      text: 'b n',
       action: { character: 'b' },
       swipeUp: { action: { character: '9' } },
     },

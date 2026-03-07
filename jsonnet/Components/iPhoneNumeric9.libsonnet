@@ -139,9 +139,8 @@ local totalKeyboardLayout(isPortrait=false) =
 
 
 local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
-  local rowHeight = if isPortrait then commonButtons.rowHeight.portrait else commonButtons.rowHeight.landscape;
   {
-    keyboardHeight: rowHeight * 4,
+    keyboardHeight: if isPortrait then commonButtons.keyboardHeight.portrait else commonButtons.keyboardHeight.landscape,
     keyboardStyle: utils.newBackgroundStyle(style=basicStyle.keyboardBackgroundStyleName),
   }
   + totalKeyboardLayout(isPortrait)
@@ -156,9 +155,9 @@ local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
         }
         + button.params
         + (
-          if settings.keyboardLayout=='9' then
+          if utils.numericActionNeedSymbol(settings.keyboardLayout) then
           {
-            action: utils.repalceCharacterToSymbolRecursive(button.params.action),
+            action: utils.replaceCharacterToSymbolRecursive(button.params.action),
             whenPreeditChanged: {
               action: button.params.action,
             },

@@ -163,9 +163,8 @@ local totalKeyboardLayout(isPortrait=false) =
 
 
 local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
-  local rowHeight = if isPortrait then commonButtons.rowHeight.portrait else commonButtons.rowHeight.landscape;
   {
-    keyboardHeight: rowHeight * 4,
+    keyboardHeight: if isPortrait then commonButtons.keyboardHeight.portrait else commonButtons.keyboardHeight.landscape,
     keyboardStyle: utils.newBackgroundStyle(style=basicStyle.keyboardBackgroundStyleName),
   }
 
@@ -195,7 +194,6 @@ local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
           else {}
         ),
         needHint=false,
-        swipeTextFollowSetting=true,
       ),
     pinyin9Buttons.t9Buttons,
     {})
@@ -226,7 +224,6 @@ local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
     }
     + pinyin9Buttons.spaceButton.params,
     needHint=false,
-    swipeTextFollowSetting=true,
   )
 
   + basicStyle.newSystemButton(
