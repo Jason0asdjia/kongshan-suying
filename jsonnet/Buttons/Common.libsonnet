@@ -46,8 +46,8 @@ local settings = import '../Settings.libsonnet';
       action: 'space',
       systemImageName: 'space',
       center: {x: 0.5, y: 0.5},
-      swipeUp: { action: { shortcut: '#次选上屏' } },
-      swipeDown: { action: { shortcut: '#三选上屏' } },
+      swipeUp: { action: { shortcut: '#次选上屏' }, text: '次选' },
+      swipeDown: { action: { shortcut: '#三选上屏' }, text: '三选' },
       notification:
         (if settings.spaceButtonSchemaNameCenter != null then
           ['rimeSchemaChangedNotification']
@@ -80,8 +80,8 @@ local settings = import '../Settings.libsonnet';
       repeatAction: 'backspace',
       systemImageName: 'delete.left',
       highlightSystemImageName: 'delete.left.fill',
-      swipeUp: { action: { shortcut: '#deleteText'} },
-      swipeDown: { action: { shortcut: '#undo' } },
+      swipeUp: { action: { shortcut: '#deleteText'}, text: '清' },
+      swipeDown: { action: { shortcut: '#undo' }, text: '撤' },
     },
   },
 
@@ -111,8 +111,8 @@ local settings = import '../Settings.libsonnet';
         'returnKeyTypeChangedNotification',
       ],
 
-      swipeUp: { action: { shortcut: '#行首' } },
-      swipeDown: { action: { shortcut: '#行尾' } },
+      swipeUp: { action: { shortcut: '#行首' }, text: '首' },
+      swipeDown: { action: { shortcut: '#行尾' }, text: '尾' },
 
       longPress: [
         {
@@ -209,7 +209,7 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { keyboardType: 'alphabetic' },
       assetImageName: 'chineseState2',
-      swipeUp: { action: { shortcut: '#方案切换' } },
+      swipeUp: { action: { shortcut: '#方案切换' }, text: '方案' },
 
       [if !std.startsWith(settings.keyboardLayout, '26') then 'swipeDown']: {
         action: { keyboardType: 'temp26Key' },
@@ -230,7 +230,7 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { shortcut: '#中英切换' },
       assetImageName: 'chineseState2',
-      swipeUp: { action: { shortcut: '#方案切换' } },
+      swipeUp: { action: { shortcut: '#方案切换' }, text: '方案' },
 
       whenRimeOptionChanged: {
         optionName: 'ascii_mode',
