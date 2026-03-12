@@ -1,5 +1,10 @@
 local settings = import '../Settings.libsonnet';
 
+// 本文件中的颜色使用 #rrggbb 或 #rrggbbaa 格式的十六进制字符串表示
+// 其中 rr、gg、bb 分别表示红、绿、蓝三种颜色的强度，范围是 00 到 FF（十六进制）
+// aa 表示 alpha 通道的值，范围也是 00 到 FF，00 表示完全透明，FF 表示完全不透明（此时可以省略 alpha 通道）
+// 注意：aa 为 00 时颜色完全透明，会使按键不可点击，建议至少使用 01
+
 // 标签颜色常量定义
 local labelColor = {
   primary: {
@@ -35,7 +40,7 @@ local keyboardBackgroundColor = {
 // 标准按键背景色（如字母按键、空格键等）
 local standardButtonBackgroundColor = {
   light: '#FFFFFF',
-  //dark: '#D1D1D165',
+  // dark: '#D1D1D165',
   dark: 'FEFFFF3F',
 };
 
@@ -62,7 +67,7 @@ local standardButtonShadowColor = {
 
 // 系统按键（如回车、删除等）背景颜色
 local systemButtonBackgroundColor = {
-  //light: '#E6E6E6',
+  // light: '#E6E6E6',
   light: '#DEDEDE',
   dark: '#D1D1D624',
 };
@@ -82,69 +87,41 @@ local accentColors = [
   // 在这里检查一下对比度 https://webaim.org/resources/contrastchecker/
   // 确保前景色和背景色的对比度足够高（至少大于 3）以保证可读性
   { // red
-    //background: '#da4357',
-    //foreground: '#ffffff',
-    background: {
-      light:'#da4357',
-      dark:'#da4357',
-      },
-    foreground: {
-      light:'#ffffff',
-      dark:'#ffffff',
-      }
+    background: { light: '#da4357', dark: '#da4357' },
+    foreground: { light: '#ffffff', dark: '#ffffff' },
   },
   { // green
-    //background: '#50A545',
-    //background: '#4CE062',
-    //background: '1FAD34',
-    //foreground: '#ffffff',
-    background: {
-      light:'#1FAD34',
-      dark:'#4CE062',
-      },
-    foreground: {
-      light:'#ffffff',
-      dark:'#ffffff',
-      }
+    background: { light: '#1FAD34', dark: '#4CE062' },
+    foreground: { light: '#ffffff', dark: '#ffffff' },
   },
   { // orange
-    //background: '#E86E30',
-    //foreground: '#ffffff',
-    background: {
-      light:'#E86E30',
-      dark:'#E86E30',
-      },
-    foreground: {
-      light:'#ffffff',
-      dark:'#ffffff',
-      }
+    background: { light: '#E86E30', dark: '#E86E30' },
+    foreground: { light: '#ffffff', dark: '#ffffff' },
   },
   { // blue
-    //background: '#2e67f8',
-    //foreground: '#ffffff',
-    background: {
-      light:'#2e67f8',
-      dark:'#2e67f8',
-      },
-    foreground: {
-      light:'#ffffff',
-      dark:'#ffffff',
-      }
+    background: { light: '#2e67f8', dark: '#2e67f8' },
+    foreground: { light: '#ffffff', dark: '#ffffff' },
   },
 ];
 
 local colorButtonBackgroundColor = if settings.accentColor == 0 then systemButtonBackgroundColor else
   local color = accentColors[settings.accentColor - 1].background;
-  {
-    light: color.light,
-    dark: color.dark,
-  };
+  if std.type(color) == 'object' && std.objectHas(color, 'light') && std.objectHas(color, 'dark') then
+    color
+  else
+    {
+      light: color,
+      dark: color,
+    };
 local colorButtonForegroundColor = if settings.accentColor == 0 then systemButtonForegroundColor else
   local color = accentColors[settings.accentColor - 1].foreground;
-  {
-    light: color.light,
-    dark: color.dark,
-  };
+  if std.type(color) == 'object' && std.objectHas(color, 'light') && std.objectHas(color, 'dark') then
+    color
+  else
+    {
+      light: color,
+      dark: color,
+    };
 
 local colorButtonHighlightedBackgroundColor = systemButtonHighlightedBackgroundColor;
 local colorButtonHighlightedForegroundColor = labelColor.primary;
@@ -163,9 +140,6 @@ local lowerEdgeOfButtonHighlightColor = {
 
 // 标准按键 Hint 背景色(包含长按符号列表的背景色)
 local standardCalloutBackgroundColor = {
-  //light: '#f8f8f8',
-  //light: '#F3F3F3',
-  //light: '#F0F0F0',
   light: '#ECECEC',
   dark: '#6B6B6B',
 };
@@ -199,7 +173,6 @@ local candidateForegroundColor = standardButtonForegroundColor;
 
 // 候选字分隔线颜色
 local candidateSeparatorColor = separatorColor;
-
 
 {
   labelColor: labelColor,

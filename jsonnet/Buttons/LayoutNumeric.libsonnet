@@ -150,26 +150,30 @@ local settings = import '../Settings.libsonnet';
           { character: '-' },
     },
   },
+
   // 斜杠
   forwardSlashButton: {
     name: 'forwardSlashButton',
     params: {
       action: { symbol: '/' },
+
+      whenPreeditChanged: {
+        // 当 preedit 中有内容时，斜杠交给 Rime 处理
+        action: { character: '/' },
+      },
     },
   },
+
   // 冒号
   colonButton: {
     name: 'colonButton',
     params: {
       action: { character: ':' },
-    },
-  },
+      text: '：',
 
-  // 中文冒号
-  chineseColonButton: {
-    name: 'chineseColonButton',
-    params: {
-      action: { symbol: '：' },
+      whenAlphabetic: {
+        text: ':',
+      },
     },
   },
 
@@ -178,14 +182,11 @@ local settings = import '../Settings.libsonnet';
     name: 'semicolonButton',
     params: {
       action: { character: ';' },
-    },
-  },
+      text: '；',
 
-  // 中文分号
-  chineseSemicolonButton: {
-    name: 'chineseSemicolonButton',
-    params: {
-      action: { symbol: '；' },
+      whenAlphabetic: {
+        text: ';',
+      },
     },
   },
 
@@ -205,35 +206,16 @@ local settings = import '../Settings.libsonnet';
     },
   },
 
-  // 中文左括号
-  leftChineseParenthesisButton: {
-    name: 'leftChineseParenthesisButton',
+  // 货币符号
+  moneyButton: {
+    name: 'moneyButton',
     params: {
-      action: { symbol: '（' },
-    },
-  },
+      action: { character: '$' },
+      text: '¥',
 
-  // 中文右括号
-  rightChineseParenthesisButton: {
-    name: 'rightChineseParenthesisButton',
-    params: {
-      action: { symbol: '）' },
-    },
-  },
-
-  // 美元符号
-  dollarButton: {
-    name: 'dollarButton',
-    params: {
-      action: { symbol: '$' },
-    },
-  },
-
-  // 人民币符号
-  rmbButton: {
-    name: 'rmbButton',
-    params: {
-      action: { symbol: '¥' },
+      whenAlphabetic: {
+        text: '$',
+      },
     },
   },
 
@@ -241,7 +223,7 @@ local settings = import '../Settings.libsonnet';
   atButton: {
     name: 'atButton',
     params: {
-      action: { symbol: '@' },
+      action: { character: '@' },
     },
   },
 
@@ -250,6 +232,10 @@ local settings = import '../Settings.libsonnet';
     name: 'leftCurlyQuoteButton',
     params: {
       action: { symbol: '“' },
+
+      whenAlphabetic: {
+        action: { symbol: "'" },
+      },
     },
   },
   // ” 双引号(有方向性的引号)
@@ -257,13 +243,10 @@ local settings = import '../Settings.libsonnet';
     name: 'rightCurlyQuoteButton',
     params: {
       action: { symbol: '”' },
-    },
-  },
-  // " 直引号(没有方向性的引号)
-  straightQuoteButton: {
-    name: 'straightQuoteButton',
-    params: {
-      action: { symbol: '"' },
+
+      whenAlphabetic: {
+        action: { symbol: '"' },
+      },
     },
   },
 
@@ -281,24 +264,15 @@ local settings = import '../Settings.libsonnet';
       action: { character: '+' },
     },
   },
-  chineseCommaButton: {
-    name: 'chineseCommaButton',
-    params: {
-      action: { symbol: '，' },
-      swipeUp: { action: { symbol: '。' } },
-    },
-  },
+
   chinesePeriodButton: {
     name: 'chinesePeriodButton',
     params: {
       action: { symbol: '。' },
-    },
-  },
-  periodButton: {
-    name: 'periodButton',
-    params: {
-      action: { character: '.' },
-      swipeUp: { action: { character: ',' } },
+
+      whenAlphabetic: {
+        action: { symbol: '&' },
+      }
     },
   },
 
@@ -307,63 +281,31 @@ local settings = import '../Settings.libsonnet';
     name: 'ideographicCommaButton',
     params: {
       action: { symbol: '、' },
-    },
-  },
-  // 中文问号
-  chineseQuestionMarkButton: {
-    name: 'questionMarkButton',
-    params: {
-      action: { symbol: '？' },
+
+      whenAlphabetic: {
+        action: { symbol: '\\' },
+      },
     },
   },
   // 英文问号
   questionMarkButton: {
     name: 'questionMarkEnButton',
     params: {
-      action: { symbol: '?' },
-    },
-  },
-  // 中文感叹号
-  chineseExclamationMarkButton: {
-    name: 'chineseExclamationMarkButton',
-    params: {
-      action: { symbol: '！' },
+      action: { character: '?' },
     },
   },
   // 英文感叹号
   exclamationMarkButton: {
     name: 'exclamationMarkButton',
     params: {
-      action: { symbol: '!' },
-    },
-  },
-  // ' 直撇号(单引号)
-  apostropheButton: {
-    name: 'apostropheButton',
-    params: {
-      action: { symbol: "'" },
-    },
-  },
-  // 中文左单引号(有方向性的单引号)
-  leftSingleQuoteButton: {
-    name: 'leftSingleQuoteButton',
-    params: {
-      action: { symbol: '‘' },
-      swipeUp: { action: { symbol: '“' } },
-    },
-  },
-  // 中文右单引号(有方向性的单引号)
-  rightSingleQuoteButton: {
-    name: 'rightSingleQuoteButton',
-    params: {
-      action: { symbol: '’' },
+      action: { character: '!' },
     },
   },
   // 井号
   hashButton: {
     name: 'hashButton',
     params: {
-      action: { symbol: '#' },
+      action: { character: '#' },
     },
   },
 }

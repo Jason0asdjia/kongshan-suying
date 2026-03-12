@@ -13,25 +13,6 @@ local extractProperties(obj, keys) =
 local excludeProperties(obj, keys) =
   { [k]: obj[k] for k in std.objectFields(obj) if !std.member(keys, k) };
 
-// 深度合并两个对象，例如
-// local obj1 = { swipeUp: { action: { character: '.' } } };
-// local obj2 = { swipeUp: { text: '。' } };
-// deepMerge(obj1, obj2) 结果为 { swipeUp: { action: { character: '.' }, text: '。' } }
-local deepMerge(x, y) =
-  if std.isObject(x) && std.isObject(y) then
-    // 遍历两个对象的所有字段
-    {
-      [k]:
-        if std.objectHas(x, k) && std.objectHas(y, k) then
-          deepMerge(x[k], y[k])  // 如果两边都有该字段，递归合并
-        else if std.objectHas(x, k) then
-          x[k]  // 只在 x 中存在
-        else
-          y[k]  // 只在 y 中存在
-      for k in std.setUnion(std.objectFields(x), std.objectFields(y))
-    }
-  else y;  // 如果不是对象，直接用 y 覆盖
-
 local isPrintableAsciiChar(c) =
   assert std.type(c) == 'string' && std.length(c) == 1 : 'isPrintableAsciiChar requires a single character string, input is ' + c;
   local cp = std.codepoint(c);
@@ -207,22 +188,6 @@ local newForegroundStyle(styleName='foregroundStyle', style) = { [styleName]: st
 
 local newAnimation(animation) = { animation: animation };
 
-local newRowKeyboardLayout(rows) = {
-  keyboardLayout: [
-    {
-      HStack: {
-        subviews: [
-          {
-            Cell: button.name,
-          }
-          for button in row
-        ],
-      },
-    }
-    for row in rows
-  ],
-};
-
 // rime option 变化时生成 notification 及 foreground style
 local rimeOptionChangedForegroundStyleName(name, rimeOptionName, value) =
   name + rimeOptionName + (if value then 'On' else 'Off') + 'ForegroundStyle';
@@ -305,11 +270,27 @@ local calcMainTextCenter(swipeUpTextCenter, swipeDownTextCenter) =
 local numericActionNeedSymbol(layout) =
   std.member(['9', 'bopomofo'],layout);
 
+local normalizeCenter(center) = {
+  x: std.get(center, 'x', 0.5),
+  y: std.get(center, 'y', 0.5),
+};
+
+// 英文键盘下，对按键的 params 进行处理
+// 1. 将 character 替换为 symbol
+//    处理方式为 params = replaceCharacterToSymbolRecursive(params)
+// 2. 将 params 中的 whenAlphabetic 合并到 params
+//    处理方式为 params = std.objectRemoveKey(params + std.get(params, 'whenAlphabetic', default={}), 'whenAlphabetic') 的内容
+local processButtonParams(isAlphabetic, params) =
+  if isAlphabetic then
+    local paramsWithSymbol = replaceCharacterToSymbolRecursive(params);
+    std.mergePatch(paramsWithSymbol, std.get(paramsWithSymbol, 'whenAlphabetic', default={}))
+  else
+    params;
+
 {
   extractProperty: extractProperty,
   extractProperties: extractProperties,
   excludeProperties: excludeProperties,
-  deepMerge: deepMerge,
   setColor: setColor,
   extractColors: extractColors,
   newGeometryStyle: newGeometryStyle,
@@ -320,11 +301,12 @@ local numericActionNeedSymbol(layout) =
   newBackgroundStyle: newBackgroundStyle,
   newForegroundStyle: newForegroundStyle,
   newAnimation: newAnimation,
-  newRowKeyboardLayout: newRowKeyboardLayout,
   rimeOptionChangedForegroundStyleName: rimeOptionChangedForegroundStyleName,
   rimeOptionChangedNotificationName: rimeOptionChangedNotificationName,
   newRimeOptionChangedNotification: newRimeOptionChangedNotification,
   replaceCharacterToSymbolRecursive: replaceCharacterToSymbolRecursive,
   calcMainTextCenter: calcMainTextCenter,
   numericActionNeedSymbol: numericActionNeedSymbol,
+  normalizeCenter: normalizeCenter,
+  processButtonParams: processButtonParams,
 }

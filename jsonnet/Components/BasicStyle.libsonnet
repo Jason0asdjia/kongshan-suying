@@ -288,37 +288,6 @@ local newSystemButtonForegroundStyle(isDark=false, params={}, highPriorityParams
     }
   );
 
-
-local spaceButtonRimeSchemaForegroundStyleName = 'spaceButtonRimeSchemaForegroundStyle';
-local newSpaceButtonRimeSchemaForegroundStyle(schemaNameText, isDark=false) =
-  if settings.spaceButtonSchemaNameCenter != null then
-  {
-    [spaceButtonRimeSchemaForegroundStyleName]: utils.newTextStyle({
-      text: schemaNameText,
-      // NOTE: $rimeSchemaName is runtime text and can be long (e.g. "Easy English Nano").
-      // Jsonnet is compiled ahead-of-time so we can't measure width dynamically; use a smaller font.
-      fontSize: std.max(8, fonts.alternativeTextFontSize - 1),
-      center: settings.spaceButtonSchemaNameCenter,
-      insets: settings.spaceButtonSchemaNameInsets,
-      normalColor: colors.alternativeForegroundColor,
-      highlightColor: colors.alternativeHighlightedForegroundColor,
-    }, isDark),
-  }
-  else
-  {};
-
-local spaceButtonForegroundStyleName = 'spaceButtonForegroundStyle';
-local spaceButtonForegroundStyle = [
-  spaceButtonForegroundStyleName,
-]
-+ (
-  if settings.spaceButtonSchemaNameCenter != null then
-    [
-      spaceButtonRimeSchemaForegroundStyleName,
-    ]
-  else []
-  );
-
 // 彩色功能键按钮背景样式
 local colorButtonBackgroundStyleName = 'colorButtonBackgroundStyle';
 local newColorButtonBackgroundStyle(isDark=false, params={}) =
@@ -926,29 +895,55 @@ local newColorButton(name, isDark=false, params={}) =
     .AddRimeOptionChangeEvent();
   button.GetButton() + button.reference;
 
-local newSymbolicCollection(name, isDark=false, params={}) =
+
+local spaceButtonRimeSchemaForegroundStyleName = 'spaceButtonRimeSchemaForegroundStyle';
+local newSpaceButtonRimeSchemaForegroundStyle(schemaNameText, isDark=false) =
   {
-    [name]: utils.newBackgroundStyle(style=systemButtonBackgroundStyleName)
-            + { cellStyle: name + 'CellStyle' }
-            + utils.extractProperties(
-              params,
-              [
-                'type',
-                'size',
-                'insets',
-                'dataSource',
-              ]
-            ),
-    [name + 'CellStyle']:
-            // utils.newBackgroundStyle(style=systemButtonBackgroundStyleName)+
-            utils.newForegroundStyle(style=name + 'CellForegroundStyle'),
-    [name + 'CellForegroundStyle']: utils.newTextStyle({
-      normalColor: colors.systemButtonForegroundColor,
-      highlightColor: colors.systemButtonHighlightedForegroundColor,
-      fontSize: fonts.numericCollectionTextFontSize,
-    } + params, isDark),
+    [spaceButtonRimeSchemaForegroundStyleName]: utils.newTextStyle({
+      text: schemaNameText,
+      fontSize: fonts.alternativeTextFontSize,
+      center: settings.spaceButtonSchemaNameCenter,
+      normalColor: colors.alternativeForegroundColor,
+      highlightColor: colors.alternativeHighlightedForegroundColor,
+    }, isDark),
   };
 
+local showSchemaName = settings.spaceButtonSchemaNameCenter != null;
+local showSchemaNameAtCenter = utils.normalizeCenter(settings.spaceButtonSchemaNameCenter) == utils.normalizeCenter({}); // 特殊处理显示在中间的，直接将其显示在空格文本上，不用额外增加一个前景样式
+local needCornerSchemaName = showSchemaName && !showSchemaNameAtCenter;
+
+local spaceButtonForegroundStyleName = 'spaceButtonForegroundStyle';
+local spaceButtonForegroundStyle = [
+  spaceButtonForegroundStyleName,
+]
++ (
+  if needCornerSchemaName then [
+    spaceButtonRimeSchemaForegroundStyleName,
+  ]
+  else []
+  );
+
+local newSpaceButtonForegroundStyle(params, schemaNameText, isDark=false) =
+  std.mergePatch(params,
+    if needCornerSchemaName then {
+      foregroundStyleName: spaceButtonForegroundStyle,
+
+      foregroundStyle: {
+        [spaceButtonRimeSchemaForegroundStyleName]: utils.newTextStyle({
+          text: schemaNameText,
+          fontSize: fonts.alternativeTextFontSize,
+          center: settings.spaceButtonSchemaNameCenter,
+          normalColor: colors.alternativeForegroundColor,
+          highlightColor: colors.alternativeHighlightedForegroundColor,
+        }, isDark),
+      },
+    }
+    else if showSchemaName then {
+      text: schemaNameText,
+      systemImageName: null,
+      fontSize: fonts.systemButtonTextFontSize,
+    }
+    else {});
 
 local rimeSchemaChangedNotification =
   {
@@ -1013,10 +1008,8 @@ local returnKeyTypeChangedNotification =
   newSystemButton: newSystemButton,
   newColorButton: newColorButton,
 
-  newSymbolicCollection: newSymbolicCollection,
-
   spaceButtonForegroundStyle: spaceButtonForegroundStyle,
-  newSpaceButtonRimeSchemaForegroundStyle: newSpaceButtonRimeSchemaForegroundStyle,
+  newSpaceButtonForegroundStyle: newSpaceButtonForegroundStyle,
 
   // notification
   rimeSchemaChangedNotification: rimeSchemaChangedNotification,
