@@ -310,7 +310,6 @@ keyboardHeight: 216
     - Cell: "gotoPrimaryKeyboardButton"
 - "VStack":
 
-    style: "wideVStackStyle"
     "subviews":
 
     - Cell: "oneButton"
@@ -319,7 +318,6 @@ keyboardHeight: 216
     - Cell: "numericSpaceButton"
 - "VStack":
 
-    style: "wideVStackStyle"
     "subviews":
 
     - Cell: "twoButton"
@@ -328,7 +326,6 @@ keyboardHeight: 216
     - Cell: "zeroButton"
 - "VStack":
 
-    style: "wideVStackStyle"
     "subviews":
 
     - Cell: "threeButton"
@@ -385,7 +382,7 @@ keyboardHeight: 216
 
     "width":
 
-      percentage: 0.17
+      percentage: 0.18
 "nineButton":
 
   "action":
@@ -824,13 +821,6 @@ toolbarHeight: 40
   highlightColor: "#FFFFFF"
   normalColor: "#FFFFFF"
   systemImageName: "arrow.backward"
-"wideVStackStyle":
-
-  "size":
-
-    "width":
-
-      percentage: 0.22
 "zeroButton":
 
   "action":
