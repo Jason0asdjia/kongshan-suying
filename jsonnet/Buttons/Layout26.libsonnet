@@ -73,6 +73,7 @@ local settings = import '../Settings.libsonnet';
       longPress: [
         { action: 'tab', systemImageName: 'arrow.right.to.line' },
         { action: { character: 'T' }, selected: true },
+        { action: { shortcut: '#简繁切换' }, systemImageName: 'arrow.trianglehead.2.clockwise.rotate.90' },
       ],
     },
   },

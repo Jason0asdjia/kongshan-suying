@@ -317,7 +317,7 @@ local settings = import '../Settings.libsonnet';
         action: { character: 't' },
         uppercased: { action: { character: 'T' } },
         swipeUp: { action: { character: '%' } },swipeDown: { action: { character: '5' } },
-        longPress: [ {action: { character: '	'},systemImageName: 'arrow.right.to.line'}],
+        longPress: [ {action: { character: '\t' },systemImageName: 'arrow.right.to.line'},{ action: { shortcut: '#简繁切换' },systemImageName: 'translate' }],
       },
     },
     yButton: {
@@ -651,9 +651,6 @@ local settings = import '../Settings.libsonnet';
       params: {
         systemImageName: 'shift',
         action: 'shift',
-        longPress: [
-          { action: { shortcut: '#简繁切换' }, systemImageName: 'character' },
-        ],
         uppercased: { systemImageName: 'shift.fill', },
         capsLocked: { systemImageName: 'capslock.fill', },
       },
