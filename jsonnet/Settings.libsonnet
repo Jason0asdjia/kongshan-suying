@@ -46,6 +46,16 @@
     # null,               # 不显示
 
 
+  # 方案名称文本的额外内边距（用于给长方案名留出左侧安全区）
+  # 例如某些输入方案名较长（如 Easy English Nano），靠左显示时可能超出空格键边界。
+  spaceButtonSchemaNameInsets: {
+    top: 0,
+    left: 10,
+    bottom: 0,
+    right: 0,
+  },
+
+
   # 上下滑动提示文字显示位置
   # hide 不显示
   # topLeft 左上角
