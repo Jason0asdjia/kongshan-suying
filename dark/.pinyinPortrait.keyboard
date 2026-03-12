@@ -3266,6 +3266,12 @@ preeditHeight: 15
     "y": 0.7
   fontSize: 9
   highlightColor: "#b6b7b9"
+  "insets":
+
+    bottom: 0
+    left: 10
+    right: 0
+    top: 0
   normalColor: "#b6b7b9"
   text: "$rimeSchemaName"
 "spaceButtonSwipeDownForegroundStyle":
