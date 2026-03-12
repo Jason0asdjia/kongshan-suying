@@ -3242,10 +3242,25 @@ preeditHeight: 15
 
   - "spaceButtonPreeditChangedForegroundStyle"
   - "spaceButtonPreeditChangedSwipeUpForegroundStyle"
+  - "spaceButtonPreeditChangedSwipeDownForegroundStyle"
   notificationType: "preeditChanged"
+  "swipeDownAction":
+
+    shortcut: "#三选上屏"
   "swipeUpAction":
 
     shortcut: "#次选上屏"
+"spaceButtonPreeditChangedSwipeDownForegroundStyle":
+
+  buttonStyleType: "text"
+  "center":
+
+    x: 0.75
+    "y": 0.25
+  fontSize: 9
+  highlightColor: "#8a8a8a"
+  normalColor: "#8a8a8a"
+  text: "三选"
 "spaceButtonPreeditChangedSwipeUpForegroundStyle":
 
   buttonStyleType: "text"
