@@ -41,7 +41,7 @@ local keyboardBackgroundColor = {
 local standardButtonBackgroundColor = {
   light: '#FFFFFF',
   dark: '#D1D1D140',
-  // dark: 'FEFFFF3F',
+  //dark: '#FEFFFF3F',
 };
 
 // 标准按键按下时的背景色
