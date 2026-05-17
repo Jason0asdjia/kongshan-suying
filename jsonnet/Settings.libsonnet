@@ -13,14 +13,12 @@
   # 17 : 17键布局
   # 18 : 18键布局
   # bopomofo : 注音佈局
-  # sigma : 西戈拼音布局
   keyboardLayout: '26',
 
 
   # 数字键盘布局选择，可选值如下：
   # 9 : 九宫格布局
   # row : 数字显示在一行
-  # hex : 十六进制布局
   numericLayout: '9',
 
 
@@ -111,7 +109,8 @@
 
 
   # 中文模式下，字母键是否大写显示
-  # 注意：17键布局、注音佈局、西戈码布局下此设置无效
+  # 注意：17键布局下此设置无效，因为它是大小写混合显示的
+  #      注音佈局下此設置無效，因爲它顯示的是注音符號而非字母
   # true 大写，false 小写
   uppercaseForChinese: false,
 
@@ -124,15 +123,19 @@
     uppercased: { systemImageName: 'shift.fill', },
     capsLocked: { systemImageName: 'capslock.fill', },
 
-    whenPreeditChanged: {
-      action: { character: "'" },
-      systemImageName: 'square.and.line.vertical.and.square',
-      text: '分词',
+    #whenPreeditChanged: {
+      #action: { character: "'" },
+   #systemImageName: 'square.and.line.vertical.and.square',
+      #text: '分词',
+      
+      #action: { character: "shift" },
+   #systemImageName: 'shift',
+      #text: 'Shift',
 
       # action: 'tab',
       # systemImageName: 'arrow.right.to.line',
       # text: 'Tab',
-    },
+    #},
   },
 
 

@@ -174,7 +174,8 @@ local settings = import '../Settings.libsonnet';
       swipeDown: { action: { keyboardType: 'emojis' } },
 
       whenPreeditChanged: {
-        action: settings.shiftButtonParams.whenPreeditChanged.action,
+        #action: settings.shiftButtonParams.whenPreeditChanged.action,
+        action: { character: "'"},
         text: '分词',
       },
     },

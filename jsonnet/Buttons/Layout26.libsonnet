@@ -73,6 +73,7 @@ local settings = import '../Settings.libsonnet';
       longPress: [
         { action: 'tab', systemImageName: 'arrow.right.to.line' },
         { action: { character: 'T' }, selected: true },
+        { action: { shortcut: '#简繁切换' },text:'繁'},
       ],
     },
   },
@@ -328,9 +329,11 @@ local settings = import '../Settings.libsonnet';
       action: { character: 'm' },
       uppercased: { action: { character: 'M' } },
       swipeUp: {action: { openURL: '#pasteboardContent#selectText' },systemImageName: 'location.circle.fill'},
-      swipeDown: { action: { shortcut: '#简繁切换' },text:'繁'},
+      swipeDown: { action: { character: '.com' },systemImageName: 'globe'},
       longPress: [
-        { action: { character: 'M' } },
+        { action: { character: 'M' }},
+        { action: { character: '.com' },systemImageName: 'globe'},
+        { action: { character: '@gmail.com' }, systemImageName: 'envelope',selected: true},
       ],
     },
   },

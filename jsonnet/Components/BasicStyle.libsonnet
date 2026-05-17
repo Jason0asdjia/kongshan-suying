@@ -462,7 +462,7 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
     },
 
   // 内部调用函数，外面不要调用
-  local _CreateHintStyleReference(hintStyleName, param) =
+  CreateHintStyleReference(hintStyleName, param):
     local hintForegroundStyleName = hintStyleName[:-5] + 'Foreground' + hintStyleName[-5:];
     local swipeUpHintForegroundStyleName = if std.objectHas(param, 'swipeUp') then hintStyleName[:-5] + 'SwipeUpForeground' + hintStyleName[-5:] else null;
     local swipeDownHintForegroundStyleName = if std.objectHas(param, 'swipeDown') then hintStyleName[:-5] + 'SwipeDownForeground' + hintStyleName[-5:] else null;
@@ -499,7 +499,7 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
       [root.name]+: {
         hintStyle: root.name + 'HintStyle',
       },
-      reference+: _CreateHintStyleReference(root.name + 'HintStyle', root.params),
+      reference+: root.CreateHintStyleReference(root.name + 'HintStyle', root.params),
     },
 
   AddPropertiesInParams(): root {
@@ -647,14 +647,6 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
     globalNames+: [buttonAnimationName],
   },
 
-  local _BackgroundStyleName(param) =
-    if std.objectHas(param, 'backgroundStyle') then
-      param.backgroundStyle
-    else if std.objectHas(root[root.name], 'backgroundStyle') then
-      root[root.name].backgroundStyle
-    else
-      null,
-
   AddPreeditChangeEvent(newForegroundStyle):
     local isPreeditModeAware = std.objectHas(root.params, 'whenPreeditChanged');
     if !isPreeditModeAware then
@@ -671,7 +663,13 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
       reference+: {
         [root.name + 'PreeditChangedNotification']: std.prune({
           notificationType: 'preeditChanged',
-          backgroundStyle: _BackgroundStyleName(preeditChangedParams),
+          backgroundStyle:
+            if std.objectHas(preeditChangedParams, 'backgroundStyle') then
+              preeditChangedParams.backgroundStyle
+            else if std.objectHas(root[root.name], 'backgroundStyle') then
+              root[root.name].backgroundStyle
+            else
+              null,
           foregroundStyle: [
             root.name + 'PreeditChangedForegroundStyle',
           ] + (
@@ -697,7 +695,7 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
         [root.name + 'PreeditChangedForegroundStyle']: newForegroundStyle(root.isDark, root.params, preeditChangedParams),
       } + (
         if needUpdateHintStyle then
-          _CreateHintStyleReference(root.name + 'PreeditChangedHintStyle', root.params + preeditChangedParams)
+          root.CreateHintStyleReference(root.name + 'PreeditChangedHintStyle', preeditChangedParams)
         else {}
       ) + {
         [if std.objectHas(preeditChangedParams, 'swipeUp') && root.showSwipeUpText then generateSwipeForegroundStyleName(root.name, 'Up', 'PreeditChanged')]: newAlphabeticButtonAlternativeForegroundStyle(root.isDark, { center: swipeUpTextCenter }, preeditChangedParams.swipeUp),
@@ -723,7 +721,13 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
       reference+: {
         [root.name + 'KeyboardAction'+i+'Notification']: std.prune({
           notificationType: 'keyboardAction',
-          backgroundStyle: _BackgroundStyleName(keyboardActionParams[i]),
+          backgroundStyle:
+            if std.objectHas(keyboardActionParams[i], 'backgroundStyle') then
+              keyboardActionParams[i].backgroundStyle
+            else if std.objectHas(root[root.name], 'backgroundStyle') then
+              root[root.name].backgroundStyle
+            else
+              null,
           foregroundStyle: replaceGivenPairs(
             oldForegroundStyle,
             {
@@ -751,7 +755,7 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
       } + (
         if needUpdateHintStyle then
           local hintStyleList = [
-            _CreateHintStyleReference(root.name + 'KeyboardAction'+i+'HintStyle', root.params + keyboardActionParams[i]) for i in std.range(0, std.length(keyboardActionParams) - 1)
+            root.CreateHintStyleReference(root.name + 'KeyboardAction'+i+'HintStyle', keyboardActionParams[i]) for i in std.range(0, std.length(keyboardActionParams) - 1)
           ];
           std.foldl(
             function(x, y) x + y,
@@ -769,36 +773,6 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
       },
     },
 
-  // rime option 变化时生成 notification 及 foreground style
-  local _rimeOptionChangedForegroundStyleName(name, rimeOptionName, value) =
-    name + rimeOptionName + (if value then 'On' else 'Off') + 'ForegroundStyle',
-
-  local _rimeOptionChangedNotificationName(name, rimeOptionName, value) =
-    name + rimeOptionName + (if value then 'On' else 'Off') + 'Notification',
-
-  local _newRimeOptionChangedNotification(name, rimeOptionName, value, params={}) = {  // value is true or false
-    [_rimeOptionChangedNotificationName(name, rimeOptionName, value)]: std.prune({
-      notificationType: 'rime',
-      rimeNotificationType: 'optionChanged',
-      rimeOptionName: rimeOptionName,
-      rimeOptionValue: value,
-      backgroundStyle: params.backgroundStyleName,
-      foregroundStyle: params.foregroundStyleName,
-    }) + utils.extractProperties(
-      params,
-      [
-        'action',
-        'swipeUpAction',
-        'swipeDownAction',
-        'bounds',
-        'hintStyle',
-        'hintSymbolsStyle',
-        'uppercasedStateForegroundStyle',
-        'capsLockedStateForegroundStyle',
-      ]
-    ),
-  },
-
   AddRimeOptionChangeEvent():
     local hasRimeOptionParams = std.objectHas(root.params, 'whenRimeOptionChanged');
     if !hasRimeOptionParams then
@@ -815,7 +789,7 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
       local rimeOptionChangedForeground = replaceGivenPairs(
         oldForegroundStyle,
         {
-          [root.name + 'ForegroundStyle']: _rimeOptionChangedForegroundStyleName(root.name, rimeOptionName, rimeOptionValue),
+          [root.name + 'ForegroundStyle']: utils.rimeOptionChangedForegroundStyleName(root.name, rimeOptionName, rimeOptionValue),
           [if std.objectHas(rimeOptionParams, 'swipeUp') && root.showSwipeUpText then generateSwipeForegroundStyleName(root.name, 'Up')]: generateSwipeForegroundStyleName(root.name, 'Up', rimeOptionStr),
           [if std.objectHas(rimeOptionParams, 'swipeDown') && root.showSwipeDownText then generateSwipeForegroundStyleName(root.name, 'Down')]: generateSwipeForegroundStyleName(root.name, 'Down', rimeOptionStr),
         }
@@ -837,11 +811,11 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
           ],
 
           notification: [
-            _rimeOptionChangedNotificationName(root.name, rimeOptionName, rimeOptionValue),
+            utils.rimeOptionChangedNotificationName(root.name, rimeOptionName, rimeOptionValue),
           ],
         },
-        reference+: _newRimeOptionChangedNotification(root.name, rimeOptionName, rimeOptionValue, {
-          backgroundStyleName: _BackgroundStyleName(rimeOptionParams),
+        reference+: utils.newRimeOptionChangedNotification(root.name, rimeOptionName, rimeOptionValue, {
+          backgroundStyleName: root[root.name].backgroundStyle,
           foregroundStyleName: rimeOptionChangedForeground,
           [if std.objectHas(rimeOptionParams, 'action') then 'action']: rimeOptionParams.action,
           [if std.objectHas(rimeOptionParams, 'swipeUp') && std.objectHas(rimeOptionParams.swipeUp, 'action') then 'swipeUpAction']: rimeOptionParams.swipeUp.action,
@@ -850,99 +824,14 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
         } + utils.extractProperties(root.params, ['bounds'])
         + utils.extractProperties(root[root.name], ['capsLockedStateForegroundStyle', 'uppercasedStateForegroundStyle']))
         + {
-          [_rimeOptionChangedForegroundStyleName(root.name, rimeOptionName, rimeOptionValue)]: newAlphabeticButtonForegroundStyle(root.isDark, root.params, rimeOptionParams),
+          [utils.rimeOptionChangedForegroundStyleName(root.name, rimeOptionName, rimeOptionValue)]: newAlphabeticButtonForegroundStyle(root.isDark, root.params, rimeOptionParams),
         }
         + {
           [if std.objectHas(rimeOptionParams, 'swipeUp') && root.showSwipeUpText then generateSwipeForegroundStyleName(root.name, 'Up', rimeOptionStr)]: newAlphabeticButtonAlternativeForegroundStyle(root.isDark, { center: swipeUpTextCenter }, rimeOptionParams.swipeUp),
           [if std.objectHas(rimeOptionParams, 'swipeDown') && root.showSwipeDownText then generateSwipeForegroundStyleName(root.name, 'Down', rimeOptionStr)]: newAlphabeticButtonAlternativeForegroundStyle(root.isDark, { center: swipeDownTextCenter }, rimeOptionParams.swipeDown),
         } + (
           if needUpdateHintStyle then
-            _CreateHintStyleReference(root.name + rimeOptionStr + 'HintStyle', root.params + rimeOptionParams)
-          else {}
-        ),
-      },
-
-  // schema 变化时生成 notification 及 foreground style
-  local _rimeSchemaTagetName(schemaChangeParams) =
-    if std.objectHas(schemaChangeParams, 'rimeSchemaID') then
-      schemaChangeParams.rimeSchemaID
-    else
-      schemaChangeParams.rimeSchemaName,
-
-  local _rimeSchemaChangedForegroundStyleName(name, schemaTargetName) =
-    name + schemaTargetName + 'ForegroundStyle',
-
-  local _rimeSchemaChangedNotificationName(name, schemaTargetName) =
-    name + schemaTargetName + 'Notification',
-
-  local _newRimeSchemaChangedNotification(name, schemaTargetName, params={}) = {
-    [_rimeSchemaChangedNotificationName(name, schemaTargetName)]: std.prune({
-      notificationType: 'rime',
-      rimeNotificationType: 'schemaChanged',
-      [if std.objectHas(params, 'rimeSchemaID') then 'rimeSchemaID']: params.rimeSchemaID,
-      [if std.objectHas(params, 'rimeSchemaName') then 'rimeSchemaName']: params.rimeSchemaName,
-      backgroundStyle: params.backgroundStyleName,
-      foregroundStyle: params.foregroundStyleName,
-    }) + utils.extractProperties(
-      params,
-      [
-        'action',
-        'swipeUpAction',
-        'swipeDownAction',
-        'bounds',
-        'hintStyle',
-        'hintSymbolsStyle',
-        'uppercasedStateForegroundStyle',
-        'capsLockedStateForegroundStyle',
-      ]
-    ),
-  },
-
-  AddSchemaChangeEvent():
-    local hasSchemaChangeParams = std.objectHas(root.params, 'whenRimeSchemaChanged');
-    if !hasSchemaChangeParams then
-      root
-    else
-      local schemaChangeParams = root.params.whenRimeSchemaChanged;
-      assert std.objectHas(schemaChangeParams, 'rimeSchemaID') || std.objectHas(schemaChangeParams, 'rimeSchemaName') : '必须提供 rimeSchemaID 或 rimeSchemaName 参数，当前 whenRimeSchemaChanged 为 ' + std.toString(schemaChangeParams);
-      local schemaTargetName = _rimeSchemaTagetName(schemaChangeParams);
-      local schemaChangeName = 'RimeSchemaChangedTo' + schemaTargetName;
-      local oldForegroundStyle = root[root.name].foregroundStyle;
-      local schemaChangedForeground = replaceGivenPairs(
-        oldForegroundStyle,
-        {
-          [root.name + 'ForegroundStyle']: _rimeSchemaChangedForegroundStyleName(root.name, schemaChangeName),
-          [if std.objectHas(schemaChangeParams, 'swipeUp') && root.showSwipeUpText then generateSwipeForegroundStyleName(root.name, 'Up')]: generateSwipeForegroundStyleName(root.name, 'Up', schemaChangeName),
-          [if std.objectHas(schemaChangeParams, 'swipeDown') && root.showSwipeDownText then generateSwipeForegroundStyleName(root.name, 'Down')]: generateSwipeForegroundStyleName(root.name, 'Down', schemaChangeName),
-        }
-      );
-      local needUpdateHintStyle = std.objectHas(root[root.name], 'hintStyle');
-      root {
-        [root.name]+: {
-          notification+: [
-            root.name + schemaChangeName + 'Notification',
-          ],
-        },
-        reference+: _newRimeSchemaChangedNotification(root.name, schemaChangeName, {
-          backgroundStyleName: _BackgroundStyleName(schemaChangeParams),
-          foregroundStyleName: schemaChangedForeground,
-          [if std.objectHas(schemaChangeParams, 'rimeSchemaID') then 'rimeSchemaID']: schemaChangeParams.rimeSchemaID,
-          [if std.objectHas(schemaChangeParams, 'rimeSchemaName') then 'rimeSchemaName']: schemaChangeParams.rimeSchemaName,
-          [if std.objectHas(schemaChangeParams, 'action') then 'action']: schemaChangeParams.action,
-          [if std.objectHas(schemaChangeParams, 'swipeUp') && std.objectHas(schemaChangeParams.swipeUp, 'action') then 'swipeUpAction']: schemaChangeParams.swipeUp.action,
-          [if std.objectHas(schemaChangeParams, 'swipeDown') && std.objectHas(schemaChangeParams.swipeDown, 'action') then 'swipeDownAction']: schemaChangeParams.swipeDown.action,
-          [if needUpdateHintStyle then 'hintStyle']: root.name + schemaChangeName + 'HintStyle',
-        } + utils.extractProperties(root.params, ['bounds'])
-        + utils.extractProperties(root[root.name], ['capsLockedStateForegroundStyle', 'uppercasedStateForegroundStyle']))
-        + {
-          [_rimeSchemaChangedForegroundStyleName(root.name, schemaChangeName)]: newAlphabeticButtonForegroundStyle(root.isDark, root.params, schemaChangeParams),
-        }
-        + {
-          [if std.objectHas(schemaChangeParams, 'swipeUp') && root.showSwipeUpText then generateSwipeForegroundStyleName(root.name, 'Up', schemaChangeName)]: newAlphabeticButtonAlternativeForegroundStyle(root.isDark, { center: swipeUpTextCenter }, schemaChangeParams.swipeUp),
-          [if std.objectHas(schemaChangeParams, 'swipeDown') && root.showSwipeDownText then generateSwipeForegroundStyleName(root.name, 'Down', schemaChangeName)]: newAlphabeticButtonAlternativeForegroundStyle(root.isDark, { center: swipeDownTextCenter }, schemaChangeParams.swipeDown),
-        } + (
-          if needUpdateHintStyle then
-            _CreateHintStyleReference(root.name + schemaChangeName + 'HintStyle', root.params + schemaChangeParams)
+            root.CreateHintStyleReference(root.name + rimeOptionStr + 'HintStyle', root.params + rimeOptionParams)
           else {}
         ),
       },
@@ -973,8 +862,7 @@ local newAlphabeticButton(name, isDark=false, params={}, needHint=true, swipeTex
     .AddLongPress()
     .AddPreeditChangeEvent(newAlphabeticButtonForegroundStyle)
     .AddKeyboardActionEvent(newAlphabeticButtonForegroundStyle)
-    .AddRimeOptionChangeEvent()
-    .AddSchemaChangeEvent();
+    .AddRimeOptionChangeEvent();
   button.GetButton() + button.reference;
 
 local newSystemButton(name, isDark=false, params={}) =
@@ -989,8 +877,7 @@ local newSystemButton(name, isDark=false, params={}) =
     .AddLongPress()
     .AddPreeditChangeEvent(newSystemButtonForegroundStyle)
     .AddKeyboardActionEvent(newSystemButtonForegroundStyle)
-    .AddRimeOptionChangeEvent()
-    .AddSchemaChangeEvent();
+    .AddRimeOptionChangeEvent();
   button.GetButton() + button.reference;
 
 local newColorButton(name, isDark=false, params={}) =
@@ -1005,8 +892,7 @@ local newColorButton(name, isDark=false, params={}) =
     .AddLongPress()
     .AddPreeditChangeEvent(newColorButtonForegroundStyle)
     .AddKeyboardActionEvent(newColorButtonForegroundStyle)
-    .AddRimeOptionChangeEvent()
-    .AddSchemaChangeEvent();
+    .AddRimeOptionChangeEvent();
   button.GetButton() + button.reference;
 
 

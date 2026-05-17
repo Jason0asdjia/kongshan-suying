@@ -1,16 +1,16 @@
 ## 「空山素影」皮肤特点
-- 支持多种键盘布局: 26 键、26b 键(左移半格)、9 键、14 键、17 键、18 键、注音键盘、西戈( Sigma )拼音等布局。
-- 数字键盘布局可选: 九宫格、单行数字、16进制键盘等布局。
+- 支持多种键盘布局，包括 26 键、9键、14键、17键、18键、注音键盘等布局。
+- 数字键盘布局包括九宫格数字和全键盘数字。
 - 不包含图片资源，风格接近原生键盘。
 - 工具栏滑动按钮自定义，方便快速对工具栏进行个性化设置，且可以设置为纯文本工具栏。
-- 空格键显示当前输入方案名称，方便查看当前输入方案；可自定义位置和边距。
+- 空格键显示当前输入方案名称，方便查看当前输入方案。
 - 中文模式下字母键大写显示，英文模式下字母键小写显示，是中文还是英文一目了然。
-- shift 键在打字过程中充当"分词"功能（分词功能为输入单引号，可以在"微调"中调整为其它符号）。
-- 支持按键上下划动功能，26键键盘布局可以输入 PC 键盘上的所有符号，可快速设置是否显示划动提示文字。
+- shift 键在打字过程中充当“分词”功能（分词功能为输入单引号，可以在“微调”中调整为其它符号）。
+- 支持按键上下划动功能，26键盘布局可以输入 PC 键盘上的所有符号，可快速设置是否显示划动提示文字。
 - a,z,x,c,v 五个按键下划对应全选、撤销、剪切、复制、粘贴，与 PC 键盘习惯一致。
 - 按键支持特定的自定义语法，可以非常简单地实现各种按键功能。
-- 主题色可选(红/绿/橙/蓝)，满足不同用户的审美需求。
-- 可以使用浮动面板中的"微调"功能对皮肤进行快速调整。
+- 主题色可选，满足不同用户的审美需求。
+- 可以使用浮动面板中的“微调”功能对皮肤进行快速调整。
 
 ## 上下划动功能说明
 ```
@@ -36,21 +36,12 @@ enter 上划行首，下划行尾，长按换行
 ## 自定义皮肤调整说明
 
 - 皮肤的基本设置`jsonnet/Settings.libsonnet`
-  + `keyboardLayout`: 主键盘布局(26/26b/9/14/17/18/bopomofo/sigma)
-  + `numericLayout`: 数字键盘布局(9/row/hex)
-  + `accentColor`: 主题色(0=无/1=红/2=绿/3=橙/4=蓝)
-  + `spaceButtonSchemaNameCenter`: 空格键方案名称位置
-  + `spaceButtonSchemaNameInsets`: 方案名称边距
-  + `swipeUpTextCenter`/`swipeDownTextCenter`: 划动提示文字位置
-  + `toolbarSlideButtons`: 工具栏滑动按钮自定义
-  + `preferIcon`: 优先使用图标而非文字
-  + `uppercaseForChinese`: 中文模式下字母大写
-  + 浮动键盘中的"微调"可以直接打开该文件进行编辑。
+  + 浮动键盘中的“微调”可以直接打开该文件进行编辑。
   + 修改后保存，重新编译皮肤即可生效。
 
 - 键盘按键功能设置`jsonnet/Buttons/`
-  + 浮动键盘中的"按键"会打开`jsonnet/Buttons/`文件夹下的 README.md，方便查看各按键在哪个文件。
-  + 可修改的文件: Layout9 / Layout14 / Layout17 / Layout18 / Layout26 / LayoutNumeric / LayoutBopomofo / LayoutSigma / Common / Toolbar
+  + 浮动键盘中的“按键”会打开`jsonnet/Buttons/`文件夹下的 README.md，方便查看各按键在哪个文件
+  + 退出 README.md 后再打开同目录下的具体按键文件进行编辑。
   + 修改后保存，重新编译皮肤即可生效。
 
 ## 手机端编译
@@ -68,20 +59,6 @@ jsonnet -S -m . --tla-code debug=true .\jsonnet\main.jsonnet
 # linux/macOS
 jsonnet -S -m . --tla-code debug=true ./jsonnet/main.jsonnet
 ```
-
-## AI 辅助开发流程
-
-使用 AI 修改代码后，运行 jsonnet 编译进行自动验证，确保修改正确无误：
-
-```bash
-# 1. 编译验证（确保能成功生成 yaml）
-jsonnet -S -m . --tla-code debug=true ./jsonnet/main.jsonnet
-
-# 2. 对比生成的 yaml 文件，确认改动符合预期
-git diff --stat
-```
-
-如果 jsonnet 编译失败，根据报错信息修正代码后重新验证，直到编译通过。
 
 ## 维护方式（跟随上游更新 + 保留自定义）
 
@@ -137,10 +114,10 @@ git push origin main
 
 ```bash
 git checkout custom
-git merge main -X ours
+git merge main
 ```
 
-如果没有冲突，这一步会直接生成一个 merge commit。
+如果没有冲突，这一步会直接生成一个 merge commit（或 fast-forward）。
 
 如果发生冲突：
 
@@ -166,7 +143,7 @@ git add <冲突文件...>
 git commit
 ```
 
-### 3) 合并后如何用 jsonnet 做一次"能跑通"的测试
+### 3) 合并后如何用 jsonnet 做一次“能跑通”的测试
 
 1) 确认 jsonnet 已安装：
 
