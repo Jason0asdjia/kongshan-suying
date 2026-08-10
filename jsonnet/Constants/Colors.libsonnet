@@ -128,13 +128,13 @@ local colorButtonHighlightedForegroundColor = labelColor.primary;
 
 // 按键底部边缘颜色
 local lowerEdgeOfButtonNormalColor = {
-  light: '#898A8D',
+  light: '#DCDEE3',
   dark: '#1E1E1E',
 };
 
 // 按下状态下，按键底部边缘颜色
 local lowerEdgeOfButtonHighlightColor = {
-  light: '#898A8D',
+  light: '#CFD1D7',
   dark: '#1D1D1D',
 };
 
