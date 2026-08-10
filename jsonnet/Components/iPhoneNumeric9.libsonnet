@@ -14,7 +14,7 @@ local narrowVStackStyle = {
   style: {
     [this.name]: {
       size: {
-        width: { percentage: 0.18 },
+        width: { percentage: 0.16 },
       },
     },
   },

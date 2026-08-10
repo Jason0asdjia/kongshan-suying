@@ -13,6 +13,8 @@ local portraitNormalButtonSize = {
   size: { width: '112.5/1125' },
 };
 
+// 右侧功能列缩窄后，数字列按比例扩展
+
 local KeyboardType = {
   Chinese: 0,
   English: 1,
@@ -34,6 +36,7 @@ local keyboardLayout = {
           { Cell: numericButtons.nineButton.name },
           { Cell: numericButtons.zeroButton.name },
         ],
+        style: { size: { width: '0.84' } },
       },
     },
     {
