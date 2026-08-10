@@ -83,12 +83,13 @@ local settings = import '../Settings.libsonnet';
     self.zeroButton,
   ],
 
-  // 数字键盘空格
+  // 数字键盘空格：下滑粘贴
   numericSpaceButton: {
     name: 'numericSpaceButton',
     params: {
       action: 'space',
       systemImageName: 'space',
+      swipeDown: { action: { shortcut: '#paste' }, text: '粘贴' },
     },
   },
 
