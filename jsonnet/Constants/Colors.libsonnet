@@ -67,14 +67,14 @@ local standardButtonShadowColor = {
 
 // 系统按键背景颜色
 local systemButtonBackgroundColor = {
-  // 通用功能键与主体字母/数字键保持同色；绿色 accent 按键不受影响
-  light: '#FFFFFF',
-  dark: '#D1D1D140',
+  // 与主体键保持清晰层次，接近 iOS 原生功能键
+  light: '#E6E6E6',
+  dark: '#D1D1D659',
 };
 
 local systemButtonHighlightedBackgroundColor = {
-  light: '#E6E6E6',
-  dark: '#D1D1D624',
+  light: '#F2F2F2',
+  dark: '#D1D1D680',
 };
 
 // 系统按键（如回车、删除等）前景颜色
