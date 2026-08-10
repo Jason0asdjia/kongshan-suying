@@ -266,6 +266,7 @@ local newSystemButtonBackgroundStyle(isDark=false, params={}) =
     normalLowerEdgeColor: colors.systemButtonNormalLowerEdgeColor,
     highlightLowerEdgeColor: colors.systemButtonHighlightedLowerEdgeColor,
 
+    normalBorderColor: colors.systemButtonBorderColor,
     highlightBorderColor: colors.systemButtonHighlightedBorderColor,
     borderSize: 0.5,
   } + params, isDark),
