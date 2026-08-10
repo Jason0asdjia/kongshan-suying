@@ -36,7 +36,6 @@ local keyboardLayout = {
           { Cell: numericButtons.nineButton.name },
           { Cell: numericButtons.zeroButton.name },
         ],
-        style: { size: { width: '0.84' } },
       },
     },
     {

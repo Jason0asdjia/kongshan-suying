@@ -7,15 +7,24 @@ local toolbar = import 'Toolbar.libsonnet';
 local utils = import 'Utils.libsonnet';
 local settings = import '../Settings.libsonnet';
 
-// 窄 VStack 宽度样式
-local narrowVStackStyle = {
+// 左侧功能列宽度（保持原版）
+local leftNarrowVStackStyle = {
   local this = self,
-  name: 'narrowVStackStyle',
+  name: 'leftNarrowVStackStyle',
   style: {
     [this.name]: {
-      size: {
-        width: { percentage: 0.16 },
-      },
+      size: { width: { percentage: 0.18 } },
+    },
+  },
+};
+
+// 右侧功能列略微缩窄
+local rightNarrowVStackStyle = {
+  local this = self,
+  name: 'rightNarrowVStackStyle',
+  style: {
+    [this.name]: {
+      size: { width: { percentage: 0.17 } },
     },
   },
 };
@@ -38,7 +47,7 @@ local numericLayout = {
   keyboardLayout: [
     {
       VStack: {
-        style: narrowVStackStyle.name,
+        style: leftNarrowVStackStyle.name,
         subviews: [
           { Cell: numeric9Buttons.numericSymbolsCollection.name, },
           { Cell: commonButtons.gotoPrimaryKeyboardButton.name, },
@@ -77,7 +86,7 @@ local numericLayout = {
     },
     {
       VStack: {
-        style: narrowVStackStyle.name,
+        style: rightNarrowVStackStyle.name,
         subviews: [
           { Cell: commonButtons.backspaceButton.name, },
           { Cell: numeric9Buttons.numericEqualButton.name, },
