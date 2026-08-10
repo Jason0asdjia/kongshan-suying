@@ -89,6 +89,7 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: 'space',
       systemImageName: 'space',
+      swipeUp: { action: { sendKeys: 'R' }, text: 'R' },
       swipeDown: {
         action: { shortcut: '#paste' },
         systemImageName: 'doc.on.clipboard',
