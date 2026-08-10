@@ -101,11 +101,13 @@ local settings = import '../Settings.libsonnet';
     },
   },
 
-  // 数字键盘冒号
+  // 数字键盘冒号 → 将 cC 发送给 Rime 计算器
   numericColonButton: {
     name: 'numericColonButton',
     params: {
-      action: { symbol: ':' },
+      action: { sendKeys: 'cC' },
+      systemImageName: 'function',
+      swipeUp: { action: { symbol: ':' } },
     },
   },
 
