@@ -265,6 +265,9 @@ local newSystemButtonBackgroundStyle(isDark=false, params={}) =
     cornerRadius: buttonCornerRadius,
     normalLowerEdgeColor: colors.lowerEdgeOfButtonNormalColor,
     highlightLowerEdgeColor: colors.lowerEdgeOfButtonHighlightColor,
+    normalBorderColor: colors.systemButtonBorderColor,
+    highlightBorderColor: colors.systemButtonHighlightedBorderColor,
+    borderSize: 0.5,
   } + params, isDark),
 };
 

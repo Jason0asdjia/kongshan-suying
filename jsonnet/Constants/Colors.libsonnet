@@ -65,7 +65,19 @@ local standardButtonShadowColor = {
   dark: '#000000',
 };
 
-// 系统按键背景颜色
+// 系统按键边框颜色
+local systemButtonBorderColor = {
+  light: '#C6C6C8',
+  dark: '#5A5A5C',
+};
+
+// 系统按键按下时边框颜色
+local systemButtonHighlightedBorderColor = {
+  light: '#B8B8BA',
+  dark: '#707074',
+};
+
+// 系统按键（如回车、删除等）背景颜色
 local systemButtonBackgroundColor = {
   // 与主体键保持清晰层次，接近 iOS 原生功能键
   light: '#E6E6E6',
@@ -187,6 +199,8 @@ local candidateSeparatorColor = separatorColor;
   standardButtonShadowColor: standardButtonShadowColor,
   systemButtonBackgroundColor: systemButtonBackgroundColor,
   systemButtonHighlightedBackgroundColor: systemButtonHighlightedBackgroundColor,
+  systemButtonBorderColor: systemButtonBorderColor,
+  systemButtonHighlightedBorderColor: systemButtonHighlightedBorderColor,
   systemButtonForegroundColor: systemButtonForegroundColor,
   systemButtonHighlightedForegroundColor: systemButtonHighlightedForegroundColor,
   colorButtonBackgroundColor: colorButtonBackgroundColor,
