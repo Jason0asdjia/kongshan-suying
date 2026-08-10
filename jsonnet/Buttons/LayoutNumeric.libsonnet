@@ -89,7 +89,10 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: 'space',
       systemImageName: 'space',
-      swipeDown: { action: { shortcut: '#paste' }, text: '粘贴' },
+      swipeDown: {
+        action: { shortcut: '#paste' },
+        systemImageName: 'doc.on.clipboard',
+      },
     },
   },
 
