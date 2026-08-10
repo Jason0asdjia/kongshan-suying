@@ -40,15 +40,14 @@ local keyboardBackgroundColor = {
 // 标准按键背景色（如字母按键、空格键等）
 local standardButtonBackgroundColor = {
   light: '#FFFFFF',
-  // iOS 26 风格：保留暗色层次，同时透出应用背景
-  dark: '#3C3C3DB8',
+  dark: '#D1D1D140',
   //dark: '#FEFFFF3F',
 };
 
 // 标准按键按下时的背景色
 local standardButtonHighlightedBackgroundColor = {
   light: '#E6E6E6',
-  dark: '#252526A6',
+  dark: '#D1D1D624',
 };
 
 // 标准按键前景色（如字母按键、空格键等），用于按键的字体，图片等
