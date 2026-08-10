@@ -7,24 +7,24 @@ local toolbar = import 'Toolbar.libsonnet';
 local utils = import 'Utils.libsonnet';
 local settings = import '../Settings.libsonnet';
 
-// 左侧功能列宽度（保持原版）
+// 左侧功能列略微缩窄
 local leftNarrowVStackStyle = {
   local this = self,
   name: 'leftNarrowVStackStyle',
   style: {
     [this.name]: {
-      size: { width: { percentage: 0.18 } },
+      size: { width: { percentage: 0.16 } },
     },
   },
 };
 
-// 右侧功能列略微缩窄
+// 右侧功能列恢复原版宽度
 local rightNarrowVStackStyle = {
   local this = self,
   name: 'rightNarrowVStackStyle',
   style: {
     [this.name]: {
-      size: { width: { percentage: 0.17 } },
+      size: { width: { percentage: 0.18 } },
     },
   },
 };
