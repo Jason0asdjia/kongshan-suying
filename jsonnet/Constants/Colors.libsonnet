@@ -65,6 +65,17 @@ local standardButtonShadowColor = {
   dark: '#000000',
 };
 
+// 系统按键下边缘与背景同色，避免与细边框重叠
+local systemButtonNormalLowerEdgeColor = {
+  light: '#E6E6E6',
+  dark: '#D1D1D659',
+};
+
+local systemButtonHighlightedLowerEdgeColor = {
+  light: '#F2F2F2',
+  dark: '#D1D1D680',
+};
+
 // 系统按键边框颜色
 local systemButtonBorderColor = {
   light: '#C6C6C8',
@@ -199,6 +210,8 @@ local candidateSeparatorColor = separatorColor;
   standardButtonShadowColor: standardButtonShadowColor,
   systemButtonBackgroundColor: systemButtonBackgroundColor,
   systemButtonHighlightedBackgroundColor: systemButtonHighlightedBackgroundColor,
+  systemButtonNormalLowerEdgeColor: systemButtonNormalLowerEdgeColor,
+  systemButtonHighlightedLowerEdgeColor: systemButtonHighlightedLowerEdgeColor,
   systemButtonBorderColor: systemButtonBorderColor,
   systemButtonHighlightedBorderColor: systemButtonHighlightedBorderColor,
   systemButtonForegroundColor: systemButtonForegroundColor,
