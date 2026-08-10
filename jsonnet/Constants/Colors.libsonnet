@@ -40,14 +40,14 @@ local keyboardBackgroundColor = {
 // 标准按键背景色（如字母按键、空格键等）
 local standardButtonBackgroundColor = {
   light: '#FFFFFF',
-  dark: '#D1D1D140',
+  dark: '#3C3C3D',
   //dark: '#FEFFFF3F',
 };
 
 // 标准按键按下时的背景色
 local standardButtonHighlightedBackgroundColor = {
   light: '#E6E6E6',
-  dark: '#D1D1D624',
+  dark: '#252526',
 };
 
 // 标准按键前景色（如字母按键、空格键等），用于按键的字体，图片等
