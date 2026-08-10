@@ -65,16 +65,16 @@ local standardButtonShadowColor = {
   dark: '#000000',
 };
 
-// 系统按键（如回车、删除等）背景颜色
+// 系统按键背景颜色
 local systemButtonBackgroundColor = {
-  // light: '#E6E6E6',
-  light: '#DEDEDE',
-  dark: '#D1D1D624',
+  // 通用功能键与主体字母/数字键保持同色；绿色 accent 按键不受影响
+  light: '#FFFFFF',
+  dark: '#D1D1D140',
 };
 
 local systemButtonHighlightedBackgroundColor = {
-  light: '#FFFFFF',
-  dark: '#D1D1D659',
+  light: '#E6E6E6',
+  dark: '#D1D1D624',
 };
 
 // 系统按键（如回车、删除等）前景颜色
