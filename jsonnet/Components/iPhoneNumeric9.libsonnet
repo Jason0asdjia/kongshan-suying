@@ -162,6 +162,12 @@ local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
       utils.newBackgroundStyle(style=basicStyle.systemButtonBackgroundStyleName)
       + numeric9Buttons.numericCategorySymbolCollection.params + extraParams,
   }
+  + basicStyle.newAlphabeticButton(
+      numeric9Buttons.numericSpaceButton.name,
+      isDark,
+      numeric9Buttons.numericSpaceButton.params,
+      needHint=false
+    )
   + std.foldl(
     function(acc, button) acc +
       basicStyle.newSystemButton(
@@ -170,7 +176,6 @@ local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
         button.params
       ),
     [
-      numeric9Buttons.numericSpaceButton,
       numeric9Buttons.dotButton,
       commonButtons.backspaceButton,
       numeric9Buttons.numericEqualButton,
