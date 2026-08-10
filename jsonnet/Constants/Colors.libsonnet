@@ -65,15 +65,15 @@ local standardButtonShadowColor = {
   dark: '#000000',
 };
 
-// 系统按键下边缘与背景同色，避免与细边框重叠
+// 系统按键不使用底部边缘层；细边框单独负责轮廓
 local systemButtonNormalLowerEdgeColor = {
-  light: '#E6E6E6',
-  dark: '#D1D1D659',
+  light: '#00000000',
+  dark: '#00000000',
 };
 
 local systemButtonHighlightedLowerEdgeColor = {
-  light: '#F2F2F2',
-  dark: '#D1D1D680',
+  light: '#00000000',
+  dark: '#00000000',
 };
 
 // 系统按键边框颜色
