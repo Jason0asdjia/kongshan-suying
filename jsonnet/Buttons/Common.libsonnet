@@ -75,11 +75,14 @@ local settings = import '../Settings.libsonnet';
     name: 'backspaceButton',
     params: {
       action: 'backspace',
-      repeatAction: 'backspace',
+      repeatAction: self.action,
       systemImageName: 'delete.left',
       highlightSystemImageName: 'delete.left.fill',
-      swipeUp: { action: { shortcut: '#deleteText'} },
-      swipeDown: { action: { shortcut: '#undo' } },
+	  whenPreeditChanged: {
+		swipeUp: {
+          action: { sendKeys: 'Control+Backspace' } // 删除一个音节
+		},
+	  },
     },
   },
 
@@ -93,9 +96,6 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: 'enter',
       text: '$returnKeyType',
-      notification: [
-        'returnKeyTypeChangedNotification',
-      ],
 
       swipeUp: { action: { shortcut: '#行首' } },
       swipeDown: { action: { shortcut: '#行尾' } },
@@ -113,6 +113,14 @@ local settings = import '../Settings.libsonnet';
         backgroundStyle: 'systemButtonBackgroundStyle',
         normalColor: colors.systemButtonForegroundColor,
       },
+
+      whenReturnKeyChanged: [
+        {
+          // NOTE: 此通知仅用来更新 enterButton 的前景文字 $returnKeyType
+          //       匹配不上 returnKeyType:[] 中指定的值，就会使用默认的文字 $returnKeyType
+          returnKeyType: [],
+        },
+      ],
     },
   },
 
@@ -166,6 +174,17 @@ local settings = import '../Settings.libsonnet';
       text: if settings.preferIcon then '123' else '数字',
       swipeUp: { action: { keyboardType: 'symbolic' } },
       swipeDown: { action: { keyboardType: 'emojis' } },
+
+	  OnAlphabetic: {
+		// 对于英文键盘，如果数字键盘是 row 形式，那么切到 numericRowEn 键盘
+		// numericRowEn 键盘经过特殊处理，上面的符号都是用 symbol 直接上屏的
+		[if settings.numericLayout == 'row' then 'action']: { keyboardType: 'numericRowEn' },
+
+		// 同样地，对于英文键盘，如果字符键盘是 row 形式，那么切到 symbolicRowEn 键盘
+		swipeUp: {
+		  [if settings.symbolicLayout == 'row' then 'action']: { keyboardType: 'symbolicRowEn' },
+		}
+	  }
     }
     + ( // 对于 iPad 设备，长按数字键可以切换到 iOS 系统键盘列表中的下一个键盘
       if settings.iPad then {
@@ -187,6 +206,10 @@ local settings = import '../Settings.libsonnet';
     params: {
       action: { keyboardType: 'symbolic' },
       text: if settings.preferIcon then '#+=' else '符号',
+
+	  OnAlphabetic: {
+		[if settings.symbolicLayout == 'row' then 'action']: { keyboardType: 'symbolicRowEn' },
+	  },
     },
   },
 
@@ -239,7 +262,7 @@ local settings = import '../Settings.libsonnet';
         center: { y: 0.3 }
       },
 
-      whenAlphabetic: {
+      OnAlphabetic: {
         text: ',', center: { y: 0.48 },
         swipeUp: { text: '.', center: { y: 0.28 } },
       },
