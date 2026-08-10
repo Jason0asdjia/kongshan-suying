@@ -189,9 +189,13 @@ local newKeyLayout(isDark=false, isPortrait=false, extraParams={}) =
       commonButtons.backspaceButton,
       numeric9Buttons.numericEqualButton,
       numeric9Buttons.numericColonButton,
-      commonButtons.enterButton,
     ],
     basicStyle.newColorButton(
+      commonButtons.enterButton.name,
+      isDark,
+      commonButtons.enterButton.params
+    )
+    + basicStyle.newColorButton(
         commonButtons.gotoPrimaryKeyboardButton.name,
         isDark,
         commonButtons.gotoPrimaryKeyboardButton.params + {
