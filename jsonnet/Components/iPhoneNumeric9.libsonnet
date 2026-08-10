@@ -223,7 +223,8 @@ else
     + (
       if !isPortrait then halfVStackStyle.style else {}
     )
-    + narrowVStackStyle.style
+    + leftNarrowVStackStyle.style
+    + rightNarrowVStackStyle.style
     + basicStyle.newKeyboardBackgroundStyle(isDark)
     + basicStyle.newAlphabeticButtonBackgroundStyle(isDark, extraParams)
     + basicStyle.newSystemButtonBackgroundStyle(isDark, extraParams)
