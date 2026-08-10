@@ -4,7 +4,7 @@ local toolbarParams = import '../Buttons/Toolbar.libsonnet';
 local settings = import '../Settings.libsonnet';
 local utils = import 'Utils.libsonnet';
 
-local buttonCornerRadius = 8.5;
+local buttonCornerRadius = 5.5;
 
 local swipeTextCenterNameToCenter = {
   'top':         {          y: 0.23 },
