@@ -198,6 +198,22 @@ local settings = import '../Settings.libsonnet';
       longPress: [
         { action: { character: 'G' } },
       ],
+      // 新版元书支持的网格长按配置
+      hintSymbolsGrid: {
+        size: { width: 44, height: 44 },
+        spacing: { horizontal: 2, vertical: 2 },
+        selected: { row: 0, col: 0 },
+        symbolRows: [
+          [
+            { action: { character: 'G' }, text: 'G' },
+            { action: { openURL: 'chatgpt://' }, systemImageName: 'magnifyingglass.circle' },
+          ],
+          [
+            { action: { openURL: 'googlegemini://' }, systemImageName: 'sparkle.magnifyingglass' },
+            { action: { character: 'g' }, text: 'g' },
+          ],
+        ],
+      },
     },
   },
   hButton: {

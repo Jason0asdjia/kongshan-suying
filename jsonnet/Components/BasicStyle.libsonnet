@@ -606,10 +606,40 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
       root {
         [root.name]+: {
           hintSymbolsStyle: root.name + 'LongPressSymbolsStyle',
+          hintSymbolsGridStyle: root.name + 'LongPressSymbolsGridStyle',
+        },
+        reference+: {
+          [root.name + 'LongPressSymbolsGridStyle']:
+            local findIndex(arr, idx) =
+              if idx >= std.length(arr) then std.floor(std.length(arr) / 2)
+              else if std.objectHas(arr[idx], 'selected') && arr[idx].selected == true then idx
+              else findIndex(arr, idx + 1);
+            local selected = findIndex(longPressParams, 0);
+            local gridSymbolStyles = [
+              root.name + 'LongPressSymbol'+i+'Style' for i in std.range(0, std.length(longPressParams) - 1)
+            ];
+            {
+              size: { width: 44, height: 44 },
+              spacing: { horizontal: 2, vertical: 2 },
+              selected: { row: 0, col: selected },
+              symbolRows: [gridSymbolStyles],
+            }
+            + utils.newBackgroundStyle(style=longPressSymbolsBackgroundStyleName)
+            + utils.newBackgroundStyle('selectedBackgroundStyle', style=longPressSymbolsSelectedBackgroundStyleName),
         },
         reference+: {
           [root.name + 'LongPressSymbolsStyle']:
             local findSelectedIndex =
+              local findIndex(arr, idx) =
+              if idx >= std.length(arr) then
+                std.floor(std.length(arr) / 2)
+              else if std.objectHas(arr[idx], 'selected') && arr[idx].selected == true then
+                idx
+              else
+                findIndex(arr, idx + 1);
+            findIndex(longPressParams, 0);
+           {
+            size: { width: self.height, height: toolbarParams.toolbar.height },
               local findIndex(arr, idx) =
               if idx >= std.length(arr) then
                 std.floor(std.length(arr) / 2) // 默认选中间那一项
