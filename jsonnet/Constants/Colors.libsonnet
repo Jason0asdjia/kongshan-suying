@@ -149,15 +149,15 @@ local colorButtonForegroundColor = if settings.accentColor == 0 then systemButto
 local colorButtonHighlightedBackgroundColor = systemButtonHighlightedBackgroundColor;
 local colorButtonHighlightedForegroundColor = labelColor.primary;
 
-// 按键底部边缘颜色
+// 按键底部边缘颜色：与键盘背景保持一致，取消白色模式下的底部色带
 local lowerEdgeOfButtonNormalColor = {
-  light: '#DCDEE3',
+  light: '#ffffff03',
   dark: '#1E1E1E',
 };
 
-// 按下状态下，按键底部边缘颜色
+// 按下状态下，按键底部边缘颜色：与键盘背景保持一致
 local lowerEdgeOfButtonHighlightColor = {
-  light: '#CFD1D7',
+  light: '#ffffff03',
   dark: '#1D1D1D',
 };
 
