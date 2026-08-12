@@ -71,7 +71,7 @@
 | S | s / S | - | _ | S |
 | D | d / D | = | + | D |
 | F | f / F | [ | ] | F、`{}` |
-| G | g / G | — | — | G |
+| G | g / G | ChatGPT | Gemini | G；长按网格：date、lunar、反查、Vhelp、键盘性能 |
 | H | h / H | ( ) | 「」 | H |
 | J | j / J | / | \ | J |
 | K | k / K | ; | : | K |
@@ -84,11 +84,40 @@
 | N | n / N | 、 | … | N |
 | M | m / M | — | `.com` | M、`.com`、`@gmail.com` |
 
+### 🧩 G 键长按网格
+
+G 键长按采用环绕式网格布局，使用 SF Symbols 图标显示，网格内容如下：
+
+```text
+                 date      lunar      反查
+
+                 Vhelp      G        键盘性能
+```
+
+| 位置 | 功能 | 实际动作 |
+|---|---|---|
+| 上左 | 日期 | 向 Rime 发送 `date` |
+| 上中 | 农历 | 向 Rime 发送 `lunar` |
+| 上右 | 部件反查 | 向 Rime 发送 `uU` |
+| 左 | 符号帮助 | 向 Rime 发送 `Vhelp` |
+| 右 | 键盘性能 | 执行元书 `#keyboardPerformance` |
+
+原有 G 键操作保持不变：
+
+- ↑ 上滑：打开 ChatGPT
+- ↓ 下滑：打开 Gemini
+- 普通长按：保留旧版长按动作作为兼容回退
+- 网格功能需要支持 `hintSymbolsGridStyle` 的元书版本；旧版本会回退到普通长按样式
+
+网格配置位于：
+
+```text
+jsonnet/Buttons/Layout26.libsonnet
+jsonnet/Components/BasicStyle.libsonnet
+```
 ### 🔢 数字键盘
 
 | 按键 | 点击 | ↑ 上滑 | ↓ 下滑 | 说明 |
-|---|---|---|---|---|
-| 0–9 | 输入数字 | — | — | 通过 `character` 输入 Rime |
 | 空格 | 空格 | — | **粘贴** | ↓ 执行 `#paste`，显示“粘贴” |
 | `=` | 输入等号 | — | — | 交给 Rime，可作为计算器输入字符 |
 | `function` | 发送 `cC` | `:` | — | 进入 rice 计算器；实际使用 `cC1+2` |
@@ -118,7 +147,8 @@
 
 - `character`：交给元书 Rime 引擎处理。
 - `symbol`：绕过 Rime，直接上屏。
-- `sendKeys`：向 Rime 发送一组字符；当前数字键盘 `function` 使用 `sendKeys: 'cC'`。
+- `sendKeys`：向 Rime 发送一组字符；G 键网格中的 `date`、`lunar`、`uU`、`Vhelp` 均使用此动作。
+- `shortcut`：执行元书快捷指令；G 键网格右侧使用 `#keyboardPerformance`。
 - 具体实现文件：`jsonnet/Buttons/Layout26.libsonnet`、`LayoutNumeric.libsonnet`、`Common.libsonnet`。
 - 修改后运行 `main.jsonnet`，再重新加载皮肤。
 
