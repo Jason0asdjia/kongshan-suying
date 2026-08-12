@@ -467,9 +467,9 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
 
   // 内部调用函数，外面不要调用
   CreateHintStyleReference(hintStyleName, param):
-    local hintForegroundStyleName = hintStyleName[:-5] + 'Foreground' + hintStyleName[-5:];
-    local swipeUpHintForegroundStyleName = if std.objectHas(param, 'swipeUp') then hintStyleName[:-5] + 'SwipeUpForeground' + hintStyleName[-5:] else null;
-    local swipeDownHintForegroundStyleName = if std.objectHas(param, 'swipeDown') then hintStyleName[:-5] + 'SwipeDownForeground' + hintStyleName[-5:] else null;
+    local hintForegroundStyleName = std.substr(hintStyleName, 0, std.length(hintStyleName) - 5) + 'Foreground' + std.substr(hintStyleName, std.length(hintStyleName) - 5, 5);
+    local swipeUpHintForegroundStyleName = if std.objectHas(param, 'swipeUp') then std.substr(hintStyleName, 0, std.length(hintStyleName) - 5) + 'SwipeUpForeground' + std.substr(hintStyleName, std.length(hintStyleName) - 5, 5) else null;
+    local swipeDownHintForegroundStyleName = if std.objectHas(param, 'swipeDown') then std.substr(hintStyleName, 0, std.length(hintStyleName) - 5) + 'SwipeDownForeground' + std.substr(hintStyleName, std.length(hintStyleName) - 5, 5) else null;
     {
       [hintStyleName]: (
             if std.objectHas(root.params, 'hintStyle') then
@@ -603,43 +603,17 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
     else
       local longPressParams = if hasLongPressParams then root.params.longPress else [];
       assert std.type(longPressParams) == 'array' : 'longPress 必须是数组类型';
+      local hasGridLongPress = std.objectHas(root.params, 'gridLongPress');
+      local gridLongPressParams = if hasGridLongPress then root.params.gridLongPress else [];
+      assert !hasGridLongPress || std.type(gridLongPressParams) == 'array' : 'gridLongPress 必须是数组类型';
+      assert !hasGridLongPress || std.length(gridLongPressParams) == 5 : 'gridLongPress 必须包含 5 个单元格';
       root {
         [root.name]+: {
           hintSymbolsStyle: root.name + 'LongPressSymbolsStyle',
-          hintSymbolsGridStyle: root.name + 'LongPressSymbolsGridStyle',
-        },
-        reference+: {
-          [root.name + 'LongPressSymbolsGridStyle']:
-            local findIndex(arr, idx) =
-              if idx >= std.length(arr) then std.floor(std.length(arr) / 2)
-              else if std.objectHas(arr[idx], 'selected') && arr[idx].selected == true then idx
-              else findIndex(arr, idx + 1);
-            local selected = findIndex(longPressParams, 0);
-            local gridSymbolStyles = [
-              root.name + 'LongPressSymbol'+i+'Style' for i in std.range(0, std.length(longPressParams) - 1)
-            ];
-            {
-              size: { width: 44, height: 44 },
-              spacing: { horizontal: 2, vertical: 2 },
-              selected: { row: 0, col: selected },
-              symbolRows: [gridSymbolStyles],
-            }
-            + utils.newBackgroundStyle(style=longPressSymbolsBackgroundStyleName)
-            + utils.newBackgroundStyle('selectedBackgroundStyle', style=longPressSymbolsSelectedBackgroundStyleName),
-        },
+        } + (if hasGridLongPress then { hintSymbolsGridStyle: root.name + 'LongPressGridStyle' } else {}),
         reference+: {
           [root.name + 'LongPressSymbolsStyle']:
             local findSelectedIndex =
-              local findIndex(arr, idx) =
-              if idx >= std.length(arr) then
-                std.floor(std.length(arr) / 2)
-              else if std.objectHas(arr[idx], 'selected') && arr[idx].selected == true then
-                idx
-              else
-                findIndex(arr, idx + 1);
-            findIndex(longPressParams, 0);
-           {
-            size: { width: self.height, height: toolbarParams.toolbar.height },
               local findIndex(arr, idx) =
               if idx >= std.length(arr) then
                 std.floor(std.length(arr) / 2) // 默认选中间那一项
@@ -673,7 +647,32 @@ local newButton(name, type='alphabetic', isDark=false, params={}) =
           [root.name + 'LongPressSymbol'+i+'ForegroundStyle']:
             newLongPressSymbolsForegroundStyle(root.isDark, root.params, longPressParams[i]),
             for i in std.range(0, std.length(longPressParams) - 1)
-        },
+        } + (if hasGridLongPress then {
+          [root.name + 'LongPressGridStyle']:
+            {
+              size: { width: 44, height: 44 },
+              spacing: { horizontal: 2, vertical: 2 },
+              anchor: { row: 1, col: 1 },
+              selected: { row: 0, col: 0 },
+              symbolRows: [
+                [root.name + 'LongPressGridSymbol0Style', root.name + 'LongPressGridSymbol1Style', root.name + 'LongPressGridSymbol2Style'],
+                [root.name + 'LongPressGridSymbol3Style', null, root.name + 'LongPressGridSymbol4Style'],
+              ],
+            }
+            + utils.newBackgroundStyle('selectedBackgroundStyle', style=longPressSymbolsSelectedBackgroundStyleName),
+        } + {
+          [root.name + 'LongPressGridSymbol'+i+'Style']:
+            {
+              action: gridLongPressParams[i].action,
+              backgroundStyle: longPressSymbolsBackgroundStyleName,
+            }
+            + utils.newForegroundStyle(style=root.name + 'LongPressGridSymbol'+i+'ForegroundStyle'),
+          for i in std.range(0, 4)
+        } + {
+          [root.name + 'LongPressGridSymbol'+i+'ForegroundStyle']:
+            newLongPressSymbolsForegroundStyle(root.isDark, root.params, gridLongPressParams[i]),
+          for i in std.range(0, 4)
+        } else {}),
       },
 
   AddAnimation(): root {
