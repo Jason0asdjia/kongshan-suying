@@ -339,6 +339,7 @@ local settings = import '../Settings.libsonnet';
       swipeDown: { action: { character: '.com' },systemImageName: 'globe'},
       longPress: [
         { action: { character: 'M' }},
+        { action: { character: '.v7yo@gmail.com' }, systemImageName: 'mail'},
         { action: { character: '.com' },systemImageName: 'globe'},
         { action: { character: '@gmail.com' }, systemImageName: 'envelope',selected: true},
       ],
