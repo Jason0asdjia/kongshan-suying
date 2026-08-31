@@ -82,7 +82,15 @@
 | V | v / V | — | 粘贴 | V |
 | B | b / B | ‘’ | “” | B |
 | N | n / N | 、 | … | N |
-| M | m / M | — | `.com` | M、`.com`、`@gmail.com` |
+| M | m / M | — | `.com` | M、`.com`、`.v7yo@gmail.com`、`@gmail.com` |
+
+M 键长按快捷项从左到右为：
+
+```text
+M ｜ .v7yo@gmail.com ｜ .com ｜ @gmail.com
+```
+
+其中 `.v7yo@gmail.com` 使用 `mail` 图标，位于右数第三位；快捷项通过 `character` 动作交给 Rime 处理。
 
 ### 🧩 G 键长按网格
 
