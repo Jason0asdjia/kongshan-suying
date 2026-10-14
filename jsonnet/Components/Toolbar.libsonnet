@@ -132,7 +132,8 @@ local newVerticalCandidateCollectionStyle(isDark) = {
       ],
       isDark
     ),
-  verticalCandidateStyle: newCandidateStyle(keyboardParams.candidateStyle { insets: { left: 6, right: 6, top: 4, bottom: 4 } }, isDark),
+  // 下拉候选项：insets 会从候选项背景可绘制区域向内收缩；设为 0 让背景完整贴合候选词宽度。
+  verticalCandidateStyle: newCandidateStyle(keyboardParams.candidateStyle { insets: { left: 0, right: 0, top: 4, bottom: 4 } }, isDark),
 };
 
 local verticalLastRowStyle = {

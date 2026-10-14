@@ -151,6 +151,12 @@ jsonnet/Components/BasicStyle.libsonnet
 | `123` | 数字键盘 | 符号键盘 | Emoji 键盘 | — |
 | 工具栏 | — | — | — | 常用语、剪贴板、方案、脚本等 |
 
+### 📋 下拉候选框
+
+展开候选框使用纵排候选样式。候选项左右 `insets` 设为 `0`，避免高亮背景向内收缩，确保单字和多字候选词的选中背景都能完整贴合文字宽度。
+
+> 对应文件：`jsonnet/Components/Toolbar.libsonnet` → `verticalCandidateStyle`
+
 ### 📌 说明
 
 - `character`：交给元书 Rime 引擎处理。
